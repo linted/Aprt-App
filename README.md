@@ -1,2 +1,5 @@
 # Apartment-App
-#yolo
+#Mysql info
+   Root User: adminunPRNkA
+   Root Password: SPjfS4CLCNPQ
+   Database Name: javabackend
