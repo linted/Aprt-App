@@ -26,7 +26,7 @@
         </select>
     </section>
     <section id="rightColumn">
-        <section ng-app="aptfinder_list" ng-controller="populateList">
+        <section ng-app="" ng-controller="populateList">
             <section ng-repeat="x in properties">
                 <section class="listingStyleLeft">
                 <img class="thumb" src="{{x.thumb}}">
@@ -36,7 +36,7 @@
                     <div>{{x.HousingHeadline}}</div>
                     <div>{{x.Location}}</div>
                     <div>{{x.Price}}</div>
-                    <div>{{x.Lease}}</div>
+                    <div>{{x.Lease}} {{5+5}}</div>
                     <hr>
                 </section>
             </section>
