@@ -7,6 +7,7 @@
     <title>Welcome to OpenShift</title>
     <link rel="stylesheet" href="Appartment.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="main.js"></script>
 </head>
 
 
@@ -15,7 +16,9 @@
     <hr>
     <section id="leftColumn">
         <button>option 1</button>
+        <hr>
         <button> we do things</button>
+        <hr>
         <select>
             <option>tadfs</option>
             <option>lahs</option>
@@ -23,14 +26,19 @@
         </select>
     </section>
     <section id="rightColumn">
-        <section id="listingHolder">
-            <section class="listing">
-                <hr>
-                <section class="listing info">
-                    <img src="images/jbosscorp_logo.png">
-                    <p>words words words</p>
+        <section ng-app="aptfinder_list" ng-controller="populateList">
+            <section ng-repeat="x in properties">
+                <section class="listingStyleLeft">
+                <img class="thumb" src="{{x.thumb}}">
                 </section>
-                <hr>
+                <section class="listingStyleRight">
+                    <hr>
+                    <div>{{x.HousingHeadline}}</div>
+                    <div>{{x.Location}}</div>
+                    <div>{{x.Price}}</div>
+                    <div>{{x.Lease}}</div>
+                    <hr>
+                </section>
             </section>
         </section>
     </section>

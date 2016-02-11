@@ -1,15 +1,14 @@
 #leftColumn {
     float: left;
-    width: 25%;
+    width: 20%;
     height: 400px;
-    
+    margin-left: 100px;
 }
 
 #rightColumn {
     float: left;
-    height: 400px;
-    width: 75%;
-   
+    width: 64%;
+    margin-left: 30px;
 }
 
 .listing {
@@ -18,4 +17,22 @@
 .info {
     float: left;
     width: 100%;
+}
+
+
+
+.thumb {
+    height: 181px;
+    width: 181px;
+}
+
+.listingStyleRight {
+    float: left;
+    width: 77%;
+}
+
+.listingStyleLeft {
+    float: left;
+    height: 181px;
+    padding-bottom: 30px;
 }
