@@ -18,7 +18,7 @@
                       </thead>
                       <tbody>
                           <tr ng-repeat="u in ctrl.listings">
-                              <td><span ng-bind="u.id"></span></td>
+                              <td style="border: 1px black;"><span ng-bind="u.id"></span></td>
                               <td><span ng-bind="u.headline"></span></td>
                               <td><span ng-bind="u.lease"></span></td>
                               <td><span ng-bind="u.price"></span></td>
