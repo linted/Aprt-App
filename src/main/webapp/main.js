@@ -4,7 +4,11 @@ function main() {
     aptfinder_list.controller('populateList', function($scope) {
         //here we will query the DB and get the results for now here is some filler code
         $scope.properties = [
-            "a", "b", "c"
+            {HousingHeadline: "This is a house!", Location: "that one place", Price: "$9001", Lease: "yes?", thumb: "#"},
+            {HousingHeadline: "This is a house!", Location: "that one place", Price: "$9001", Lease: "yes?", thumb: "#"},
+            {HousingHeadline: "This is a house!", Location: "that one place", Price: "$9001", Lease: "yes?", thumb: "#"},
+            {HousingHeadline: "This is a house!", Location: "that one place", Price: "$9001", Lease: "yes?", thumb: "#"},
+            {HousingHeadline: "This is a house!", Location: "that one place", Price: "$9001", Lease: "yes?", thumb: "#"},
         ];
     })
 }
