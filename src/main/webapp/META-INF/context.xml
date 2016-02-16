@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path="/sample">
-  <Resource acquireIncrement="3" acquireRetryAttempts="0" acquireRetryDelay="1000" auth="Container" breakAfterAcquireFailure="false" description="archetypes" driverClass="oracle.jdbc.OracleDriver" factory="org.apache.naming.factory.BeanFactory" idleConnectionTestPeriod="120" initialPoolSize="3" jdbcUrl="jdbc:oracle:thin:@xdev01-scan.liberty.edu:1521/APPDEV.liberty.edu" maxConnectionAge="25000" maxIdleTime="1800" maxIdleTimeExcessConnections="300" maxPoolSize="24" maxStatements="0" maxStatementsPerConnection="0" minPoolSize="3" name="jdbc/archetypes" password="Ipickedit" preferredTestQuery="SELECT 1 FROM DUAL" testConnectionOnCheckin="true" testConnectionOnCheckout="false" type="com.mchange.v2.c3p0.ComboPooledDataSource" user="baninst1"/>
-</Context>
