@@ -1,6 +1,6 @@
 'use strict';
 
-App.controller('ListingController', [$scope, 'ListingService', function($scope, ListingService) {
+App.controller('ListingController', ['$scope', 'ListingService', function($scope, ListingService) {
 	var self = this;
 	self.listing = {id:'', headline:'', lease:'', price:''};
 	self.listings = [];

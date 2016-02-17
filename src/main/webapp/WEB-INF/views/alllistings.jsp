@@ -28,9 +28,9 @@
               </div>
 		</div>
 		
-	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
       <script src="<c:url value='/static/js/app.js' />"></script>
-      <script src="<c:url value='/static/js/service/listing_service.js' />"></script>
-      <script src="<c:url value='/static/js/controller/listing_controller.js' />"></script>
+      <script src="<c:url value='/static/js/service/listings_service.js' />"></script>
+      <script src="<c:url value='/static/js/controller/listings_controller.js' />"></script>
 	</body>
 </html>
