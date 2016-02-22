@@ -19,4 +19,11 @@ App.controller('ListingController', ['$scope', 'ListingService', function($scope
 	};
 	
 	self.fetchAllListings();
+	
+	$scope.totalDisplayed = 20;
+	
+	$scope.loadMore = function () {
+		console.log("loading more");
+		$scope.totalDisplayed += 20;
+	};
 }]);
