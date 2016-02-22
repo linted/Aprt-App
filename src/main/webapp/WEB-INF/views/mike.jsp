@@ -30,14 +30,14 @@
         <section ng-controller="ListingController as ctrl">
             <section ng-repeat="x in ctrl.listings">
                 <section class="listingStyleLeft">
-                <img class="thumb" src="{{x.thumb}}">
+                <!-- <img class="thumb" src="{{x.thumb}}"> -->
                 </section>
                 <section class="listingStyleRight">
                     <hr>
-                    <div ng-bind="x.HousingHeadline"></div>
-                    <div ng-bind="x.location"></div>
-                    <div ng-bind="x.price"></div>
-                    <div ng-bind="x.Lease"></div>
+                    <span ng-bind="x.housingHeadline"></span>
+                    <span ng-bind="x.location"></span>
+                    <span ng-bind="x.price"></span>
+                    <span ng-bind="x.lease"></span>
                     <hr>
                 </section>
             </section>

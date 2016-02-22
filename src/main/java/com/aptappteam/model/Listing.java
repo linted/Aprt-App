@@ -21,7 +21,7 @@ public class Listing {
 	
 	@Id
 	@Column(name = "KeyID", nullable = false)
-	private String keyId;
+	private Integer keyId;
 	
 	@Column(name = "HousingID")
 	private String housingId;
@@ -164,7 +164,7 @@ public class Listing {
 	@Column(name = "GatedCommunity")
 	private Boolean gatedCommunity;
 	
-	public String getKeyId() {
+	public Integer getKeyId() {
 		return keyId;
 	}
 	

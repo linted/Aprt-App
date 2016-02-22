@@ -3,6 +3,7 @@
 	<head>
 		<title>Hello</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</head>
@@ -10,9 +11,9 @@
 		<h1 align="center">All Listings</h1>
     <div class="container">
       <div ng-controller="ListingController as ctrl">
-        <div class="panel panel-default"  ng-repeat="u in ctrl.listings">
+        <div class="panel panel-default"  ng-repeat="u in ctrl.listings | limitTo:totalDisplayed">
         <div class="panel-heading">
-          <h3 class="panel-title"><span ng-bind="u.housingHeadline"></span></h3>
+          <a ng-href="/finderapp/properties/{{u.keyId}}" style="text-decoration: none; color:black;"><h3 class="panel-title"><span>{{$index + 1}} </span><span ng-bind="u.housingHeadline"></span></h3></a>
         </div>
         <div class="panel-body">
           <table>
@@ -139,13 +140,15 @@
           </table>
         </div>
       </div>
+      <button ng-click="loadMore()">Load More</button>
       </div>
     </div>
 		
 
 	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
       <script src="<c:url value='/static/js/app.js' />"></script>
-      <script src="<c:url value='/static/js/service/listings_service.js' />"></script>
-      <script src="<c:url value='/static/js/controller/listings_controller.js' />"></script>
+      <script src="<c:url value='/static/js/service/ListingService.js' />"></script>
+      <script src="<c:url value='/static/js/controller/ListingController.js' />"></script>
+      
 	</body>
 </html>

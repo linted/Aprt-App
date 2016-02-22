@@ -6,7 +6,7 @@ import com.aptappteam.model.Listing;
  
 public interface ListingService {
  
-//    Listing findById(int id);
+    Listing findListingById(int id);
      
 //    void saveListing(Listing employee);
      
