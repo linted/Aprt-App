@@ -3,5 +3,4 @@
 contributors:
 mike merrill
 joseph moyer
-kyle erikson1
-
+kyle erikson
