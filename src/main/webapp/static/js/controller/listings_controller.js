@@ -9,6 +9,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function($scope
 		ListingService.fetchAllListings()
 			.then(
 					function(d) {
+						console.log(d);
 						self.listings = d;
 					},
 					function(errResponse) {

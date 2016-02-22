@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Mike Test Page</title>
-    <link rel="stylesheet" href="Appartment.css">
+    <!-- <link rel="stylesheet" href="Appartment.css"> -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -30,14 +30,14 @@
         <section ng-controller="ListingController as ctrl">
             <section ng-repeat="x in ctrl.listings">
                 <section class="listingStyleLeft">
-                <img class="thumb" src="{{x.thumb}}">
+                <!-- <img class="thumb" src="{{x.thumb}}"> -->
                 </section>
                 <section class="listingStyleRight">
                     <hr>
-                    <div ng-bind="x.HousingHeadline"></div>
-                    <div ng-bind="x.location"></div>
-                    <div ng-bind="x.price"></div>
-                    <div ng-bind="x.Lease"></div>
+                    <span ng-bind="x.housingHeadline"></span>
+                    <span ng-bind="x.location"></span>
+                    <span ng-bind="x.price"></span>
+                    <span ng-bind="x.lease"></span>
                     <hr>
                 </section>
             </section>
