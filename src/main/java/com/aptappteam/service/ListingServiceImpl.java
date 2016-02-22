@@ -16,9 +16,9 @@ public class ListingServiceImpl implements ListingService {
     @Autowired
     private ListingDao dao;
      
-//    public Listing findById(int id) {
-//        return dao.findById(id);
-//    }
+    public Listing findListingById(int id) {
+        return dao.findListingById(id);
+    }
  
 //    public void saveListing(Listing Listing) {
 //        dao.saveListing(Listing);

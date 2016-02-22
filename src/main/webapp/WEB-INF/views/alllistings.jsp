@@ -13,7 +13,7 @@
       <div ng-controller="ListingController as ctrl">
         <div class="panel panel-default"  ng-repeat="u in ctrl.listings | limitTo:totalDisplayed">
         <div class="panel-heading">
-          <h3 class="panel-title"><span>{{$index + 1}} </span></span><span ng-bind="u.housingHeadline"></span></h3>
+          <a ng-href="/finderapp/properties/{{u.keyId}}" style="text-decoration: none; color:black;"><h3 class="panel-title"><span>{{$index + 1}} </span><span ng-bind="u.housingHeadline"></span></h3></a>
         </div>
         <div class="panel-body">
           <table>
@@ -147,7 +147,8 @@
 
 	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
       <script src="<c:url value='/static/js/app.js' />"></script>
-      <script src="<c:url value='/static/js/service/listings_service.js' />"></script>
-      <script src="<c:url value='/static/js/controller/listings_controller.js' />"></script>
+      <script src="<c:url value='/static/js/service/ListingService.js' />"></script>
+      <script src="<c:url value='/static/js/controller/ListingController.js' />"></script>
+      
 	</body>
 </html>

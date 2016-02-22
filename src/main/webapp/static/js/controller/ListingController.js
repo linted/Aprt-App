@@ -9,7 +9,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function($scope
 		ListingService.fetchAllListings()
 			.then(
 					function(d) {
-						console.log(d);
+//						console.log(d);
 						self.listings = d;
 					},
 					function(errResponse) {
@@ -26,4 +26,13 @@ App.controller('ListingController', ['$scope', 'ListingService', function($scope
 		console.log("loading more");
 		$scope.totalDisplayed += 20;
 	};
+	
+	
 }]);
+
+//'use strict';
+//
+//App.controller('ListingController', ['async', function(async) {
+//	var self = this;
+//	self.listings = async;
+//}]);

@@ -14,9 +14,12 @@ import com.aptappteam.model.Listing;
 @Repository("listingDao")
 public class ListingDaoImpl extends AbstractDao<Integer, Listing> implements ListingDao {
  
-//    public Listing findById(int id) {
-//        return getByKey(id);
-//    }
+    public Listing findListingById(int id) {
+    	Criteria cr = getSession().createCriteria(Listing.class);
+        cr.add(Restrictions.eq("keyId",id));
+        List<Listing> listings = cr.list();
+    	return listings.get(0);
+    }
  
 //    public void saveListing(Listing Listing) {
 //        persist(Listing);
@@ -29,13 +32,7 @@ public class ListingDaoImpl extends AbstractDao<Integer, Listing> implements Lis
 //    }
  
     @SuppressWarnings("unchecked")
-    public List<Listing> findAllListings() {
-//    	String hql ="SELECT * FROM HousingOffCampus WHERE Active = 1";
-//    	Query query = getSession().createSQLQuery(hql);
-//    	List<Listing> listings = query.list();
-    	
-//    	Criteria criteria = createEntityCriteria();
-//        return (List<Listing>) criteria.list();    	
+    public List<Listing> findAllListings() {   	
         Criteria cr = getSession().createCriteria(Listing.class);
         cr.add(Restrictions.eq("active",1));
         List<Listing> listings = cr.list();
