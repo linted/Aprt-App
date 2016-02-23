@@ -1,3 +1,6 @@
-The OpenShift `jbossews` cartridge documentation can be found at:
+#Apartment App main repo
 
-http://openshift.github.io/documentation/oo_cartridge_guide.html#tomcat
+contributors:
+mike merrill
+joseph moyer
+kyle erikson
