@@ -2,8 +2,9 @@
 
 App.controller('ListingController', ['$scope', 'ListingService', function($scope, ListingService) {
 	var self = this;
-	self.listing = {id:'', headline:'', lease:'', price:''};
+	self.listing = {};
 	self.listings = [];
+	var id;
 	
 	self.fetchAllListings = function() {
 		ListingService.fetchAllListings()
@@ -26,6 +27,34 @@ App.controller('ListingController', ['$scope', 'ListingService', function($scope
 		console.log("loading more");
 		$scope.totalDisplayed += 20;
 	};
+	
+	self.visitListing = function (id) {
+		ListingService.findListingById(id)
+			.then(
+					function(d) {
+						console.log("logging listing");
+						console.log(d);
+						self.listing = d;
+					},
+					function(errResponse) {
+						console.error('some error');
+					}
+			);
+	}
+	
+//	self.fetchSingleListing = function(id) {
+//		ListingService.findListingById(id)
+//			.then(
+//					function(d) {
+//						console.log("logging listing");
+//						console.log(d);
+//						self.listing = d;
+//					},
+//					function(errResponse) {
+//						console.error('some error');
+//					}
+//			);
+//	};
 	
 	
 }]);
