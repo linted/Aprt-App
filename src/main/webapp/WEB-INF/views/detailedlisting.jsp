@@ -10,7 +10,7 @@
 	<body ng-app="myApp" class="ng-cloak">
 		<h1 align="center">Single Listings</h1>
     <div class="container">
-      <div ng-controller="ListingDetailedController as ctrl">
+      <div ng-controller="ListingController as ctrl">
       	<span ng-bind="ctrl.housingHeadline"></span>
 	  </div>
 	</div>
@@ -19,7 +19,7 @@
 	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
       <script src="<c:url value='/static/js/app.js' />"></script>
       <script src="<c:url value='/static/js/service/ListingService.js' />"></script>
-      <script src="<c:url value='/static/js/controller/ListingDetailedController.js' />"></script>
+      <script src="<c:url value='/static/js/controller/ListingController.js' />"></script>
       
 	</body>
 </html>
