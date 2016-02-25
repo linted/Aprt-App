@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.aptappteam.model.Filters;
 import com.aptappteam.model.Listing;
+import com.aptappteam.model.SubListing;
 import com.aptappteam.service.ListingService;
 
 //@Controller
@@ -40,12 +41,12 @@ public class ListingsController {
 	
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ResponseEntity<List<Listing>> listAllListings() {
-		List<Listing> listings = service.findAllListings();
+	public ResponseEntity<List<SubListing>> listAllListings() {
+		List<SubListing> listings = service.findAllListings();
 		if (listings.isEmpty()) {
-			return new ResponseEntity<List<Listing>>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<List<SubListing>>(HttpStatus.NO_CONTENT);
 		}
-		return new ResponseEntity<List<Listing>>(listings, HttpStatus.OK);
+		return new ResponseEntity<List<SubListing>>(listings, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)

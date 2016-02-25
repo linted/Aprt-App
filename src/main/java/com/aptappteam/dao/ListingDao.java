@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.aptappteam.model.Filters;
 import com.aptappteam.model.Listing;
+import com.aptappteam.model.SubListing;
  
 public interface ListingDao {
  
@@ -13,7 +14,7 @@ public interface ListingDao {
      
 //    void deleteEmployeeBySsn(String ssn);
      
-    List<Listing> findAllListings();
+    List<SubListing> findAllListings();
  
 //    Listing findEmployeeBySsn(String ssn);
     
