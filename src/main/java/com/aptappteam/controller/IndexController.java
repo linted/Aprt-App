@@ -11,7 +11,7 @@ public class IndexController {
 
 	  @RequestMapping(value = "/", method = RequestMethod.GET)
 	    public String getIndexPage() {
-	        return "mike";
+	        return "listings";
 	    }
 	  
 	  @RequestMapping(value = "/{id}", method = RequestMethod.GET)

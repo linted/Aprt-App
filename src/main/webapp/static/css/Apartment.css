@@ -1,3 +1,7 @@
+body {
+	margin: 15px 15px 15px 15px!important;
+}
+
 #leftColumn {
     float: left;
     width: 25%;
@@ -18,4 +22,11 @@
 .info {
     float: left;
     width: 100%;
+}
+
+.priceBox {
+  width: 64px;
+  height: 44px;
+  background-color: #ffffff;
+  border: solid 1px #e1e1e1;
 }
