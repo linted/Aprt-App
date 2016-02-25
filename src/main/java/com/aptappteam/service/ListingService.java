@@ -2,6 +2,7 @@ package com.aptappteam.service;
 
 import java.util.List;
 
+import com.aptappteam.model.Filters;
 import com.aptappteam.model.Listing;
  
 public interface ListingService {
@@ -19,5 +20,7 @@ public interface ListingService {
 //    Listing findEmployeeBySsn(String ssn);
  
 //    boolean isEmployeeSsnUnique(Integer id, String ssn);
+    
+    List<Listing> findListingByFilters(Filters filters);
      
 }

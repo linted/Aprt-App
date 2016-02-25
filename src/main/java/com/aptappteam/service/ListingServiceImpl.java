@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
  
 import com.aptappteam.dao.ListingDao;
+import com.aptappteam.model.Filters;
 import com.aptappteam.model.Listing;
  
 @Service("listingService")
@@ -45,6 +46,10 @@ public class ListingServiceImpl implements ListingService {
      
     public List<Listing> findAllListings() {
         return dao.findAllListings();
+    }
+    
+    public List<Listing> findListingByFilters(Filters filters) {
+    	return dao.findListingByFilters(filters);
     }
  
 //    public Listing findListingBySsn(String ssn) {

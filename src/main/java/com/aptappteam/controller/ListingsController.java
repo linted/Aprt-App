@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.aptappteam.model.Filters;
 import com.aptappteam.model.Listing;
 import com.aptappteam.service.ListingService;
 
@@ -53,4 +56,13 @@ public class ListingsController {
 		//Still needs error handling
 		return new ResponseEntity<Listing>(item, HttpStatus.OK);
 	}
+	
+//	@RequestMapping(value = "/", method = RequestMethod.GET)
+//	public ResponseEntity<List<Listing>> listListingsByFilters(@RequestBody Filters filters) {
+//		List<Listing> listings = service.findListingByFilters(filters);
+//		if (listings.isEmpty()) {
+//			return new ResponseEntity<List<Listing>>(HttpStatus.NO_CONTENT);
+//		}
+//		return new ResponseEntity<List<Listing>>(listings, HttpStatus.OK);
+//	}
 }

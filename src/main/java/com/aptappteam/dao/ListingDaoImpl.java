@@ -8,7 +8,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.sql.ordering.antlr.Factory;
 import org.springframework.stereotype.Repository;
- 
+
+import com.aptappteam.model.Filters;
 import com.aptappteam.model.Listing;
  
 @Repository("listingDao")
@@ -37,6 +38,12 @@ public class ListingDaoImpl extends AbstractDao<Integer, Listing> implements Lis
         cr.add(Restrictions.eq("active",1));
         List<Listing> listings = cr.list();
     	return listings;
+    }
+    
+    public List<Listing> findListingByFilters(Filters filters) {
+		return null;
+    	
+    	
     }
  
 //    public Listing findListingBySsn(String ssn) {
