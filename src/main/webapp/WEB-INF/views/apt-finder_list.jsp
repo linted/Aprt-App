@@ -117,12 +117,12 @@
 
                     <section class="listingStyleRight">
                         <section class="leftSubListingStyle">
-                            <a href="#">{{x.housingHeadline}}</a>
+                            <a href="#"><span ng-bind="x.housingHeadline"></span></a>
                             <br>
                             <span ng-bind="x.location"></span>
                         </section>
                         <section class="rightSubListingStyle">
-                            <span class="price">${{x.price}}</span>
+                           	<span class="price">$ <span ng-bind="x.price"></span></span>
                             <span ng-bind="x.lease"></span>
                         </section>
                     </section>
