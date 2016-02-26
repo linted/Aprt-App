@@ -28,6 +28,14 @@ App.controller('ListingController', ['$scope', 'ListingService', function($scope
 		$scope.totalDisplayed += 20;
 	};
 	
+	$scope.filterPrice = function(element) {
+		var minPrice = document.getElementById('minPrice').value;
+		var maxPrice = document.getElementById('maxPrice').value;
+		
+		console.log("Min Price" + minPrice);
+		console.log("Max Price" + maxPrice);
+	}
+	
 	self.visitListing = function (id) {
 		ListingService.findListingById(id)
 			.then(
