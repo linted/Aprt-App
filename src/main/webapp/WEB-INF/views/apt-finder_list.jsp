@@ -134,8 +134,8 @@
 
     <!-- local js -->
     <script src="<c:url value='/static/js/app.js' />"></script>
-    <script src="<c:url value='/static/js/service/listings_service.js' />"></script>
-    <script src="<c:url value='/static/js/controller/listings_controller.js' />"></script>
+    <script src="<c:url value='/static/js/service/ListingService.js' />"></script>
+    <script src="<c:url value='/static/js/controller/ListingController.js' />"></script>
 
 
     <!-- End Document -->
