@@ -1,0 +1,168 @@
+#leftColumn {
+    float: left;
+    width: 20%;
+    height: 400px;
+    
+}
+
+#rightColumn {
+    float: left;
+    height: 400px;
+    width: 78%;
+    margin-left: 2%;
+}
+
+.listing {
+    
+}
+.info {
+    float: left;
+    width: 100%;
+}
+
+
+
+.DropMenu {
+    float: left;
+    font-size: 90%;
+    margin-right: 5%;
+}
+
+body {
+    margin-left: 5%;
+    width: 90%;
+}
+
+select {
+    width: 60%;
+}
+
+.checkBox {
+    margin-left: 5px;
+}
+
+div {
+    margin-bottom: 5px;
+}
+
+.inputBox {
+    width: 20%;
+}
+
+
+
+.priceLable {
+    padding-right: 10px;
+}
+
+#inputBoxes {
+    width: 100%;
+    float: none;
+}
+
+.listingStyleLeft {
+    float: left;
+}
+
+.thumb {
+    width: 181px;
+    height: 181px;
+}
+
+.listingStyleRight {
+    width: calc(100% - 181px);
+    height: 181px;
+    float: left;
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.allListings {
+    height: 181px;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.rightSubListingStyle {
+    float: right;
+    text-align: right;
+    width: 20%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+
+#dropDownMenus {
+    border-top: 1px solid #d9d9d9;
+    height: 50px;
+}
+
+#checkBoxes {
+    border-top: 1px solid #d9d9d9;
+}
+
+#goButton {
+    float: right;
+    border-radius: 2px;
+    background-color: #3b99fb;
+    color: white;
+}
+
+a {
+    color: #2773cb;
+}
+
+.leftSubListingStyle {
+    width: 40%;
+    float: left;
+    margin-left: 5%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.price {
+    font-size: 250%;
+    margin: 5%;
+}
+
+#rightTopSortBar {
+    width: 100%;
+    height: 15%;
+}
+
+#SortBySelect {
+    width:inherit;
+}
+
+.listMapButton {
+    height: 50%;
+    width: 50%;
+    border-radius: 2px;
+    background-color: #d8d8d8;
+    border: solid 1px #bbbbbb;
+}
+
+
+
+
+
+.listMapButton:target {
+    border-radius: 2px;
+    background-color: #ffffff;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+    border: solid 1px #bebebe;
+}
+
+#header {
+    border-bottom: 1px solid #d9d9d9;
+    height: 10%;
+    width: 100%;
+    float: left;
+}
+
+#landlordLogin {
+    float: right;
+}
