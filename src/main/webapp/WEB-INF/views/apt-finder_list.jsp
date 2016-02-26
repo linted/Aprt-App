@@ -122,7 +122,7 @@
                             <span ng-bind="x.location"></span>
                         </section>
                         <section class="rightSubListingStyle">
-                            <span class="price" ng-bind="x.price"></span>
+                            <span class="price">${{x.price}}</span>
                             <span ng-bind="x.lease"></span>
                         </section>
                     </section>
