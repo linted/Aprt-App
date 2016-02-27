@@ -10,13 +10,19 @@ import javax.persistence.Table;
 public class SubListing {
 	@Id
 	@Column(name = "KeyID", nullable = false)
-	private Integer keyId;
+	private String keyId;
+	
+	@Column(name = "OrgID")
+	private String orgId;
 	
 	@Column(name = "HousingHeadline")
 	private String housingHeadline;
 	
+	@Column(name = "ForSale")
+	private String forSale;
+	
 	@Column(name = "Bedrooms")
-	private Integer bedrooms;
+	private String bedrooms;
 	
 	@Column(name = "Bathrooms")
 	private String bathrooms;
@@ -28,13 +34,10 @@ public class SubListing {
 	private Boolean furnished;
 	
 	@Column(name = "AirConditioned")
-	private Integer airConditioned;
+	private Boolean airConditioned;
 	
 	@Column(name = "PetsAllowed")
 	private Boolean petsAllowed;
-	
-	@Column(name = "Lease")
-	private String lease;
 	
 	@Column(name = "Price")
 	private Integer price;
@@ -45,15 +48,23 @@ public class SubListing {
 	@Column(name = "Active")
 	private Integer active;
 	
-	public Integer getKeyId() {
+	public String getKeyId() {
 		return keyId;
+	}
+	
+	public String getOrgId() {
+		return orgId;
 	}
 	
 	public String getHousingHeadline() {
 		return housingHeadline;
 	}
 	
-	public Integer getBedrooms() {
+	public String getForSale() {
+		return forSale;
+	}
+	
+	public String getBedrooms() {
 		return bedrooms;
 	}
 	
@@ -69,16 +80,12 @@ public class SubListing {
 		return furnished;
 	}
 	
-	public Integer getAirConditioned() {
+	public Boolean getAirConditioned() {
 		return airConditioned;
 	}
 	
 	public Boolean getPetsAllowed() {
 		return petsAllowed;
-	}
-	
-	public String getLease() {
-		return lease;
 	}
 	
 	public Integer getPrice() {
