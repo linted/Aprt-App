@@ -10,7 +10,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function($scope
 		ListingService.fetchAllListings()
 			.then(
 					function(d) {
-//						console.log(d);
+						console.log(d);
 						self.listings = d;
 					},
 					function(errResponse) {
@@ -27,6 +27,14 @@ App.controller('ListingController', ['$scope', 'ListingService', function($scope
 		console.log("loading more");
 		$scope.totalDisplayed += 20;
 	};
+	
+	$scope.filterPrice = function(element) {
+		var minPrice = document.getElementById('minPrice').value;
+		var maxPrice = document.getElementById('maxPrice').value;
+		
+		console.log("Min Price" + minPrice);
+		console.log("Max Price" + maxPrice);
+	}
 	
 	self.visitListing = function (id) {
 		ListingService.findListingById(id)

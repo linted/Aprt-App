@@ -2,7 +2,9 @@ package com.aptappteam.service;
 
 import java.util.List;
 
+import com.aptappteam.model.Filters;
 import com.aptappteam.model.Listing;
+import com.aptappteam.model.SubListing;
  
 public interface ListingService {
  
@@ -14,10 +16,12 @@ public interface ListingService {
      
 //    void deleteEmployeeBySsn(String ssn);
  
-    List<Listing> findAllListings(); 
+    List<SubListing> findAllListings(); 
      
 //    Listing findEmployeeBySsn(String ssn);
  
 //    boolean isEmployeeSsnUnique(Integer id, String ssn);
+    
+    List<Listing> findListingByFilters(Filters filters);
      
 }

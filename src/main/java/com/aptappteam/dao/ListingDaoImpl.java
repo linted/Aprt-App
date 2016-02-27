@@ -5,11 +5,14 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.sql.ordering.antlr.Factory;
 import org.springframework.stereotype.Repository;
- 
+
+import com.aptappteam.model.Filters;
 import com.aptappteam.model.Listing;
+import com.aptappteam.model.SubListing;
  
 @Repository("listingDao")
 public class ListingDaoImpl extends AbstractDao<Integer, Listing> implements ListingDao {
@@ -32,11 +35,18 @@ public class ListingDaoImpl extends AbstractDao<Integer, Listing> implements Lis
 //    }
  
     @SuppressWarnings("unchecked")
-    public List<Listing> findAllListings() {   	
-        Criteria cr = getSession().createCriteria(Listing.class);
+    public List<SubListing> findAllListings() {   	
+        Criteria cr = getSession().createCriteria(SubListing.class);
         cr.add(Restrictions.eq("active",1));
-        List<Listing> listings = cr.list();
+        
+        List<SubListing> listings = cr.list();
     	return listings;
+    }
+    
+    public List<Listing> findListingByFilters(Filters filters) {
+		return null;
+    	
+    	
     }
  
 //    public Listing findListingBySsn(String ssn) {
