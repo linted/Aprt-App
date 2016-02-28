@@ -28,12 +28,26 @@ App.controller('ListingController', ['$scope', 'ListingService', function($scope
 		$scope.totalDisplayed += 20;
 	};
 	
-	$scope.filterPrice = function(element) {
-		var minPrice = document.getElementById('minPrice').value;
-		var maxPrice = document.getElementById('maxPrice').value;
+	$scope.applyToSearch = function() {
+		var minPrice = document.getElementById('lowerPriceBound').value;
+		var maxPrice = document.getElementById('upperPriceBound').value;
 		
 		console.log("Min Price" + minPrice);
 		console.log("Max Price" + maxPrice);
+	}
+	
+	$scope.filterPrice = function(item) {
+		console.log('filtering prices');
+		var minPrice = document.getElementById('lowerPriceBound').value;
+		var maxPrice = document.getElementById('upperPriceBound').value;
+		if (minPrice == '' && maxPrice == '') {
+			console.log('prices were null');
+			return item.price;
+		} else if (minPrice == '' && maxPrice > 0) {
+			return item.price < maxPrice;
+		} else if (minPrice > 0 && maxPrice == '') {
+			return item.price > minPrice;
+		} else return ((item.price > minPrice && item.price < maxPrice));
 	}
 	
 	self.visitListing = function (id) {
@@ -49,27 +63,3 @@ App.controller('ListingController', ['$scope', 'ListingService', function($scope
 					}
 			);
 	}
-	
-//	self.fetchSingleListing = function(id) {
-//		ListingService.findListingById(id)
-//			.then(
-//					function(d) {
-//						console.log("logging listing");
-//						console.log(d);
-//						self.listing = d;
-//					},
-//					function(errResponse) {
-//						console.error('some error');
-//					}
-//			);
-//	};
-	
-	
-}]);
-
-//'use strict';
-//
-//App.controller('ListingController', ['async', function(async) {
-//	var self = this;
-//	self.listings = async;
-//}]);

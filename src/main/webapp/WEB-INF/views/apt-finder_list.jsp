@@ -18,14 +18,14 @@
 
     <!-- HTML that is displayed -->
 
-    <body ng-app="myApp">
+    <body ng-app="myApp"  ng-controller="ListingController as ctrl">
         <!-- Header -->
         <section id="header">
             <span class="Apartment-Finder">Apartment Finder</span>
             <a id="landlordLogin" href="#">Landlord Sign-in ></a>
         </section>
         <!-- left column -->
-        <section id="leftColumn" ng-init="listing={keyId:'',orgId:'',housingHeadline:'',forSale:'',bedrooms:'',bathrooms:'',washerDryer:'',furnished:'',airConditioned:'',petsAllowed:'',lease:'',price:'',location:'',active:1}">
+        <section id="leftColumn" ng-init="cc={keyId:'',orgId:'',housingHeadline:'',forSale:'',bedrooms:'',bathrooms:'',washerDryer:'',furnished:'',airConditioned:'',petsAllowed:'',price:'',location:'',active:1}">
             <span class="Filter-Results">Filter Results</span>
             <!-- filter form -->
             <form>
@@ -36,7 +36,7 @@
                     <span class="Price-Text">$ </span><input class="priceBox" id="lowerPriceBound">
                     <span class="Price-Text" id="toDolla"> to $</span>
 					<input class="priceBox" id="upperPriceBound">
-					<button id="goButton" onclick="filterPrice();">GO</button>
+					<button type="submit" id="goButton" ng-click="applyToSearch()">GO</button>
                 </div>
 
                 <!-- drop down menus -->
@@ -45,38 +45,38 @@
                     <label class="DropMenu">
                         Bedrooms
                         <br>
-                        <select id="BedroomSelect" ng-model="listing.bedrooms">
-                            <option>0+</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
+                        <select id="BedroomSelect" ng-model="cc.bedrooms">
+                            <option value="">0+</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
                         </select>
                     </label>
                     <!-- bathrooms -->
                     <label class="DropMenu">
                         Bathrooms
                         <br>
-                        <select id="BathroomSelect" ng-model="listing.bathrooms">
-                            <option>0+</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
+                        <select id="BathroomSelect" ng-model="cc.bathrooms">
+                            <option value="">0+</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
                         </select>
                     </label>
                 </div>
                 <!-- check boxes -->
                 <div id="checkBoxes">
                     <label class="checkBox">
-                        <input type="checkbox" ng-model="listing.airConditioned" checked="true"> Air-Conditioned</label>
+                        <input type="checkbox" ng-model="cc.airConditioned" checked="true"> Air-Conditioned</label>
                     <br>
                     <label class="checkBox">
-                        <input type="checkbox" ng-model="listing.furnished" checked="true"> Furnished</label>
+                        <input type="checkbox" ng-model="cc.furnished" checked="true"> Furnished</label>
                     <br>
                     <label class="checkBox">
-                        <input type="checkbox" ng-model="listing.washerDryer" checked="true"> Washer/Dryer</label>
+                        <input type="checkbox" ng-model="cc.washerDryer" checked="true"> Washer/Dryer</label>
                     <br>
                     <label class="checkBox">
-                        <input type="checkbox" ng-model="listing.petsAllowed" checked="true"> Pets Allowed</label>
+                        <input type="checkbox" ng-model="cc.petsAllowed" checked="true"> Pets Allowed</label>
                     <br>
                 </div>
                 
@@ -103,9 +103,9 @@
                     <input type="checkbox">Map</label>
             </section>
             <!-- Listing controller -->
-            <section ng-controller="ListingController as ctrl">
+            <section>
                 <!-- repeat through the entries in the sql -->
-                <section class="allListings" ng-repeat="x in ctrl.listings | limitTo:totalDisplayed">
+                <section class="allListings" ng-repeat="x in ctrl.listings | filter:cc | filter:filterPrice | limitTo:totalDisplayed">
                     <section class="listingStyleLeft">
                         <!-- temp holder until we get images working VVV -->
                         <img class="thumb" src="<c:url value='/static/img/181.jpeg' />">
