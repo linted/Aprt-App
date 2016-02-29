@@ -90,10 +90,9 @@
                 <label class="DropMenu">
                     <br>
                     <select id="SortBySelect">
-                        <option>Lowest Price</option>
-                        <option>Highest Price</option>
-                        <option>IDK what</option>
-                        <option>Else</option>
+                    	<option value="">Any Order</option>
+                        <option value="price+">Lowest Price</option>
+                        <option value="price-">Highest Price</option>
                     </select>
                 </label>
                 <!-- toggle for list vs. map view -->

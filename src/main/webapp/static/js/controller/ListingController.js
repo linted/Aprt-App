@@ -37,11 +37,11 @@ App.controller('ListingController', ['$scope', 'ListingService', function($scope
 	}
 	
 	$scope.filterPrice = function(item) {
-		console.log('filtering prices');
+//		console.log('filtering prices');
 		var minPrice = document.getElementById('lowerPriceBound').value;
 		var maxPrice = document.getElementById('upperPriceBound').value;
 		if (minPrice == '' && maxPrice == '') {
-			console.log('prices were null');
+//			console.log('prices were null');
 			return item.price;
 		} else if (minPrice == '' && maxPrice > 0) {
 			return item.price < maxPrice;
@@ -50,16 +50,9 @@ App.controller('ListingController', ['$scope', 'ListingService', function($scope
 		} else return ((item.price > minPrice && item.price < maxPrice));
 	}
 	
-	self.visitListing = function (id) {
-		ListingService.findListingById(id)
-			.then(
-					function(d) {
-						console.log("logging listing");
-						console.log(d);
-						self.listing = d;
-					},
-					function(errResponse) {
-						console.error('some error');
-					}
-			);
+	$scope.customOrder = function() {
+		var order = document.getElementById('SortBySelect').value;
+		console.log(order);
 	}
+
+}]);

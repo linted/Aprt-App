@@ -58,12 +58,10 @@ public class ListingsController {
 		return new ResponseEntity<Listing>(item, HttpStatus.OK);
 	}
 	
-//	@RequestMapping(value = "/", method = RequestMethod.GET)
-//	public ResponseEntity<List<Listing>> listListingsByFilters(@RequestBody Filters filters) {
-//		List<Listing> listings = service.findListingByFilters(filters);
-//		if (listings.isEmpty()) {
-//			return new ResponseEntity<List<Listing>>(HttpStatus.NO_CONTENT);
-//		}
-//		return new ResponseEntity<List<Listing>>(listings, HttpStatus.OK);
-//	}
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	public ResponseEntity<Void> listListingsByFilters(@RequestBody Listing listing) {
+		List<Listing> listings = service.saveListing(listing);
+		
+		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
 }

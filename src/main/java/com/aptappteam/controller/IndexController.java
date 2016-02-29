@@ -18,5 +18,10 @@ public class IndexController {
 	  public String getDetailedListingPage(@PathVariable Integer id) {
 		  return "detailedlisting";
 	  }
+	  
+	  @RequestMapping(value = "/create", method = RequestMethod.GET)
+	  public String getCreateListingPage() {
+		  return "createlisting";
+	  }
 
 }
