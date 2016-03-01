@@ -56,3 +56,64 @@ App.controller('ListingController', ['$scope', 'ListingService', function($scope
 	}
 
 }]);
+
+App.controller('ListingCreationController', ['$scope', 'ListingService', function($scope, ListingService){
+	var self = this;
+	
+	$scope.createNewListing = function () {
+		console.log('creating new listing');
+		var data = $.param({
+			json: JSON.stringify({
+				keyId: $scope.keyId,
+				housingId: $scope.housingId,
+				orgId: $scope.orgId,
+				housingHeadline: $scope.housingHeadline,
+				housingType: $scope.housingType,
+				forSale: $scope.forSale,
+				water: $scope.water,
+				heat: $scope.heat,
+				electricity: $scope.electricity,
+				gas: $scope.gas,
+				cable: $scope.cable,
+				phone: $scope.phone,
+				trash: $scope.trash,
+				bedrooms: $scope.bedrooms,
+				bathrooms: $scope.bathrooms,
+				sharedBathroom: $scope.sharedBathroom,
+				washerDryer: $scope.washerDryer,
+				furnished: $scope.furnished,
+				airConditioned: $scope.airConditioned,
+				petsAllowed: $scope.petsAllowed,
+				lease: $scope.lease,
+				preferences: $scope.preferences,
+				price: $scope.price,
+				deposit: $scope.deposit,
+				location: $scope.location,
+				comments: $scope.comments,
+				floorPlan: $scope.floorPlan,
+				housingPhoto: $scope.housingPhoto,
+				createDate: $scope.createDate,
+				postingDate: $scope.postingDate,
+				editDate: $scope.editDate,
+				active: $scope.active,
+				siteUrl: $scope.siteUrl,
+				lockChanges: $scope.lockChanges,
+				deadbolts: $scope.deadbolts,
+				peepholes: $scope.peepholes,
+				balconyLock: $scope.balconyLock,
+				exteriorLocks: $scope.exteriorLocks,
+				batterySmokeDetectors: $scope.batterySmokeDetectors,
+				hardWiredSmokeDetectors: $scope.hardWiredSmokeDetectors,
+				coDetector: $scope.coDetector,
+				fireExtinguisher: $scope.fireExtinguisher,
+				exteriorLighting: $scope.exteriorLighting,
+				safetyInspections: $scope.safetyInspections,
+				securityAlarm: $scope.securityAlarm,
+				securityCameras: $scope.securityCameras,
+				securityGuard: $scope.securityGuard,
+				gatedCommunity: $scope.gatedCommunity
+			})
+		});
+		ListingService.createNewListing(data);
+	}
+}])

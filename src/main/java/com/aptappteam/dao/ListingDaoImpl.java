@@ -24,9 +24,9 @@ public class ListingDaoImpl extends AbstractDao<Integer, Listing> implements Lis
     	return listings.get(0);
     }
  
-//    public void saveListing(Listing Listing) {
-//        persist(Listing);
-//    }
+    public void saveListing(Listing Listing) {
+        persist(Listing);
+    }
  
 //    public void deleteListingBySsn(String ssn) {
 //        Query query = getSession().createSQLQuery("delete from Listing where ssn = :ssn");
