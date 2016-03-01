@@ -1,0 +1,27 @@
+
+
+
+#topImageSection {
+    height: 300px;
+    width: 100%;
+}
+
+.centerPage {
+    width: 90%;
+    margin-left: 5%;
+    float: left;
+}
+
+#leftColumn {
+    width: 70%;
+}
+
+#rightColumn {
+    width: 5%;
+    float: left;
+}
+
+.sliderImg {
+    background-size: contain;
+    float:left;
+}

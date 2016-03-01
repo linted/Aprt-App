@@ -18,49 +18,78 @@
 </head>
 
 <!-- REMOVE. for testing only -->
-<link rel="stylesheet" href="apt-finder_results.css">
+<link rel="stylesheet" href="../../static/css/apt-finder_results.css">
 <script src="TEST.js"></script>
 <!-- END testing area -->
 
 <!-- Start visable html -->
 
-<body ng-app="myApp" class="ng-cloak" ng-controller="ListingDetailedController as ctrl">
-    <!-- Main image section -->
-    <section id="topImageSection">
+<body ng-app="myApp" class="ng-cloak">
+    <section ng-controller="ListingDetailedController as ctrl">
+        <!-- Main image section -->
+        <section id="topImageSection">
+            <img class="sliderImg" src="http://placekitten.com/g/500/310">
+            <img class="sliderImg" src="http://placekitten.com/g/400/310">
+            <img class="sliderImg" src="http://placekitten.com/g/300/310">
+        </section>
 
-    </section>
+        <section class="centerPage">
+            <!-- <span ng-if="ctrl.detailedListing."></span>  -->
+            <section id="leftColumn">
+                <section id="description">
+                    <h3 ng-bind="ctrl.detailedListing.housingHeadline"></h3>
+                    <p ng-bind="ctrl.detailedListing.comments"></p>
+                </section>
+                <section id="Amenities">
+                    <h3>Amenities</h3>
+                    <ul>
+                        <li id="bedrooms">{{ctrl.detailedListing.bedrooms}} bedrooms</li>
+                        <li id="bathrooms">{{ctrl.detailedListing.bathrooms}} bathrooms</li>
+                        <li id="washerDryer">Washer Dryer {{ctrl.detailedListing.washerDryer}}</li>
+                        <li id="airConditioned" ng-if="airConditioned">Air Conditioned </li>
+                        <li id="furnished" ng-if="furnished">furnished</li>
+                        <li id="security">security features:
+                            <span ng-if="ctrl.detailedListing.lockChanges">lock changes, </span>
+                            <span ng-if="ctrl.detailedListing.deadbolts">dead bolts, </span>
+                            <span ng-if="ctrl.detailedListing.peepholes">peepholes, </span>
+                            <span ng-if="ctrl.detailedListing.balconyLock">balcony lock, </span>
+                            <span ng-if="ctrl.detailedListing.exteriorLocks">exterior locks, </span>
+                            <span ng-if="ctrl.detailedListing.securityAlarm">security alarm, </span>
+                            <span ng-if="ctrl.detailedListing.bsd">bsd, </span>
+                            <span ng-if="ctrl.detailedListing.hwsd">hwsd, </span>
+                            <span ng-if="ctrl.detailedListing.cod">cod, </span>
+                            <span ng-if="ctrl.detailedListing.fireExt">fire exit, </span>
+                            <span ng-if="ctrl.detailedListing.extLight">exit light, </span>
+                            <span ng-if="ctrl.detailedListing.safetyInspec">safety inspection, </span>
+                            <span ng-if="ctrl.detailedListing.secCameras">security cameras, </span>
+                            <span ng-if="ctrl.detailedListing.secGuard">security guard, </span>
+                            <span ng-if="ctrl.detailedListing.gated">gated, </span>Please contact for more information.</li>
+                        <li id="utilities">Utilities Included:
+                            <span ng-if="ctrl.detailedListing.water">Water</span>
+                            <span ng-if="ctrl.detailedListing.heat">Heat</span>
+                            <span ng-if="ctrl.detailedListing.electricity">Electricity</span>
+                            <span ng-if="ctrl.detailedListing.gas">Gas</span>
+                            <span ng-if="ctrl.detailedListing.cable">Cable</span>
+                            <span ng-if="ctrl.detailedListing.phone">Phone</span>
+                            <span ng-if="ctrl.detailedListing.trash">Trash</span></li>
+                    </ul>
+                </section>
+                <section id="Facts">
+                    <h3>Facts</h3>
+                </section>
+            </section>
 
-    <!--  -->
-    <section id="leftColumn">
-        <section id="description">
-            <h3 ng-bind="ctrl.detailedListing.housingHeadline"></h3>
-            <p ng-bind="detailedListing.comments"></p>
-        </section>
-        <section id="Amenities">
-            <h3>Amenities</h3>
-            <ul>
-                <li id="bedrooms"><input value="{{detailedListing.bedrooms}}" ng-disabled="landlord"> bedrooms</li>
-                <li id="bathrooms"><input value="{{detailedListing.bathrooms}}" ng-disabled="landlord"> bathrooms</li>
-                <li id="washerDryer">Washer Dryer <input value="{{detailedListing.washerDryer}}" ng-disabled="landlord"></li>
-                <li id="airConditioned">Air Conditioned </li>
-                <li id="furnished">furnished</li>
-                <li id="security">security features: </li>
-            </ul>
-        </section>
-        <section id="Facts">
-            <h3>Facts</h3>
-        </section>
-    </section>
+            <section id="rightColumn">
+                <section id="priceAndContact">
+                    {{ctrl.detailedListing.price}}
+                </section>
+                <section id="map">
 
-    <section id="rightColumn">
-        <section id="priceAndContact">
+                </section>
+                <section id="address">
 
-        </section>
-        <section id="map">
-            
-        </section>
-        <section id="address">
-        
+                </section>
+            </section>
         </section>
     </section>
 </body>
