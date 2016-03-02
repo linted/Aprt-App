@@ -15,11 +15,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+
 </head>
 
 <!-- REMOVE. for testing only -->
 <link rel="stylesheet" href="../../static/css/apt-finder_results.css">
 <script src="TEST.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
 <!-- END testing area -->
 
 <!-- Start visable html -->
@@ -40,9 +42,9 @@
                     <h3 ng-bind="ctrl.detailedListing.housingHeadline"></h3>
                     <p ng-bind="ctrl.detailedListing.comments"></p>
                 </section>
-                <section id="Amenities">
+                <section id="amenities">
                     <h3>Amenities</h3>
-                    <ul>
+                    <ul id="amenitiesList">
                         <li id="bedrooms">{{ctrl.detailedListing.bedrooms}} bedrooms</li>
                         <li id="bathrooms">{{ctrl.detailedListing.bathrooms}} bathrooms</li>
                         <li id="washerDryer">Washer Dryer {{ctrl.detailedListing.washerDryer}}</li>
@@ -74,20 +76,24 @@
                             <span ng-if="ctrl.detailedListing.trash">Trash</span></li>
                     </ul>
                 </section>
-                <section id="Facts">
+                <section id="facts">
                     <h3>Facts</h3>
                 </section>
             </section>
-
             <section id="rightColumn">
                 <section id="priceAndContact">
-                    {{ctrl.detailedListing.price}}
+                    <span class="price">$ {{ctrl.detailedListing.price}}</span>
+                    <span>Per Month</span>
+                    <a href="mailto:{{ctrl.detailedListing.email}}" ng-if="ctrl.detailedListing.email" ng-bind="ctrl.detailedListing.email"></a>
+                    <section ng-repeat="x in ctrl.detailedListing.phone">
+                        <span ng-bind="x"></span>
+                    </section>
                 </section>
                 <section id="map">
-
+                    <section id="googleMaps"></section>
                 </section>
                 <section id="address">
-
+                    <span ng-bind="ctrl.detailedListing.location"></span>
                 </section>
             </section>
         </section>
