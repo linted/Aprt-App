@@ -4,7 +4,6 @@ App.controller('ListingController', ['$scope', 'ListingService', function($scope
 	var self = this;
 	self.listing = {};
 	self.listings = [];
-	var id;
 	
 	self.fetchAllListings = function() {
 		ListingService.fetchAllListings()
@@ -59,6 +58,10 @@ App.controller('ListingController', ['$scope', 'ListingService', function($scope
 
 App.controller('ListingCreationController', ['$scope', 'ListingService', function($scope, ListingService){
 	var self = this;
+	var keyId, housingId, orgId, housingHeadline, housingType, forSale, water, heat, electricity, gas, cable, phone, trash, bedrooms, bathrooms, sharedBathroom,
+	washerDryer, furnished, airConditioned, petsAllowed, lease, preferences, price, deposit, location, comments, floorPlan, housingPhoto, createDate, postingDate,
+	editDate, active, siteUrl, lockChanges, deadbolts, peepholes, balconyLock, exteriorLocks, batterySmokeDetectors, hardWiredSmokeDetectors, coDetector, fireExtinguisher,
+	exteriorLighting, safetyInspections, securityAlarm, securityCameras, securityGuard, gatedCommunity;
 	
 	$scope.createNewListing = function () {
 		console.log('creating new listing');
@@ -95,7 +98,7 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', functio
 				createDate: $scope.createDate,
 				postingDate: $scope.postingDate,
 				editDate: $scope.editDate,
-				active: $scope.active,
+				active: '1',
 				siteUrl: $scope.siteUrl,
 				lockChanges: $scope.lockChanges,
 				deadbolts: $scope.deadbolts,
@@ -114,6 +117,58 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', functio
 				gatedCommunity: $scope.gatedCommunity
 			})
 		});
-		ListingService.createNewListing(data);
+		var somedata = JSON.stringify({
+			keyId: $scope.keyId,
+			housingId: $scope.housingId,
+			orgId: $scope.orgId,
+			housingHeadline: $scope.housingHeadline,
+			housingType: $scope.housingType,
+			forSale: $scope.forSale,
+			water: $scope.water,
+			heat: $scope.heat,
+			electricity: $scope.electricity,
+			gas: $scope.gas,
+			cable: $scope.cable,
+			phone: $scope.phone,
+			trash: $scope.trash,
+			bedrooms: $scope.bedrooms,
+			bathrooms: $scope.bathrooms,
+			sharedBathroom: $scope.sharedBathroom,
+			washerDryer: $scope.washerDryer,
+			furnished: $scope.furnished,
+			airConditioned: $scope.airConditioned,
+			petsAllowed: $scope.petsAllowed,
+			lease: $scope.lease,
+			preferences: $scope.preferences,
+			price: $scope.price,
+			deposit: $scope.deposit,
+			location: $scope.location,
+			comments: $scope.comments,
+			floorPlan: $scope.floorPlan,
+			housingPhoto: $scope.housingPhoto,
+			createDate: $scope.createDate,
+			postingDate: $scope.postingDate,
+			editDate: $scope.editDate,
+			active: '1',
+			siteUrl: $scope.siteUrl,
+			lockChanges: $scope.lockChanges,
+			deadbolts: $scope.deadbolts,
+			peepholes: $scope.peepholes,
+			balconyLock: $scope.balconyLock,
+			exteriorLocks: $scope.exteriorLocks,
+			batterySmokeDetectors: $scope.batterySmokeDetectors,
+			hardWiredSmokeDetectors: $scope.hardWiredSmokeDetectors,
+			coDetector: $scope.coDetector,
+			fireExtinguisher: $scope.fireExtinguisher,
+			exteriorLighting: $scope.exteriorLighting,
+			safetyInspections: $scope.safetyInspections,
+			securityAlarm: $scope.securityAlarm,
+			securityCameras: $scope.securityCameras,
+			securityGuard: $scope.securityGuard,
+			gatedCommunity: $scope.gatedCommunity
+		})
+		var str = JSON.parse(somedata);
+		console.log(str);
+		ListingService.createNewListing(somedata);
 	}
 }])

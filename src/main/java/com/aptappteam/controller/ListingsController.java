@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -62,26 +63,38 @@ public class ListingsController {
 		return new ResponseEntity<Listing>(item, HttpStatus.OK);
 	}
 	
+//	@RequestMapping(value = { "/new" }, method = RequestMethod.POST)
+//	public String saveEmployee(@Valid Listing listing, BindingResult result,
+//			ModelMap model) {
+//
+//		if (result.hasErrors()) {
+//			return "registration";
+//		}
+//
+//		/*
+//		 * Preferred way to achieve uniqueness of field [ssn] should be implementing custom @Unique annotation 
+//		 * and applying it on field [ssn] of Model class [Employee].
+//		 * 
+//		 * Below mentioned peace of code [if block] is to demonstrate that you can fill custom errors outside the validation
+//		 * framework as well while still using internationalized messages.
+//		 * 
+//		 */
+//		
+//		System.out.println("listing object");
+//		System.out.println(listing.getHousingHeadline().toString());
+//		
+//		service.saveListing(listing);
+//
+//		model.addAttribute("success", "Listing " + listing.getHousingHeadline() + " registered successfully");
+//		return "success";
+//	}
+	
 	@RequestMapping(value = { "/new" }, method = RequestMethod.POST)
-	public String saveEmployee(@Valid Listing listing, BindingResult result,
-			ModelMap model) {
+	public Listing saveListing(@RequestBody Listing listing) {
 
-		if (result.hasErrors()) {
-			return "registration";
-		}
-
-		/*
-		 * Preferred way to achieve uniqueness of field [ssn] should be implementing custom @Unique annotation 
-		 * and applying it on field [ssn] of Model class [Employee].
-		 * 
-		 * Below mentioned peace of code [if block] is to demonstrate that you can fill custom errors outside the validation
-		 * framework as well while still using internationalized messages.
-		 * 
-		 */
+		System.out.println("listing object");
+		System.out.println(listing.getHousingHeadline().toString());
 		
-		service.saveListing(listing);
-
-		model.addAttribute("success", "Listing " + listing.getHousingHeadline() + " registered successfully");
-		return "success";
+		return service.saveListing(listing);
 	}
 }

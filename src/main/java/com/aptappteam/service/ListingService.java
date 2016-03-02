@@ -10,7 +10,7 @@ public interface ListingService {
  
     Listing findListingById(int id);
      
-    void saveListing(Listing listing);
+    Listing saveListing(Listing listing);
      
 //    void updateEmployee(Employee employee);
      

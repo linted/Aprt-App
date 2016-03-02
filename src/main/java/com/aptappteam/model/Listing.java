@@ -21,6 +21,7 @@ public class Listing {
 	
 	@Id
 	@Column(name = "KeyID", nullable = false)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer keyId;
 	
 	@Column(name = "HousingID")
@@ -113,7 +114,7 @@ public class Listing {
 	@Column(name = "EditDate")
 	private String editDate;
 	
-	@Column(name = "Active")
+	@Column(name = "Active", nullable=false)
 	private Integer active;
 	
 	@Column(name = "SiteURL")
@@ -354,5 +355,197 @@ public class Listing {
 	
 	public Boolean getGated() {
 		return gatedCommunity;
+	}
+	
+	public void setKeyId(Integer keyId) {
+		this.keyId = keyId;
+	}
+	
+	public void setOrgId(String orgId) {
+		this.orgId = orgId;
+	}
+	
+	public void setHousingId(String housingId) {
+		this.housingId = housingId;
+	}
+	
+	public void setHousingHeadline(String housingHeadline) {
+		this.housingHeadline = housingHeadline;
+	}
+	
+	public void setHousingType(String housingType) {
+		this.housingType = housingType;
+	}
+	
+	public void setForSale(Boolean forSale) {
+		this.forSale = forSale;
+	}
+	
+	public void setWater(Boolean water) {
+		this.water = water;
+	}
+	
+	public void setHeat(Boolean heat) {
+		this.heat = heat;
+	}
+	
+	public void setElectricity(Boolean electricity) {
+		this.electricity = electricity;
+	}
+	
+	public void setGas(Boolean gas) {
+		this.gas = gas;
+	}
+	
+	public void setCable(Boolean cable) {
+		this.cable = cable;
+	}
+	
+	public void setPhone(Boolean phone) {
+		this.phone = phone;
+	}
+	
+	public void setTrash(Boolean trash) {
+		this.trash = trash;
+	}
+	
+	public void setBedrooms(Integer bedrooms) {
+		this.bedrooms = bedrooms;
+	}
+	
+	public void setBathrooms(String bathrooms) {
+		this.bathrooms = bathrooms;
+	}
+	
+	public void setSharedBathroom(Boolean sharedBathroom) {
+		this.sharedBathroom = sharedBathroom;
+	}
+	
+	public void setWasherDryer(Integer washerDryer) {
+		this.washerDryer = washerDryer;
+	}
+	
+	public void setFurnished(Boolean furnished) {
+		this.furnished = furnished;
+	}
+	
+	public void setAirConditioned(Integer airConditioned) {
+		this.airConditioned = airConditioned;
+	}
+	
+	public void setPetsAllowed(Boolean petsAllowed) {
+		this.petsAllowed = petsAllowed;
+	}
+	
+	public void setLease(String lease) {
+		this.lease = lease;
+	}
+	
+	public void setPreferences(String preferences) {
+		this.preferences = preferences;
+	}
+	
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
+	
+	public void setDeposit(Integer deposit) {
+		this.deposit = deposit;
+	}
+	
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+	
+	public void setFloorPlan(String floorPlan) {
+		this.floorPlan = floorPlan;
+	}
+	
+	public void setHousingPhoto(String housingPhoto) {
+		this.housingPhoto = housingPhoto;
+	}
+	
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
+	
+	public void setPostingDate(String postingDate) {
+		this.postingDate = postingDate;
+	}
+	
+	public void setEditDate(String editDate) {
+		this.editDate = editDate;
+	}
+	
+	public void setActive(Integer active) {
+		this.active = active;
+	}
+	
+	public void setSiteUrl(String siteUrl) {
+		this.siteUrl = siteUrl;
+	}
+	
+	public void setLockChanges(Boolean lockChanges) {
+		this.lockChanges = lockChanges;
+	}
+	
+	public void setDeadbolts(Boolean deadbolts) {
+		this.deadbolts = deadbolts;
+	}
+	
+	public void setPeepholes(Boolean peepholes) {
+		this.peepholes = peepholes;
+	}
+	
+	public void setBalconyLock(Boolean balconyLock) {
+		this.balconyLock = balconyLock;
+	}
+	
+	public void setExteriorLocks(Boolean exteriorLocks) {
+		this.exteriorLocks = exteriorLocks;
+	}
+	
+	public void setBSD(Boolean batterySmokeDetectors) {
+		this.batterySmokeDetectors = batterySmokeDetectors;
+	}
+	
+	public void setHWSD(Boolean hardWiredSmokeDetectors) {
+		this.hardWiredSmokeDetectors = hardWiredSmokeDetectors;
+	}
+	
+	public void setCOD(Boolean coDetector) {
+		this.coDetector = coDetector;
+	}
+	
+	public void setFireExt(Boolean fireExtinguisher) {
+		this.fireExtinguisher = fireExtinguisher;
+	}
+	
+	public void setExtLight(Boolean exteriorLighting) {
+		this.exteriorLighting = exteriorLighting;
+	}
+	
+	public void setSafetyInspec(Boolean safetyInspections) {
+		this.safetyInspections = safetyInspections;
+	}
+	
+	public void setSecurityAlarm(Boolean securityAlarm) {
+		this.securityAlarm = securityAlarm;
+	}
+	
+	public void setSecCameras(Boolean securityCameras) {
+		this.securityCameras = securityCameras;
+	}
+	
+	public void setSecGuard(Boolean securityGuard) {
+		this.securityGuard = securityGuard;
+	}
+	
+	public void setGated(Boolean gatedCommunity) {
+		this.gatedCommunity = gatedCommunity;
 	}
 }
