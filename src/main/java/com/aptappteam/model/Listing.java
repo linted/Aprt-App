@@ -1,7 +1,8 @@
 package com.aptappteam.model;
 
 import java.math.BigDecimal;
- 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,10 +26,10 @@ public class Listing {
 	private Integer keyId;
 	
 	@Column(name = "HousingID")
-	private String housingId;
+	private Integer housingId;
 	
 	@Column(name = "OrgID")
-	private String orgId;
+	private Integer orgId;
 	
 	@Column(name = "HousingHeadline")
 	private String housingHeadline;
@@ -64,7 +65,7 @@ public class Listing {
 	private Integer bedrooms;
 	
 	@Column(name = "Bathrooms")
-	private String bathrooms;
+	private Integer bathrooms;
 	
 	@Column(name = "SharedBathroom")
 	private Boolean sharedBathroom;
@@ -79,7 +80,7 @@ public class Listing {
 	private Integer airConditioned;
 	
 	@Column(name = "PetsAllowed")
-	private Boolean petsAllowed;
+	private Integer petsAllowed;
 	
 	@Column(name = "Lease")
 	private String lease;
@@ -106,13 +107,13 @@ public class Listing {
 	private String housingPhoto;
 	
 	@Column(name = "CreateDate")
-	private String createDate;
+	private Timestamp createDate;
 	
 	@Column(name = "PostingDate")
-	private String postingDate;
+	private Timestamp postingDate;
 	
 	@Column(name = "EditDate")
-	private String editDate;
+	private Timestamp editDate;
 	
 	@Column(name = "Active", nullable=false)
 	private Integer active;
@@ -141,8 +142,8 @@ public class Listing {
 	@Column(name = "HardWiredSmokeDetectors")
 	private Boolean hardWiredSmokeDetectors;
 	
-	@Column(name = "CODetector")
-	private Boolean coDetector;
+	@Column(name = "CarbonDioxideDetector")
+	private Boolean carbonDioxideDetector;
 	
 	@Column(name = "FireExtinguisher")
 	private Boolean fireExtinguisher;
@@ -165,15 +166,27 @@ public class Listing {
 	@Column(name = "GatedCommunity")
 	private Boolean gatedCommunity;
 	
+	@Column(name = "Email")
+	private String email;
+	
+	@Column(name = "ContactPhone")
+	private String contactPhone;
+	
+	@Column(name = "Latitude")
+	private Float latitude;
+	
+	@Column(name = "Longitude")
+	private Float longitude;
+	
 	public Integer getKeyId() {
 		return keyId;
 	}
 	
-	public String getOrgId() {
+	public Integer getOrgId() {
 		return orgId;
 	}
 	
-	public String getHousingId() {
+	public Integer getHousingId() {
 		return housingId;
 	}
 	
@@ -221,7 +234,7 @@ public class Listing {
 		return bedrooms;
 	}
 	
-	public String getBathrooms() {
+	public Integer getBathrooms() {
 		return bathrooms;
 	}
 	
@@ -241,7 +254,7 @@ public class Listing {
 		return airConditioned;
 	}
 	
-	public Boolean getPetsAllowed() {
+	public Integer getPetsAllowed() {
 		return petsAllowed;
 	}
 	
@@ -277,15 +290,15 @@ public class Listing {
 		return housingPhoto;
 	}
 	
-	public String getCreateDate() {
+	public Timestamp getCreateDate() {
 		return createDate;
 	}
 	
-	public String getPostingDate() {
+	public Timestamp getPostingDate() {
 		return postingDate;
 	}
 	
-	public String getEditDate() {
+	public Timestamp getEditDate() {
 		return editDate;
 	}
 	
@@ -317,27 +330,27 @@ public class Listing {
 		return exteriorLocks;
 	}
 	
-	public Boolean getBSD() {
+	public Boolean getBatterySmokeDetectors() {
 		return batterySmokeDetectors;
 	}
 	
-	public Boolean getHWSD() {
+	public Boolean getHardWiredSmokeDetectors() {
 		return hardWiredSmokeDetectors;
 	}
 	
-	public Boolean getCOD() {
-		return coDetector;
+	public Boolean getCarbonDioxideDetector() {
+		return carbonDioxideDetector;
 	}
 	
-	public Boolean getFireExt() {
+	public Boolean getFireExtinguisher() {
 		return fireExtinguisher;
 	}
 	
-	public Boolean getExtLight() {
+	public Boolean getExteriorLighting() {
 		return exteriorLighting;
 	}
 	
-	public Boolean getSafetyInspec() {
+	public Boolean getSafetyInspections() {
 		return safetyInspections;
 	}
 	
@@ -345,27 +358,43 @@ public class Listing {
 		return securityAlarm;
 	}
 	
-	public Boolean getSecCameras() {
+	public Boolean getSecurityCameras() {
 		return securityCameras;
 	}
 	
-	public Boolean getSecGuard() {
+	public Boolean getSecurityGuard() {
 		return securityGuard;
 	}
 	
-	public Boolean getGated() {
+	public Boolean getGatedCommunity() {
 		return gatedCommunity;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public String getContactPhone() {
+		return contactPhone;
+	}
+	
+	public Float getLat() {
+		return latitude;
+	}
+	
+	public Float setLong() {
+		return longitude;
 	}
 	
 	public void setKeyId(Integer keyId) {
 		this.keyId = keyId;
 	}
 	
-	public void setOrgId(String orgId) {
+	public void setOrgId(Integer orgId) {
 		this.orgId = orgId;
 	}
 	
-	public void setHousingId(String housingId) {
+	public void setHousingId(Integer housingId) {
 		this.housingId = housingId;
 	}
 	
@@ -413,7 +442,7 @@ public class Listing {
 		this.bedrooms = bedrooms;
 	}
 	
-	public void setBathrooms(String bathrooms) {
+	public void setBathrooms(Integer bathrooms) {
 		this.bathrooms = bathrooms;
 	}
 	
@@ -433,7 +462,7 @@ public class Listing {
 		this.airConditioned = airConditioned;
 	}
 	
-	public void setPetsAllowed(Boolean petsAllowed) {
+	public void setPetsAllowed(Integer petsAllowed) {
 		this.petsAllowed = petsAllowed;
 	}
 	
@@ -469,15 +498,15 @@ public class Listing {
 		this.housingPhoto = housingPhoto;
 	}
 	
-	public void setCreateDate(String createDate) {
+	public void setCreateDate(Timestamp createDate) {
 		this.createDate = createDate;
 	}
 	
-	public void setPostingDate(String postingDate) {
+	public void setPostingDate(Timestamp postingDate) {
 		this.postingDate = postingDate;
 	}
 	
-	public void setEditDate(String editDate) {
+	public void setEditDate(Timestamp editDate) {
 		this.editDate = editDate;
 	}
 	
@@ -509,27 +538,29 @@ public class Listing {
 		this.exteriorLocks = exteriorLocks;
 	}
 	
-	public void setBSD(Boolean batterySmokeDetectors) {
+	public void setBatterySmokeDetectors(Boolean batterySmokeDetectors) {
 		this.batterySmokeDetectors = batterySmokeDetectors;
 	}
 	
-	public void setHWSD(Boolean hardWiredSmokeDetectors) {
+	public void setHardWiredSmokeDetectors(Boolean hardWiredSmokeDetectors) {
 		this.hardWiredSmokeDetectors = hardWiredSmokeDetectors;
 	}
 	
-	public void setCOD(Boolean coDetector) {
-		this.coDetector = coDetector;
+	public void setCarbonDioxideDetector(Boolean carbonDioxideDetector) {
+		System.out.println("printing co detector");
+		System.out.println(carbonDioxideDetector);
+		this.carbonDioxideDetector = carbonDioxideDetector;
 	}
 	
-	public void setFireExt(Boolean fireExtinguisher) {
+	public void setFireExtinguisher(Boolean fireExtinguisher) {
 		this.fireExtinguisher = fireExtinguisher;
 	}
 	
-	public void setExtLight(Boolean exteriorLighting) {
+	public void setExteriorLighting(Boolean exteriorLighting) {
 		this.exteriorLighting = exteriorLighting;
 	}
 	
-	public void setSafetyInspec(Boolean safetyInspections) {
+	public void setSafetyInspections(Boolean safetyInspections) {
 		this.safetyInspections = safetyInspections;
 	}
 	
@@ -537,15 +568,32 @@ public class Listing {
 		this.securityAlarm = securityAlarm;
 	}
 	
-	public void setSecCameras(Boolean securityCameras) {
+	public void setSecurityCameras(Boolean securityCameras) {
 		this.securityCameras = securityCameras;
 	}
 	
-	public void setSecGuard(Boolean securityGuard) {
+	public void setSecurityGuard(Boolean securityGuard) {
 		this.securityGuard = securityGuard;
 	}
 	
-	public void setGated(Boolean gatedCommunity) {
+	public void setGatedCommunity(Boolean gatedCommunity) {
 		this.gatedCommunity = gatedCommunity;
 	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public void setContactPhone(String contactPhone) {
+		this.contactPhone = contactPhone;
+	}
+	
+	public void setLat(Float latitude) {
+		this.latitude = latitude;
+	}
+	
+	public void setLong(Float longitude) {
+		this.longitude = longitude;
+	}
+	
 }
