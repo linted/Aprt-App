@@ -1,0 +1,79 @@
+
+#topImageSection {
+    height: 300px;
+    width: 100%;
+}
+
+.centerPage {
+    width: 90%;
+    margin-left: 5%;
+    float: left;
+    display: inline;
+}
+
+#leftColumn {
+    width: 70%;
+    float: left;
+}
+
+#rightColumn {
+    width: 20%;
+    float: left;
+    margin-left: 5%;
+}
+
+.sliderImg {
+    background-size: contain;
+    float:left;
+    max-height: 250px;
+    width: auto;
+}
+
+#priceAndContact {
+    background-color: #f0f0f0;
+    border: solid 1px #e1e1e1;
+    float: left;
+    width: 100%;
+    height: auto;
+    margin-bottom: 5%;
+}
+
+#map {
+    background-color: #f0f0f0;
+    border: solid 1px #e1e1e1;
+    float: left;
+    height: 200px;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+#googleMaps {
+    width: 100%;
+    height: 100%;
+}
+
+.price {
+    font-size: 250%;
+    margin: 5%;
+}
+
+#amenitiesList {
+    float: left;
+}
+
+#amenities {
+    border-top: 1px solid #d9d9d9;
+    max-height: 200px;
+    width: 100%;
+    min-height: 150px;
+    box-sizing: border-box;
+}
+
+#facts {
+     border-top: 1px solid #d9d9d9;
+}
+
+li {
+    float: left;
+    width: 33%;
+}
