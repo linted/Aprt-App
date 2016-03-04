@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<!--<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> -->
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 
 <head>
     <title>Detailed listing page</title>
     <!-- style sheets -->
-    <!--
         <link rel="stylesheet" href="<c:url value='/static/css/apt-finder_results.css' />">
-        -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
 
@@ -17,12 +14,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
 </head>
-
-<!-- REMOVE. for testing only -->
-<link rel="stylesheet" href="../../static/css/apt-finder_results.css">
-<script src="../../static/js/maps.js"></script>
-<script src="TEST.js"></script>
-<!-- END testing area -->
 
 <!-- Start visable html -->
 
@@ -106,11 +97,10 @@
 <!-- End viable html -->
 
 <!-- local js -->
-<!--
 <script src="<c:url value='/static/js/app.js' />"></script>
 <script src="<c:url value='/static/js/map.js' />"></script>
 <script src="<c:url value='/static/js/service/ListingService.js' />"></script>
 <script src="<c:url value='/static/js/controller/ListingController.js' />"></script>
-    -->
+
 
 </html>
