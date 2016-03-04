@@ -10,7 +10,7 @@ public interface ListingDao {
  
     Listing findListingById(int id);
  
-//    void saveListing(Listing employee);
+    void saveListing(Listing listing);
      
 //    void deleteEmployeeBySsn(String ssn);
      

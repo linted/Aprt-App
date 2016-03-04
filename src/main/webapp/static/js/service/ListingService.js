@@ -64,6 +64,20 @@ App.factory('ListingService', ['$http', '$q', function($http, $q){
 							return $q.reject(errResponse);
 						}
 					);
+		},
+		
+		createNewListing: function(data) {
+			return $http.post('http://localhost:8080/finderapp/listings/new', data).success(function(data, status) {
+				console.log(data);
+			})
 		}
 	};
 }]);
+
+//var services = angular.module('myApp.ListingService', ['ngResource']);
+//
+//services.factory('ListingsFactory', function($resource) {
+//	return $resource('/listings/new', {}, {
+//		create: { method: 'POST' }
+//	})
+//});

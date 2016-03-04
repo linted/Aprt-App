@@ -21,10 +21,11 @@ public class ListingServiceImpl implements ListingService {
     public Listing findListingById(int id) {
         return dao.findListingById(id);
     }
- 
-//    public void saveListing(Listing Listing) {
-//        dao.saveListing(Listing);
-//    }
+    
+    public Listing saveListing(Listing listing) {
+		dao.saveListing(listing);
+		return listing;
+	}
  
     /*
      * Since the method is running with Transaction, No need to call hibernate update explicitly.

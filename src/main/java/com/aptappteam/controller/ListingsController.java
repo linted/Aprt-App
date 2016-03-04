@@ -2,9 +2,14 @@ package com.aptappteam.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,10 +63,38 @@ public class ListingsController {
 		return new ResponseEntity<Listing>(item, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public ResponseEntity<Void> listListingsByFilters(@RequestBody Listing listing) {
-		List<Listing> listings = service.saveListing(listing);
+//	@RequestMapping(value = { "/new" }, method = RequestMethod.POST)
+//	public String saveEmployee(@Valid Listing listing, BindingResult result,
+//			ModelMap model) {
+//
+//		if (result.hasErrors()) {
+//			return "registration";
+//		}
+//
+//		/*
+//		 * Preferred way to achieve uniqueness of field [ssn] should be implementing custom @Unique annotation 
+//		 * and applying it on field [ssn] of Model class [Employee].
+//		 * 
+//		 * Below mentioned peace of code [if block] is to demonstrate that you can fill custom errors outside the validation
+//		 * framework as well while still using internationalized messages.
+//		 * 
+//		 */
+//		
+//		System.out.println("listing object");
+//		System.out.println(listing.getHousingHeadline().toString());
+//		
+//		service.saveListing(listing);
+//
+//		model.addAttribute("success", "Listing " + listing.getHousingHeadline() + " registered successfully");
+//		return "success";
+//	}
+	
+	@RequestMapping(value = { "/new" }, method = RequestMethod.POST)
+	public Listing saveListing(@RequestBody Listing listing) {
+
+		System.out.println("listing object");
+		System.out.println(listing.getHousingHeadline().toString());
 		
-		return new ResponseEntity<Void>(HttpStatus.OK);
+		return service.saveListing(listing);
 	}
 }
