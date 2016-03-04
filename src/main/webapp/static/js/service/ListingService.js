@@ -54,7 +54,7 @@ App.factory('ListingService', ['$http', '$q', function($http, $q){
 		},
 		
 		fetchSingleListing: function(id) {
-			return $http.get('http://localhost:8080/finderapp/listings/'+id)
+			return $http.get('http://localhost:8080/finderapp/listings/' + id)
 					.then(
 						function(response) {
 							console.log(response.data);

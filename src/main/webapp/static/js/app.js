@@ -4,21 +4,13 @@ var App = angular.module('myApp', ['ngRoute']);
 
 App.config(['$routeProvider', function($routeProvider) {
 	$routeProvider
-		.when('/properties', {
-			controller: 'ListingController',
-			resolve: {
-				async: ['ListingService', function() {
-					return ListingService.fetchAllListings();
-				}]
-			}
+		.when('/', {
+			templateUrl: 'apt-finder_list.jsp',
+			controller: 'ListingController as ctrl'
 		})
 		.when('/properties/:id', {
-			controller: 'ListingDetailedController',
-			resolve: {
-				async: ['ListingService','$route', function($route) {
-					return ListingService.fetchSingleListing($route.current.params.id);
-				}]
-			}
+			templateUrl: 'detailedlisting.jsp',
+			controller: 'ListingDetailedController'
 		})
-		.otherwise({redirectTo:'/properties'});
+		.otherwise({redirectTo:'/'});
 }]);
