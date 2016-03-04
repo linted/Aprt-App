@@ -15,13 +15,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
 </head>
 
 <!-- REMOVE. for testing only -->
 <link rel="stylesheet" href="../../static/css/apt-finder_results.css">
+<script src="../../static/js/maps.js"></script>
 <script src="TEST.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
 <!-- END testing area -->
 
 <!-- Start visable html -->
@@ -36,7 +36,6 @@
         </section>
 
         <section class="centerPage">
-            <!-- <span ng-if="ctrl.detailedListing."></span>  -->
             <section id="leftColumn">
                 <section id="description">
                     <h3 ng-bind="ctrl.detailedListing.housingHeadline"></h3>
@@ -78,6 +77,11 @@
                 </section>
                 <section id="facts">
                     <h3>Facts</h3>
+                    <ul>
+                        <li id="lease">Lease: {{ctrl.detailedListing.lease}}</li>
+                        <li id="deposit">Deposit: <span ng-if="ctrl.detailedListing.deposit">yes</span><span ng-if="!ctrl.detailedListing.deposit">no</span></li>
+                        <li id="petsAllowed">Pets Allowed: <span ng-if="ctrl.detailedListing.petsAllowed">yes</span><span ng-if="!ctrl.detailedListing.petsAllowed">no</span></li>
+                    </ul>
                 </section>
             </section>
             <section id="rightColumn">
@@ -90,7 +94,7 @@
                     </section>
                 </section>
                 <section id="map">
-                    <section id="googleMaps"></section>
+                    <section id="googleMaps" ng-load=""></section>
                 </section>
                 <section id="address">
                     <span ng-bind="ctrl.detailedListing.location"></span>
@@ -104,6 +108,7 @@
 <!-- local js -->
 <!--
 <script src="<c:url value='/static/js/app.js' />"></script>
+<script src="<c:url value='/static/js/map.js' />"></script>
 <script src="<c:url value='/static/js/service/ListingService.js' />"></script>
 <script src="<c:url value='/static/js/controller/ListingController.js' />"></script>
     -->

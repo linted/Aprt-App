@@ -28,7 +28,7 @@ App.controller('ListingDetailedController', ["$scope", function ($scope, Listing
         preferences: null,
         price: 200,
         deposit: 1,
-        location: "4548 Greenwood Dr.\r\n\r\nOff of Perrymount Ave.; approx. 5 minutes from LU campus.",
+        location: "4548 Greenwood Dr. lynchburg, Va",
         comments: "Looking for 1-2 additional female roommates to share house; Great location; only 1/2 of rent needed for deposit.",
         floorPlan: null,
         housingPhoto: null,
@@ -52,20 +52,14 @@ App.controller('ListingDetailedController', ["$scope", function ($scope, Listing
         secCameras: false,
         secGuard: false,
         gated: false,
-        email:"test@example.com"
+        email: "test@example.com",
+        latlng: { lat:37.391031, lng:-79.191554},
+        phone: {Home:"(800) 543–5317", cell:"(877) 298–9617"}
     };
 
 
+    initMap(self.detailedListing.latlng);
+    addMarker(self.detailedListing.latlng);
 }]);
 
 
-function initMap() {
-    var mapDiv = document.getElementById('googleMaps');
-    var map = new google.maps.Map(mapDiv, {
-        center: {
-            lat: 37.413754,
-            lng: -79.142246
-        },
-        zoom: 13
-    });
-}
