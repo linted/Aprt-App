@@ -31,14 +31,6 @@
 				      			<div class="panel-body">
 				      				<div class="col-md-6">
 										<fieldset class="form-group">
-											<label for="housingId">Housing ID</label>
-										    <input type="text" class="form-control" placeholder="#####" ng-model="housingId">
-										</fieldset>
-										<fieldset class="form-group">
-											<label for="orgId">Org ID</label>
-										    <input type="text" class="form-control" placeholder="#####" ng-model="orgId">
-										</fieldset>
-										<fieldset class="form-group">
 											<label for="housingHeadline">Housing Headline</label>
 										    <input type="text" class="form-control" placeholder="2 BR Apartment 10 Min from Liberty!" ng-model="housingHeadline">
 										</fieldset>
@@ -46,12 +38,12 @@
 											<label for="price">Price</label>
 										    <input type="text" class="form-control" placeholder="600" ng-model="price">
 										</fieldset>
-				      				</div>
-				      				<div class="col-md-6">
-				      					<fieldset class="form-group">
+										<fieldset class="form-group">
 											<label for="lease">Lease Type</label>
 										    <input type="text" class="form-control" placeholder="Per Month" ng-model="lease">
 										</fieldset>
+				      				</div>
+				      				<div class="col-md-6">
 										<fieldset class="form-group">
 											<label for="location">Location</label>
 										    <input type="text" class="form-control" placeholder="1971 University Blvd. Lynchburg, VA" ng-model="location">
@@ -84,6 +76,7 @@
 										<div class="checkbox">
 										  <label for="forSale">
 										    <input ng-model="forSale" type="checkbox" value="true">
+										    <input type="hidden" ng-model="_forSale" value="on"/> 
 										    <b>For Sale</b>
 										  </label>
 										</div>
@@ -152,10 +145,12 @@
 											<label for="airConditioned">Air Conditioning</label>
 										    <input type="text" class="form-control" placeholder="0=None,1=WindowUnit,2=Central" ng-model="airConditioned">
 										</fieldset>
-										<fieldset class="form-group">
-											<label for="petsAllowed">Pets Allowed</label>
-										    <input type="text" class="form-control" placeholder="0,1,2" ng-model="petsAllowed">
-										</fieldset>
+										<div class="checkbox">
+										  <label for="petsAllowed">
+										    <input ng-model="petsAllowed" type="checkbox" value="true">
+										    <b>Pets Allowed</b>
+										  </label>
+										</div>
 				      				</div>
 				      			</div>
 				    		</div>

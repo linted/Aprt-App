@@ -63,29 +63,44 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', functio
 	editDate, active, siteUrl, lockChanges, deadbolts, peepholes, balconyLock, exteriorLocks, batterySmokeDetectors, hardWiredSmokeDetectors, carbonDioxideDetector, fireExtinguisher,
 	exteriorLighting, safetyInspections, securityAlarm, securityCameras, securityGuard, gatedCommunity, email, contactPhone, latitude, longitude;
 	
+	var array = [forSale, water, heat, electricity, gas, cable, phone, trash, sharedBathroom, furnished, petsAllowed, lockChanges, deadbolts, peepholes, balconyLock, exteriorLocks, batterySmokeDetectors, hardWiredSmokeDetectors, carbonDioxideDetector, fireExtinguisher,
+	             exteriorLighting, safetyInspections, securityAlarm, securityCameras, securityGuard, gatedCommunity]
+	
+	console.log(array.length)
+	
 	$scope.createNewListing = function () {
 		console.log('creating new listing');
+		var i = 0;
+		[].forEach.call( document.querySelectorAll('input[type="checkbox"]'),function(el){
+		       if (el.checked == true) {
+		    	   console.log("this checkbox is checked");
+		    	   array[i] = 1;
+		       } else if (el.checked == false) {
+		    	   console.log("this checkbox is unchecked");
+		    	   array[i] = 0;
+		       }
+		       i++;
+			}
+		);
+		
 		var somedata = JSON.stringify({
-			housingId: $scope.housingId,
-			orgId: $scope.orgId,
 			housingHeadline: $scope.housingHeadline,
-			batterySmokeDetectors: $scope.batterySmokeDetectors,
 			housingType: $scope.housingType,
-			forSale: $scope.forSale,
-			water: $scope.water,
-			heat: $scope.heat,
-			electricity: $scope.electricity,
-			gas: $scope.gas,
-			cable: $scope.cable,
-			phone: $scope.phone,
-			trash: $scope.trash,
+			forSale: array[0],
+			water: array[1],
+			heat: array[2],
+			electricity: array[3],
+			gas: array[4],
+			cable: array[5],
+			phone: array[6],
+			trash: array[7],
 			bedrooms: $scope.bedrooms,
 			bathrooms: $scope.bathrooms,
-			sharedBathroom: $scope.sharedBathroom,
+			sharedBathroom: array[8],
 			washerDryer: $scope.washerDryer,
-			furnished: $scope.furnished,
+			furnished: array[9],
 			airConditioned: $scope.airConditioned,
-			petsAllowed: $scope.petsAllowed,
+			petsAllowed: array[10],
 			lease: $scope.lease,
 			preferences: $scope.preferences,
 			price: $scope.price,
@@ -96,37 +111,29 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', functio
 			housingPhoto: $scope.housingPhoto,
 			active: '1',
 			siteUrl: $scope.siteUrl,
-			lockChanges: $scope.lockChanges,
-			deadbolts: $scope.deadbolts,
-			peepholes: $scope.peepholes,
-			balconyLock: $scope.balconyLock,
-			exteriorLocks: $scope.exteriorLocks,
-			hardWiredSmokeDetectors: $scope.hardWiredSmokeDetectors,
-			carbonDioxideDetector: $scope.carbonDioxideDetector,
-			fireExtinguisher: $scope.fireExtinguisher,
-			exteriorLighting: $scope.exteriorLighting,
-			safetyInspections: $scope.safetyInspections,
-			securityAlarm: $scope.securityAlarm,
-			securityCameras: $scope.securityCameras,
-			securityGuard: $scope.securityGuard,
-			gatedCommunity: $scope.gatedCommunity,
+			lockChanges: array[11],
+			deadbolts: array[12],
+			peepholes: array[13],
+			balconyLock: array[14],
+			exteriorLocks: array[15],
+			batterySmokeDetectors: array[16],
+			hardWiredSmokeDetectors: array[17],
+			carbonDioxideDetector: array[18],
+			fireExtinguisher: array[19],
+			exteriorLighting: array[20],
+			safetyInspections: array[21],
+			securityAlarm: array[22],
+			securityCameras: array[23],
+			securityGuard: array[24],
+			gatedCommunity: array[25],
 			email: $scope.email,
 			contactPhone: $scope.contactPhone
-		})
+		});
 //		var testdata = JSON.stringify({
 //			housingId: '14000',
 //			orgId: '14000',
 //			housingHeadline: 'someheadline',
-//			batterySmokeDetectors: 'true',
 //			housingType: 'apartment',
-//			forSale: 'true',
-//			water: 'true',
-//			heat: 'true',
-//			electricity: 'true',
-//			gas: 'true',
-//			cable: 'true',
-//			phone: 'true',
-//			trash: 'true',
 //			bedrooms: '2',
 //			bathrooms: '2',
 //			sharedBathroom: 'true',
@@ -142,22 +149,7 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', functio
 //			comments: 'none',
 //			floorPlan: 'none',
 //			housingPhoto: 'none',
-//			active: '1',
 //			siteUrl: 'google.com',
-//			lockChanges: 'true',
-//			deadbolts: 'true',
-//			peepholes: 'true',
-//			balconyLock: 'true',
-//			exteriorLocks: 'true',
-//			hardWiredSmokeDetectors: 'true',
-//			carbonDioxideDetector: 'true',
-//			fireExtinguisher: 'true',
-//			exteriorLighting: 'true',
-//			safetyInspections: 'true',
-//			securityAlarm: 'true',
-//			securityCameras: 'true',
-//			securityGuard: 'true',
-//			gatedCommunity: 'true'
 //		})
 		var str = JSON.parse(somedata);
 		console.log(str);

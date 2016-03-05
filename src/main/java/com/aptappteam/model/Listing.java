@@ -115,7 +115,7 @@ public class Listing {
 	@Column(name = "EditDate")
 	private Timestamp editDate;
 	
-	@Column(name = "Active", nullable=false)
+	@Column(name = "Active")
 	private Integer active;
 	
 	@Column(name = "SiteURL")
