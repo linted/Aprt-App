@@ -18,6 +18,9 @@ public class SubListing {
 	@Column(name = "HousingHeadline")
 	private String housingHeadline;
 	
+	@Column(name = "HousingType")
+	private String housingType;
+	
 	@Column(name = "ForSale")
 	private String forSale;
 	
@@ -34,13 +37,19 @@ public class SubListing {
 	private Boolean furnished;
 	
 	@Column(name = "AirConditioned")
-	private Boolean airConditioned;
+	private Integer airConditioned;
 	
 	@Column(name = "PetsAllowed")
 	private Boolean petsAllowed;
 	
 	@Column(name = "Price")
 	private Integer price;
+	
+	@Column(name = "Lease")
+	private String lease;
+	
+	@Column(name = "Deposit")
+	private Boolean deposit;
 	
 	@Column(name = "Location")
 	private String location;
@@ -58,6 +67,10 @@ public class SubListing {
 	
 	public String getHousingHeadline() {
 		return housingHeadline;
+	}
+	
+	public String getHousingType() {
+		return housingType;
 	}
 	
 	public String getForSale() {
@@ -80,7 +93,7 @@ public class SubListing {
 		return furnished;
 	}
 	
-	public Boolean getAirConditioned() {
+	public Integer getAirConditioned() {
 		return airConditioned;
 	}
 	
@@ -90,6 +103,14 @@ public class SubListing {
 	
 	public Integer getPrice() {
 		return price;
+	}
+	
+	public String getLease() {
+		return lease;
+	}
+	
+	public Boolean getDeposit() {
+		return deposit;
 	}
 	
 	public String getLocation() {

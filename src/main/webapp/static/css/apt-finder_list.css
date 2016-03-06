@@ -31,13 +31,26 @@
     margin-right: 5%;
 }
 
+.advFilterDrop {
+  float: left;
+  font-size: 90%;
+}
+
+.advFilterDrop select option {
+	width: 50px;
+}
+
+#advFilter {
+	padding-left: 0px;
+}
+
 body {
     margin-left: 5%!important;
     width: 90%!important;
 }
 
 select {
-    width: 60%;
+    width: auto;
 }
 
 .checkBox {
