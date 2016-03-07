@@ -86,9 +86,9 @@
                             <span ng-bind="x"></span>
                         </section>
                     </section>
-                    <section id="map">
+                    <!-- <section id="map">
                         <section id="googleMaps"></section>
-                    </section>
+                    </section> -->
                     <section id="address">
                         <span ng-bind="ctrl.listing.location"></span>
                     </section>
@@ -101,7 +101,7 @@
     <!-- local js -->
     <script src="<c:url value='/static/js/app.js' />"></script>
     <!-- Uncomment for maps -->
-    <script src="<c:url value='/static/js/maps.js' />"></script>
+    <%-- <script src="<c:url value='/static/js/maps.js' />"></script> --%>
     <script src="<c:url value='/static/js/service/ListingService.js' />"></script>
 
 

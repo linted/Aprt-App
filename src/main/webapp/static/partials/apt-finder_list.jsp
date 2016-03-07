@@ -14,6 +14,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
     </head>
 
     <!-- HTML that is displayed -->
@@ -24,7 +25,7 @@
             <!-- Header -->
             <section id="header">
                 <span class="Apartment-Finder">Apartment Finder</span>
-                <a id="landlordLogin" href="/new/">Landlord Sign-in ></a>
+                <a id="landlordLogin" href="#/new/">Landlord Sign-in ></a>
             </section>
             <!-- left column -->
             <section id="leftColumn" ng-init="cc={keyId:'',orgId:'',housingHeadline:'',forSale:'',bedrooms:'',bathrooms:'',washerDryer:'',furnished:'',airConditioned:'',petsAllowed:'',price:'',location:'',active:1}">
@@ -210,7 +211,7 @@
 
                         <section class="listingStyleRight">
                             <section class="leftSubListingStyle">
-                                <a href="/properties/:x.keyId"><span class="fullLink" ng-bind="x.housingHeadline"></span></a>
+                                <a href="#/properties/{{x.keyId}}"><span class="fullLink" ng-bind="x.housingHeadline"></span></a>
                                 <br>
                                 <span ng-bind="x.location"></span>
                             </section>
@@ -225,9 +226,7 @@
                     <button ng-click="loadMore()">Load More</button>
                 </section>
 
-                <section id="map" ng-if="mapCheckbox">
-                    <section id="googleMaps"></section>
-                </section>
+                
             </section>
         </div>
     </body>
@@ -235,7 +234,7 @@
 
     <!-- local js -->
     <script src="<c:url value='/static/js/app.js' />"></script>
-    <script src="<c:url value='/static/js/maps.js' />"></script>
+    <%-- <script src="<c:url value='/static/js/maps.js' />"></script> --%>
     <script src="<c:url value='/static/js/service/ListingService.js' />"></script>
     <%--     <script src="<c:url value='/static/js/controller/ListingController.js' />"></script> --%>
 
