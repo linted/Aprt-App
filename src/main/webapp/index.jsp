@@ -15,7 +15,7 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
-        <base href="/finderapp/">
+        <!-- <base href="/finderapp/"> -->
     </head>
 
     <!-- HTML that is displayed -->
