@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
  
 import com.aptappteam.dao.ListingDao;
+import com.aptappteam.model.Filters;
 import com.aptappteam.model.Listing;
+import com.aptappteam.model.SubListing;
  
 @Service("listingService")
 @Transactional
@@ -19,10 +21,11 @@ public class ListingServiceImpl implements ListingService {
     public Listing findListingById(int id) {
         return dao.findListingById(id);
     }
- 
-//    public void saveListing(Listing Listing) {
-//        dao.saveListing(Listing);
-//    }
+    
+    public Listing saveListing(Listing listing) {
+		dao.saveListing(listing);
+		return listing;
+	}
  
     /*
      * Since the method is running with Transaction, No need to call hibernate update explicitly.
@@ -43,8 +46,12 @@ public class ListingServiceImpl implements ListingService {
 //        dao.deleteListingBySsn(ssn);
 //    }
      
-    public List<Listing> findAllListings() {
+    public List<SubListing> findAllListings() {
         return dao.findAllListings();
+    }
+    
+    public List<Listing> findListingByFilters(Filters filters) {
+    	return dao.findListingByFilters(filters);
     }
  
 //    public Listing findListingBySsn(String ssn) {
