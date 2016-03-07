@@ -28,7 +28,7 @@
     <script src="<c:url value='/static/js/app.js' />"></script>
     <script src="<c:url value='/static/js/service/ListingService.js' />"></script>
     <script src="<c:url value='/static/js/controller/ListingController.js' />"></script>
-
+	<script src="<c:url value='/static/js/controller/ListingDetailedController.js' />"></script>
 
     <!-- End Document -->
 

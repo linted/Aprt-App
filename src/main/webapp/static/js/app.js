@@ -8,8 +8,8 @@ App.config(['$routeProvider', function($routeProvider) {
 			templateUrl: 'static/partials/apt-finder_list.jsp',
 			controller: 'ListingController as ctrl'
 		})
-		.when('/:id', {
-			templateUrl: 'views/detailedlisting.jsp',
+		.when('/properties/:keyId', {
+			templateUrl: 'static/partials/detailedlisting.jsp',
 			controller: 'ListingDetailedController'
 		})
 		.otherwise({redirectTo:'/'});

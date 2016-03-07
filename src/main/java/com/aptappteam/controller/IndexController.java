@@ -17,9 +17,9 @@ public class IndexController {
 	        return "index";
 	    }
 	  
-	  @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	  @RequestMapping(value = "/properties/{id}", method = RequestMethod.GET)
 	  public String getDetailedListingPage(@PathVariable Integer id) {
-		  return "detailedlisting";
+		  return "index";
 	  }
 	  
 	  @RequestMapping(value = { "/new" }, method = RequestMethod.GET)

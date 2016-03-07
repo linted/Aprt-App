@@ -92,7 +92,7 @@
 
                     <section class="listingStyleRight">
                         <section class="leftSubListingStyle">
-                            <a href=":?{{x.id}}"><span ng-bind="x.housingHeadline"></span></a>
+                            <a href="properties/{{x.keyId}}"><span ng-bind="x.housingHeadline"></span></a>
                             <br>
                             <span ng-bind="x.location"></span>
                         </section>
