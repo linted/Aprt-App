@@ -1,4 +1,4 @@
-function initMap(latlng, zoom=13) {
+function initMap(latlng, zoom = 13) {
     var mapDiv = document.getElementById('googleMaps');
     map = new google.maps.Map(mapDiv, {
         center: latlng,
@@ -7,9 +7,11 @@ function initMap(latlng, zoom=13) {
 }
 
 function addMarker(latlng) {
-    var marker = new google.maps.Marker({
-        position: latlng,
-        title: "Hello World!"
-    });
-    marker.setMap(map);
+    if (latlng.lat && latlng.lng) {
+        var marker = new google.maps.Marker({
+            position: latlng,
+            title: "Hello World!"
+        });
+        marker.setMap(map);
+    }
 }

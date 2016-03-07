@@ -194,9 +194,9 @@
                 </label>
                 <!-- toggle for list vs. map view -->
                 <label>
-                    <input type="checkbox" ng-model="listCheckbox" ng-click="listOn()" checked>List</label>
+                    <input type="checkbox" ng-model="listCheckbox" ng-checked="!mapCheckbox">List</label>
                 <label>
-                    <input type="checkbox" ng-model="mapCheckbox" ng-click="mapOn()">Map</label>
+                    <input type="checkbox" ng-model="mapCheckbox" ng-checked="!listCheckbox">Map</label>
             </section>
             <!-- Listing controller -->
             <section ng-if="listCheckbox">
