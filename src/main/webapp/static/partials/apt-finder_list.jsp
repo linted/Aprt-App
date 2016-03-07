@@ -86,13 +86,13 @@
                 <section class="allListings" ng-repeat="x in ctrl.listings | filter:cc | filter:filterPrice | limitTo:totalDisplayed">
                     <section class="listingStyleLeft">
                         <!-- temp holder until we get images working VVV -->
-                        <img class="thumb" src="<c:url value='/static/img/181.jpeg' />">
+                        <img class="thumb" src='/static/img/181.jpeg' />
                         <!--src="{{x.thumb}}">-->
                     </section>
 
                     <section class="listingStyleRight">
                         <section class="leftSubListingStyle">
-                            <a href="#/{{x.id}}"><span ng-bind="x.housingHeadline"></span></a>
+                            <a href=":?{{x.id}}"><span ng-bind="x.housingHeadline"></span></a>
                             <br>
                             <span ng-bind="x.location"></span>
                         </section>
