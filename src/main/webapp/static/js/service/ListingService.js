@@ -37,6 +37,7 @@ App.factory('ListingService', ['$http', '$q', function($http, $q){
 			})
 		}
 	};
+
 }]);
 
 //This is only used for local testing. Must be commented out when deploying to openshift.

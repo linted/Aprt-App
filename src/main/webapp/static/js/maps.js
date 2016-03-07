@@ -1,8 +1,8 @@
-function initMap(latlng) {
+function initMap(latlng, zoom=13) {
     var mapDiv = document.getElementById('googleMaps');
     map = new google.maps.Map(mapDiv, {
         center: latlng,
-        zoom: 13
+        zoom: zoom
     });
 }
 
