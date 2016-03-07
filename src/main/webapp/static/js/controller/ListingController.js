@@ -82,15 +82,14 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
 
     self.fetchAllListings();
 
-    //set up the map centered at liberty university
-    initMap({
-        lat: 37.353464,
-        lng: -79.177372
-    }, 7);
-    //add markers to map
-    //addMarker(self.detailedListing.latlng);
-    self.placeMarkers();
+//    //set up the map centered at liberty university
+//    initMap({
+//        lat: 37.353464,
+//        lng: -79.177372
+//    }, 7);
+//    //add markers to map
+//    //addMarker(self.detailedListing.latlng);
+//    self.placeMarkers();
 
 
 }]);
->>>>>>> mike

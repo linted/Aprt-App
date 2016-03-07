@@ -19,7 +19,7 @@
     <!-- HTML that is displayed -->
 
 
-    <body ng-app="myApp" ng-controller="ListingController as ctrl">
+    <body ng-app="myApp">
         <div class="container-fluid">
             <!-- Header -->
             <section id="header">
@@ -217,7 +217,7 @@
                         <section class="rightSubListingStyle">
                             <span class="listingPrice">$ <span ng-bind="x.price"></span></span>
                             <!--<span ng-if="x.forSale == '1'"></span>-->
-                            <span ng-if="x.forSale == '0'" class="priceSubText">Per Month</span> >>>>>>> mike
+                            <span ng-if="x.forSale == '0'" class="priceSubText">Per Month</span>
                         </section>
                     </section>
                     <button ng-click="loadMore()">Load More</button>
@@ -235,7 +235,7 @@
     <!-- local js -->
     <script src="<c:url value='/static/js/app.js' />"></script>
     <script src="<c:url value='/static/js/service/ListingService.js' />"></script>
-    <script src="<c:url value='/static/js/controller/ListingController.js' />"></script>
+<%--     <script src="<c:url value='/static/js/controller/ListingController.js' />"></script> --%>
 
 
     <!-- End Document -->
