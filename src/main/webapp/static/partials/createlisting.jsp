@@ -94,10 +94,12 @@
 											<label for="preferences">Preferences</label>
 										    <input type="text" class="form-control" placeholder="Females Only" ng-model="preferences">
 										</fieldset>
-										<fieldset class="form-group">
-											<label for="deposit">Deposit</label>
-										    <input type="text" class="form-control" placeholder="450" ng-model="deposit">
-										</fieldset>
+										<div class="checkbox">
+										  <label for="deposit">
+										    <input ng-model="deposit" type="checkbox" value="true"> 
+										    <b>Deposit</b>
+										  </label>
+										</div>
 										<fieldset class="form-group">
 											<label for="comments">Comments</label>
 										    <input type="text" class="form-control" placeholder="Perfect for any LU student." ng-model="comments">

@@ -6,13 +6,14 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     //self.listing = {};   <- do we need this anymore?
     self.listings = [];
     $scope.totalDisplayed = 20;
+    $scope.listCheckbox = true;
 
     /******************* function declarations *******************/
     self.fetchAllListings = function () {
         ListingService.fetchAllListings()
             .then(
                 function (d) {
-                    console.log(d);
+                    //console.log(d);
                     self.listings = d;
                 },
                 function (errResponse) {
@@ -22,7 +23,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     };
 
     self.placeMarkers = function () {
-        for (var i = 0; i < self.listings.length; i++) {
+        for (var i = 0; i < self.listings.length || i < $scope.totalDisplayed; i++) {
             addMarker({
                 lat: self.listings[i].lat,
                 lng: self.listings[i].lng
@@ -62,33 +63,34 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         console.log(order);
     }
 
-    $scope.MapOn = function () {
-        if ($scope.mapCheckbox) {
-            $scope.listCheckbox = false;
-        } else {
-            $scope.listCheckbox = true;
-        }
-    }
-
-    $scope.ListOn = function () {
-        if ($scope.listCheckbox) {
-            $scope.mapCheckbox = false;
-        } else {
-            $scope.mapCheckbox = true;
-        }
-    }
+    //depreciated
+//    $scope.MapOn = function () {
+//        if ($scope.mapCheckbox) {
+//            $scope.listCheckbox = false;
+//        } else {
+//            $scope.listCheckbox = true;
+//        }
+//    }
+//
+//    $scope.ListOn = function () {
+//        if ($scope.listCheckbox) {
+//            $scope.mapCheckbox = false;
+//        } else {
+//            $scope.mapCheckbox = true;
+//        }
+//    }
 
     /******************* code that runs *******************/
 
     self.fetchAllListings();
 
-//    //set up the map centered at liberty university
+    //set up the map centered at liberty university
 //    initMap({
 //        lat: 37.353464,
 //        lng: -79.177372
 //    }, 7);
 //    //add markers to map
-//    //addMarker(self.detailedListing.latlng);
+////    addMarker(self.detailedListing.latlng);
 //    self.placeMarkers();
 
 
