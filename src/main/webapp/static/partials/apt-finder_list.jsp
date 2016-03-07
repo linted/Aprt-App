@@ -220,8 +220,9 @@
                             <span ng-if="x.forSale == '0'" class="priceSubText">Per Month</span>
                         </section>
                     </section>
-                    <button ng-click="loadMore()">Load More</button>
+                    
                 </section>
+                <button ng-click="loadMore()">Load More</button>
             </section>
 
 	            <section id="map" ng-if="mapCheckbox">
