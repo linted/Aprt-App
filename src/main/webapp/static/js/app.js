@@ -12,6 +12,10 @@ App.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 			templateUrl: 'static/partials/apt-finder_results.jsp',
 			controller: 'ListingDetailedController as ctrl'
 		})
+		.when('/new', {
+			templateUrl: 'static/partials/createlisting.jsp',
+			controller: 'ListingCreationController as ctrl'
+		})
 		.otherwise({redirectTo:'/'});
 	
 	$locationProvider.html5Mode(true);

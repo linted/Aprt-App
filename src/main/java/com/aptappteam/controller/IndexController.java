@@ -27,7 +27,7 @@ public class IndexController {
 			Listing listing = new Listing();
 			model.addAttribute("listing", listing);
 			model.addAttribute("edit", false);
-			return "createlisting";
+			return "index";
 		}
 
 }
