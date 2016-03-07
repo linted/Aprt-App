@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.aptappteam.model.Listing;
 
 @Controller
-@RequestMapping("/properties")
+@RequestMapping("/")
 public class IndexController {
 
 	  @RequestMapping(value = "/", method = RequestMethod.GET)
 	    public String getIndexPage() {
-	        return "apt-finder_list";
+	        return "index";
 	    }
 	  
-	  @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	  @RequestMapping(value = "/properties/{id}", method = RequestMethod.GET)
 	  public String getDetailedListingPage(@PathVariable Integer id) {
-		  return "detailedlisting";
+		  return "index";
 	  }
 	  
 	  @RequestMapping(value = { "/new" }, method = RequestMethod.GET)
@@ -27,7 +27,7 @@ public class IndexController {
 			Listing listing = new Listing();
 			model.addAttribute("listing", listing);
 			model.addAttribute("edit", false);
-			return "createlisting";
+			return "index";
 		}
 
 }

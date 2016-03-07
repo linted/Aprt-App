@@ -55,9 +55,9 @@ public class ListingsController {
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Listing> viewListing(@PathVariable Integer id) {
-		System.out.println(id);
-		System.out.println(id.getClass().toString());
+	public ResponseEntity<Listing> viewListing(@PathVariable int id) {
+//		System.out.println(id);
+//		System.out.println(id.getClass().toString());
 		Listing item = service.findListingById(id);
 		//Still needs error handling
 		return new ResponseEntity<Listing>(item, HttpStatus.OK);
