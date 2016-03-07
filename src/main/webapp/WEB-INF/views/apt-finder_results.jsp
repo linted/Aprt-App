@@ -85,7 +85,7 @@
                     </section>
                 </section>
                 <section id="map">
-                    <section id="googleMaps" ng-load=""></section>
+                    <section id="googleMaps"></section>
                 </section>
                 <section id="address">
                     <span ng-bind="ctrl.detailedListing.location"></span>
