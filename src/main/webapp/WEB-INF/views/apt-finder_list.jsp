@@ -18,7 +18,7 @@
 
     <!-- HTML that is displayed -->
 
-    <body ng-app="myApp"  ng-controller="ListingController as ctrl">
+    <body ng-app="myApp" ng-controller="ListingController as ctrl">
         <!-- Header -->
         <section id="header">
             <span class="Apartment-Finder">Apartment Finder</span>
@@ -33,10 +33,11 @@
                 <div id="inputBoxes">
                     <!-- price -->
                     <p class="Price">Price</p>
-                    <span class="Price-Text">$ </span><input class="priceBox" id="lowerPriceBound">
+                    <span class="Price-Text">$ </span>
+                    <input class="priceBox" id="lowerPriceBound">
                     <span class="Price-Text" id="toDolla"> to $</span>
-					<input class="priceBox" id="upperPriceBound">
-					<button type="submit" id="goButton" ng-click="applyToSearch()">GO</button>
+                    <input class="priceBox" id="upperPriceBound">
+                    <button type="submit" id="goButton" ng-click="applyToSearch()">GO</button>
                 </div>
 
                 <!-- drop down menus -->
@@ -79,7 +80,7 @@
                         <input type="checkbox" ng-model="cc.petsAllowed" checked="true"> Pets Allowed</label>
                     <br>
                 </div>
-                
+
             </form>
         </section>
         <!-- right column -->
@@ -90,23 +91,23 @@
                 <label class="DropMenu">
                     <br>
                     <select id="SortBySelect">
-                    	<option value="">Any Order</option>
+                        <option value="">Any Order</option>
                         <option value="price+">Lowest Price</option>
                         <option value="price-">Highest Price</option>
                     </select>
                 </label>
                 <!-- toggle for list vs. map view -->
                 <label>
-                    <input type="checkbox">List</label>
+                    <input type="checkbox" ng-model="listCheckbox" ng-click="listOn()" checked>List</label>
                 <label>
-                    <input type="checkbox">Map</label>
+                    <input type="checkbox" ng-model="mapCheckbox" ng-click="mapOn()">Map</label>
             </section>
             <!-- Listing controller -->
-            <section>
+            <section ng-if="listCheckbox">
                 <!-- repeat through the entries in the sql -->
                 <section class="allListings" ng-repeat="x in ctrl.listings | filter:cc | filter:filterPrice | limitTo:totalDisplayed">
                     <section class="listingStyleLeft">
-                        <!-- temp holder until we get images working VVV -->
+                        <!-- temp holder until we get images working-->
                         <img class="thumb" src="<c:url value='/static/img/181.jpeg' />">
                         <!--src="{{x.thumb}}">-->
                     </section>
@@ -118,13 +119,16 @@
                             <span ng-bind="x.location"></span>
                         </section>
                         <section class="rightSubListingStyle">
-                           	<span class="listingPrice">$ <span ng-bind="x.price"></span></span>
-                            <span ng-if="x.forSale == '1'"></span>
+                            <span class="listingPrice">$ <span ng-bind="x.price"></span></span>
+                            <!--<span ng-if="x.forSale == '1'"></span>-->
                             <span ng-if="x.forSale == '0'" class="priceSubText">Per Month</span>
                         </section>
                     </section>
                 </section>
                 <button ng-click="loadMore()">Load More</button>
+            </section>
+            <section id="map" ng-if="mapCheckbox">
+                <section id="googleMaps"></section>
             </section>
         </section>
     </body>

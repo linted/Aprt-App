@@ -1,10 +1,13 @@
 'use strict';
 
 App.controller('ListingController', ['$scope', 'ListingService', function($scope, ListingService) {
+    /******************* Variable declarations *******************/
 	var self = this;
-	self.listing = {};
+	//self.listing = {};   <- do we need this anymore?
 	self.listings = [];
+    $scope.totalDisplayed = 20;
 	
+    /******************* function declarations *******************/
 	self.fetchAllListings = function() {
 		ListingService.fetchAllListings()
 			.then(
@@ -17,10 +20,12 @@ App.controller('ListingController', ['$scope', 'ListingService', function($scope
 					}
 			);
 	};
-	
-	self.fetchAllListings();
-	
-	$scope.totalDisplayed = 20;
+    
+    self.placeMarkers = function() {
+        for (var i =0 ; i < self.listings.length; i++ ) {
+            addMarker({lat:self.listings[i].lat, lng:self.listings[i].lng});
+        }
+    }
 	
 	$scope.loadMore = function () {
 		console.log("loading more");
@@ -53,114 +58,29 @@ App.controller('ListingController', ['$scope', 'ListingService', function($scope
 		var order = document.getElementById('SortBySelect').value;
 		console.log(order);
 	}
+    
+    $scope.MapOn = function() {
+        if($scope.mapCheckbox){
+        $scope.listCheckbox = false;}
+        else { $scope.listCheckbox = true;}
+    }
+    
+    $scope.ListOn = function() {
+        if($scope.listCheckbox){
+        $scope.mapCheckbox = false;}
+        else { $scope.mapCheckbox = true;}
+    }
+    
+    /******************* code that runs *******************/
+    
+    self.fetchAllListings();
+    
+    //set up the map centered at liberty university
+	initMap({lat:37.353464, lng:-79.177372}, 7);
+    //add markers to map
+    //addMarker(self.detailedListing.latlng);
+    self.placeMarkers();
 
+    
 }]);
 
-App.controller('ListingCreationController', ['$scope', 'ListingService', function($scope, ListingService){
-	var self = this;
-	var housingId, orgId, housingHeadline, housingType, forSale, water, heat, electricity, gas, cable, phone, trash, bedrooms, bathrooms, sharedBathroom,
-	washerDryer, furnished, airConditioned, petsAllowed, lease, preferences, price, deposit, location, comments, floorPlan, housingPhoto, createDate, postingDate,
-	editDate, active, siteUrl, lockChanges, deadbolts, peepholes, balconyLock, exteriorLocks, batterySmokeDetectors, hardWiredSmokeDetectors, carbonDioxideDetector, fireExtinguisher,
-	exteriorLighting, safetyInspections, securityAlarm, securityCameras, securityGuard, gatedCommunity, email, contactPhone, latitude, longitude;
-	
-	$scope.createNewListing = function () {
-		console.log('creating new listing');
-		var somedata = JSON.stringify({
-			housingId: $scope.housingId,
-			orgId: $scope.orgId,
-			housingHeadline: $scope.housingHeadline,
-			batterySmokeDetectors: $scope.batterySmokeDetectors,
-			housingType: $scope.housingType,
-			forSale: $scope.forSale,
-			water: $scope.water,
-			heat: $scope.heat,
-			electricity: $scope.electricity,
-			gas: $scope.gas,
-			cable: $scope.cable,
-			phone: $scope.phone,
-			trash: $scope.trash,
-			bedrooms: $scope.bedrooms,
-			bathrooms: $scope.bathrooms,
-			sharedBathroom: $scope.sharedBathroom,
-			washerDryer: $scope.washerDryer,
-			furnished: $scope.furnished,
-			airConditioned: $scope.airConditioned,
-			petsAllowed: $scope.petsAllowed,
-			lease: $scope.lease,
-			preferences: $scope.preferences,
-			price: $scope.price,
-			deposit: $scope.deposit,
-			location: $scope.location,
-			comments: $scope.comments,
-			floorPlan: $scope.floorPlan,
-			housingPhoto: $scope.housingPhoto,
-			active: '1',
-			siteUrl: $scope.siteUrl,
-			lockChanges: $scope.lockChanges,
-			deadbolts: $scope.deadbolts,
-			peepholes: $scope.peepholes,
-			balconyLock: $scope.balconyLock,
-			exteriorLocks: $scope.exteriorLocks,
-			hardWiredSmokeDetectors: $scope.hardWiredSmokeDetectors,
-			carbonDioxideDetector: $scope.carbonDioxideDetector,
-			fireExtinguisher: $scope.fireExtinguisher,
-			exteriorLighting: $scope.exteriorLighting,
-			safetyInspections: $scope.safetyInspections,
-			securityAlarm: $scope.securityAlarm,
-			securityCameras: $scope.securityCameras,
-			securityGuard: $scope.securityGuard,
-			gatedCommunity: $scope.gatedCommunity,
-			email: $scope.email,
-			contactPhone: $scope.contactPhone
-		})
-//		var testdata = JSON.stringify({
-//			housingId: '14000',
-//			orgId: '14000',
-//			housingHeadline: 'someheadline',
-//			batterySmokeDetectors: 'true',
-//			housingType: 'apartment',
-//			forSale: 'true',
-//			water: 'true',
-//			heat: 'true',
-//			electricity: 'true',
-//			gas: 'true',
-//			cable: 'true',
-//			phone: 'true',
-//			trash: 'true',
-//			bedrooms: '2',
-//			bathrooms: '2',
-//			sharedBathroom: 'true',
-//			washerDryer: '2',
-//			furnished: 'true',
-//			airConditioned: '2',
-//			petsAllowed: '2',
-//			lease: 'none',
-//			preferences: 'none',
-//			price: '500',
-//			deposit: '100',
-//			location: 'none',
-//			comments: 'none',
-//			floorPlan: 'none',
-//			housingPhoto: 'none',
-//			active: '1',
-//			siteUrl: 'google.com',
-//			lockChanges: 'true',
-//			deadbolts: 'true',
-//			peepholes: 'true',
-//			balconyLock: 'true',
-//			exteriorLocks: 'true',
-//			hardWiredSmokeDetectors: 'true',
-//			carbonDioxideDetector: 'true',
-//			fireExtinguisher: 'true',
-//			exteriorLighting: 'true',
-//			safetyInspections: 'true',
-//			securityAlarm: 'true',
-//			securityCameras: 'true',
-//			securityGuard: 'true',
-//			gatedCommunity: 'true'
-//		})
-		var str = JSON.parse(somedata);
-		console.log(str);
-		ListingService.createNewListing(somedata);
-	}
-}])
