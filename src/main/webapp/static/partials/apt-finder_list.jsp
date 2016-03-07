@@ -24,7 +24,7 @@
             <!-- Header -->
             <section id="header">
                 <span class="Apartment-Finder">Apartment Finder</span>
-                <a id="landlordLogin" href="#">Landlord Sign-in ></a>
+                <a id="landlordLogin" href="/new/">Landlord Sign-in ></a>
             </section>
             <!-- left column -->
             <section id="leftColumn" ng-init="cc={keyId:'',orgId:'',housingHeadline:'',forSale:'',bedrooms:'',bathrooms:'',washerDryer:'',furnished:'',airConditioned:'',petsAllowed:'',price:'',location:'',active:1}">
