@@ -179,66 +179,67 @@
                 </form>
             </section>
 
-        <!-- right column -->
-        <section id="rightColumn">
-            <!-- Sort by buttons -->
-            <section id="rightTopSortBar">
-                <!-- Sort by drop down menu -->
-                <label class="DropMenu">
-                    <br>
-                    <select id="SortBySelect">
-                        <option value="">Any Order</option>
-                        <option value="price+">Lowest Price</option>
-                        <option value="price-">Highest Price</option>
-                    </select>
-                </label>
-                <!-- toggle for list vs. map view -->
-                <label>
-                    <input type="checkbox" ng-model="listCheckbox" ng-checked="!mapCheckbox">List</label>
-                <label>
-                    <input type="checkbox" ng-model="mapCheckbox" ng-checked="!listCheckbox">Map</label>
-            </section>
-            <!-- Listing controller -->
-            <section ng-if="listCheckbox">
-                <!-- repeat through the entries in the sql -->
-                <section class="allListings" ng-repeat="x in ctrl.listings | filter:cc | filter:filterPrice | limitTo:totalDisplayed">
-                    <section class="listingStyleLeft">
-                        <!-- temp holder until we get images working-->
-                        <img class="thumb" src="<c:url value='/static/img/181.jpeg' />">
-                        <!--src="{{x.thumb}}">-->
-                    </section>
-
-                    <section class="listingStyleRight">
-                        <section class="leftSubListingStyle">
-                            <a href="/properties/:x.keyId"><span class="fullLink" ng-bind="x.housingHeadline"></span></a>
-                            <br>
-                            <span ng-bind="x.location"></span>
-                        </section>
-                        <section class="rightSubListingStyle">
-                            <span class="listingPrice">$ <span ng-bind="x.price"></span></span>
-                            <!--<span ng-if="x.forSale == '1'"></span>-->
-                            <span ng-if="x.forSale == '0'" class="priceSubText">Per Month</span>
-                        </section>
-                    </section>
-                    
+            <!-- right column -->
+            <section id="rightColumn">
+                <!-- Sort by buttons -->
+                <section id="rightTopSortBar">
+                    <!-- Sort by drop down menu -->
+                    <label class="DropMenu">
+                        <br>
+                        <select id="SortBySelect">
+                            <option value="">Any Order</option>
+                            <option value="price+">Lowest Price</option>
+                            <option value="price-">Highest Price</option>
+                        </select>
+                    </label>
+                    <!-- toggle for list vs. map view -->
+                    <label>
+                        <input type="checkbox" ng-model="listCheckbox" ng-checked="!mapCheckbox">List</label>
+                    <label>
+                        <input type="checkbox" ng-model="mapCheckbox" ng-checked="!listCheckbox">Map</label>
                 </section>
-                <button ng-click="loadMore()">Load More</button>
-            </section>
+                <!-- Listing controller -->
+                <section ng-if="listCheckbox">
+                    <!-- repeat through the entries in the sql -->
+                    <section class="allListings" ng-repeat="x in ctrl.listings | filter:cc | filter:filterPrice | limitTo:totalDisplayed">
+                        <section class="listingStyleLeft">
+                            <!-- temp holder until we get images working-->
+                            <img class="thumb" src="<c:url value='/static/img/181.jpeg' />">
+                            <!--src="{{x.thumb}}">-->
+                        </section>
 
-	            <section id="map" ng-if="mapCheckbox">
-	                <section id="googleMaps"></section>
-	            </section>
-        	</section>
+                        <section class="listingStyleRight">
+                            <section class="leftSubListingStyle">
+                                <a href="/properties/:x.keyId"><span class="fullLink" ng-bind="x.housingHeadline"></span></a>
+                                <br>
+                                <span ng-bind="x.location"></span>
+                            </section>
+                            <section class="rightSubListingStyle">
+                                <span class="listingPrice">$ <span ng-bind="x.price"></span></span>
+                                <!--<span ng-if="x.forSale == '1'"></span>-->
+                                <span ng-if="x.forSale == '0'" class="priceSubText">Per Month</span>
+                            </section>
+                        </section>
+
+                    </section>
+                    <button ng-click="loadMore()">Load More</button>
+                </section>
+
+                <section id="map" ng-if="mapCheckbox">
+                    <section id="googleMaps"></section>
+                </section>
+            </section>
         </div>
     </body>
     <!-- end displayed HTML section -->
 
     <!-- local js -->
     <script src="<c:url value='/static/js/app.js' />"></script>
+    <script src="<c:url value='/static/js/maps.js' />"></script>
     <script src="<c:url value='/static/js/service/ListingService.js' />"></script>
-<%--     <script src="<c:url value='/static/js/controller/ListingController.js' />"></script> --%>
+    <%--     <script src="<c:url value='/static/js/controller/ListingController.js' />"></script> --%>
 
 
-    <!-- End Document -->
+        <!-- End Document -->
 
     </html>
