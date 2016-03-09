@@ -4,7 +4,6 @@ App.controller('ListingDetailedController', ['$scope', 'ListingService', '$route
     //set up function scope
     var self = this;
 	var listing = {};
-    
 	var id;
 	
 	id = $routeParams.keyId;
@@ -26,15 +25,11 @@ App.controller('ListingDetailedController', ['$scope', 'ListingService', '$route
 			);
 	};
 	
+    $scope.resultsMapInit = function () {
+        initMap("resultsGoogleMaps", {lat:37.391031, lng:-79.191554}, 13);
+        addMarker({lat:37.391031, lng:-79.191554});
+    }
+    
 	self.fetchSingleListing(id);
     
-    
-//    /***********************TEMP CODE******************************/
-//    self.detailedListing.latlng = {lat:37.391031, lng:-79.191554};
-//    /************************END TEMP*******************************/
-//    
-//    //set up the map
-//	initMap(self.detailedListing.latlng);
-//    //add marker to map
-//    addMarker(self.detailedListing.latlng);
 }]);

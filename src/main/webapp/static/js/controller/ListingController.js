@@ -63,35 +63,20 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         console.log(order);
     }
 
-    //depreciated
-//    $scope.MapOn = function () {
-//        if ($scope.mapCheckbox) {
-//            $scope.listCheckbox = false;
-//        } else {
-//            $scope.listCheckbox = true;
-//        }
-//    }
-//
-//    $scope.ListOn = function () {
-//        if ($scope.listCheckbox) {
-//            $scope.mapCheckbox = false;
-//        } else {
-//            $scope.mapCheckbox = true;
-//        }
-//    }
+    $scope.listMapInit = function () {
+        //set up the map centered at liberty university
+        initMap("listingGoogleMaps", {
+            lat: 37.353464,
+            lng: -79.177372
+        }, 7);
+        //add markers to map
+        self.placeMarkers();
+    }
+
 
     /******************* code that runs *******************/
 
     self.fetchAllListings();
-
-    //set up the map centered at liberty university
-//    initMap({
-//        lat: 37.353464,
-//        lng: -79.177372
-//    }, 7);
-//    //add markers to map
-////    addMarker(self.detailedListing.latlng);
-//    self.placeMarkers();
 
 
 }]);

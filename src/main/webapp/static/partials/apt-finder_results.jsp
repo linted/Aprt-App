@@ -1,20 +1,20 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <html>
-
+<!--
     <head>
         <title>Detailed listing page</title>
-        <!-- style sheets -->
+        <!-- style sheets ->
         <link rel="stylesheet" href="<c:url value='/static/css/apt-finder_results.css' />">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
 
-        <!-- nonlocal js -->
+        <!-- nonlocal js ->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js"></script>
     </head>
-
+-->
     <!-- Start visable html -->
 
     <body ng-app="myApp" class="ng-cloak">
@@ -86,9 +86,9 @@
                             <span ng-bind="x"></span>
                         </section>
                     </section>
-                    <!-- <section id="map">
-                        <section id="googleMaps"></section>
-                    </section> -->
+                     <section id="resultsMap" onload="resultsMapInit()">
+                        <section id="resultsGoogleMaps"></section>
+                    </section> 
                     <section id="address">
                         <span ng-bind="ctrl.listing.location"></span>
                     </section>
@@ -99,10 +99,9 @@
     <!-- End viable html -->
 
     <!-- local js -->
+        <!--
     <script src="<c:url value='/static/js/app.js' />"></script>
-    <!-- Uncomment for maps -->
     <%-- <script src="<c:url value='/static/js/maps.js' />"></script> --%>
     <script src="<c:url value='/static/js/service/ListingService.js' />"></script>
-
-
+        -->
     </html>

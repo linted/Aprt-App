@@ -15,6 +15,7 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
         <!-- <base href="/finderapp/"> -->
     </head>
 
@@ -27,6 +28,7 @@
 
     <!-- local js -->
     <script src="<c:url value='/static/js/app.js' />"></script>
+<!--    <script src="<c:url value='/static/js/map.js' />"></script> -->
     <script src="<c:url value='/static/js/service/ListingService.js' />"></script>
     <script src="<c:url value='/static/js/controller/ListingController.js' />"></script>
 	<script src="<c:url value='/static/js/controller/ListingDetailedController.js' />"></script>

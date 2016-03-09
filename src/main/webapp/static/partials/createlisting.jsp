@@ -2,15 +2,19 @@
     <html lang="en">
 
 <html>
+    
+    <!--
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Create New Listing</title>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <!-- remote js -->
+    <!-- remote js ->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 </head>
+    -->
+    
 <body ng-app="myApp">
 	<h1>Create New Listing</h1>
 	
@@ -372,7 +376,8 @@
 	
 	</form>
 </body>
-
+<!--
 <script src="<c:url value='/static/js/app.js' />"></script>
 <script src="<c:url value='/static/js/service/ListingService.js' />"></script>
+-->
 </html>
