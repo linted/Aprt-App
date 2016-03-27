@@ -13,7 +13,7 @@
       <div ng-controller="ListingController as ctrl">
         <div class="panel panel-default"  ng-repeat="u in ctrl.listings | limitTo:totalDisplayed">
         <div class="panel-heading">
-          <a ng-href="/finderapp/properties/{{u.keyId}}" style="text-decoration: none; color:black;"><h3 class="panel-title"><span>{{$index + 1}} </span><span ng-bind="u.housingHeadline"></span></h3></a>
+          <a ng-click="visitListing(u.keyId)" href="#" style="text-decoration: none; color:black;"><h3 class="panel-title"><span>{{$index + 1}} </span><span ng-bind="u.housingHeadline"></span></h3></a>
         </div>
         <div class="panel-body">
           <table>

@@ -1,11 +1,18 @@
 'use strict';
 
-App.controller('ListingDetailedController', ['$scope', 'ListingService', function($scope, ListingService) {
-	var self = this;
-	self.listing = {};
+App.controller('ListingDetailedController', ['$scope', 'ListingService', '$routeParams', function($scope, ListingService, $routeParams) {
+    //set up function scope
+    var self = this;
+	var listing = {};
+	var id;
+	
+	id = $routeParams.keyId;
+	console.log("key id");
+	console.log(id);
+	console.log(typeof id);
 	
 	self.fetchSingleListing = function(id) {
-		ListingService.findListingById(id)
+		ListingService.fetchSingleListing(id)
 			.then(
 					function(d) {
 						console.log("logging listing");
@@ -18,11 +25,11 @@ App.controller('ListingDetailedController', ['$scope', 'ListingService', functio
 			);
 	};
 	
+    $scope.resultsMapInit = function () {
+        initMap("resultsGoogleMaps", {lat:37.391031, lng:-79.191554}, 13);
+        addMarker({lat:37.391031, lng:-79.191554});
+    }
+    
 	self.fetchSingleListing(id);
-	
+    
 }]);
-
-//App.controller('ListingDetailedController', ['async', function(async) {
-//	var self = this;
-//	self.listing = async;
-//}]);

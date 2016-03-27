@@ -1,24 +1,22 @@
 'use strict';
 
-var App = angular.module('myApp', []);
+var App = angular.module('myApp', ['ngRoute']);
 
-//App.config(['$routeProvider', function($routeProvider) {
-//	$routeProvider
-//		.when('/properties', {
-//			controller: 'ListingController',
-//			resolve: {
-//				async: ['ListingService', function() {
-//					return ListingService.fetchAllListings();
-//				}]
-//			}
-//		})
-//		.when('/properties/:id', {
-//			controller: 'ListingDetailedController',
-//			resolve: {
-//				async: ['ListingService','$route', function($route) {
-//					return ListingService.fetchSingleListing($route.current.params.id);
-//				}]
-//			}
-//		})
-//		.otherwise({redirectTo:'/'});
-//}]);
+App.config(['$routeProvider', function($routeProvider) {
+	$routeProvider
+		.when('/', {
+			templateUrl: 'static/partials/apt-finder_list.jsp',
+			controller: 'ListingController as ctrl'
+		})
+		.when('/properties/:keyId', {
+			templateUrl: 'static/partials/apt-finder_results.jsp',
+			controller: 'ListingDetailedController as ctrl'
+		})
+		.when('/new', {
+			templateUrl: 'static/partials/createlisting.jsp',
+			controller: 'ListingCreationController as ctrl'
+		})
+		.otherwise({redirectTo:'/'});
+	
+//	$locationProvider.html5Mode(true);
+}]);
