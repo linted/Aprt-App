@@ -24,7 +24,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     };
 
     self.placeMarkers = function () {
-        for (var i = 0; i < self.listings.length || i < $scope.totalDisplayed; i++) {
+        for (var i = 0; i < self.listings.length && i < $scope.totalDisplayed; i++) {
             addMarker({
                 lat: self.listings[i].lat,
                 lng: self.listings[i].lng
