@@ -1,18 +1,11 @@
-<<<<<<< HEAD
-=======
 /* FONTS */
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
->>>>>>> c78b8cec053ef0272beced1f4b9fccacb5bbe63d
 #leftColumn {
     float: left;
     width: 20%;
     height: 400px;
-<<<<<<< HEAD
-    
-=======
     margin-right: 0%;
->>>>>>> c78b8cec053ef0272beced1f4b9fccacb5bbe63d
 }
 
 #rightColumn {
@@ -38,15 +31,6 @@
     margin-right: 5%;
 }
 
-<<<<<<< HEAD
-body {
-    margin-left: 5%;
-    width: 90%;
-}
-
-select {
-    width: 60%;
-=======
 .advFilterDrop {
   float: left;
   font-size: 90%;
@@ -67,7 +51,6 @@ body {
 
 select {
     width: auto;
->>>>>>> c78b8cec053ef0272beced1f4b9fccacb5bbe63d
 }
 
 .checkBox {
@@ -91,10 +74,7 @@ div {
 #inputBoxes {
     width: 100%;
     float: none;
-<<<<<<< HEAD
-=======
     margin-bottom: 34px;
->>>>>>> c78b8cec053ef0272beced1f4b9fccacb5bbe63d
 }
 
 .listingStyleLeft {
@@ -141,12 +121,6 @@ div {
 }
 
 #goButton {
-<<<<<<< HEAD
-    float: right;
-    border-radius: 2px;
-    background-color: #3b99fb;
-    color: white;
-=======
   width: 69px;
   height: 44px;
   border-radius: 2px;
@@ -156,7 +130,6 @@ div {
   color: #ffffff;
   border: none!important;
   margin-left: 26px;
->>>>>>> c78b8cec053ef0272beced1f4b9fccacb5bbe63d
 }
 
 a {
@@ -172,17 +145,10 @@ a {
     transform: translateY(-50%);
 }
 
-<<<<<<< HEAD
-.price {
-    font-size: 250%;
-    margin: 5%;
-}
-=======
 /* .price {
     font-size: 250%;
     margin: 5%;
 } */
->>>>>>> c78b8cec053ef0272beced1f4b9fccacb5bbe63d
 
 #rightTopSortBar {
     width: 100%;
@@ -201,13 +167,6 @@ a {
     border: solid 1px #bbbbbb;
 }
 
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> c78b8cec053ef0272beced1f4b9fccacb5bbe63d
 .listMapButton:target {
     border-radius: 2px;
     background-color: #ffffff;
@@ -220,17 +179,12 @@ a {
     height: 10%;
     width: 100%;
     float: left;
-<<<<<<< HEAD
-=======
     margin: 15px 0px 15px 0px;
->>>>>>> c78b8cec053ef0272beced1f4b9fccacb5bbe63d
 }
 
 #landlordLogin {
     float: right;
 }
-<<<<<<< HEAD
-=======
 
 .Apartment-Finder {
   width: 223px;
@@ -303,4 +257,3 @@ a {
   left: 0;
   z-index: 1;
 }
->>>>>>> c78b8cec053ef0272beced1f4b9fccacb5bbe63d
