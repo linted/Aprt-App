@@ -15,7 +15,7 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeJZn7s4pb3g3XAl6J-w2tQXvi1aFwIdM"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeJZn7s4pb3g3XAl6J-w2tQXvi1aFwIdM&callback=mapsLoaded"></script>
         <!-- <base href="/finderapp/"> -->
     </head>
 

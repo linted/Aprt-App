@@ -3,12 +3,13 @@
 App.controller('ListingController', ['$scope', 'ListingService', function ($scope, ListingService) {
     /******************* Variable declarations *******************/
     var self = this;
-    var isMapInit = false;
+    self.isMapInit = false;
     //self.listing = {};   <- do we need this anymore?
     self.listings = [];
     $scope.totalDisplayed = 20;
     $scope.selected = true;
-
+    self.mapsLoaded = false;
+    
     /******************* function declarations *******************/
     self.fetchAllListings = function () {
         ListingService.fetchAllListings()
@@ -80,9 +81,12 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         //do logic for button 1
         $scope.selected = !$scope.selected;
         console.log($scope.selected);
-        if(!isMapInit){
+        //make sure the api is loaded.
+        while(!self.mapsLoaded){}
+        
+        if(!self.isMapInit){
             $scope.listMapInit();
-            isMapInit = true;
+            self.isMapInit = true;
         }
     }
 
@@ -92,6 +96,9 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         console.log($scope.selected);
     }
 
+    function mapsLoaded() {
+        self.mapsLoaded = true;
+    }
     /******************* code that runs *******************/
 
     self.fetchAllListings();
