@@ -65,6 +65,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
 
     $scope.listMapInit = function () {
         //set up the map centered at liberty university
+        console.log("listMapInit");
         initMap("listingGoogleMaps", {
             lat: 37.353464,
             lng: -79.177372
