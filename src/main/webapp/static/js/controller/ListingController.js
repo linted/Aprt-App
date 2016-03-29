@@ -6,7 +6,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     //self.listing = {};   <- do we need this anymore?
     self.listings = [];
     $scope.totalDisplayed = 20;
-    $scope.listCheckbox = true;
+    $scope.selected = true;
 
     /******************* function declarations *******************/
     self.fetchAllListings = function () {
@@ -73,6 +73,18 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         self.placeMarkers();
     }
 
+    
+    $scope.button1 = function () {
+        //do logic for button 1
+        $scope.selected = !$scope.selected;
+        
+    }
+
+    $scope.button2 = function () {
+        //do logic for button 2
+        $scope.selected = !$scope.selected;
+        
+    }
 
     /******************* code that runs *******************/
 

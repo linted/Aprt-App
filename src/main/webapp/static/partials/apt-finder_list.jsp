@@ -194,10 +194,10 @@
                         </select>
                     </label>
                     <!-- toggle for list vs. map view -->
-                    <label>
-                        <input type="checkbox" ng-model="listCheckbox" ng-checked="!mapCheckbox">List</label>
-                    <label>
-                        <input type="checkbox" ng-model="mapCheckbox" ng-checked="!listCheckbox">Map</label>
+                    <div ng-switch on="selected">
+                        <button ng-switch-when='true' ng-click='button1()'>List</button>
+                        <button ng-switch-when='false' ng-click='button2()'>Map</button>
+                    </div>
                 </section>
                 <!-- Listing controller -->
                 <section ng-if="listCheckbox">
