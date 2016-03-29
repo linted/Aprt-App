@@ -4,6 +4,7 @@ var initMap = function(elementId, latlng, zoom) {
 	        center: latlng,
 	        zoom: zoom
 	    });
+    console.log("map init")
 }
 
 function addMarker(latlng) {
