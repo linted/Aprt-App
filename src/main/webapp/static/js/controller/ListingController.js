@@ -81,9 +81,9 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         //do logic for button 1
         $scope.selected = !$scope.selected;
         console.log($scope.selected);
-                
+        $scope.listMapInit();        
         if(!self.isMapInit){
-            $scope.listMapInit();
+            
             self.isMapInit = true;
         }
     }
