@@ -225,7 +225,7 @@
                     </section>
                     <button ng-click="loadMore()">Load More</button>
                 </section>
-                <section ng-if="mapCheckbox" onload="listMapInit()">
+                <section ng-if="mapCheckbox">
                     <section id="listingGoogleMaps"></section>
                 </section>
 

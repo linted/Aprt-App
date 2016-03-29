@@ -3,6 +3,7 @@
 App.controller('ListingController', ['$scope', 'ListingService', function ($scope, ListingService) {
     /******************* Variable declarations *******************/
     var self = this;
+    var isMapInit = false;
     //self.listing = {};   <- do we need this anymore?
     self.listings = [];
     $scope.totalDisplayed = 20;
@@ -75,13 +76,16 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     }
 
     
-    $scope.button1 = function () {
+    $scope.mapOn = function () {
         //do logic for button 1
         $scope.selected = !$scope.selected;
-        
+        if(!isMapInit){
+            $scope.listMapInit();
+            isMapInit = true;
+        }
     }
 
-    $scope.button2 = function () {
+    $scope.listOn = function () {
         //do logic for button 2
         $scope.selected = !$scope.selected;
         
