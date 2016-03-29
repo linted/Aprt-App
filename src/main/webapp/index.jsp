@@ -11,11 +11,12 @@
         <link rel="stylesheet" href="<c:url value='/static/css/apt-finder_list.css' />">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <!-- remote js -->
+        <script>function init(){console.log("done")}</script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeJZn7s4pb3g3XAl6J-w2tQXvi1aFwIdM"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeJZn7s4pb3g3XAl6J-w2tQXvi1aFwIdM&callback=init"></script>
         <!-- <base href="/finderapp/"> -->
     </head>
 
