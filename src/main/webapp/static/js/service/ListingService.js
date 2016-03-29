@@ -77,6 +77,18 @@ App.factory('ListingService', ['$http', '$q', function($http, $q){
 			return $http.post('http://localhost:8080/finderapp/listings/new', data).success(function(data, status) {
 				console.log(data);
 			})
+		},
+		
+		editListing: function(data) {
+			return $http.post('http://localhost:8080/finderapp/listings/edit', data).success(function(data, status) {
+				console.log(data);
+			})
+		},
+		
+		deleteListing: function(id) {
+			return $http.post('http://localhost:8080/finderapp/listings/delete/'+id,id).success(function(data, status) {
+				console.log(status);
+			})
 		}
 	};
 }]);

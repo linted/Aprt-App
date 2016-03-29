@@ -63,6 +63,20 @@ public class ListingsController {
 		return new ResponseEntity<Listing>(item, HttpStatus.OK);
 	}
 	
+	//Probably need to have a check to make sure this is saved correctly
+	@RequestMapping(value = "/edit", method = RequestMethod.POST)
+	public HttpStatus updateListing(@RequestBody Listing listing) {
+		service.updateListing(listing);
+		return HttpStatus.OK;
+	}
+	
+	//Need to perform check to make sure delete doesn't fail
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+	public HttpStatus deleteListing(@PathVariable int id) {
+		service.deleteListingById(id);
+		return HttpStatus.OK;
+	}
+	
 //	@RequestMapping(value = { "/new" }, method = RequestMethod.POST)
 //	public String saveEmployee(@Valid Listing listing, BindingResult result,
 //			ModelMap model) {
