@@ -195,8 +195,8 @@
                     </label>
                     <!-- toggle for list vs. map view -->
                     <div ng-switch on="selected">
-                        <button ng-switch-when='true' ng-click='button1()'>List</button>
-                        <button ng-switch-when='false' ng-click='button2()'>Map</button>
+                        <button ng-switch-when='true' ng-click='mapOn()'>Map</button>
+                        <button ng-switch-when='false' ng-click='listOn()'>list</button>
                     </div>
                 </section>
                 <!-- Listing controller -->
