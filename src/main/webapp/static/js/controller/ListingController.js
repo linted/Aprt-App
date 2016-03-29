@@ -66,7 +66,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
 
     $scope.listMapInit = function () {
         //set up the map centered at liberty university
-        console.log("listMapInit");
+        
         initMap("listingGoogleMaps", {
             lat: 37.353464,
             lng: -79.177372
@@ -79,6 +79,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     $scope.mapOn = function () {
         //do logic for button 1
         $scope.selected = !$scope.selected;
+        console.log($scope.selected);
         if(!isMapInit){
             $scope.listMapInit();
             isMapInit = true;
@@ -88,7 +89,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     $scope.listOn = function () {
         //do logic for button 2
         $scope.selected = !$scope.selected;
-        
+        console.log($scope.selected);
     }
 
     /******************* code that runs *******************/
