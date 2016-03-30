@@ -33,6 +33,7 @@
     <script src="<c:url value='/static/js/controller/ListingController.js' />"></script>
 	<script src="<c:url value='/static/js/controller/ListingDetailedController.js' />"></script>
 	<script src="<c:url value='/static/js/controller/ListingCreationController.js' />"></script>
+	<script src="<c:url value='/static/js/controller/ListingEditController.js' />"></script>
 
     <!-- End Document -->
 
