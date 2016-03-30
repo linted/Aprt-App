@@ -79,6 +79,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     
     $scope.mapOn = function () {
         //do logic for button 1
+        
         //$scope.selected = !$scope.selected;
         console.log($scope.selected);
         if(!self.isMapInit){
@@ -89,8 +90,9 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
 
     $scope.listOn = function () {
         //do logic for button 2
-        $scope.selected = !$scope.selected;
+        //$scope.selected = !$scope.selected;
         console.log($scope.selected);
+        $scope.mapOn();
     }
     /******************* code that runs *******************/
 
