@@ -7,7 +7,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     //self.listing = {};   <- do we need this anymore?
     self.listings = [];
     $scope.totalDisplayed = 20;
-    $scope.selected = false;
+    $scope.selected = true;
     
     
     /******************* function declarations *******************/
@@ -80,7 +80,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     $scope.mapOn = function () {
         //do logic for button 1
         
-        //$scope.selected = !$scope.selected;
+        $scope.selected = !$scope.selected;
         console.log($scope.selected);
         if(!self.isMapInit){
             $scope.listMapInit();
@@ -90,9 +90,9 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
 
     $scope.listOn = function () {
         //do logic for button 2
-        //$scope.selected = !$scope.selected;
+        $scope.selected = !$scope.selected;
         console.log($scope.selected);
-        $scope.mapOn();
+        
     }
     /******************* code that runs *******************/
 
