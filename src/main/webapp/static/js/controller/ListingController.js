@@ -8,8 +8,13 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     self.listings = [];
     $scope.totalDisplayed = 20;
     $scope.selected = true;
+<<<<<<< HEAD
     
     
+=======
+
+
+>>>>>>> origin/mike
     /******************* function declarations *******************/
     self.fetchAllListings = function () {
         ListingService.fetchAllListings()
@@ -26,10 +31,20 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
 
     self.placeMarkers = function () {
         for (var i = 0; i < self.listings.length && i < $scope.totalDisplayed; i++) {
+<<<<<<< HEAD
             addMarker({
                 lat: self.listings[i].lat,
                 lng: self.listings[i].lng
             });
+=======
+            if (self.listings[i].lat && self.listings[i].lng) {
+                addMarker({
+                    lat: self.listings[i].lat,
+                    lng: self.listings[i].lng
+                });
+            }
+
+>>>>>>> origin/mike
         }
     }
 
@@ -67,7 +82,11 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
 
     $scope.listMapInit = function () {
         //set up the map centered at liberty university
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> origin/mike
         initMap("listingGoogleMaps", {
             lat: 37.353464,
             lng: -79.177372
@@ -76,6 +95,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         self.placeMarkers();
     }
 
+<<<<<<< HEAD
     
     $scope.mapOn = function () {
         //do logic for button 1
@@ -95,8 +115,28 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         
     }
     /******************* code that runs *******************/
+=======
+
+    $scope.mapOn = function () {
+        //do logic for button 1
+
+        $scope.selected = !$scope.selected;
+        console.log($scope.selected);
+        if (!self.isMapInit) {
+            $scope.listMapInit();
+            self.isMapInit = true;
+        }
+    }
+
+    $scope.listOn = function () {
+            //do logic for button 2
+            $scope.selected = !$scope.selected;
+            console.log($scope.selected);
+>>>>>>> origin/mike
+
+        }
+        /******************* code that runs *******************/
 
     self.fetchAllListings();
-
 
 }]);

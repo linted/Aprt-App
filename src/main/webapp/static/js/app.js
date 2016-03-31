@@ -16,6 +16,10 @@ App.config(['$routeProvider', function($routeProvider) {
 			templateUrl: 'static/partials/createlisting.jsp',
 			controller: 'ListingCreationController as ctrl'
 		})
+		.when('/edit/:keyId', {
+			templateUrl: 'static/partials/editlisting.jsp',
+			controller: 'ListingEditController as ctrl'
+		})
 		.otherwise({redirectTo:'/'});
 	
 //	$locationProvider.html5Mode(true);
