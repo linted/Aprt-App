@@ -195,12 +195,12 @@
                     </label>
                     <!-- toggle for list vs. map view -->
                     <div ng-switch on="selected">
-                        <button ng-switch-when='true' ng-click='button1()'>List</button>
-                        <button ng-switch-when='false' ng-click='button2()'>Map</button>
+                        <button ng-switch-when='true' ng-click='mapOn()'>Map</button>
+                        <button ng-switch-when='false' ng-click='listOn()'>list</button>
                     </div>
                 </section>
                 <!-- Listing controller -->
-                <section ng-if="listCheckbox">
+                <section ng-show="selected">
                     <!-- repeat through the entries in the sql -->
                     <section class="allListings" ng-repeat="x in ctrl.listings | filter:cc | filter:filterPrice | limitTo:totalDisplayed">
                         <section class="listingStyleLeft">
@@ -225,7 +225,7 @@
                     </section>
                     <button ng-click="loadMore()">Load More</button>
                 </section>
-                <section ng-if="mapCheckbox" onload="listMapInit()">
+                <section ng-hide="selected">
                     <section id="listingGoogleMaps"></section>
                 </section>
 

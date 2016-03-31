@@ -3,10 +3,12 @@
 App.controller('ListingController', ['$scope', 'ListingService', function ($scope, ListingService) {
     /******************* Variable declarations *******************/
     var self = this;
+    self.isMapInit = false;
     //self.listing = {};   <- do we need this anymore?
     self.listings = [];
     $scope.totalDisplayed = 20;
     $scope.selected = true;
+
 
     /******************* function declarations *******************/
     self.fetchAllListings = function () {
@@ -23,11 +25,14 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     };
 
     self.placeMarkers = function () {
-        for (var i = 0; i < self.listings.length || i < $scope.totalDisplayed; i++) {
-            addMarker({
-                lat: self.listings[i].lat,
-                lng: self.listings[i].lng
-            });
+        for (var i = 0; i < self.listings.length && i < $scope.totalDisplayed; i++) {
+            if (self.listings[i].lat && self.listings[i].lng) {
+                addMarker({
+                    lat: self.listings[i].lat,
+                    lng: self.listings[i].lng
+                });
+            }
+
         }
     }
 
@@ -65,6 +70,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
 
     $scope.listMapInit = function () {
         //set up the map centered at liberty university
+
         initMap("listingGoogleMaps", {
             lat: 37.353464,
             lng: -79.177372
@@ -73,20 +79,25 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         self.placeMarkers();
     }
 
-    
-    $scope.button1 = function () {
+
+    $scope.mapOn = function () {
         //do logic for button 1
+
         $scope.selected = !$scope.selected;
-        
+        console.log($scope.selected);
+        if (!self.isMapInit) {
+            $scope.listMapInit();
+            self.isMapInit = true;
+        }
     }
 
-    $scope.button2 = function () {
-        //do logic for button 2
-        $scope.selected = !$scope.selected;
-        
-    }
+    $scope.listOn = function () {
+            //do logic for button 2
+            $scope.selected = !$scope.selected;
+            console.log($scope.selected);
 
-    /******************* code that runs *******************/
+        }
+        /******************* code that runs *******************/
 
     self.fetchAllListings();
 
