@@ -101,5 +101,4 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
 
     self.fetchAllListings();
 
-
 }]);
