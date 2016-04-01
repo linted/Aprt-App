@@ -50,7 +50,7 @@
 				      				<div class="col-md-6">
 										<fieldset class="form-group">
 											<label for="location">Location</label>
-										    <input type="text" class="form-control" placeholder="1971 University Blvd. Lynchburg, VA" ng-model="ctrl.listing.location">
+										    <input id="locationTxt" type="text" class="form-control" placeholder="1971 University Blvd. Lynchburg, VA" ng-model="ctrl.listing.location">
 										</fieldset>
 										<fieldset class="form-group">
 											<label for="housingPhoto">Property Photos</label>

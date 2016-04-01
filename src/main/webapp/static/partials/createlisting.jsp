@@ -48,9 +48,10 @@
 										</fieldset>
 				      				</div>
 				      				<div class="col-md-6">
-										<fieldset class="form-group">
+										<fieldset class="form-group has-error">
 											<label for="location">Location</label>
-										    <input type="text" class="form-control" placeholder="1971 University Blvd. Lynchburg, VA" ng-model="location">
+										    <input id="locationTxt" type="text" class="form-control" placeholder="1971 University Blvd. Lynchburg, VA" ng-model="location">
+										    <span class="label label-danger" style="top: 5px; position: relative;">Address Not Valid</span>
 										</fieldset>
 										<fieldset class="form-group">
 											<label for="housingPhoto">Property Photos</label>
@@ -376,8 +377,5 @@
 	
 	</form>
 </body>
-<!--
-<script src="<c:url value='/static/js/app.js' />"></script>
-<script src="<c:url value='/static/js/service/ListingService.js' />"></script>
--->
-</html>
+<%-- <script src="<c:url value='/static/js/validation.js' />"></script>
+ --%></html>

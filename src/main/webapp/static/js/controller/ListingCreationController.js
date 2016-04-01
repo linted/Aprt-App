@@ -10,10 +10,38 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', functio
 	var array = [forSale, water, heat, electricity, gas, cable, phone, trash, sharedBathroom, furnished, petsAllowed, deposit, lockChanges, deadbolts, peepholes, balconyLock, exteriorLocks, batterySmokeDetectors, hardWiredSmokeDetectors, carbonDioxideDetector, fireExtinguisher,
 	             exteriorLighting, safetyInspections, securityAlarm, securityCameras, securityGuard, gatedCommunity]
 	
-	console.log(array.length)
+	console.log(array.length);
+	var address = document.getElementById('locationTxt').value;
+	console.log(location);
+	
+	self.validate = function (CurrentAddress) {
+		console.log("We are validating")
+		var geocoder = new google.maps.Geocoder();
+		    //In this case it gets the address from an element on the page, but obviously you  could just pass it to the method instead
+//		    var address = document.getElementById("locationTxt").value;
+		
+		    geocoder.geocode( { 'address': CurrentAddress}, function(results, status) {
+		      if (status == google.maps.GeocoderStatus.OK) {
+		        //In this case it creates a marker, but you can get the lat and lng from the location.LatLng
+		        latitude = results[0].geometry.location.lat();
+		        longitude = results[0].geometry.location.long()
+		        console.log(latitude);
+		        console.log(longitude);
+		      } else {
+		        alert("Geocode was not successful for the following reason: " + status);
+		      }
+		    });
+	};
 	
 	$scope.createNewListing = function () {
 		console.log('creating new listing');
+		
+		//Location validation
+		var address = document.getElementById('locationTxt').value;
+		console.log(address);
+		self.validate(address);
+		
+		
 		var i = 0;
 		[].forEach.call( document.querySelectorAll('input[type="checkbox"]'),function(el){
 		       if (el.checked == true) {
