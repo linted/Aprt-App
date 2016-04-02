@@ -80,9 +80,15 @@ App.factory('ListingService', ['$http', '$q', function($http, $q){
 		},
 		
 		editListing: function(data) {
-			return $http.post('http://localhost:8080/finderapp/listings/edit', data).success(function(data, status) {
-				console.log(data);
-			})
+			return $http.post('http://localhost:8080/finderapp/listings/edit', data)
+				.success(function(data, status) {
+					console.log(data);
+					console.log('Success Status: ' + status);
+				})
+				.error(function(data, status) {
+					console.log(data);
+					console.log('Error Status' + status);
+				})
 		},
 		
 		deleteListing: function(id) {

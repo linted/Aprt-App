@@ -34,24 +34,37 @@
 				    		<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 				      			<div class="panel-body">
 				      				<div class="col-md-6">
-										<fieldset class="form-group">
+										<fieldset id="housingHeadlineValidation" class="form-group">
 											<label for="housingHeadline">Housing Headline</label>
-										    <input type="text" class="form-control" placeholder="2 BR Apartment 10 Min from Liberty!" ng-model="housingHeadline" ng-bind="ctrl.listing.housingHeadline">
+										    <input type="text" class="form-control" placeholder="2 BR Apartment 10 Min from Liberty!" ng-model="housingHeadline">
+										    <span id="housingHeadlineError" class="validator label label-danger" style="display:none;"></span>
 										</fieldset>
-										<fieldset class="form-group">
+										<fieldset id="priceValidation" class="form-group">
 											<label for="price">Price</label>
 										    <input type="text" class="form-control" placeholder="600" ng-model="price">
+										    <span id="priceError" class="validator label label-danger" style="display:none;"></span>
 										</fieldset>
 										<fieldset class="form-group">
-											<label for="lease">Lease Type</label>
-										    <input type="text" class="form-control" placeholder="Per Month" ng-model="lease">
+											<label for="lease">Lease Type</label><br/>
+											<select ng-model="lease" value="One Year">
+			                                    <option value="One Year">One Year</option>
+			                                    <option value="Six Months">Six Months</option>
+			                                    <option value="Month-to-Month">Month-to-Month</option>
+			                                    <option value="Not Applicable">Not Applicable</option>
+			                                </select>
+											<!-- <input type="text" class="form-control" placeholder="Per Month" ng-model="lease"> -->
 										</fieldset>
 				      				</div>
 				      				<div class="col-md-6">
+				      					<fieldset class="form-group has-error">
+											<label for="location">Street Address</label>
+										    <input id="locationTxt" type="text" class="form-control" placeholder="1971 University Blvd. Lynchburg, VA 24501" ng-model="streetAddress">
+										    <!-- <span class="label label-danger" style="top: 5px; position: relative;">Address Not Valid</span> -->
+										</fieldset>
 										<fieldset class="form-group has-error">
-											<label for="location">Location</label>
-										    <input id="locationTxt" type="text" class="form-control" placeholder="1971 University Blvd. Lynchburg, VA" ng-model="location">
-										    <span class="label label-danger" style="top: 5px; position: relative;">Address Not Valid</span>
+											<label for="location">Location Description</label>
+										    <input id="locationTxt" type="text" class="form-control" placeholder="10 min from LU" ng-model="location">
+										    <!-- <span class="label label-danger" style="top: 5px; position: relative;">Address Not Valid</span> -->
 										</fieldset>
 										<fieldset class="form-group">
 											<label for="housingPhoto">Property Photos</label>

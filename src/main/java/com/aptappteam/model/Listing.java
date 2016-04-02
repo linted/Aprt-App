@@ -97,6 +97,9 @@ public class Listing {
 	@Column(name = "Location")
 	private String location;
 	
+	@Column(name = "StreetAddress")
+	private String streetAddress;
+	
 	@Column(name = "Comments")
 	private String comments;
 	
@@ -276,6 +279,10 @@ public class Listing {
 	
 	public String getLocation() {
 		return location;
+	}
+	
+	public String getStreetAddress() {
+		return streetAddress;
 	}
 	
 	public String getComments() {
@@ -484,6 +491,10 @@ public class Listing {
 	
 	public void setLocation(String location) {
 		this.location = location;
+	}
+	
+	public void setStreetAddress(String streetAddress) {
+		this.streetAddress = streetAddress;
 	}
 	
 	public void setComments(String comments) {

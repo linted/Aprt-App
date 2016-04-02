@@ -32,7 +32,7 @@ public class ListingServiceImpl implements ListingService {
      * Just fetch the entity from db and update it with proper values within transaction.
      * It will be updated in db once transaction ends. 
      */
-    public void updateListing(Listing Listing) {
+    public boolean updateListing(Listing Listing) {
         Listing entity = dao.findListingById(Listing.getKeyId());
         if(entity!=null){
             entity.setHousingHeadline(Listing.getHousingHeadline());
@@ -80,6 +80,9 @@ public class ListingServiceImpl implements ListingService {
             entity.setGatedCommunity(Listing.getGatedCommunity());
             entity.setEmail(Listing.getEmail());
             entity.setContactPhone(Listing.getContactPhone());
+            return true;
+        } else {
+        	return false;
         }
     }
  

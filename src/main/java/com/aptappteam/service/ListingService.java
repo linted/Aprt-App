@@ -12,7 +12,7 @@ public interface ListingService {
      
     Listing saveListing(Listing listing);
      
-    void updateListing(Listing listing);
+    boolean updateListing(Listing listing);
      
     void deleteListingById(int id);
  

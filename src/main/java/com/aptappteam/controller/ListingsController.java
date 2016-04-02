@@ -66,8 +66,11 @@ public class ListingsController {
 	//Probably need to have a check to make sure this is saved correctly
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
 	public HttpStatus updateListing(@RequestBody Listing listing) {
-		service.updateListing(listing);
-		return HttpStatus.OK;
+		if (service.updateListing(listing)) {
+			return HttpStatus.OK;
+		} else {
+			return HttpStatus.NOT_FOUND;
+		}
 	}
 	
 	//Need to perform check to make sure delete doesn't fail
