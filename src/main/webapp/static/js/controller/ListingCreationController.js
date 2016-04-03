@@ -20,16 +20,18 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', functio
 		console.log("Time for validation");
 		console.log(housingHeadline);
 		
+		//Ensure that a housing headline is given
 		if ($scope.housingHeadline == "" || $scope.housingHeadline == undefined) {
 			document.getElementById("housingHeadlineValidation").className += " has-error";
 			document.getElementById("housingHeadlineError").style.display = 'block';
-			document.getElementById("priceError").innerHTML = "Please enter a housing headline";
+			document.getElementById("housingHeadlineError").innerHTML = "Please enter a housing headline";
 			return false;
 		} else {
 			document.getElementById("housingHeadlineValidation").className = "form-group";
 			document.getElementById("housingHeadlineError").style.display = 'none';
 		}
 		
+		//Ensure that a price is given
 		if ($scope.price == undefined) {
 			document.getElementById("priceValidation").className += " has-error";
 			document.getElementById("priceError").style.display = 'block';
@@ -37,8 +39,13 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', functio
 			return false;
 		}
 		
-		$scope.price = $scope.price.replace(/[^\d.-]/g, '');
-		$scope.price = Math.round($scope.price);
+		//Check to see if the price is only numerals. If not, remove all non numeric characters.
+		if ($scope.price.match(/^[0-9]+$/) == null) {
+			$scope.price = $scope.price.replace(/[^\d.-]/g, '');
+			$scope.price = Math.round($scope.price);
+		}
+		
+		//Ensure that price is not less than zero.
 		if ($scope.price < 0) {
 			document.getElementById("priceValidation").className += " has-error";
 			document.getElementById("priceError").style.display = 'block';
@@ -47,26 +54,38 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', functio
 			document.getElementById("priceValidation").className = "form-group";
 			document.getElementById("priceError").style.display = 'none';
 		}
-	}
-	
-	self.validate = function (CurrentAddress) {
-		console.log("We are validating")
-		var geocoder = new google.maps.Geocoder();
-		    //In this case it gets the address from an element on the page, but obviously you  could just pass it to the method instead
-//		    var address = document.getElementById("locationTxt").value;
 		
-		    geocoder.geocode( { 'address': CurrentAddress}, function(results, status) {
+		//Make sure that the street address is valid.
+		if ($scope.streetAddress == "" || $scope.streetAddress == undefined) {
+			document.getElementById("streetValidation").className += " has-error";
+			document.getElementById("streetError").style.display = 'block';
+			document.getElementById("streetError").innerHTML = "Please enter a valid street address";
+			return false;
+		} else {
+			document.getElementById("streetValidation").className = "form-group";
+			document.getElementById("streetError").style.display = 'none';
+			
+			
+			//Get the latitude and longitude for a given address.
+			var geocoder = new google.maps.Geocoder();
+			geocoder.geocode( { 'address': $scope.streetAddress}, function(results, status) {
 		      if (status == google.maps.GeocoderStatus.OK) {
 		        //In this case it creates a marker, but you can get the lat and lng from the location.LatLng
 		        latitude = results[0].geometry.location.lat();
-		        longitude = results[0].geometry.location.long()
-		        console.log(latitude);
-		        console.log(longitude);
+		        longitude = results[0].geometry.location.lng();
+		        $scope.$apply(function(){
+		        	$scope.streetAddress = results[0].formatted_address;
+		        });
 		      } else {
 		        alert("Geocode was not successful for the following reason: " + status);
+		        document.getElementById("streetValidation").className += " has-error";
+				document.getElementById("streetError").style.display = 'block';
+				document.getElementById("streetError").innerHTML = "Please enter a valid street address";
+				return false;
 		      }
 		    });
-	};
+		}
+	}
 	
 	$scope.createNewListing = function () {
 		console.log('creating new listing');

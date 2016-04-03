@@ -56,10 +56,10 @@
 										</fieldset>
 				      				</div>
 				      				<div class="col-md-6">
-				      					<fieldset class="form-group has-error">
+				      					<fieldset id="streetValidation" class="form-group">
 											<label for="location">Street Address</label>
-										    <input id="locationTxt" type="text" class="form-control" placeholder="1971 University Blvd. Lynchburg, VA 24501" ng-model="streetAddress">
-										    <!-- <span class="label label-danger" style="top: 5px; position: relative;">Address Not Valid</span> -->
+										    <input type="text" class="form-control" placeholder="1971 University Blvd. Lynchburg, VA 24501" ng-model="streetAddress">
+										    <span id="streetError" class="validator label label-danger"></span>
 										</fieldset>
 										<fieldset class="form-group has-error">
 											<label for="location">Location Description</label>
