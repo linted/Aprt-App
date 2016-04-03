@@ -11,10 +11,11 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', functio
 	             exteriorLighting, safetyInspections, securityAlarm, securityCameras, securityGuard, gatedCommunity];
 	
 	$scope.lease = "One Year";
-	
-	console.log(array.length);
-	var address = document.getElementById('locationTxt').value;
-	console.log(location);
+	$scope.housingType = "Apartment";
+	$scope.bedrooms = "1";
+	$scope.bathrooms = "1";
+	$scope.washerDryer = "0";
+	$scope.airConditioned = "0";
 	
 	self.validation = function () {
 		console.log("Time for validation");
@@ -84,6 +85,38 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', functio
 				return false;
 		      }
 		    });
+		}
+		
+		//Make sure that website address is valid
+		if (!($scope.siteUrl == undefined || $scope.siteUrl == "")) {
+			if ($scope.siteUrl.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/) == null) {
+				document.getElementById("siteVal").className += " has-error";
+				document.getElementById("siteError").style.display = 'block';
+				document.getElementById("siteError").innerHTML = "Please enter a valid URL";
+				return false;
+			} else { 
+				document.getElementById("siteVal").className = "form-group";
+				document.getElementById("siteError").style.display = 'none';
+			}
+		} else {
+			document.getElementById("siteVal").className = "form-group";
+			document.getElementById("siteError").style.display = 'none';
+		}
+		
+		//Make sure that email address is valid
+		if (!($scope.email == undefined || $scope.email == "")) {
+			if ($scope.email.match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/) == null) {
+				document.getElementById("emailVal").className += " has-error";
+				document.getElementById("emailError").style.display = 'block';
+				document.getElementById("emailError").innerHTML = "Please enter a valid email";
+				return false;
+			} else { 
+				document.getElementById("emailVal").className = "form-group";
+				document.getElementById("emailError").style.display = 'none';
+			}
+		} else {
+			document.getElementById("emailVal").className = "form-group";
+			document.getElementById("emailError").style.display = 'none';
 		}
 	}
 	
