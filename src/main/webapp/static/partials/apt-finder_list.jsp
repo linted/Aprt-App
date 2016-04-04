@@ -194,10 +194,10 @@
                         </select>
                     </label>
                     <!-- toggle for list vs. map view -->
-                    <div ng-switch on="selected">
-                        <button ng-switch-when='true' ng-click='mapOn()'>Map</button>
-                        <button ng-switch-when='false' ng-click='listOn()'>list</button>
-                    </div>
+
+                    <button id="listButton" class="buttonSelected">list</button>
+                    <button id="mapButton" class="buttonUnselected">map</button>
+
                 </section>
                 <!-- Listing controller -->
                 <section ng-show="selected">

@@ -45,7 +45,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
 
         console.log("Min Price" + minPrice);
         console.log("Max Price" + maxPrice);
-    }
+    };
 
     $scope.filterPrice = function (item) {
         //		console.log('filtering prices');
@@ -59,12 +59,12 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         } else if (minPrice > 0 && maxPrice == '') {
             return item.price > minPrice;
         } else return ((item.price > minPrice && item.price < maxPrice));
-    }
+    };
 
     $scope.customOrder = function () {
         var order = document.getElementById('SortBySelect').value;
         console.log(order);
-    }
+    };
 
     $scope.listMapInit = function () {
         //set up the map centered at liberty university
@@ -75,19 +75,24 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         }, 13);
         //add markers to map
         self.placeMarkers();
-    }
+    };
 
-
-    $scope.mapOn = function () {
-        //do logic for button 1
-
+    $("#listButton").click(function () {
+        $scope.classToggle();
         $scope.selected = !$scope.selected;
-    }
+    });
 
-    $scope.listOn = function () {
-        //do logic for button 2
+    $("#mapButton").click(function () {
+        $scope.classToggle();
         $scope.selected = !$scope.selected;
-    }
+    });
+    
+    $scope.classToggle() = function () {
+        $("#listButton").toggleClass("buttonSelected, buttonUnselected");
+        $("#mapButton").toggleClass("buttonSelected, buttonUnselected");
+    };
+    
+    
     /******************* code that runs *******************/
 
     self.fetchAllListings();
