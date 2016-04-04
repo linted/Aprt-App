@@ -77,6 +77,11 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         self.placeMarkers();
     };
 
+    $scope.classToggle() = function () {
+        $("#listButton").toggleClass("buttonSelected, buttonUnselected");
+        $("#mapButton").toggleClass("buttonSelected, buttonUnselected");
+    };
+    
     $("#listButton").click(function () {
         $scope.classToggle();
         $scope.selected = !$scope.selected;
@@ -87,10 +92,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         $scope.selected = !$scope.selected;
     });
     
-    $scope.classToggle() = function () {
-        $("#listButton").toggleClass("buttonSelected, buttonUnselected");
-        $("#mapButton").toggleClass("buttonSelected, buttonUnselected");
-    };
+    
     
     
     /******************* code that runs *******************/
