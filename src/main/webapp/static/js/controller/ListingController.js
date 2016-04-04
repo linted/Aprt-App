@@ -72,7 +72,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         initMap("listingGoogleMaps", {
             lat: 37.353464,
             lng: -79.177372
-        }, 7);
+        }, 13);
         //add markers to map
         self.placeMarkers();
     }
