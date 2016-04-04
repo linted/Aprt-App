@@ -95,10 +95,10 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
 			geocoder.geocode( { 'address': self.listing.streetAddress}, function(results, status) {
 		      if (status == google.maps.GeocoderStatus.OK) {
 		        //In this case it creates a marker, but you can get the lat and lng from the location.LatLng
-		        self.listing.latitude = results[0].geometry.location.lat();
-		        self.listing.longitude = results[0].geometry.location.lng();
-		        self.listing.$apply(function(){
+		        $scope.$apply(function(){
 		        	self.listing.streetAddress = results[0].formatted_address;
+		        	self.listing.latitude = results[0].geometry.location.lat();
+			        self.listing.longitude = results[0].geometry.location.lng();
 		        });
 		      } else {
 		        alert("Geocode was not successful for the following reason: " + status);
@@ -111,8 +111,8 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
 		}
 		
 		//Make sure that website address is valid
-		if (!($scope.siteUrl == undefined || $scope.siteUrl == "")) {
-			if ($scope.siteUrl.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/) == null) {
+		if (!(self.listing.siteUrl == undefined || self.listing.siteUrl == "")) {
+			if (self.listing.siteUrl.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/) == null) {
 				document.getElementById("siteVal").className += " has-error";
 				document.getElementById("siteError").style.display = 'block';
 				document.getElementById("siteError").innerHTML = "Please enter a valid URL";
@@ -127,8 +127,8 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
 		}
 		
 		//Make sure that email address is valid
-		if (!($scope.email == undefined || $scope.email == "")) {
-			if ($scope.email.match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/) == null) {
+		if (!(self.listing.email == undefined || self.listing.email == "")) {
+			if (self.listing.email.match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/) == null) {
 				document.getElementById("emailVal").className += " has-error";
 				document.getElementById("emailError").style.display = 'block';
 				document.getElementById("emailError").innerHTML = "Please enter a valid email";
@@ -142,6 +142,28 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
 			document.getElementById("emailError").style.display = 'none';
 		}
 		
+		if (!(self.listing.contactPhone == undefined || self.listing.contactPhone == "")) {
+			if (self.listing.contactPhone.toString().match(/^[0-9]+$/) == null) {
+				self.listing.contactPhone = self.listing.contactPhone.replace(/[^\d.-]/g, '');
+				if (self.listing.contactPhone.length < 10 || self.listing.contactPhone.length > 15) {
+					document.getElementById("contactVal").className += " has-error";
+					document.getElementById("contactError").style.display = 'block';
+					document.getElementById("contactError").innerHTML = "Please enter a valid contact";
+					return false;
+				}
+			} else { 
+				if (self.listing.contactPhone.length < 10 || self.listing.contactPhone.length > 15) {
+					document.getElementById("contactVal").className += " has-error";
+					document.getElementById("contactError").style.display = 'block';
+					document.getElementById("contactError").innerHTML = "Please enter a valid contact";
+					return false;
+				}
+			}
+		} else {
+			document.getElementById("contactVal").className = "form-group";
+			document.getElementById("contactError").style.display = 'none';
+		}
+		
 		return true;
 	}
     
@@ -152,8 +174,11 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
     	console.log(self.listing.housingHeadline);
     	
     	if (self.validation()) {
-    		var dataToUpdate = JSON.stringify(self.listing);
-            ListingService.editListing(dataToUpdate);
+    		setTimeout(function() {
+    			var dataToUpdate = JSON.stringify(self.listing);
+                ListingService.editListing(dataToUpdate);
+    		}, 2000);
+    		
     	}
     }
     
@@ -170,3 +195,19 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
     }
     
 }]);
+
+App.directive('convertToNumber', function() {
+	return {
+	    require: 'ngModel',
+	    link: function(scope, element, attrs, ngModel) {
+	      ngModel.$parsers.push(function(val) {
+	        //saves integer to model null as null
+	        return val == null ? null : parseInt(val, 10);
+	      });
+	      ngModel.$formatters.push(function(val) {
+	        //return string for formatter and null as null
+	        return val == null ? null : '' + val ;
+	      });
+	    }
+	  };
+	});

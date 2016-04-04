@@ -558,8 +558,8 @@ public class Listing {
 	}
 	
 	public void setCarbonDioxideDetector(Boolean carbonDioxideDetector) {
-		System.out.println("printing co detector");
-		System.out.println(carbonDioxideDetector);
+//		System.out.println("printing co detector");
+//		System.out.println(carbonDioxideDetector);
 		this.carbonDioxideDetector = carbonDioxideDetector;
 	}
 	
