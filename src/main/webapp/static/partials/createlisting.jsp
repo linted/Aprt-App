@@ -34,23 +34,37 @@
 				    		<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 				      			<div class="panel-body">
 				      				<div class="col-md-6">
-										<fieldset class="form-group">
+										<fieldset id="housingHeadlineValidation" class="form-group">
 											<label for="housingHeadline">Housing Headline</label>
-										    <input type="text" class="form-control" placeholder="2 BR Apartment 10 Min from Liberty!" ng-model="housingHeadline" ng-bind="ctrl.listing.housingHeadline">
+										    <input type="text" class="form-control" placeholder="2 BR Apartment 10 Min from Liberty!" ng-model="housingHeadline">
+										    <span id="housingHeadlineError" class="validator label label-danger" style="display:none;"></span>
 										</fieldset>
-										<fieldset class="form-group">
+										<fieldset id="priceValidation" class="form-group">
 											<label for="price">Price</label>
 										    <input type="text" class="form-control" placeholder="600" ng-model="price">
+										    <span id="priceError" class="validator label label-danger" style="display:none;"></span>
 										</fieldset>
 										<fieldset class="form-group">
-											<label for="lease">Lease Type</label>
-										    <input type="text" class="form-control" placeholder="Per Month" ng-model="lease">
+											<label for="lease">Lease Type</label><br/>
+											<select ng-model="lease" value="One Year">
+			                                    <option value="One Year">One Year</option>
+			                                    <option value="Six Months">Six Months</option>
+			                                    <option value="Month-to-Month">Month-to-Month</option>
+			                                    <option value="Not Applicable">Not Applicable</option>
+			                                </select>
+											<!-- <input type="text" class="form-control" placeholder="Per Month" ng-model="lease"> -->
 										</fieldset>
 				      				</div>
 				      				<div class="col-md-6">
+				      					<fieldset id="streetValidation" class="form-group">
+											<label for="location">Street Address</label>
+										    <input type="text" class="form-control" placeholder="1971 University Blvd. Lynchburg, VA 24501" ng-model="streetAddress">
+										    <span id="streetError" class="validator label label-danger"></span>
+										</fieldset>
 										<fieldset class="form-group">
-											<label for="location">Location</label>
-										    <input type="text" class="form-control" placeholder="1971 University Blvd. Lynchburg, VA" ng-model="location">
+											<label for="location">Location Description</label>
+										    <input id="locationTxt" type="text" class="form-control" placeholder="10 min from LU" ng-model="location">
+										    <!-- <span class="label label-danger" style="top: 5px; position: relative;">Address Not Valid</span> -->
 										</fieldset>
 										<fieldset class="form-group">
 											<label for="housingPhoto">Property Photos</label>
@@ -74,8 +88,16 @@
 				      			<div class="panel-body">
 				      				<div class="col-md-6">
 				      					<fieldset class="form-group">
-											<label for="housingType">Housing Type</label>
-										    <input type="text" class="form-control" placeholder="Apartment" ng-model="housingType">
+											<label for="housingType">Housing Type</label><br/>
+											<select ng-model="housingType" value="Apartment">
+			                                    <option value="Apartment">Apartment</option>
+			                                    <option value="House">House</option>
+			                                    <option value="Studio">Studio</option>
+			                                    <option value="Duplex">Duplex</option>
+			                                    <option value="Mobile Home">Mobile Home</option>
+			                                    <option value="Room">Room</option>
+			                                    <option value="Townhome">Townhome</option>
+			                                </select>
 										</fieldset>
 										<div class="checkbox">
 										  <label for="forSale">
@@ -85,12 +107,22 @@
 										  </label>
 										</div>
 										<fieldset class="form-group">
-											<label for="bedrooms">Bedrooms</label>
-										    <input type="text" class="form-control" placeholder="2" ng-model="bedrooms">
+											<label for="bedrooms">Bedrooms</label><br/>
+											<select ng-model="bedrooms">
+			                                    <option value="1">1</option>
+			                                    <option value="2">2</option>
+			                                    <option value="3">3</option>
+			                                    <option value="4">4</option>
+			                                </select>
 										</fieldset>
 										<fieldset class="form-group">
-											<label for="bathrooms">Bathrooms</label>
-										    <input type="text" class="form-control" placeholder="1" ng-model="bathrooms">
+											<label for="bathrooms">Bathrooms</label><br/>
+											<select ng-model="bathrooms">
+			                                    <option value="1">1</option>
+			                                    <option value="2">2</option>
+			                                    <option value="3">3</option>
+			                                    <option value="4">4</option>
+			                                </select>
 										</fieldset>
 				      				</div>
 				      				<div class="col-md-6">
@@ -136,8 +168,12 @@
 										  </label>
 										</div>
 										<fieldset class="form-group">
-											<label for="washerDryer">Washer/Dryer</label>
-										    <input type="text" class="form-control" placeholder="0=None,1=Hookups,2=OnPremise" ng-model="washerDryer">
+											<label for="washerDryer">Washer/Dryer</label><br/>
+											<select ng-model="washerDryer">
+			                                    <option value="0">None</option>
+			                                    <option value="1">Hookups</option>
+			                                    <option value="2">On Premises</option>
+			                                </select>
 										</fieldset>
 				      				</div>
 				      				<div class="col-md-6">
@@ -148,8 +184,12 @@
 										  </label>
 										</div>
 				      					<fieldset class="form-group">
-											<label for="airConditioned">Air Conditioning</label>
-										    <input type="text" class="form-control" placeholder="0=None,1=WindowUnit,2=Central" ng-model="airConditioned">
+											<label for="airConditioned">Air Conditioning</label><br/>
+											<select ng-model="airConditioned">
+			                                    <option value="0">None</option>
+			                                    <option value="1">Window Unit</option>
+			                                    <option value="2">Central A/C</option>
+			                                </select>
 										</fieldset>
 										<div class="checkbox">
 										  <label for="petsAllowed">
@@ -350,17 +390,20 @@
 			    			</div>
 				    		<div id="collapseSix" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSix">
 				      			<div class="panel-body">
-				      				<fieldset class="form-group">
+				      				<fieldset id="siteVal" class="form-group">
 										<label for="siteUrl">Property Website</label>
 										<input type="text" class="form-control" placeholder="www.langleyapartments.com" ng-model="siteUrl">
+										<span id="siteError" class="validator label label-danger"></span>
 									</fieldset>
-									<fieldset class="form-group">
+									<fieldset id="emailVal" class="form-group">
 										<label for="email">Contact Email</label>
 										<input type="text" class="form-control" placeholder="contact@langley.com" ng-model="email">
+										<span id="emailError" class="validator label label-danger"></span>
 									</fieldset>
-									<fieldset class="form-group">
+									<fieldset id="contactVal" class="form-group">
 										<label for="contactPhone">Contact Phone</label>
 										<input type="text" class="form-control" placeholder="1234567890" ng-model="contactPhone">
+										<span id="contactError" class="validator label label-danger"></span>
 									</fieldset>
 				      			</div>
 				    		</div>
@@ -376,8 +419,5 @@
 	
 	</form>
 </body>
-<!--
-<script src="<c:url value='/static/js/app.js' />"></script>
-<script src="<c:url value='/static/js/service/ListingService.js' />"></script>
--->
-</html>
+<%-- <script src="<c:url value='/static/js/validation.js' />"></script>
+ --%></html>
