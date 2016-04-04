@@ -17,7 +17,7 @@ App.config(['$routeProvider', function($routeProvider) {
 			controller: 'ListingCreationController as ctrl'
 		})
 		.when('/edit/:keyId', {
-			templateUrl: 'static/partials/editlisting.jsp',
+			templateUrl: 'static/partials/editlisting2.jsp',
 			controller: 'ListingEditController as ctrl'
 		})
 		.otherwise({redirectTo:'/'});

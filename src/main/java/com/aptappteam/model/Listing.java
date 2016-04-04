@@ -385,11 +385,11 @@ public class Listing {
 		return contactPhone;
 	}
 	
-	public Float getLat() {
+	public Float getLatitude() {
 		return latitude;
 	}
 	
-	public Float setLong() {
+	public Float getLongitude() {
 		return longitude;
 	}
 	
@@ -599,11 +599,11 @@ public class Listing {
 		this.contactPhone = contactPhone;
 	}
 	
-	public void setLat(Float latitude) {
+	public void setLatitude(Float latitude) {
 		this.latitude = latitude;
 	}
 	
-	public void setLong(Float longitude) {
+	public void setLongitude(Float longitude) {
 		this.longitude = longitude;
 	}
 	

@@ -80,6 +80,8 @@ public class ListingServiceImpl implements ListingService {
             entity.setGatedCommunity(Listing.getGatedCommunity());
             entity.setEmail(Listing.getEmail());
             entity.setContactPhone(Listing.getContactPhone());
+            entity.setLat(Listing.getLat());
+            entity.setLong(Listing.getLong());
             return true;
         } else {
         	return false;

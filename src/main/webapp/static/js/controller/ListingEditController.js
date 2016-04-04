@@ -34,16 +34,127 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
         addMarker({lat:37.391031, lng:-79.191554});
     }
     
+    self.validation = function () {
+		console.log("Time for validation");
+//		console.log(housingHeadline);
+		
+		//Ensure that a housing headline is given
+		if (self.listing.housingHeadline == "" || self.listing.housingHeadline == undefined) {
+			document.getElementById("housingHeadlineValidation").className += " has-error";
+			document.getElementById("housingHeadlineError").style.display = 'block';
+			document.getElementById("housingHeadlineError").innerHTML = "Please enter a housing headline";
+			return false;
+		} else {
+			document.getElementById("housingHeadlineValidation").className = "form-group";
+			document.getElementById("housingHeadlineError").style.display = 'none';
+		}
+		
+		console.log(self.listing.price);
+		
+		//Ensure that a price is given
+		if (self.listing.price == undefined || self.listing.price == "") {
+			document.getElementById("priceValidation").className += " has-error";
+			document.getElementById("priceError").style.display = 'block';
+			document.getElementById("priceError").innerHTML = "Please enter a value greater than 0";
+			return false;
+		}
+		
+		console.log("234".match(/^[0-9]*$/));
+		
+		//Check to see if the price is only numerals. If not, remove all non numeric characters.
+		if (self.listing.price.toString().match(/^[0-9]*$/) == null) {
+			console.log('Price is not only numberals');
+			self.listing.price = self.listing.price.replace(/[^\d.-]/g, '');
+			self.listing.price = Math.round(self.listing.price);
+		}
+		
+		//Ensure that price is not less than zero.
+		if (self.listing.price <= 0) {
+			document.getElementById("priceValidation").className += " has-error";
+			document.getElementById("priceError").style.display = 'block';
+			document.getElementById("priceError").innerHTML = "Please enter a value greater than 0";
+			return false;
+		} else {
+			document.getElementById("priceValidation").className = "form-group";
+			document.getElementById("priceError").style.display = 'none';
+		}
+		
+		//Make sure that the street address is valid.
+		if (self.listing.streetAddress == "" || self.listing.streetAddress == undefined) {
+			document.getElementById("streetValidation").className += " has-error";
+			document.getElementById("streetError").style.display = 'block';
+			document.getElementById("streetError").innerHTML = "Please enter a valid street address";
+			return false;
+		} else {
+			document.getElementById("streetValidation").className = "form-group";
+			document.getElementById("streetError").style.display = 'none';
+			
+			
+			//Get the latitude and longitude for a given address.
+			var geocoder = new google.maps.Geocoder();
+			geocoder.geocode( { 'address': self.listing.streetAddress}, function(results, status) {
+		      if (status == google.maps.GeocoderStatus.OK) {
+		        //In this case it creates a marker, but you can get the lat and lng from the location.LatLng
+		        self.listing.latitude = results[0].geometry.location.lat();
+		        self.listing.longitude = results[0].geometry.location.lng();
+		        self.listing.$apply(function(){
+		        	self.listing.streetAddress = results[0].formatted_address;
+		        });
+		      } else {
+		        alert("Geocode was not successful for the following reason: " + status);
+		        document.getElementById("streetValidation").className += " has-error";
+				document.getElementById("streetError").style.display = 'block';
+				document.getElementById("streetError").innerHTML = "Please enter a valid street address";
+				return false;
+		      }
+		    });
+		}
+		
+		//Make sure that website address is valid
+		if (!($scope.siteUrl == undefined || $scope.siteUrl == "")) {
+			if ($scope.siteUrl.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/) == null) {
+				document.getElementById("siteVal").className += " has-error";
+				document.getElementById("siteError").style.display = 'block';
+				document.getElementById("siteError").innerHTML = "Please enter a valid URL";
+				return false;
+			} else { 
+				document.getElementById("siteVal").className = "form-group";
+				document.getElementById("siteError").style.display = 'none';
+			}
+		} else {
+			document.getElementById("siteVal").className = "form-group";
+			document.getElementById("siteError").style.display = 'none';
+		}
+		
+		//Make sure that email address is valid
+		if (!($scope.email == undefined || $scope.email == "")) {
+			if ($scope.email.match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/) == null) {
+				document.getElementById("emailVal").className += " has-error";
+				document.getElementById("emailError").style.display = 'block';
+				document.getElementById("emailError").innerHTML = "Please enter a valid email";
+				return false;
+			} else { 
+				document.getElementById("emailVal").className = "form-group";
+				document.getElementById("emailError").style.display = 'none';
+			}
+		} else {
+			document.getElementById("emailVal").className = "form-group";
+			document.getElementById("emailError").style.display = 'none';
+		}
+		
+		return true;
+	}
     
-	
     $scope.updateListing = function () {
     	console.log('updating listing');
     	console.log('logging listing');
     	console.log(self.listing);
-    	var dataToUpdate = JSON.stringify(self.listing);
-//    	var str = JSON.parse(dataToUpdate);
-//		console.log(str);
-        ListingService.editListing(dataToUpdate);
+    	console.log(self.listing.housingHeadline);
+    	
+    	if (self.validation()) {
+    		var dataToUpdate = JSON.stringify(self.listing);
+            ListingService.editListing(dataToUpdate);
+    	}
     }
     
     $scope.confirmDelete = function () {

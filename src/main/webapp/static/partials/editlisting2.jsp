@@ -36,17 +36,17 @@
 				      				<div class="col-md-6">
 										<fieldset id="housingHeadlineValidation" class="form-group">
 											<label for="housingHeadline">Housing Headline</label>
-										    <input type="text" class="form-control" placeholder="2 BR Apartment 10 Min from Liberty!" ng-model="housingHeadline">
+										    <input type="text" class="form-control" placeholder="2 BR Apartment 10 Min from Liberty!" ng-model="ctrl.listing.housingHeadline">
 										    <span id="housingHeadlineError" class="validator label label-danger" style="display:none;"></span>
 										</fieldset>
 										<fieldset id="priceValidation" class="form-group">
 											<label for="price">Price</label>
-										    <input type="text" class="form-control" placeholder="600" ng-model="price">
+										    <input type="text" class="form-control" placeholder="600" ng-model="ctrl.listing.price">
 										    <span id="priceError" class="validator label label-danger" style="display:none;"></span>
 										</fieldset>
 										<fieldset class="form-group">
 											<label for="lease">Lease Type</label><br/>
-											<select ng-model="lease" value="One Year">
+											<select ng-model="ctrl.listing.lease" value="One Year">
 			                                    <option value="One Year">One Year</option>
 			                                    <option value="Six Months">Six Months</option>
 			                                    <option value="Month-to-Month">Month-to-Month</option>
@@ -58,17 +58,17 @@
 				      				<div class="col-md-6">
 				      					<fieldset id="streetValidation" class="form-group">
 											<label for="location">Street Address</label>
-										    <input type="text" class="form-control" placeholder="1971 University Blvd. Lynchburg, VA 24501" ng-model="streetAddress">
+										    <input type="text" class="form-control" placeholder="1971 University Blvd. Lynchburg, VA 24501" ng-model="ctrl.listing.streetAddress">
 										    <span id="streetError" class="validator label label-danger"></span>
 										</fieldset>
 										<fieldset class="form-group">
 											<label for="location">Location Description</label>
-										    <input id="locationTxt" type="text" class="form-control" placeholder="10 min from LU" ng-model="location">
+										    <input id="locationTxt" type="text" class="form-control" placeholder="10 min from LU" ng-model="ctrl.listing.location">
 										    <!-- <span class="label label-danger" style="top: 5px; position: relative;">Address Not Valid</span> -->
 										</fieldset>
 										<fieldset class="form-group">
 											<label for="housingPhoto">Property Photos</label>
-										    <input type="text" class="form-control" placeholder="Browse for pics" ng-model="housingPhoto">
+										    <input type="text" class="form-control" placeholder="Browse for pics" ng-model="ctrl.listing.housingPhoto">
 										</fieldset>
 				      				</div>
 				      			</div>
@@ -89,7 +89,7 @@
 				      				<div class="col-md-6">
 				      					<fieldset class="form-group">
 											<label for="housingType">Housing Type</label><br/>
-											<select ng-model="housingType" value="Apartment">
+											<select ng-model="ctrl.listing.housingType" value="Apartment">
 			                                    <option value="Apartment">Apartment</option>
 			                                    <option value="House">House</option>
 			                                    <option value="Studio">Studio</option>
@@ -101,14 +101,14 @@
 										</fieldset>
 										<div class="checkbox">
 										  <label for="forSale">
-										    <input ng-model="forSale" type="checkbox" value="true">
+										    <input ng-model="ctrl.listing.forSale" type="checkbox" value="true">
 										    <input type="hidden" ng-model="_forSale" value="on"/> 
 										    <b>For Sale</b>
 										  </label>
 										</div>
 										<fieldset class="form-group">
 											<label for="bedrooms">Bedrooms</label><br/>
-											<select ng-model="bedrooms">
+											<select ng-model="ctrl.listing.bedrooms">
 			                                    <option value="1">1</option>
 			                                    <option value="2">2</option>
 			                                    <option value="3">3</option>
@@ -117,7 +117,7 @@
 										</fieldset>
 										<fieldset class="form-group">
 											<label for="bathrooms">Bathrooms</label><br/>
-											<select ng-model="bathrooms">
+											<select ng-model="ctrl.listing.bathrooms">
 			                                    <option value="1">1</option>
 			                                    <option value="2">2</option>
 			                                    <option value="3">3</option>
@@ -128,17 +128,17 @@
 				      				<div class="col-md-6">
 				      					<fieldset class="form-group">
 											<label for="preferences">Preferences</label>
-										    <input type="text" class="form-control" placeholder="Females Only" ng-model="preferences">
+										    <input type="text" class="form-control" placeholder="Females Only" ng-model="ctrl.listing.preferences">
 										</fieldset>
 										<div class="checkbox">
 										  <label for="deposit">
-										    <input ng-model="deposit" type="checkbox" value="true"> 
+										    <input ng-model="ctrl.listing.deposit" type="checkbox" value="true"> 
 										    <b>Deposit</b>
 										  </label>
 										</div>
 										<fieldset class="form-group">
 											<label for="comments">Comments</label>
-										    <input type="text" class="form-control" placeholder="Perfect for any LU student." ng-model="comments">
+										    <input type="text" class="form-control" placeholder="Perfect for any LU student." ng-model="ctrl.listing.comments">
 										</fieldset>
 				      				</div>
 				      			</div>
@@ -159,17 +159,17 @@
 				      				<div class="col-md-6">
 				      					<fieldset class="form-group">
 											<label for="floorPlan">Floor Plan</label>
-										    <input type="text" class="form-control" placeholder="Browse for floor plan" ng-model="floorPlan">
+										    <input type="text" class="form-control" placeholder="Browse for floor plan" ng-model="ctrl.listing.floorPlan">
 										</fieldset>
 										<div class="checkbox">
 										  <label for="sharedBathroom">
-										    <input ng-model="sharedBathroom" type="checkbox" value="true">
+										    <input ng-model="ctrl.listing.sharedBathroom" type="checkbox" value="true">
 										    <b>Shared Bathroom</b>
 										  </label>
 										</div>
 										<fieldset class="form-group">
 											<label for="washerDryer">Washer/Dryer</label><br/>
-											<select ng-model="washerDryer">
+											<select ng-model="ctrl.listing.washerDryer">
 			                                    <option value="0">None</option>
 			                                    <option value="1">Hookups</option>
 			                                    <option value="2">On Premises</option>
@@ -179,13 +179,13 @@
 				      				<div class="col-md-6">
 				      					<div class="checkbox">
 										  <label for="furnished">
-										    <input ng-model="furnished" type="checkbox" value="true">
+										    <input ng-model="ctrl.listing.furnished" type="checkbox" value="true">
 										    <b>Furnished</b>
 										  </label>
 										</div>
 				      					<fieldset class="form-group">
 											<label for="airConditioned">Air Conditioning</label><br/>
-											<select ng-model="airConditioned">
+											<select ng-model="ctrl.listing.airConditioned">
 			                                    <option value="0">None</option>
 			                                    <option value="1">Window Unit</option>
 			                                    <option value="2">Central A/C</option>
@@ -193,7 +193,7 @@
 										</fieldset>
 										<div class="checkbox">
 										  <label for="petsAllowed">
-										    <input ng-model="petsAllowed" type="checkbox" value="true">
+										    <input ng-model="ctrl.listing.petsAllowed" type="checkbox" value="true">
 										    <b>Pets Allowed</b>
 										  </label>
 										</div>
@@ -220,25 +220,25 @@
 				      				<div class="col-md-6">
 				      					<div class="checkbox">
 										  <label for="water">
-										    <input ng-model="water" type="checkbox" value="true">
+										    <input ng-model="ctrl.listing.water" type="checkbox" value="true">
 										    Water
 										  </label>
 										</div>
 										<div class="checkbox">
 										  <label for="heat">
-										    <input ng-model="heat" type="checkbox" value="true">
+										    <input ng-model="ctrl.listing.heat" type="checkbox" value="true">
 										    Heat
 										  </label>
 										</div>
 										<div class="checkbox">
 										  <label for="electricity">
-										    <input ng-model="electricity" type="checkbox" value="true">
+										    <input ng-model="ctrl.listing.electricity" type="checkbox" value="true">
 										    Electricity
 										  </label>
 										</div>
 										<div class="checkbox">
 										  <label for="gas">
-										    <input ng-model="gas" type="checkbox" value="true">
+										    <input ng-model="ctrl.listing.gas" type="checkbox" value="true">
 										    Gas
 										  </label>
 										</div>
@@ -412,9 +412,8 @@
 				</div>
 			</div>
 			<div class="col-md-4" style="margin-top:40px;">
-				<input type="hidden" ng-model="latitude">
-				<input type="hidden" ng-model="longitude">
-				<button ng-click="createNewListing()" class="btn btn-primary">Create Listing</button>
+				<button ng-click="updateListing()" class="btn btn-primary">Update Listing</button>
+				<button ng-click="confirmDelete()" class="btn btn-danger">Delete Listing</button>
 			</div>
 		</div>
 		
