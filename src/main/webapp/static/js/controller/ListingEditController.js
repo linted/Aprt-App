@@ -150,6 +150,9 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
 					document.getElementById("contactError").style.display = 'block';
 					document.getElementById("contactError").innerHTML = "Please enter a valid contact";
 					return false;
+				} else {
+					document.getElementById("contactVal").className = "form-group";
+					document.getElementById("contactError").style.display = 'none';
 				}
 			} else { 
 				if (self.listing.contactPhone.length < 10 || self.listing.contactPhone.length > 15) {
@@ -157,6 +160,9 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
 					document.getElementById("contactError").style.display = 'block';
 					document.getElementById("contactError").innerHTML = "Please enter a valid contact";
 					return false;
+				} else {
+					document.getElementById("contactVal").className = "form-group";
+					document.getElementById("contactError").style.display = 'none';
 				}
 			}
 		} else {
@@ -212,4 +218,3 @@ App.directive('convertToNumber', function() {
 	    }
 	  };
 	});
-}]);
