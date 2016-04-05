@@ -3,8 +3,6 @@
 App.controller('ListingController', ['$scope', 'ListingService', function ($scope, ListingService) {
     /******************* Variable declarations *******************/
     var self = this;
-    self.isMapInit = false;
-    //self.listing = {};   <- do we need this anymore?
     self.listings = [];
     $scope.totalDisplayed = 20;
     $scope.selected = true;
@@ -36,6 +34,17 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         }
     }
 
+    self.listMapInit = function () {
+        //set up the map centered at liberty university
+
+        initMap("listingGoogleMaps", {
+            lat: 37.353464,
+            lng: -79.177372
+        }, 13);
+        //add markers to map
+        self.placeMarkers();
+    };
+    
     $scope.loadMore = function () {
         console.log("loading more");
         $scope.totalDisplayed += 20;
@@ -47,7 +56,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
 
         console.log("Min Price" + minPrice);
         console.log("Max Price" + maxPrice);
-    }
+    };
 
     $scope.filterPrice = function (item) {
         //		console.log('filtering prices');
@@ -61,44 +70,33 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         } else if (minPrice > 0 && maxPrice == '') {
             return item.price > minPrice;
         } else return ((item.price > minPrice && item.price < maxPrice));
-    }
+    };
 
     $scope.customOrder = function () {
         var order = document.getElementById('SortBySelect').value;
         console.log(order);
-    }
-
-    $scope.listMapInit = function () {
-        //set up the map centered at liberty university
-
-        initMap("listingGoogleMaps", {
-            lat: 37.353464,
-            lng: -79.177372
-        }, 7);
-        //add markers to map
-        self.placeMarkers();
-    }
+    };
 
 
-    $scope.mapOn = function () {
-        //do logic for button 1
+    $scope.classToggle = function () {
+        $("#listButton").toggleClass("buttonSelected, buttonUnselected");
+        $("#mapButton").toggleClass("buttonSelected, buttonUnselected");
+    };
 
+    $("#listButton").click(function () {
+        $scope.classToggle();
         $scope.selected = !$scope.selected;
-        console.log($scope.selected);
-        if (!self.isMapInit) {
-            $scope.listMapInit();
-            self.isMapInit = true;
-        }
-    }
+    });
 
-    $scope.listOn = function () {
-            //do logic for button 2
-            $scope.selected = !$scope.selected;
-            console.log($scope.selected);
+    $("#mapButton").click(function () {
+        $scope.classToggle();
+        $scope.selected = !$scope.selected;
+    });
 
-        }
-        /******************* code that runs *******************/
+
+    /******************* code that runs *******************/
 
     self.fetchAllListings();
+    self.listMapInit();
 
 }]);

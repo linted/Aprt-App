@@ -29,7 +29,7 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
 	
 	self.fetchSingleListing(id);
 	
-    $scope.resultsMapInit = function () {
+    self.resultsMapInit = function () {
         initMap("resultsGoogleMaps", {lat:37.391031, lng:-79.191554}, 13);
         addMarker({lat:37.391031, lng:-79.191554});
     }
@@ -177,6 +177,7 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
     		setTimeout(function() {
     			var dataToUpdate = JSON.stringify(self.listing);
                 ListingService.editListing(dataToUpdate);
+                window.location.pathname = "/";
     		}, 2000);
     		
     	}
@@ -186,6 +187,7 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
     	var confirmation = confirm("Are you sure you wish to delete this listing?");
     	if (confirmation) {
     		self.deleteListing();
+            window.location.pathname = "/";
     		return true;
     	} else return false;
     }
@@ -193,7 +195,6 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
     self.deleteListing = function () {
     	ListingService.deleteListing(id);
     }
-    
 }]);
 
 App.directive('convertToNumber', function() {
@@ -211,3 +212,4 @@ App.directive('convertToNumber', function() {
 	    }
 	  };
 	});
+}]);
