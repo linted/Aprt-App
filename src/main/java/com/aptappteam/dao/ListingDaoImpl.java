@@ -28,11 +28,11 @@ public class ListingDaoImpl extends AbstractDao<Integer, Listing> implements Lis
         persist(Listing);
     }
  
-//    public void deleteListingBySsn(String ssn) {
-//        Query query = getSession().createSQLQuery("delete from Listing where ssn = :ssn");
-//        query.setString("ssn", ssn);
-//        query.executeUpdate();
-//    }
+    public void deleteListingById(int id) {
+    	Listing listing = new Listing();
+    	listing.setKeyId(id);
+    	getSession().delete(listing);
+    }
  
     @SuppressWarnings("unchecked")
     public List<SubListing> findAllListings() {   	
@@ -48,10 +48,4 @@ public class ListingDaoImpl extends AbstractDao<Integer, Listing> implements Lis
     	
     	
     }
- 
-//    public Listing findListingBySsn(String ssn) {
-//        Criteria criteria = createEntityCriteria();
-//        criteria.add(Restrictions.eq("ssn", ssn));
-//        return (Listing) criteria.uniqueResult();
-//    }
 }

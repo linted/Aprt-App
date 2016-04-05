@@ -257,3 +257,26 @@ a {
   left: 0;
   z-index: 1;
 }
+
+#listingGoogleMaps {
+    height: 100%;
+    width: 100%;
+}
+
+.validator {
+	top: 10px;
+	position: relative;
+}
+
+.buttonSelected {
+  border-radius: 2px;
+  background-color: #d8d8d8;
+  border: solid 1px #bbbbbb;
+}
+
+.buttonUnselected {
+  border-radius: 2px;
+  background-color: #ffffff;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+  border: solid 1px #bebebe;
+}

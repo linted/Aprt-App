@@ -12,9 +12,9 @@ public interface ListingService {
      
     Listing saveListing(Listing listing);
      
-//    void updateEmployee(Employee employee);
+    boolean updateListing(Listing listing);
      
-//    void deleteEmployeeBySsn(String ssn);
+    void deleteListingById(int id);
  
     List<SubListing> findAllListings(); 
      

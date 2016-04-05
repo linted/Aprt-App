@@ -3,10 +3,10 @@
 App.controller('ListingController', ['$scope', 'ListingService', function ($scope, ListingService) {
     /******************* Variable declarations *******************/
     var self = this;
-    //self.listing = {};   <- do we need this anymore?
     self.listings = [];
     $scope.totalDisplayed = 20;
-    $scope.listCheckbox = true;
+    $scope.selected = true;
+
 
     /******************* function declarations *******************/
     self.fetchAllListings = function () {
@@ -23,14 +23,28 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     };
 
     self.placeMarkers = function () {
-        for (var i = 0; i < self.listings.length || i < $scope.totalDisplayed; i++) {
-            addMarker({
-                lat: self.listings[i].lat,
-                lng: self.listings[i].lng
-            });
+        for (var i = 0; i < self.listings.length && i < $scope.totalDisplayed; i++) {
+            if (self.listings[i].lat && self.listings[i].lng) {
+                addMarker({
+                    lat: self.listings[i].lat,
+                    lng: self.listings[i].lng
+                });
+            }
+
         }
     }
 
+    self.listMapInit = function () {
+        //set up the map centered at liberty university
+
+        initMap("listingGoogleMaps", {
+            lat: 37.353464,
+            lng: -79.177372
+        }, 13);
+        //add markers to map
+        self.placeMarkers();
+    };
+    
     $scope.loadMore = function () {
         console.log("loading more");
         $scope.totalDisplayed += 20;
@@ -42,7 +56,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
 
         console.log("Min Price" + minPrice);
         console.log("Max Price" + maxPrice);
-    }
+    };
 
     $scope.filterPrice = function (item) {
         //		console.log('filtering prices');
@@ -56,42 +70,33 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         } else if (minPrice > 0 && maxPrice == '') {
             return item.price > minPrice;
         } else return ((item.price > minPrice && item.price < maxPrice));
-    }
+    };
 
     $scope.customOrder = function () {
         var order = document.getElementById('SortBySelect').value;
         console.log(order);
-    }
+    };
 
-    //depreciated
-//    $scope.MapOn = function () {
-//        if ($scope.mapCheckbox) {
-//            $scope.listCheckbox = false;
-//        } else {
-//            $scope.listCheckbox = true;
-//        }
-//    }
-//
-//    $scope.ListOn = function () {
-//        if ($scope.listCheckbox) {
-//            $scope.mapCheckbox = false;
-//        } else {
-//            $scope.mapCheckbox = true;
-//        }
-//    }
+
+    $scope.classToggle = function () {
+        $("#listButton").toggleClass("buttonSelected, buttonUnselected");
+        $("#mapButton").toggleClass("buttonSelected, buttonUnselected");
+    };
+
+    $("#listButton").click(function () {
+        $scope.classToggle();
+        $scope.selected = !$scope.selected;
+    });
+
+    $("#mapButton").click(function () {
+        $scope.classToggle();
+        $scope.selected = !$scope.selected;
+    });
+
 
     /******************* code that runs *******************/
 
     self.fetchAllListings();
-
-    //set up the map centered at liberty university
-//    initMap({
-//        lat: 37.353464,
-//        lng: -79.177372
-//    }, 7);
-//    //add markers to map
-////    addMarker(self.detailedListing.latlng);
-//    self.placeMarkers();
-
+    self.listMapInit();
 
 }]);
