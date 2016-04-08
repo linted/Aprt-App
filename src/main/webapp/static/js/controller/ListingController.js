@@ -91,7 +91,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
             $scope.selected = !$scope.selected;
         }
         console.log($scope.selected);
-    });
+    };
 
      $scope.mapButton = function () {
         if ($scope.selected) {
@@ -102,7 +102,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
 
          console.log($scope.selected);
         //google.maps.event.trigger(self.map, "resize");
-    });
+    };
 
 
     /******************* code that runs *******************/
@@ -110,5 +110,5 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     self.fetchAllListings();
     
 
-    google.maps.event.addDomListener(document.getElementById("listingGoogleMaps"), 'load', self.listMapInit);
+    //google.maps.event.addDomListener(document.getElementById("listingGoogleMaps"), 'load', self.listMapInit);
 }]);
