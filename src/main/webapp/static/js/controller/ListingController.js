@@ -85,7 +85,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         $("#mapButton").toggleClass("buttonSelected, buttonUnselected");
     };
 
-    document.getElementById("listButton").onclick(function () {
+    $("listButton").click(function () {
         if (!$scope.selected) {
             $scope.classToggle();
             $scope.selected = !$scope.selected;
@@ -93,7 +93,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         console.log($scope.selected);
     });
 
-     document.getElementById("mapButton").onclick(function () {
+     $("mapButton").click(function () {
         if ($scope.selected) {
             $scope.classToggle();
             $scope.selected = !$scope.selected;
