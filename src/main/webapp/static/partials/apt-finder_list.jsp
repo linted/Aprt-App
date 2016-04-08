@@ -19,7 +19,7 @@
 -->
     <!-- HTML that is displayed -->
 
-
+    <link rel="stylesheet" href="<c:url value='/static/css/apt-finder_list.css' />">
     <body ng-app="myApp">
         <div class="container-fluid">
             <!-- Header -->

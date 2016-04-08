@@ -17,6 +17,7 @@
 -->
     <!-- Start visable html -->
 
+    <link rel="stylesheet" href="<c:url value='/static/css/apt-finder_results.css' />">
     <body ng-app="myApp" class="ng-cloak">
         <section>
             <!-- Main image section -->
