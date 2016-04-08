@@ -112,5 +112,5 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     self.fetchAllListings();
     
 
-    //google.maps.event.addDomListener(document.getElementById("listingGoogleMaps"), 'load', self.listMapInit);
+    google.maps.event.addDomListener(document.getElementById("listingGoogleMaps"), 'load', self.listMapInit);
 }]);
