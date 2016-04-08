@@ -98,6 +98,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
             $scope.classToggle();
             $scope.selected = !$scope.selected;
             self.map = self.listMapInit();
+            google.maps.event.trigger(self.map, "resize");
         }
 
          console.log($scope.selected);
