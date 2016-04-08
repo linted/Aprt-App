@@ -6,7 +6,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     self.listings = [];
     $scope.totalDisplayed = 20;
     $scope.selected = true;
-
+    self.selected = true;
 
     /******************* function declarations *******************/
     self.fetchAllListings = function () {
