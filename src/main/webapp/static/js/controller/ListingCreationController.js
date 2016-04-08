@@ -229,7 +229,7 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', functio
 					console.log(str);
 					ListingService.createNewListing(somedata);
 				}, 2000);
-				
+				window.location.pathname = "/";
 			}
 		
 		//Location validation

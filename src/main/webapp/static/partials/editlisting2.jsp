@@ -16,7 +16,7 @@
     -->
     
 <body ng-app="myApp">
-	<h1>Create New Listing</h1>
+	<h1>Edit Listing</h1>
 	
 	<form action="">
 		<div class="container-fluid">
