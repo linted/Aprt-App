@@ -8,7 +8,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Mike Test Page</title>
         <!-- css -->
-        <link rel="stylesheet" href="<c:url value='/static/css/apt-finder_list.css' />">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <!-- remote js -->
         <script>function init(){console.log("done")}</script>

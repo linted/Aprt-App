@@ -76,3 +76,13 @@ li {
     float: left;
     width: 33%;
 }
+
+#resultsMap {
+    height: 200px;
+    width: 100%;
+}
+
+#resultsGoogleMaps {
+    height: 100%;
+    width: 100%;
+}

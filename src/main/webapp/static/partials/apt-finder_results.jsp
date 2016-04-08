@@ -87,7 +87,7 @@
                             <span ng-bind="x"></span>
                         </section>
                     </section>
-                     <section id="resultsMap" onload="resultsMapInit()">
+                     <section id="resultsMap">
                         <section id="resultsGoogleMaps"></section>
                     </section> 
                     <section id="address">
