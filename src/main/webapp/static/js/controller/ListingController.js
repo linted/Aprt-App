@@ -85,20 +85,22 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         $("#mapButton").toggleClass("buttonSelected, buttonUnselected");
     };
 
-    $("#listButton").click(function () {
+    document.getElementById("listButton").onclick(function () {
         if (!$scope.selected) {
             $scope.classToggle();
             $scope.selected = !$scope.selected;
         }
+        console.log($scope.selected);
     });
 
-    $("#mapButton").click(function () {
+     document.getElementById("mapButton").onclick(function () {
         if ($scope.selected) {
             $scope.classToggle();
             $scope.selected = !$scope.selected;
             self.map = self.listMapInit();
         }
 
+         console.log($scope.selected);
         //google.maps.event.trigger(self.map, "resize");
     });
 
