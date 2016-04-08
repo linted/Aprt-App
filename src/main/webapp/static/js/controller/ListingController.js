@@ -6,7 +6,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     self.listings = [];
     $scope.totalDisplayed = 20;
     $scope.selected = true;
-    
+
 
     /******************* function declarations *******************/
     self.fetchAllListings = function () {
@@ -43,10 +43,10 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         }, 13);
         //add markers to map
         self.placeMarkers(map);
-        
+
         return map;
     };
-    
+
     $scope.loadMore = function () {
         console.log("loading more");
         $scope.totalDisplayed += 20;
@@ -86,21 +86,27 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     };
 
     $("#listButton").click(function () {
-        $scope.classToggle();
-        $scope.selected = !$scope.selected;
+        if (!$scope.selected) {
+            $scope.classToggle();
+            $scope.selected = !$scope.selected;
+        }
     });
 
     $("#mapButton").click(function () {
-        $scope.classToggle();
-        $scope.selected = !$scope.selected;
-        google.maps.event.trigger(self.map, "resize");
+        if ($scope.selected) {
+            $scope.classToggle();
+            $scope.selected = !$scope.selected;
+            self.map = self.listMapInit();
+        }
+
+        //google.maps.event.trigger(self.map, "resize");
     });
 
 
     /******************* code that runs *******************/
 
     self.fetchAllListings();
-    self.map = self.listMapInit();
-
     
+
+    google.maps.event.addDomListener(document.getElementById("listingGoogleMaps"), 'load', self.listMapInit);
 }]);
