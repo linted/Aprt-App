@@ -3,7 +3,7 @@ App.factory('ListingService', ['$http', '$q', function($http, $q){
 	return {
 		
 		fetchAllListings: function() {
-			return $http.get('tomtest-appartmentfinder.rhcloud.com/listings/')
+			return $http.get('http://tomtest-appartmentfinder.rhcloud.com/listings/')
 					.then(
 							function(response) {
 //								console.log(response.data);
