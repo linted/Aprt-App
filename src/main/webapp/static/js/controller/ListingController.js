@@ -6,7 +6,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     self.listings = [];
     $scope.totalDisplayed = 20;
     $scope.selected = true;
-   
+    self.isMapInit = false;
 
     /******************* function declarations *******************/
     self.fetchAllListings = function () {
@@ -93,11 +93,15 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         
     };
 
-     $scope.mapButton = function () {
+    $scope.mapButton = function () {
         if ($scope.selected) {
             $scope.classToggle();
             $scope.selected = !$scope.selected;
-            self.map = self.listMapInit();
+            if (!self.isMapInit){
+                self.map = self.listMapInit();
+                self.isMapInit = true;
+            }
+            google.maps.event.trigger(self.map, "resize");
         }
         google.maps.event.trigger(self.map, "resize");
     };
