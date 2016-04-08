@@ -3,7 +3,7 @@ App.factory('ListingService', ['$http', '$q', function($http, $q){
 	return {
 		
 		fetchAllListings: function() {
-			return $http.get('//tomtest-appartmentfinder.rhcloud.com/listings/')
+			return $http.get('https://tomtest-appartmentfinder.rhcloud.com/listings/')
 					.then(
 							function(response) {
 //								console.log(response.data);
@@ -17,7 +17,7 @@ App.factory('ListingService', ['$http', '$q', function($http, $q){
 		},
 		
 		fetchSingleListing: function(id) {
-			return $http.get('//tomtest-appartmentfinder.rhcloud.comv/listings/'+id)
+			return $http.get('https://tomtest-appartmentfinder.rhcloud.comv/listings/'+id)
 					.then(
 						function(response) {
 //							console.log(response.data);
@@ -30,13 +30,13 @@ App.factory('ListingService', ['$http', '$q', function($http, $q){
 		},
 		
 		createNewListing: function(data) {
-			return $http.post('//tomtest-appartmentfinder.rhcloud.com/listings/new', data).success(function(data, status) {
+			return $http.post('https://tomtest-appartmentfinder.rhcloud.com/listings/new', data).success(function(data, status) {
 				console.log(data);
 			})
 		},
 		
 		editListing: function(data) {
-			return $http.post('//tomtest-appartmentfinder.rhcloud.com/listings/edit', data)
+			return $http.post('https://tomtest-appartmentfinder.rhcloud.com/listings/edit', data)
 				.success(function(data, status) {
 					console.log(data);
 					console.log('Success Status: ' + status);
@@ -48,7 +48,7 @@ App.factory('ListingService', ['$http', '$q', function($http, $q){
 		},
 		
 		deleteListing: function(id) {
-			return $http.post('//tomtest-appartmentfinder.rhcloud.com/listings/delete/'+id,id).success(function(data, status) {
+			return $http.post('https://tomtest-appartmentfinder.rhcloud.com/listings/delete/'+id,id).success(function(data, status) {
 				console.log(status);
 			})
 		}
