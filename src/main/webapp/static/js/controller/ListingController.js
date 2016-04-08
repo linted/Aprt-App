@@ -90,7 +90,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
             $scope.classToggle();
             $scope.selected = !$scope.selected;
         }
-        console.log($scope.selected);
+        
     };
 
      $scope.mapButton = function () {
@@ -98,11 +98,8 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
             $scope.classToggle();
             $scope.selected = !$scope.selected;
             self.map = self.listMapInit();
-            google.maps.event.trigger(self.map, "resize");
         }
-
-         console.log($scope.selected);
-        //google.maps.event.trigger(self.map, "resize");
+        google.maps.event.trigger(self.map, "resize");
     };
 
 
