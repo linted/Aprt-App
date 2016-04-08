@@ -17,7 +17,7 @@ App.factory('ListingService', ['$http', '$q', function($http, $q){
 		},
 		
 		fetchSingleListing: function(id) {
-			return $http.get('https://tomtest-appartmentfinder.rhcloud.comv/listings/'+id)
+			return $http.get('https://tomtest-appartmentfinder.rhcloud.com/listings/'+id)
 					.then(
 						function(response) {
 //							console.log(response.data);
