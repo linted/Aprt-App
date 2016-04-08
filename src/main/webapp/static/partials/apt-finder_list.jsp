@@ -195,12 +195,12 @@
                     </label>
                     <!-- toggle for list vs. map view -->
 
-                    <button id="listButton" class="buttonSelected">list</button>
-                    <button id="mapButton" class="buttonUnselected">map</button>
+                    <button id="listButton" class="buttonSelected" ng-click="listButton()">list</button>
+                    <button id="mapButton" class="buttonUnselected" ng-click="mapButton()">map</button>
 
                 </section>
                 <!-- Listing controller -->
-                <section ng-if="$scope.selected">
+                <section ng-if="selected">
                     <!-- repeat through the entries in the sql -->
                     <section class="allListings" ng-repeat="x in ctrl.listings | filter:cc | filter:filterPrice | limitTo:totalDisplayed">
                         <section class="listingStyleLeft">

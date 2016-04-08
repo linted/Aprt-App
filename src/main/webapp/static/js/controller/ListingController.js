@@ -6,7 +6,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     self.listings = [];
     $scope.totalDisplayed = 20;
     $scope.selected = true;
-    self.selected = true;
+   
 
     /******************* function declarations *******************/
     self.fetchAllListings = function () {
@@ -85,7 +85,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         $("#mapButton").toggleClass("buttonSelected, buttonUnselected");
     };
 
-    $("#listButton").click(function () {
+    $scope.listButton = function () {
         if (!$scope.selected) {
             $scope.classToggle();
             $scope.selected = !$scope.selected;
@@ -93,7 +93,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         console.log($scope.selected);
     });
 
-     $("#mapButton").click(function () {
+     $scope.mapButton = function () {
         if ($scope.selected) {
             $scope.classToggle();
             $scope.selected = !$scope.selected;
