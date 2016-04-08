@@ -6,7 +6,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     self.listings = [];
     $scope.totalDisplayed = 20;
     $scope.selected = true;
-
+    
 
     /******************* function declarations *******************/
     self.fetchAllListings = function () {
@@ -22,13 +22,13 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
             );
     };
 
-    self.placeMarkers = function () {
+    self.placeMarkers = function (map) {
         for (var i = 0; i < self.listings.length && i < $scope.totalDisplayed; i++) {
             if (self.listings[i].lat && self.listings[i].lng) {
                 addMarker({
                     lat: self.listings[i].lat,
                     lng: self.listings[i].lng
-                });
+                }, map);
             }
 
         }
@@ -37,12 +37,14 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     self.listMapInit = function () {
         //set up the map centered at liberty university
 
-        initMap("listingGoogleMaps", {
+        var map = initMap("listingGoogleMaps", {
             lat: 37.353464,
             lng: -79.177372
         }, 13);
         //add markers to map
-        self.placeMarkers();
+        self.placeMarkers(map);
+        
+        return map;
     };
     
     $scope.loadMore = function () {
@@ -91,12 +93,14 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     $("#mapButton").click(function () {
         $scope.classToggle();
         $scope.selected = !$scope.selected;
+        google.maps.event.trigger(self.map, "resize");
     });
 
 
     /******************* code that runs *******************/
 
     self.fetchAllListings();
-    self.listMapInit();
+    self.map = self.listMapInit();
 
+    
 }]);

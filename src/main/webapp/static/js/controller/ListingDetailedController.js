@@ -28,11 +28,13 @@ App.controller('ListingDetailedController', ['$scope', 'ListingService', '$route
 	
     self.resultsMapInit = function () {
         console.log("listings map");
-        initMap("resultsGoogleMaps", {lat:37.391031, lng:-79.191554}, 13);
-        addMarker({lat:37.391031, lng:-79.191554});
+        var map = initMap("resultsGoogleMaps", {lat:37.391031, lng:-79.191554}, 13);
+        addMarker({lat:37.391031, lng:-79.191554}, map);
+        return map;
     }
     
 	self.fetchSingleListing(id);
-    self.resultsMapInit();
+    self.map = self.resultsMapInit();
+    google.maps.event.trigger(self.map, "resize");
     
 }]);
