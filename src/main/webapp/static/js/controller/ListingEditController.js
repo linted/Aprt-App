@@ -193,7 +193,7 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
     	var confirmation = confirm("Are you sure you wish to delete this listing?");
     	if (confirmation) {
     		self.deleteListing();
-            window.location.pathname = "#/properties/" + id;
+            window.location.pathname = "/";
     		return true;
     	} else return false;
     }
