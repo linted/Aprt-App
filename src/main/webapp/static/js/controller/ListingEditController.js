@@ -1,6 +1,6 @@
 'use strict';
 
-App.controller('ListingEditController', ['$scope', 'ListingService', '$routeParams', function($scope, ListingService, $routeParams, $location) {
+App.controller('ListingEditController', ['$scope', 'ListingService', '$routeParams', '$window', function($scope, ListingService, $routeParams, $window) {
     //set up function scope
     var self = this;
 	var listing = {};
@@ -192,7 +192,7 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
     		setTimeout(function() {
     			var dataToUpdate = JSON.stringify(self.listing);
                 ListingService.editListing(dataToUpdate);
-                $location.path( "#/properties/" + id );
+                $window.location.assign( "#/properties/" + id );
     		}, 2000);
     		
     	}
@@ -202,7 +202,7 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
     	var confirmation = confirm("Are you sure you wish to delete this listing?");
     	if (confirmation) {
     		self.deleteListing();
-            $location.path( "/" );
+            $window.location.assign( "/" );
     		return true;
     	} else return false;
     }
