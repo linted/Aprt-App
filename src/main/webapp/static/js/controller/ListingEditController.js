@@ -170,6 +170,15 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
 			document.getElementById("contactError").style.display = 'none';
 		}
 		
+		if ((self.listing.siteUrl == undefined || self.listing.siteUrl == "") && (self.listing.email == undefined || self.listing.email == "") && (self.listing.contactPhone == undefined || self.listing.contactPhone == "")) {
+			document.getElementById("siteVal").className += " has-error";
+			document.getElementById("siteError").style.display = 'block';
+			document.getElementById("siteError").innerHTML = "Please enter a form of contact (Website/Email/Phone)";
+		} else {
+			document.getElementById("siteVal").className = "form-group";
+			document.getElementById("siteError").style.display = 'none';
+		}
+		
 		return true;
 	}
     
