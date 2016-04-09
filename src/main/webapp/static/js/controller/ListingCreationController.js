@@ -1,6 +1,6 @@
 'use strict';
 
-App.controller('ListingCreationController', ['$scope', 'ListingService', function($scope, ListingService){
+App.controller('ListingCreationController', ['$scope', 'ListingService', '$location', function($scope, ListingService){
 	var self = this;
 	var housingId, orgId, housingHeadline, housingType, forSale, water, heat, electricity, gas, cable, phone, trash, bedrooms, bathrooms, sharedBathroom,
 	washerDryer, furnished, airConditioned, petsAllowed, lease, preferences, price, deposit, location, streetAddress, comments, floorPlan, housingPhoto, createDate, postingDate,
@@ -238,7 +238,7 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', functio
 					console.log(str);
 					ListingService.createNewListing(somedata);
 				}, 2000);
-				window.location.pathname = "/";
+				$location.path( "/" );
 			}
 		
 		//Location validation
