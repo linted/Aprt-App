@@ -151,6 +151,15 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', functio
 			document.getElementById("contactError").style.display = 'none';
 		}
 		
+		if (($scope.siteUrl == undefined || $scope.siteUrl == "") && ($scope.email == undefined || $scope.email == "") && ($scope.contactPhone == undefined || $scope.contactPhone == "")) {
+			document.getElementById("siteVal").className += " has-error";
+			document.getElementById("siteError").style.display = 'block';
+			document.getElementById("siteError").innerHTML = "Please enter a form of contact (Website/Email/Phone)";
+		} else {
+			document.getElementById("siteVal").className = "form-group";
+			document.getElementById("siteError").style.display = 'none';
+		}
+		
 		return true;
 		
 	}
