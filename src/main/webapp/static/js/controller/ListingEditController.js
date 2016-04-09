@@ -1,6 +1,6 @@
 'use strict';
 
-App.controller('ListingEditController', ['$scope', 'ListingService', '$routeParams',  '$location', function($scope, ListingService, $routeParams) {
+App.controller('ListingEditController', ['$scope', 'ListingService', '$routeParams', function($scope, ListingService, $routeParams, $location) {
     //set up function scope
     var self = this;
 	var listing = {};

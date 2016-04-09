@@ -1,6 +1,6 @@
 'use strict';
 
-App.controller('ListingCreationController', ['$scope', 'ListingService', '$location', function($scope, ListingService){
+App.controller('ListingCreationController', ['$scope', 'ListingService', '$routeProvider', function($scope, ListingService, $location){
 	var self = this;
 	var housingId, orgId, housingHeadline, housingType, forSale, water, heat, electricity, gas, cable, phone, trash, bedrooms, bathrooms, sharedBathroom,
 	washerDryer, furnished, airConditioned, petsAllowed, lease, preferences, price, deposit, location, streetAddress, comments, floorPlan, housingPhoto, createDate, postingDate,
