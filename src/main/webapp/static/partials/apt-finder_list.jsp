@@ -200,7 +200,7 @@
 
                 </section>
                 <!-- Listing controller -->
-                <section ng-if="selected">
+                <section ng-if="mode">
                     <!-- repeat through the entries in the sql -->
                     <section class="allListings" ng-repeat="x in ctrl.listings | filter:cc | filter:filterPrice | limitTo:totalDisplayed">
                         <section class="listingStyleLeft">
@@ -225,7 +225,7 @@
                     </section>
                     <button ng-click="loadMore()">Load More</button>
                 </section>
-                <section ng-show="!selected">
+                <section ng-show="!mode">
                     <section id="listingGoogleMaps"></section>
                 </section>
 
