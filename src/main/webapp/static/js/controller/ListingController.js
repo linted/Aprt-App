@@ -110,6 +110,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
             }
             console.log("in $watch")
         })
+        console.log("i don't know what i am doing apparently")
     };
 
 
