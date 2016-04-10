@@ -90,32 +90,33 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
             $scope.classToggle();
             $scope.mode = !$scope.mode;
         }
-        
+
     };
 
     $scope.mapButton = function () {
         if ($scope.mode) {
             $scope.classToggle();
             $scope.mode = !$scope.mode;
-            if (!self.isMapInit){
+            if (!self.isMapInit) {
                 self.map = self.listMapInit();
                 self.isMapInit = true;
             }
             google.maps.event.trigger(self.map, "resize");
         }
         google.maps.event.trigger(self.map, "resize");
+        $scope.$watch($scope.mode, function () {
+            if (!$scope.mode) {
+                google.maps.event.trigger(self.map, "resize");
+            }
+            console.log("in $watch")
+        })
     };
 
-    $scope.$watch($scope.mode, function () {
-        if(!$scope.mode){
-            google.maps.event.trigger(self.map, "resize");
-        }
-        console.log("in $watch")
-    })
+
     /******************* code that runs *******************/
 
     self.fetchAllListings();
-    
+
 
     google.maps.event.addDomListener(document.getElementById("listingGoogleMaps"), 'load', self.listMapInit);
 }]);
