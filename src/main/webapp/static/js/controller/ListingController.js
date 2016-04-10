@@ -97,6 +97,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         if ($scope.mode) {
             $scope.classToggle();
             $scope.mode = !$scope.mode;
+            $scope.$apply();
             if (!self.isMapInit){
                 self.map = self.listMapInit();
                 self.isMapInit = true;
