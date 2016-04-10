@@ -225,7 +225,7 @@
                     </section>
                     <button ng-click="loadMore()">Load More</button>
                 </section>
-                <section ng-hide="selected">
+                <section ng-if="selected">
                     <section id="listingGoogleMaps"></section>
                 </section>
 
