@@ -96,6 +96,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     $scope.mapButton = function () {
         if ($scope.mode) {
             $scope.classToggle();
+            setTimeout($scope.loadMap(), 0);
         }
         return false;
     };
