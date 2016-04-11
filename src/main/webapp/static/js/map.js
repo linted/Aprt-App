@@ -1,9 +1,10 @@
 var initMap = function (elementId, latlng, zoom) {
     var mapDiv = document.getElementById(elementId);
     var map = new google.maps.Map(mapDiv, {
-        center: latlng,
-        zoom: zoom
-    });
+            center: latlng,
+            zoom: zoom
+        }, mapTypeId: google.maps.MapTypeId.ROADMAP,
+        disableDefaultUI: true);
     return map;
 }
 
