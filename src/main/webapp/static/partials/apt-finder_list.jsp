@@ -195,8 +195,8 @@
                     </label>
                     <!-- toggle for list vs. map view -->
 
-                    <button id="listButton" class="buttonSelected" ng-click="listButton()">list</button>
-                    <button id="mapButton" class="buttonUnselected" ng-click="mapButton()">map</button>
+                    <button id="listButton" class="buttonSelected" ng-click="mode = listButton()">list</button>
+                    <button id="mapButton" class="buttonUnselected" ng-click="mode = mapButton()">map</button>
 
                 </section>
                 <!-- Listing controller -->

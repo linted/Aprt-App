@@ -88,17 +88,16 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     $scope.listButton = function () {
         if (!$scope.mode) {
             $scope.classToggle();
-            $scope.mode = !$scope.mode;
         }
-
+        return true;
     };
 
     $scope.mapButton = function () {
         if ($scope.mode) {
             $scope.classToggle();
-            $scope.mode = !$scope.mode;
         }
         google.maps.event.trigger(self.map, "resize");
+        return false;
     };
 
 
