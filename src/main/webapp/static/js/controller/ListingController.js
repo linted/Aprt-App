@@ -100,22 +100,28 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
             if (!self.isMapInit) {
                 self.map = self.listMapInit();
                 self.isMapInit = true;
+            } else {
+                google.maps.event.trigger(self.map, "resize");
+                self.map.setCenter({
+                    lat: 37.353464,
+                    lng: -79.177372
+                })
             }
-            else {
-                
-            }
-            google.maps.event.trigger(self.map, "resize");
-            self.map.setCenter(0)
+
         }
-//        google.maps.event.trigger(self.map, "resize");
-//        $scope.$watch($scope.mode, function () {
-//            if (!$scope.mode) {
-//                self.map = self.listMapInit();
-//                google.maps.event.trigger(self.map, "resize");
-//            }
-//            console.log("in $watch");
-//        })
-//        console.log("i don't know what i am doing apparently");
+        google.maps.event.trigger(self.map, "resize");
+        $scope.$watch($scope.mode, function () {
+            if (!$scope.mode) {
+                //self.map = self.listMapInit();
+                google.maps.event.trigger(self.map, "resize");
+                self.map.setCenter({
+                    lat: 37.353464,
+                    lng: -79.177372
+                })
+            }
+            console.log("in $watch");
+        })
+        console.log("i don't know what i am doing apparently");
     };
 
 
