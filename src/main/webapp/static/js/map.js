@@ -3,7 +3,7 @@ var initMap = function (elementId, latlng, zoom) {
     var map = new google.maps.Map(mapDiv, {
         center: latlng,
         zoom: zoom
-    });
+    }, noClear: false, mapTypeId: google.maps.MapTypeId.ROADMAP, streetViewControl: false);
     return map;
 }
 
