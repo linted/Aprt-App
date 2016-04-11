@@ -103,11 +103,12 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     $scope.loadMap = function () {
         self.map = self.listMapInit();
         google.maps.event.trigger(self.map, "resize");
+        $scope.mode = true;
     }
 
     /******************* code that runs *******************/
 
     self.fetchAllListings().then(self.listMapInit(), function() {console.log("can't make map")});
-    $scope.mode = true;
+    
 
 }]);
