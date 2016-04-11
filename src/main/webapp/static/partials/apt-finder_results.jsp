@@ -83,10 +83,9 @@
                     <section id="priceAndContact">
                         <span class="price">$ {{ctrl.listing.price}}</span>
                         <span>Per Month</span>
-                        <a href="mailto:{{ctrl.listing.email}}" ng-if="ctrl.listing.email" ng-bind="ctrl.listing.email"></a>
-                        <section ng-repeat="x in ctrl.listing.phone">
-                            <span ng-bind="x"></span>
-                        </section>
+                        <p><a href="{{ctrl.listing.siteUrl}}" ng-if="ctrl.listing.siteUrl" ng-bind="ctrl.listing.siteUrl"></a></p>
+                        <p><a href="mailto:{{ctrl.listing.email}}" ng-if="ctrl.listing.email" ng-bind="ctrl.listing.email"></a></p>
+                        <p ng-if="ctrl.listing.contactPhone" ng-bind="ctrl.listing.contactPhone"></p>
                     </section>
                      <section id="resultsMap">
                         <section id="resultsGoogleMaps"></section>
