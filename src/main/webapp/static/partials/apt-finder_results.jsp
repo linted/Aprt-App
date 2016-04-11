@@ -32,6 +32,7 @@
                     <section id="description">
                         <h3 ng-bind="ctrl.listing.housingHeadline"></h3>
                         <p ng-bind="ctrl.listing.comments"></p>
+                        <p ng-bind="ctrl.listing.location"></p>
                     </section>
                     <section id="amenities">
                         <h3>Amenities</h3>
@@ -91,7 +92,7 @@
                         <section id="resultsGoogleMaps"></section>
                     </section> 
                     <section id="address">
-                        <span ng-bind="ctrl.listing.location"></span>
+                        <span ng-bind="ctrl.listing.streetAddress"></span>
                     </section>
                 </section>
             </section>
