@@ -225,7 +225,7 @@
                     </section>
                     <button ng-click="loadMore()">Load More</button>
                 </section>
-                <section ng-if="!mode" ng-init="">
+                <section ng-if="!mode">
                     <section id="listingGoogleMaps"></section>
                 </section>
 
