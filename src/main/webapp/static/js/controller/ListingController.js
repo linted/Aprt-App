@@ -96,17 +96,15 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         if ($scope.mode) {
             $scope.classToggle();
         }
+        google.maps.event.trigger(self.map, "resize");
         return false;
     };
 
-    $scope.makeMaps = function () {
-        self.map = self.listMapInit();
-        google.maps.event.trigger(self.map, "resize");
-    }
 
     /******************* code that runs *******************/
 
     self.fetchAllListings();
+    self.map = self.listMapInit();
     $scope.mode = true;
 
 }]);

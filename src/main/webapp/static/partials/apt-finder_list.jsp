@@ -196,7 +196,7 @@
                     <!-- toggle for list vs. map view -->
 
                     <button id="listButton" class="buttonSelected" ng-click="mode = listButton()">list</button>
-                    <button id="mapButton" class="buttonUnselected" ng-click="mode = mapButton(); makeMaps();">map</button>
+                    <button id="mapButton" class="buttonUnselected" ng-click="mode = mapButton()">map</button>
 
                 </section>
                 <!-- Listing controller -->
@@ -225,7 +225,7 @@
                     </section>
                     <button ng-click="loadMore()">Load More</button>
                 </section>
-                <section ng-if="!mode">
+                <section ng-show="!mode">
                     <section id="listingGoogleMaps"></section>
                 </section>
 
