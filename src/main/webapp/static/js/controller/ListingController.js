@@ -5,7 +5,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     var self = this;
     self.listings = [];
     $scope.totalDisplayed = 20;
-    $scope.mode = true;
+    $scope.mode = false;
     self.isMapInit = false;
 
     /******************* function declarations *******************/
@@ -97,38 +97,16 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         if ($scope.mode) {
             $scope.classToggle();
             $scope.mode = !$scope.mode;
-            if (!self.isMapInit) {
-                self.map = self.listMapInit();
-                self.isMapInit = true;
-            } else {
-                google.maps.event.trigger(self.map, "resize");
-                self.map.setCenter({
-                    lat: 37.353464,
-                    lng: -79.177372
-                })
-            }
-
+            google.maps.event.trigger(self.map, "resize");
         }
-        google.maps.event.trigger(self.map, "resize");
-        $scope.$watch($scope.mode, function () {
-            if (!$scope.mode) {
-                //self.map = self.listMapInit();
-                google.maps.event.trigger(self.map, "resize");
-                self.map.setCenter({
-                    lat: 37.353464,
-                    lng: -79.177372
-                })
-            }
-            console.log("in $watch");
-        })
-        console.log("i don't know what i am doing apparently");
+
     };
 
 
     /******************* code that runs *******************/
 
     self.fetchAllListings();
+    self.map = self.listMapInit();
+    $scope.mode = true;
 
-
-    google.maps.event.addDomListener(document.getElementById("listingGoogleMaps"), 'load', self.listMapInit);
 }]);
