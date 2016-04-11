@@ -102,9 +102,10 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
                 self.isMapInit = true;
             }
             else {
-                self.map.setCenter({lat: 37.353464,lng: -79.177372})
+                
             }
             google.maps.event.trigger(self.map, "resize");
+            self.map.setCenter(0)
         }
 //        google.maps.event.trigger(self.map, "resize");
 //        $scope.$watch($scope.mode, function () {
