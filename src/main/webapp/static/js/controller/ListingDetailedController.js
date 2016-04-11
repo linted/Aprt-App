@@ -47,8 +47,10 @@ App.controller('ListingDetailedController', ['$scope', 'ListingService', '$route
         return map;
     }
 
-    self.fetchSingleListing(id);
-    self.map = self.resultsMapInit();
-    google.maps.event.trigger(self.map, "resize");
+    self.fetchSingleListing(id).then(function () {
+        self.map = self.resultsMapInit();
+        google.maps.event.trigger(self.map, "resize");
+    });
+
 
 }]);
