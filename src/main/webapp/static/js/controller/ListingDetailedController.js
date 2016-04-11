@@ -12,13 +12,14 @@ App.controller('ListingDetailedController', ['$scope', 'ListingService', '$route
     console.log(typeof id);
 
     self.fetchSingleListing = function (id) {
-
         ListingService.fetchSingleListing(id)
             .then(
                 function (d) {
                     console.log("logging listing");
                     console.log(d);
                     self.listing = d;
+                    self.map = self.resultsMapInit();
+                    google.maps.event.trigger(self.map, "resize");
                 },
                 function (errResponse) {
                     console.error('some error');
@@ -47,10 +48,7 @@ App.controller('ListingDetailedController', ['$scope', 'ListingService', '$route
         return map;
     }
 
-    self.fetchSingleListing(id).then(function () {
-        self.map = self.resultsMapInit();
-        google.maps.event.trigger(self.map, "resize");
-    });
+    self.fetchSingleListing(id);
 
 
 }]);
