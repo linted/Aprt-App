@@ -9,7 +9,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     self.isMapInit = false;
 
     /******************* function declarations *******************/
-    self.fetchAllListings = Promise(function () {
+    self.fetchAllListings = new Promise(function () {
         ListingService.fetchAllListings()
             .then(
                 function (d) {
