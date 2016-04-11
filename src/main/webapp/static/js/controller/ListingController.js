@@ -106,6 +106,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         google.maps.event.trigger(self.map, "resize");
         $scope.$watch($scope.mode, function () {
             if (!$scope.mode) {
+                self.map = self.listMapInit();
                 google.maps.event.trigger(self.map, "resize");
             }
             console.log("in $watch")
