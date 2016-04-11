@@ -5,11 +5,11 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     var self = this;
     self.listings = [];
     $scope.totalDisplayed = 20;
-    $scope.mode = false;
+    $scope.mode = true;
     self.isMapInit = false;
 
     /******************* function declarations *******************/
-    self.fetchAllListings = new Promise(function () {
+    self.fetchAllListings = function () {
         ListingService.fetchAllListings()
             .then(
                 function (d) {
@@ -20,7 +20,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
                     console.error('Error while fetching listings');
                 }
             );
-    });
+    };
 
     self.placeMarkers = function (map) {
         console.log(self.listings.length);
@@ -108,7 +108,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
 
     /******************* code that runs *******************/
 
-    self.fetchAllListings.then(self.listMapInit(), function() {console.log("can't make map")});
+    self.fetchAllListings();
     
 
 }]);

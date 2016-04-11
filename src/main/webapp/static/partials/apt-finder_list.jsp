@@ -226,7 +226,7 @@
                     <button ng-click="loadMore()">Load More</button>
                 </section>
                 <section ng-if="!mode">
-                    <section id="listingGoogleMaps"></section>
+                    <section id="listingGoogleMaps" ng-init="loadMap()"></section>
                 </section>
 
             </section>
