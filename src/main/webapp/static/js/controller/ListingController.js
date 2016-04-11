@@ -108,7 +108,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
 
     /******************* code that runs *******************/
 
-    self.fetchAllListings().then(self.listMapInit(), function() {console.log("can't make map")});
+    self.fetchAllListings.then(self.listMapInit(), function() {console.log("can't make map")});
     
 
 }]);
