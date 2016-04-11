@@ -97,9 +97,8 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         if ($scope.mode) {
             $scope.classToggle();
             $scope.mode = !$scope.mode;
-            google.maps.event.trigger(self.map, "resize");
         }
-
+        google.maps.event.trigger(self.map, "resize");
     };
 
 
