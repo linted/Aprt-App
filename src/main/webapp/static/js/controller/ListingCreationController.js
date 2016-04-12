@@ -239,7 +239,7 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', '$windo
 					console.log(str);
 					ListingService.createNewListing(somedata);
 				}, 2000);
-				$window.location.assign( "/" );
+//				$window.location.assign( "/" );
 			}
 		
 		//Location validation
