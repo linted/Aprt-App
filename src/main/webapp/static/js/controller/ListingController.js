@@ -5,8 +5,9 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     var self = this;
     self.listings = [];
     $scope.totalDisplayed = 20;
-    $scope.mode = true;
+    $scope.mode = false;
     self.isMapInit = false;
+    self.map = undefined;
 
     /******************* function declarations *******************/
     self.fetchAllListings = function () {
@@ -22,14 +23,17 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
             );
     };
 
-    self.placeMarkers = function (map) {
+    self.placeMarkers = function () {
         console.log(self.listings.length);
-        for (var i = 0; i < self.listings.length && i < $scope.totalDisplayed; i++) {
-            if (self.listings[i].lat && self.listings[i].lng) {
+        console.log("Loading markers");
+        for (var i = 0; i < self.listings.length; i++) {
+//        	console.log(self.listings[i].latitude);
+//        	console.log(self.listings[i].longitude);
+            if (self.listings[i].latitude && self.listings[i].longitude) {
                 addMarker({
-                    lat: self.listings[i].lat,
-                    lng: self.listings[i].lng
-                }, map);
+                    lat: self.listings[i].latitude,
+                    lng: self.listings[i].longitude
+                }, self.map);
             }
 
         }
@@ -37,16 +41,22 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
 
     self.listMapInit = function () {
         //set up the map centered at liberty university
-
-        var map = initMap("listingGoogleMaps", {
+    	console.log("Initalizing map");
+        self.map = initMap("listingGoogleMaps", {
             lat: 37.353464,
             lng: -79.177372
         }, 13);
         //add markers to map
-        self.placeMarkers(map);
-
-        return map;
+        self.placeMarkers(self.map);
     };
+    
+    $scope.loadMap = function () {
+    	console.log(self.listings[0]);
+        self.listMapInit();
+        console.log("Init done");
+        google.maps.event.trigger(self.map, "resize");
+        $scope.mode = true;
+    }
 
     $scope.loadMore = function () {
         console.log("loading more");
@@ -87,28 +97,23 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     };
 
     $scope.listButton = function () {
-        if (!$scope.mode) {
-            $scope.classToggle();
-        }
-        return true;
-    };
-
-    $scope.mapButton = function () {
+    	console.log("List selected");
         if ($scope.mode) {
             $scope.classToggle();
         }
         return false;
     };
 
-    $scope.loadMap = function () {
-        self.map = self.listMapInit();
-        google.maps.event.trigger(self.map, "resize");
-        $scope.mode = true;
-    }
+    $scope.mapButton = function () {
+    	console.log("Map selected");
+        if (!$scope.mode) {
+            $scope.classToggle();
+//            $scope.loadMap();
+        }
+        return true;
+    };
 
     /******************* code that runs *******************/
 
     self.fetchAllListings();
-    
-
 }]);
