@@ -5,7 +5,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     var self = this;
     self.listings = [];
     $scope.totalDisplayed = 20;
-    $scope.selected = true;
+    $scope.mode = true;
     self.isMapInit = false;
 
     /******************* function declarations *******************/
@@ -23,6 +23,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     };
 
     self.placeMarkers = function (map) {
+        console.log(self.listings.length);
         for (var i = 0; i < self.listings.length && i < $scope.totalDisplayed; i++) {
             if (self.listings[i].lat && self.listings[i].lng) {
                 addMarker({
@@ -86,31 +87,28 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     };
 
     $scope.listButton = function () {
-        if (!$scope.selected) {
+        if (!$scope.mode) {
             $scope.classToggle();
-            $scope.selected = !$scope.selected;
         }
-        
+        return true;
     };
 
     $scope.mapButton = function () {
-        if ($scope.selected) {
+        if ($scope.mode) {
             $scope.classToggle();
-            $scope.selected = !$scope.selected;
-            if (!self.isMapInit){
-                self.map = self.listMapInit();
-                self.isMapInit = true;
-            }
-            google.maps.event.trigger(self.map, "resize");
         }
-        google.maps.event.trigger(self.map, "resize");
+        return false;
     };
 
+    $scope.loadMap = function () {
+        self.map = self.listMapInit();
+        google.maps.event.trigger(self.map, "resize");
+        $scope.mode = true;
+    }
 
     /******************* code that runs *******************/
 
     self.fetchAllListings();
     
 
-    google.maps.event.addDomListener(document.getElementById("listingGoogleMaps"), 'load', self.listMapInit);
 }]);
