@@ -213,7 +213,9 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
     	ListingService.deleteListing(id);
     }
     
-   
+   self.checkUser = function () {
+       return;
+   }
     
     /* Code That Runs */
     self.fetchSingleListing(id);
