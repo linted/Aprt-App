@@ -174,6 +174,7 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
 			document.getElementById("siteVal").className += " has-error";
 			document.getElementById("siteError").style.display = 'block';
 			document.getElementById("siteError").innerHTML = "Please enter a form of contact (Website/Email/Phone)";
+			return false;
 		} else {
 			document.getElementById("siteVal").className = "form-group";
 			document.getElementById("siteError").style.display = 'none';

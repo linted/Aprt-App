@@ -10,6 +10,7 @@ var initMap = function (elementId, latlng, zoom) {
 }
 
 function addMarker(latlng, map) {
+	console.log("Adding marker");
     if (latlng.lat && latlng.lng) {
         var marker = new google.maps.Marker({
             position: latlng,

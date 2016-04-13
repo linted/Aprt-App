@@ -195,12 +195,12 @@
                     </label>
                     <!-- toggle for list vs. map view -->
 
-                    <button id="listButton" class="buttonSelected" ng-click="mode = listButton()">list</button>
-                    <button id="mapButton" class="buttonUnselected" ng-click="mode = mapButton()">map</button>
+                    <button id="listButton" class="buttonSelected" ng-click="mode = listButton()" type="button">list</button>
+                    <button id="mapButton" class="buttonUnselected" ng-click="mode = mapButton()" type="button">map</button>
 
                 </section>
                 <!-- Listing controller -->
-                <section ng-if="mode">
+                <section ng-if="!mode">
                     <!-- repeat through the entries in the sql -->
                     <section class="allListings" ng-repeat="x in ctrl.listings | filter:cc | filter:filterPrice | limitTo:totalDisplayed">
                         <section class="listingStyleLeft">
@@ -225,7 +225,7 @@
                     </section>
                     <button ng-click="loadMore()">Load More</button>
                 </section>
-                <section ng-if="!mode">
+                <section ng-if="mode">
                     <section id="listingGoogleMaps" ng-init="loadMap()"></section>
                 </section>
 
@@ -233,14 +233,11 @@
         </div>
     </body>
     <!-- end displayed HTML section -->
-
     <!-- local js -->
-    <!--
-    <script src="<c:url value='/static/js/app.js' />"></script>
+    <script src="<c:url value='/static/js/angular-google-maps-native.js' />"></script>
     <%-- <script src="<c:url value='/static/js/maps.js' />"></script> --%>
-    <script src="<c:url value='/static/js/service/ListingService.js' />"></script>
+    <%-- <script src="<c:url value='/static/js/service/ListingService.js' />"></script> --%>
     <%--     <script src="<c:url value='/static/js/controller/ListingController.js' />"></script> --%>
-        -->
 
     <!-- End Document -->
 

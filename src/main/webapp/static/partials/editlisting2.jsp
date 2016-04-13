@@ -18,7 +18,7 @@
 <body ng-app="myApp">
 	<h1>Edit Listing</h1>
 	
-	<form action="">
+	<div>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -414,13 +414,13 @@
 			<div class="col-md-4" style="margin-top:40px;">
 				<input type="hidden" ng-model="ctrl.listing.latitude">
 				<input type="hidden" ng-model="ctrl.listing.longitude">
-				<button ng-click="updateListing()" class="btn btn-primary">Update Listing</button>
-				<button ng-click="confirmDelete()" class="btn btn-danger">Delete Listing</button>
+				<button ng-click="updateListing()" class="btn btn-primary" type="button">Update Listing</button>
+				<button ng-click="confirmDelete()" class="btn btn-danger" type="button">Delete Listing</button>
 			</div>
 		</div>
 		
 	
-	</form>
+	</div>
 </body>
 <%-- <script src="<c:url value='/static/js/validation.js' />"></script>
  --%></html>

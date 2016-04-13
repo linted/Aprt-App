@@ -14,18 +14,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 </head>
     -->
+    
+<body ng-app="myApp">
+	<h1>Create New Listing</h1>
+	
+	<div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					<div class="col-md-4">
+						<div class="panel panel-default">
+			    			<div class="panel-heading" role="tab" id="headingOne">
+			      				<h4 class="panel-title">
 
-    <body ng-app="myApp">
-        <h1>Create New Listing</h1>
-
-        <form action="">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="col-md-4">
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingOne">
-                                    <h4 class="panel-title">
 			        				<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 			          					Primary Property Information
 			        				</a>
@@ -371,40 +372,39 @@
 			          					Contact Information
 			        				</a>
 			      				</h4>
-                                </div>
-                                <div id="collapseSix" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSix">
-                                    <div class="panel-body">
-                                        <fieldset id="siteVal" class="form-group">
-                                            <label for="siteUrl">Property Website</label>
-                                            <input type="text" class="form-control" placeholder="www.langleyapartments.com" ng-model="siteUrl">
-                                            <span id="siteError" class="validator label label-danger"></span>
-                                        </fieldset>
-                                        <fieldset id="emailVal" class="form-group">
-                                            <label for="email">Contact Email</label>
-                                            <input type="text" class="form-control" placeholder="contact@langley.com" ng-model="email">
-                                            <span id="emailError" class="validator label label-danger"></span>
-                                        </fieldset>
-                                        <fieldset id="contactVal" class="form-group">
-                                            <label for="contactPhone">Contact Phone</label>
-                                            <input type="text" class="form-control" placeholder="1234567890" ng-model="contactPhone">
-                                            <span id="contactError" class="validator label label-danger"></span>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4" style="margin-top:40px;">
-                    <input type="hidden" ng-model="latitude">
-                    <input type="hidden" ng-model="longitude">
-                    <button ng-click="createNewListing()" class="btn btn-primary">Create Listing</button>
-                </div>
-            </div>
-
-
-        </form>
-    </body>
-    <%-- <script src="<c:url value='/static/js/validation.js' />"></script>--%>
-
-    </html>
+			    			</div>
+				    		<div id="collapseSix" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSix">
+				      			<div class="panel-body">
+				      				<fieldset id="siteVal" class="form-group">
+										<label for="siteUrl">Property Website</label>
+										<input type="text" class="form-control" placeholder="www.langleyapartments.com" ng-model="siteUrl">
+										<span id="siteError" class="validator label label-danger"></span>
+									</fieldset>
+									<fieldset id="emailVal" class="form-group">
+										<label for="email">Contact Email</label>
+										<input type="text" class="form-control" placeholder="contact@langley.com" ng-model="email">
+										<span id="emailError" class="validator label label-danger"></span>
+									</fieldset>
+									<fieldset id="contactVal" class="form-group">
+										<label for="contactPhone">Contact Phone</label>
+										<input type="text" class="form-control" placeholder="1234567890" ng-model="contactPhone">
+										<span id="contactError" class="validator label label-danger"></span>
+									</fieldset>
+				      			</div>
+				    		</div>
+			  			</div>	
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4" style="margin-top:40px;">
+				<input type="hidden" ng-model="latitude">
+				<input type="hidden" ng-model="longitude">
+				<button ng-click="createNewListing()" class="btn btn-primary" type="button">Create Listing</button>
+			</div>
+		</div>
+		
+	
+	</div>
+</body>
+<%-- <script src="<c:url value='/static/js/validation.js' />"></script>
+ --%></html>
