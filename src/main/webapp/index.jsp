@@ -8,14 +8,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Apartment Finder</title>
         <!-- css -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <!-- remote js -->
-        <script>function init(){console.log("done")}</script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeJZn7s4pb3g3XAl6J-w2tQXvi1aFwIdM&callback=init"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+        <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBeJZn7s4pb3g3XAl6J-w2tQXvi1aFwIdM"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-cookies.js"></script>
         <!-- <base href="/finderapp/"> -->
     </head>
 
@@ -30,10 +30,12 @@
     <script src="<c:url value='/static/js/app.js' />"></script>
     <script src="<c:url value='/static/js/map.js' />"></script>
     <script src="<c:url value='/static/js/service/ListingService.js' />"></script>
+    <script src="<c:url value='/static/js/controller/LoginController.js' />"></script>
     <script src="<c:url value='/static/js/controller/ListingController.js' />"></script>
-	<script src="<c:url value='/static/js/controller/ListingDetailedController.js' />"></script>
-	<script src="<c:url value='/static/js/controller/ListingCreationController.js' />"></script>
-	<script src="<c:url value='/static/js/controller/ListingEditController.js' />"></script>
+    <script src="<c:url value='/static/js/controller/ListingDetailedController.js' />"></script>
+    <script src="<c:url value='/static/js/controller/ListingCreationController.js' />"></script>
+    <script src="<c:url value='/static/js/controller/ListingEditController.js' />"></script>
+
 
     <!-- End Document -->
 
