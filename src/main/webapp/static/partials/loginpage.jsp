@@ -10,14 +10,14 @@
         <div>
             <form name="myForm">
                 <label>
-                    User name:
+                    User ID:
                     <input type="text" name="userName" ng-model="user.name" required>
                 </label>
                 <div role="alert">
                     <span class="error" ng-show="myForm.userName.$error.required">Required!</span>
                 </div>
                 <label>
-                    Last name:
+                    Password:
                     <input type="password" name="password" ng-model="user.pass" required>
                 </label>
                 <div role="alert">

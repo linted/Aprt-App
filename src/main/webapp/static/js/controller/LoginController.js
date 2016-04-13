@@ -2,8 +2,8 @@
 
 App.controller('loginController', ['$scope', '$window', '$cookies', function ($scope, $window, $cookies) {
         $scope.user = {
-            name: 'guest',
-            pass: 'visitor'
+            name: '',
+            pass: ''
         };
         $scope.submitForm = function () {
             if ($scope.user.name && $scope.user.pass) {
