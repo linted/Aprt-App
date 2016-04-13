@@ -1,6 +1,6 @@
 'use strict';
 
-App.controller('ListingEditController', ['$scope', 'ListingService', '$routeParams', '$window', function($scope, ListingService, $routeParams, $window) {
+App.controller('ListingEditController', ['$scope', 'ListingService', '$routeParams', '$window', '$cookies', function($scope, ListingService, $routeParams, $window, $cookies) {
     //set up function scope
     var self = this;
 	var listing = {};
@@ -12,6 +12,8 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
 	console.log(typeof id);
 	console.log(typeof listing);
 	
+    /* function definitions */
+    
 	self.fetchSingleListing = function(id) {
 		ListingService.fetchSingleListing(id)
 			.then(
@@ -27,7 +29,6 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
 			);
 	};
 	
-	self.fetchSingleListing(id);
 	
     self.resultsMapInit = function () {
         initMap("resultsGoogleMaps", {lat:37.391031, lng:-79.191554}, 13);
@@ -211,6 +212,12 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
     self.deleteListing = function () {
     	ListingService.deleteListing(id);
     }
+    
+   
+    
+    /* Code That Runs */
+    self.fetchSingleListing(id);
+    
 }]);
 
 App.directive('convertToNumber', function() {
