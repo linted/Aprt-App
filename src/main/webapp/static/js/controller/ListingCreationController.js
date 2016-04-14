@@ -1,6 +1,8 @@
 'use strict';
 
-App.controller('ListingCreationController', ['$scope', 'ListingService', '$window', function($scope, ListingService, $window){
+App.controller('ListingCreationController', ['$scope', 'ListingService', '$window', '$cookies', function($scope, ListingService, $window, $cookies){
+    
+    /* variable declarations */
 	var self = this;
 	var housingId, orgId, housingHeadline, housingType, forSale, water, heat, electricity, gas, cable, phone, trash, bedrooms, bathrooms, sharedBathroom,
 	washerDryer, furnished, airConditioned, petsAllowed, lease, preferences, price, deposit, location, streetAddress, comments, floorPlan, housingPhoto, createDate, postingDate,
@@ -20,6 +22,8 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', '$windo
 	$scope.washerDryer = "0";
 	$scope.airConditioned = "0";
 	
+    
+    /* function declarations */
 	self.validation = function () {
 		console.log("Time for validation");
 //		console.log(housingHeadline);
@@ -248,4 +252,16 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', '$windo
 //		self.validate(address);
 		
 	}
+    
+    /* ################################################################# Cookie check if there is an orgID ############################################################# */
+    self.checkUser = function () {
+        if ($cookies.get('user')) {
+            $window.alert("Sorry, you do not have permission to access this page.");
+            $window.location.assign( "/" );
+        }
+    }
+    
+    /* Code that runs */
+    self.checkUser();
+    
 }])

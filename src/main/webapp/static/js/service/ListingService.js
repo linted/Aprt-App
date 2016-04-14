@@ -1,3 +1,6 @@
+/* the functions on this page are insecure, and show how and why this app needs some sort of login. as it stands we have no way of stoping 
+   individuals from simply creating, editing, or deleting listings by using the urls below */
+
 App.factory('ListingService', ['$http', '$q', function($http, $q){
 	
 	return {

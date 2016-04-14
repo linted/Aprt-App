@@ -63,6 +63,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         $scope.totalDisplayed += 20;
     };
 
+    // do we need this function anymore? ###################################################################################################################
     $scope.applyToSearch = function () {
         var minPrice = document.getElementById('lowerPriceBound').value;
         var maxPrice = document.getElementById('upperPriceBound').value;
@@ -82,9 +83,10 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
             return item.price < maxPrice;
         } else if (minPrice > 0 && maxPrice == '') {
             return item.price > minPrice;
-        } else return ((item.price > minPrice && item.price < maxPrice));
+        } else return ((item.price > minPrice && item.price < maxPrice)); 
     };
 
+    // needs to be implemented ###############################################################################################################################
     $scope.customOrder = function () {
         var order = document.getElementById('SortBySelect').value;
         console.log(order);

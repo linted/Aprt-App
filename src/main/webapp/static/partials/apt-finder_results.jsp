@@ -1,6 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <html>
-<!--
+    <!--
     <head>
         <title>Detailed listing page</title>
         <!-- style sheets ->
@@ -18,8 +18,10 @@
     <!-- Start visable html -->
 
     <link rel="stylesheet" href="<c:url value='/static/css/apt-finder_results.css' />">
+
     <body ng-app="myApp" class="ng-cloak">
         <section>
+            <a href="/#/edit/{{ctrl.listing.id}}" ng-if="allowEdit">Edit Listing ></a>
             <!-- Main image section -->
             <section id="topImageSection">
                 <img class="sliderImg" src="http://placekitten.com/g/500/310">
@@ -83,13 +85,17 @@
                     <section id="priceAndContact">
                         <span class="price">$ {{ctrl.listing.price}}</span>
                         <span>Per Month</span>
-                        <p><a href="{{ctrl.listing.siteUrl}}" ng-if="ctrl.listing.siteUrl" ng-bind="ctrl.listing.siteUrl"></a></p>
-                        <p><a href="mailto:{{ctrl.listing.email}}" ng-if="ctrl.listing.email" ng-bind="ctrl.listing.email"></a></p>
+                        <p>
+                            <a href="{{ctrl.listing.siteUrl}}" ng-if="ctrl.listing.siteUrl" ng-bind="ctrl.listing.siteUrl"></a>
+                        </p>
+                        <p>
+                            <a href="mailto:{{ctrl.listing.email}}" ng-if="ctrl.listing.email" ng-bind="ctrl.listing.email"></a>
+                        </p>
                         <p ng-if="ctrl.listing.contactPhone" ng-bind="ctrl.listing.contactPhone"></p>
                     </section>
-                     <section id="resultsMap">
+                    <section id="resultsMap">
                         <section id="resultsGoogleMaps"></section>
-                    </section> 
+                    </section>
                     <section id="address">
                         <span ng-bind="ctrl.listing.streetAddress"></span>
                     </section>
@@ -100,9 +106,10 @@
     <!-- End viable html -->
 
     <!-- local js -->
-        <!--
+    <!--
     <script src="<c:url value='/static/js/app.js' />"></script>
     <%-- <script src="<c:url value='/static/js/maps.js' />"></script> --%>
     <script src="<c:url value='/static/js/service/ListingService.js' />"></script>
         -->
+
     </html>

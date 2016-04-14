@@ -1,16 +1,15 @@
 'use strict';
 
-App.controller('ListingDetailedController', ['$scope', 'ListingService', '$routeParams', function ($scope, ListingService, $routeParams) {
-    //set up function scope
+App.controller('ListingDetailedController', ['$scope', 'ListingService', '$routeParams', '$cookies', function ($scope, ListingService, $routeParams, $cookies) {
+    //variable declarations
     var self = this;
     var listing = {};
     var id;
 
     id = $routeParams.keyId;
-    console.log("key id");
-    console.log(id);
-    console.log(typeof id);
+    $scope.allowEdit = false;
 
+    /* Function declarations */
     self.fetchSingleListing = function (id) {
         ListingService.fetchSingleListing(id)
             .then(
@@ -20,6 +19,7 @@ App.controller('ListingDetailedController', ['$scope', 'ListingService', '$route
                     self.listing = d;
                     self.map = self.resultsMapInit();
                     google.maps.event.trigger(self.map, "resize");
+                    $scope.allowEdit = ($cookies.get('user') == self.listing.orgId);
                 },
                 function (errResponse) {
                     console.error('some error');
@@ -48,7 +48,9 @@ App.controller('ListingDetailedController', ['$scope', 'ListingService', '$route
         return map;
     }
 
+    
+    /* Code that runs */
     self.fetchSingleListing(id);
-
-
+        
+    
 }]);
