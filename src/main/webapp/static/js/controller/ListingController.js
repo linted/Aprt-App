@@ -9,7 +9,7 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
     self.isMapInit = false;
     self.map = undefined;
     //$cookies.get('user')
-    $scope.orgId = getUser();
+    $scope.orgId = '';
     $scope.cc={keyId:'',housingHeadline:'',forSale:'',bedrooms:'',bathrooms:'',washerDryer:'',furnished:'',airConditioned:'',petsAllowed:'',price:'',location:'',active:1}
     
     function getUser() {

@@ -19,7 +19,8 @@ App.controller('loginController', ['$scope', '$window', '$cookies', function ($s
                     /*domain: "http://tomtest-appartmentfinder.rhcloud.com/"*/
 //                    domain: "http://localhost:8080/finderapp/"
                 });
-                $window.location.assign("/finderapp/");
+                $window.location.assign("/");
+//                $window.location.assign("/finderapp/");
             }
         };
      }]);
