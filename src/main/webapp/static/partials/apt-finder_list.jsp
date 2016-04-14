@@ -28,7 +28,7 @@
                 <a id="landlordLogin" href="#/login/">Landlord Sign-in ></a>
             </section>
             <!-- left column -->
-            <section id="leftColumn" ng-init="cc={keyId:'',orgId:'',housingHeadline:'',forSale:'',bedrooms:'',bathrooms:'',washerDryer:'',furnished:'',airConditioned:'',petsAllowed:'',price:'',location:'',active:1}">
+            <section id="leftColumn" ng-init="">
                 <span class="Filter-Results">Filter Results</span>
                 <!-- filter form -->
                 <form>

@@ -1,6 +1,6 @@
 'use strict';
 
-App.controller('ListingController', ['$scope', 'ListingService', function ($scope, ListingService) {
+App.controller('ListingController', ['$scope', 'ListingService', '$cookies', function ($scope, ListingService, $cookies) {
     /******************* Variable declarations *******************/
     var self = this;
     self.listings = [];
@@ -8,6 +8,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
     $scope.mode = false;
     self.isMapInit = false;
     self.map = undefined;
+    $scope.cc={keyId:'',orgId:'',housingHeadline:'',forSale:'',bedrooms:'',bathrooms:'',washerDryer:'',furnished:'',airConditioned:'',petsAllowed:'',price:'',location:'',active:1, orgId:$cookies.get('user')}
 
     /******************* function declarations *******************/
     self.fetchAllListings = function () {
