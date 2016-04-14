@@ -8,20 +8,28 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
     $scope.mode = false;
     self.isMapInit = false;
     self.map = undefined;
-    $scope.cc={keyId:'',orgId:'',housingHeadline:'',forSale:'',bedrooms:'',bathrooms:'',washerDryer:'',furnished:'',airConditioned:'',petsAllowed:'',price:'',location:'',active:1, orgId:$cookies.get('user')}
+    //$cookies.get('user')
+    $scope.orgId = getUser();
+    $scope.cc={keyId:'',housingHeadline:'',forSale:'',bedrooms:'',bathrooms:'',washerDryer:'',furnished:'',airConditioned:'',petsAllowed:'',price:'',location:'',active:1}
+    
+    function getUser() {
+    	return parseInt($cookies.get('user'));
+    }
 
     /******************* function declarations *******************/
     self.fetchAllListings = function () {
+    	console.log($cookies.get('user'));
         ListingService.fetchAllListings()
             .then(
                 function (d) {
-                    //console.log(d);
+//                    console.log(d);
                     self.listings = d;
                 },
                 function (errResponse) {
                     console.error('Error while fetching listings');
                 }
             );
+        
     };
 
     self.placeMarkers = function () {

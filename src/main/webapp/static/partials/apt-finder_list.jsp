@@ -30,6 +30,7 @@
             <!-- left column -->
             <section id="leftColumn" ng-init="">
                 <span class="Filter-Results">Filter Results</span>
+                {{orgId}}
                 <!-- filter form -->
                 <form>
                     <!-- input boxes -->
@@ -202,7 +203,7 @@
                 <!-- Listing controller -->
                 <section ng-if="!mode">
                     <!-- repeat through the entries in the sql -->
-                    <section class="allListings" ng-repeat="x in ctrl.listings | filter:cc | filter:filterPrice | limitTo:totalDisplayed">
+                    <section class="allListings" ng-repeat="x in ctrl.listings | filter:orgId:true |filter:cc | filter:filterPrice | limitTo:totalDisplayed">
                         <section class="listingStyleLeft">
                             <!-- temp holder until we get images working-->
                             <img class="thumb" src="<c:url value='/static/img/181.jpeg' />">
@@ -214,6 +215,8 @@
                                 <a href="#/properties/{{x.keyId}}"><span class="fullLink" ng-bind="x.housingHeadline"></span></a>
                                 <br>
                                 <span ng-bind="x.location"></span>
+                                <br>
+                                <span ng-bind="x.orgId"></span>
                             </section>
                             <section class="rightSubListingStyle">
                                 <span class="listingPrice">$ <span ng-bind="x.price"></span></span>

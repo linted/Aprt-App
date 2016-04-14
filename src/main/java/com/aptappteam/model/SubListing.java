@@ -13,7 +13,7 @@ public class SubListing {
 	private String keyId;
 	
 	@Column(name = "OrgID")
-	private String orgId;
+	private Integer orgId;
 	
 	@Column(name = "HousingHeadline")
 	private String housingHeadline;
@@ -67,7 +67,7 @@ public class SubListing {
 		return keyId;
 	}
 	
-	public String getOrgId() {
+	public Integer getOrgId() {
 		return orgId;
 	}
 	

@@ -17,8 +17,9 @@ App.controller('loginController', ['$scope', '$window', '$cookies', function ($s
                     //CHANGE THIS TO WHAT EVER DOMAIN WE ARE CURRENTLY USING
                     //###################################################################################################
                     /*domain: "http://tomtest-appartmentfinder.rhcloud.com/"*/
+//                    domain: "http://localhost:8080/finderapp/"
                 });
-                $window.location.assign("/");
+                $window.location.assign("/finderapp/");
             }
         };
      }]);
