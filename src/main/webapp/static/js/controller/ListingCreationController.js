@@ -255,7 +255,7 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', '$windo
     
     /* ################################################################# Cookie check if there is an orgID ############################################################# */
     self.checkUser = function () {
-        if ($cookies.get('user')) {
+        if ($cookies.get('user') != undefined) {
             $window.alert("Sorry, you do not have permission to access this page.");
             $window.location.assign( "/" );
         }

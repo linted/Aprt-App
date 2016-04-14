@@ -22,6 +22,7 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
                     console.log(d);
                     self.listing = d;
                     //						console.log(self.listing);
+                     self.checkUser();
                 },
                 function (errResponse) {
                     console.error('some error');
@@ -230,7 +231,7 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
     }
 
     /* Code That Runs */
-    self.checkUser();
+   
     self.fetchSingleListing(id);
 
 }]);
