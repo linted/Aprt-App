@@ -1,34 +1,63 @@
 'use strict';
 
-App.controller('ListingController', ['$scope', 'ListingService', function ($scope, ListingService) {
+App.controller('ListingController', ['$scope', 'ListingService', '$cookies', function ($scope, ListingService, $cookies) {
     /******************* Variable declarations *******************/
     var self = this;
     self.listings = [];
     $scope.totalDisplayed = 20;
-    $scope.selected = true;
+    $scope.mode = false;
+    self.isMapInit = false;
+    self.map = undefined;
+    $scope.orgID = $cookies.get('user');
+    $scope.strictFilters = {
+        orgId: $scope.orgID
+    }
+    $scope.looseFilters = {
+        keyId: '',
+        housingHeadline: '',
+        forSale: '',
+        bedrooms: '',
+        bathrooms: '',
+        washerDryer: '',
+        furnished: '',
+        airConditioned: '',
+        petsAllowed: '',
+        price: '',
+        location: '',
+        active: 1
+    }
 
+    function getUser() {
+        return $cookies.get('user');
+    }
 
     /******************* function declarations *******************/
     self.fetchAllListings = function () {
+        console.log($cookies.get('user'));
         ListingService.fetchAllListings()
             .then(
                 function (d) {
-                    //console.log(d);
+                    //                    console.log(d);
                     self.listings = d;
                 },
                 function (errResponse) {
                     console.error('Error while fetching listings');
                 }
             );
+
     };
 
     self.placeMarkers = function () {
-        for (var i = 0; i < self.listings.length && i < $scope.totalDisplayed; i++) {
-            if (self.listings[i].lat && self.listings[i].lng) {
+        //console.log($scope.results.length);
+        console.log("Loading markers");
+        for (var i = 0; i < self.listings.length; i++) {
+            //        	console.log(self.listings[i].latitude);
+            //        	console.log(self.listings[i].longitude);
+            if (self.listings[i].latitude && self.listings[i].longitude) {
                 addMarker({
-                    lat: self.listings[i].lat,
-                    lng: self.listings[i].lng
-                });
+                    lat: self.listings[i].latitude,
+                    lng: self.listings[i].longitude
+                }, self.map);
             }
 
         }
@@ -36,20 +65,29 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
 
     self.listMapInit = function () {
         //set up the map centered at liberty university
-
-        initMap("listingGoogleMaps", {
+        console.log("Initalizing map");
+        self.map = initMap("listingGoogleMaps", {
             lat: 37.353464,
             lng: -79.177372
         }, 13);
         //add markers to map
-        self.placeMarkers();
+        self.placeMarkers(self.map);
     };
-    
+
+    $scope.loadMap = function () {
+        console.log(self.listings[0]);
+        self.listMapInit();
+        console.log("Init done");
+        google.maps.event.trigger(self.map, "resize");
+        $scope.mode = true;
+    }
+
     $scope.loadMore = function () {
         console.log("loading more");
         $scope.totalDisplayed += 20;
     };
 
+    // do we need this function anymore? ###################################################################################################################
     $scope.applyToSearch = function () {
         var minPrice = document.getElementById('lowerPriceBound').value;
         var maxPrice = document.getElementById('upperPriceBound').value;
@@ -72,6 +110,7 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         } else return ((item.price > minPrice && item.price < maxPrice));
     };
 
+    // needs to be implemented ###############################################################################################################################
     $scope.customOrder = function () {
         var order = document.getElementById('SortBySelect').value;
         console.log(order);
@@ -83,20 +122,25 @@ App.controller('ListingController', ['$scope', 'ListingService', function ($scop
         $("#mapButton").toggleClass("buttonSelected, buttonUnselected");
     };
 
-    $("#listButton").click(function () {
-        $scope.classToggle();
-        $scope.selected = !$scope.selected;
-    });
+    $scope.listButton = function () {
+        console.log("List selected");
+        if ($scope.mode) {
+            $scope.classToggle();
+        }
+        return false;
+    };
 
-    $("#mapButton").click(function () {
-        $scope.classToggle();
-        $scope.selected = !$scope.selected;
-    });
-
+    $scope.mapButton = function () {
+        console.log("Map selected");
+        if (!$scope.mode) {
+            $scope.classToggle();
+            //            $scope.loadMap();
+        }
+        return true;
+    };
 
     /******************* code that runs *******************/
 
     self.fetchAllListings();
-    self.listMapInit();
-
+    $scope.$watch('results', function() { console.log('results:', $scope.results); })
 }]);

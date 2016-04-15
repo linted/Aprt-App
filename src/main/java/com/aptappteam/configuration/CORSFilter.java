@@ -10,7 +10,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 
-import jdk.nashorn.internal.ir.RuntimeNode.Request;
+/*import jdk.nashorn.internal.ir.RuntimeNode.Request;*/
 
 
 public class CORSFilter implements Filter {

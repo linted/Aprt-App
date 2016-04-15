@@ -18,7 +18,7 @@
 <body ng-app="myApp">
 	<h1>Create New Listing</h1>
 	
-	<form action="">
+	<div>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -414,12 +414,12 @@
 			<div class="col-md-4" style="margin-top:40px;">
 				<input type="hidden" ng-model="latitude">
 				<input type="hidden" ng-model="longitude">
-				<button ng-click="createNewListing()" class="btn btn-primary">Create Listing</button>
+				<button ng-click="createNewListing()" class="btn btn-primary" type="button">Create Listing</button>
 			</div>
 		</div>
 		
 	
-	</form>
+	</div>
 </body>
 <%-- <script src="<c:url value='/static/js/validation.js' />"></script>
  --%></html>

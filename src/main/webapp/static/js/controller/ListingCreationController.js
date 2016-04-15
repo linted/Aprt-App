@@ -1,6 +1,8 @@
 'use strict';
 
-App.controller('ListingCreationController', ['$scope', 'ListingService', function($scope, ListingService){
+App.controller('ListingCreationController', ['$scope', 'ListingService', '$window', '$cookies', function($scope, ListingService, $window, $cookies){
+    
+    /* variable declarations */
 	var self = this;
 	var housingId, orgId, housingHeadline, housingType, forSale, water, heat, electricity, gas, cable, phone, trash, bedrooms, bathrooms, sharedBathroom,
 	washerDryer, furnished, airConditioned, petsAllowed, lease, preferences, price, deposit, location, streetAddress, comments, floorPlan, housingPhoto, createDate, postingDate,
@@ -20,6 +22,8 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', functio
 	$scope.washerDryer = "0";
 	$scope.airConditioned = "0";
 	
+    
+    /* function declarations */
 	self.validation = function () {
 		console.log("Time for validation");
 //		console.log(housingHeadline);
@@ -151,6 +155,16 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', functio
 			document.getElementById("contactError").style.display = 'none';
 		}
 		
+		if (($scope.siteUrl == undefined || $scope.siteUrl == "") && ($scope.email == undefined || $scope.email == "") && ($scope.contactPhone == undefined || $scope.contactPhone == "")) {
+			document.getElementById("siteVal").className += " has-error";
+			document.getElementById("siteError").style.display = 'block';
+			document.getElementById("siteError").innerHTML = "Please enter a form of contact (Website/Email/Phone)";
+			return false;
+		} else {
+			document.getElementById("siteVal").className = "form-group";
+			document.getElementById("siteError").style.display = 'none';
+		}
+		
 		return true;
 		
 	}
@@ -229,7 +243,7 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', functio
 					console.log(str);
 					ListingService.createNewListing(somedata);
 				}, 2000);
-				
+//				$window.location.assign( "/" );
 			}
 		
 		//Location validation
@@ -238,4 +252,16 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', functio
 //		self.validate(address);
 		
 	}
+    
+    /* ################################################################# Cookie check if there is an orgID ############################################################# */
+    self.checkUser = function () {
+        if ($cookies.get('user') != undefined) {
+            $window.alert("Sorry, you do not have permission to access this page.");
+            $window.location.assign( "/" );
+        }
+    }
+    
+    /* Code that runs */
+    self.checkUser();
+    
 }])

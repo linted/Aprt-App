@@ -13,7 +13,7 @@ public class SubListing {
 	private String keyId;
 	
 	@Column(name = "OrgID")
-	private String orgId;
+	private Integer orgId;
 	
 	@Column(name = "HousingHeadline")
 	private String housingHeadline;
@@ -57,11 +57,17 @@ public class SubListing {
 	@Column(name = "Active")
 	private Integer active;
 	
+	@Column(name = "Latitude")
+	private Float latitude;
+	
+	@Column(name = "Longitude")
+	private Float longitude;
+	
 	public String getKeyId() {
 		return keyId;
 	}
 	
-	public String getOrgId() {
+	public Integer getOrgId() {
 		return orgId;
 	}
 	
@@ -119,5 +125,13 @@ public class SubListing {
 	
 	public Integer getActive() {
 		return active;
+	}
+	
+	public Float getLatitude() {
+		return latitude;
+	}
+	
+	public Float getLongitude() {
+		return longitude;
 	}
 }
