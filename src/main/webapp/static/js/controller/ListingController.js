@@ -8,36 +8,49 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
     $scope.mode = false;
     self.isMapInit = false;
     self.map = undefined;
-    //$cookies.get('user')
-    $scope.orgId = '';
-    $scope.cc={keyId:'',housingHeadline:'',forSale:'',bedrooms:'',bathrooms:'',washerDryer:'',furnished:'',airConditioned:'',petsAllowed:'',price:'',location:'',active:1}
-    
+    $scope.orgId = $cookies.get('user');
+    $scope.cc = {
+        keyId: '',
+        orgId: $scope.orgId,
+        housingHeadline: '',
+        forSale: '',
+        bedrooms: '',
+        bathrooms: '',
+        washerDryer: '',
+        furnished: '',
+        airConditioned: '',
+        petsAllowed: '',
+        price: '',
+        location: '',
+        active: 1
+    }
+
     function getUser() {
-    	return parseInt($cookies.get('user'));
+        return parseInt($cookies.get('user'));
     }
 
     /******************* function declarations *******************/
     self.fetchAllListings = function () {
-    	console.log($cookies.get('user'));
+        console.log($cookies.get('user'));
         ListingService.fetchAllListings()
             .then(
                 function (d) {
-//                    console.log(d);
+                    //                    console.log(d);
                     self.listings = d;
                 },
                 function (errResponse) {
                     console.error('Error while fetching listings');
                 }
             );
-        
+
     };
 
     self.placeMarkers = function () {
         console.log(self.listings.length);
         console.log("Loading markers");
         for (var i = 0; i < self.listings.length; i++) {
-//        	console.log(self.listings[i].latitude);
-//        	console.log(self.listings[i].longitude);
+            //        	console.log(self.listings[i].latitude);
+            //        	console.log(self.listings[i].longitude);
             if (self.listings[i].latitude && self.listings[i].longitude) {
                 addMarker({
                     lat: self.listings[i].latitude,
@@ -50,7 +63,7 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
 
     self.listMapInit = function () {
         //set up the map centered at liberty university
-    	console.log("Initalizing map");
+        console.log("Initalizing map");
         self.map = initMap("listingGoogleMaps", {
             lat: 37.353464,
             lng: -79.177372
@@ -58,9 +71,9 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
         //add markers to map
         self.placeMarkers(self.map);
     };
-    
+
     $scope.loadMap = function () {
-    	console.log(self.listings[0]);
+        console.log(self.listings[0]);
         self.listMapInit();
         console.log("Init done");
         google.maps.event.trigger(self.map, "resize");
@@ -92,7 +105,7 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
             return item.price < maxPrice;
         } else if (minPrice > 0 && maxPrice == '') {
             return item.price > minPrice;
-        } else return ((item.price > minPrice && item.price < maxPrice)); 
+        } else return ((item.price > minPrice && item.price < maxPrice));
     };
 
     // needs to be implemented ###############################################################################################################################
@@ -108,7 +121,7 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
     };
 
     $scope.listButton = function () {
-    	console.log("List selected");
+        console.log("List selected");
         if ($scope.mode) {
             $scope.classToggle();
         }
@@ -116,10 +129,10 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
     };
 
     $scope.mapButton = function () {
-    	console.log("Map selected");
+        console.log("Map selected");
         if (!$scope.mode) {
             $scope.classToggle();
-//            $scope.loadMap();
+            //            $scope.loadMap();
         }
         return true;
     };
