@@ -203,7 +203,7 @@
                 <!-- Listing controller -->
                 <section ng-if="!mode">
                     <!-- repeat through the entries in the sql -->
-                    <section class="allListings" ng-repeat="x in ctrl.listings | filter:orgId:true |filter:cc | filter:filterPrice | limitTo:totalDisplayed">
+                    <section class="allListings" ng-repeat="x in ctrl.listings | filter : { orgId : '!' } | filter:orgId:true |filter:cc | filter:filterPrice | limitTo:totalDisplayed">
                         <section class="listingStyleLeft">
                             <!-- temp holder until we get images working-->
                             <img class="thumb" src="<c:url value='/static/img/181.jpeg' />">
