@@ -21,7 +21,7 @@
 
     <body ng-app="myApp" class="ng-cloak">
         <section>
-            <a href="/#/edit/{{ctrl.listing.id}}" ng-if="allowEdit">Edit Listing ></a>
+            <a href="/#/edit/{{id}}" ng-if="allowEdit">Edit Listing ></a>
             <!-- Main image section -->
             <section id="topImageSection">
                 <img class="sliderImg" src="http://placekitten.com/g/500/310">

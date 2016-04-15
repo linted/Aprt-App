@@ -30,7 +30,7 @@
             <!-- left column -->
             <section id="leftColumn" ng-init="">
                 <span class="Filter-Results">Filter Results</span>
-                {{orgId}}
+                <p>{{orgId}}</p>
                 <!-- filter form -->
                 <form>
                     <!-- input boxes -->
