@@ -6,12 +6,12 @@ App.controller('loginController', ['$scope', '$window', '$cookies', function ($s
             pass: ''
         };
         $scope.submitForm = function () {
-            if ($scope.user.name && $scope.user.pass) {
+            if ($scope.user.name && $scope.user.pass && parseInt($scope.user.name)) {
                 var today = new Date();
                 var expired = new Date(today);
                 expired.setDate(today.getDate() + 1); //Set expired date to tomorrow
                 var temp1 = $scope.user.name;
-                $cookies.put('user', $scope.user.name, {
+                $cookies.put('user', parseInt($scope.user.name), {
                     expires: expired,
                     //###################################################################################################
                     //CHANGE THIS TO WHAT EVER DOMAIN WE ARE CURRENTLY USING
@@ -21,6 +21,8 @@ App.controller('loginController', ['$scope', '$window', '$cookies', function ($s
                 });
                 $window.location.assign("/");
 //                $window.location.assign("/finderapp/");
+            } else {
+                $window.alert("make sure orgId is an int and that you have a password entered.")
             }
         };
      }]);
