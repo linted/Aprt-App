@@ -48,7 +48,7 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
     };
 
     self.placeMarkers = function () {
-        console.log($scope.results.length);
+        //console.log($scope.results.length);
         console.log("Loading markers");
         for (var i = 0; i < self.listings.length; i++) {
             //        	console.log(self.listings[i].latitude);
@@ -142,4 +142,5 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
     /******************* code that runs *******************/
 
     self.fetchAllListings();
+    $scope.$watch('results', function() { console.log('results:', $scope.results); })
 }]);
