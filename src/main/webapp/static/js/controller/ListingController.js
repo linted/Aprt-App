@@ -8,10 +8,9 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
     $scope.mode = false;
     self.isMapInit = false;
     self.map = undefined;
-    $scope.orgID = $cookies.get('user');
     $scope.cc = {
         keyId: '',
-        orgId: $scope.orgID,
+        orgId: $cookies.get('user'),
         housingHeadline: '',
         forSale: '',
         bedrooms: '',
