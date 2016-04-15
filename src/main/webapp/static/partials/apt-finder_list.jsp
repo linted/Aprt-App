@@ -204,7 +204,7 @@
                 <section ng-if="!mode">
                     <!-- repeat through the entries in the sql -->
                     <!-- | filter : { orgId : '!' } | filter:orgId:true  -->
-                    <section class="allListings" ng-repeat="x in ctrl.listings | filter : { orgId : '!' } | filter:cc | filter:filterPrice | limitTo:totalDisplayed">
+                    <section class="allListings" ng-repeat="x in ctrl.listings | filter : { orgID : '!' } | filter:cc | filter:filterPrice | limitTo:totalDisplayed">
                         <section class="listingStyleLeft">
                             <!-- temp holder until we get images working-->
                             <img class="thumb" src="<c:url value='/static/img/181.jpeg' />">
