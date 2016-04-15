@@ -8,9 +8,12 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
     $scope.mode = false;
     self.isMapInit = false;
     self.map = undefined;
-    $scope.cc = {
+    $scope.orgID = $cookies.get('user');
+    $scope.strictFilters = {
+        orgId: $scope.orgID
+    }
+    $scope.looseFilters = {
         keyId: '',
-        orgId: $cookies.get('user'),
         housingHeadline: '',
         forSale: '',
         bedrooms: '',
