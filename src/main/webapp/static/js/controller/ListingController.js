@@ -28,7 +28,7 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
     }
 
     function getUser() {
-        return parseInt($cookies.get('user'));
+        return $cookies.get('user');
     }
 
     /******************* function declarations *******************/
@@ -48,7 +48,7 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
     };
 
     self.placeMarkers = function () {
-        console.log(self.listings.length);
+        console.log($scope.results.length);
         console.log("Loading markers");
         for (var i = 0; i < self.listings.length; i++) {
             //        	console.log(self.listings[i].latitude);
