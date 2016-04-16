@@ -10,7 +10,7 @@ public interface ListingService {
  
     Listing findListingById(int id);
      
-    Listing saveListing(Listing listing);
+    Integer saveListing(Listing listing);
      
     boolean updateListing(Listing listing);
      
