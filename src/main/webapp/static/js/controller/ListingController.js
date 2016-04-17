@@ -141,5 +141,8 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
 
     self.fetchAllListings();
     $scope.results = undefined;
-    $scope.$watch('results', function() { console.log('results:', $scope.results); })
+    $scope.watchFunction = function () {
+        console.log('results:', $scope.results);
+        $scope.$watch('results', $scope.watchFunction())
+    }
 }]);
