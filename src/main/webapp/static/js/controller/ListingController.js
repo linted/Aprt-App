@@ -140,5 +140,6 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
     /******************* code that runs *******************/
 
     self.fetchAllListings();
+    $scope.results = undefined;
     $scope.$watch('results', function() { console.log('results:', $scope.results); })
 }]);
