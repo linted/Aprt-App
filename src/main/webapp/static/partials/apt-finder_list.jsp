@@ -28,7 +28,7 @@
                 <a id="landlordLogin" href="#/login/">Landlord Sign-in ></a>
             </section>
             <!-- left column -->
-            <section id="leftColumn" ng-init="">
+            <section id="leftColumn" ng-init="resultingListings = undefined">
                 <span class="Filter-Results">Filter Results</span>
                 <p>{{orgId}}</p>
                 <!-- filter form -->
@@ -232,7 +232,7 @@
                     <button ng-click="loadMore()">Load More</button>
                 </section>
                 <section ng-if="mode">
-                    <section id="listingGoogleMaps" ng-init="loadMap()"></section>
+                    <section id="listingGoogleMaps"></section>
                 </section>
 
             </section>
