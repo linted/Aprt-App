@@ -182,7 +182,7 @@
             </section>
 
             <!-- right column -->
-            <section id="rightColumn" ng-init="resultingListings = []">
+            <section id="rightColumn" ng-init="">
                 <!-- Sort by buttons -->
                 <section id="rightTopSortBar">
                     <span>Total Listings: {{resultingListings.length}}</span>
@@ -203,7 +203,7 @@
                 <!-- Listing controller -->
                 <section ng-if="!mode">
                     <!-- repeat through the entries in listings, filtering as we go -->
-                    <section class="allListings" ng-repeat="x in ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | limitTo:totalDisplayed as resultingListings" ng-init="resultingListings = x;">
+                    <section class="allListings" ng-repeat="resultingListings in ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | limitTo:totalDisplayed as resultingListings" ng-init="resultingListings">
                         <section class="listingStyleLeft">
                             <!-- temp holder until we get images working-->
                             <img class="thumb" src="<c:url value='/static/img/181.jpeg' />">
@@ -232,7 +232,7 @@
                     <button ng-click="loadMore()">Load More</button>
                 </section>
                 <section ng-if="mode">
-                    <section id="listingGoogleMaps"></section>
+                    <section id="listingGoogleMaps" ng-init="loadMap()"></section>
                 </section>
 
             </section>
