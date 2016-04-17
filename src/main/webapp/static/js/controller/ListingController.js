@@ -144,5 +144,6 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
     $scope.watchFunction = function () {
         console.log('results:', $scope.results);
         $scope.$watch('results', $scope.watchFunction())
-    }
+    };
+    $scope.watchFunction();
 }]);
