@@ -185,11 +185,11 @@
             <section id="rightColumn">
                 <!-- Sort by buttons -->
                 <section id="rightTopSortBar">
+                    <h3>Total Listings: {{results.length}}</h3>
                     <!-- Sort by drop down menu -->
                     <label class="DropMenu">
                         <br>
                         <select id="SortBySelect">
-                            <option value="">Any Order</option>
                             <option value="price+">Lowest Price</option>
                             <option value="price-">Highest Price</option>
                         </select>
