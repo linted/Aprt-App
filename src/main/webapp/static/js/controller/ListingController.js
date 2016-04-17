@@ -4,17 +4,14 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
     /******************* Variable declarations *******************/
     var self = this;
     self.listings = [];
-    $scope.totalDisplayed = 20;
-    $scope.mode = false;
     self.isMapInit = false;
     self.map = undefined;
+    
+    $scope.totalDisplayed = 20;
+    $scope.mode = false;
+    $scope.resultingList = 0;
     $scope.orgID = $cookies.get('user');
-    $scope.strictFilters = function(listing) {
-        if($scope.orgID;){
-            return listing.orgId === $scope.orgID;
-        }
-        return true;
-    };
+    
     $scope.looseFilters = {
         keyId: '',
         housingHeadline: '',
@@ -30,11 +27,21 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
         active: 1
     }
 
-    function getUser() {
-        return $cookies.get('user');
-    }
+//    function getUser() {
+//        return $cookies.get('user');
+//    }
 
     /******************* function declarations *******************/
+     $scope.strictFilters = function(listing) {
+        if($first){
+            console.log("first")
+        }
+        if($scope.orgID;){
+            return listing.orgId === $scope.orgID;
+        }
+        return true;
+    };
+    
     self.fetchAllListings = function () {
         console.log($cookies.get('user'));
         ListingService.fetchAllListings()
