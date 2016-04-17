@@ -9,12 +9,13 @@ var initMap = function (elementId, latlng, zoom) {
     return map;
 }
 
-function addMarker(latlng, map) {
+function addMarker(latlng, map, id = undefined, headline = undefined) {
 	console.log("Adding marker");
     if (latlng.lat && latlng.lng) {
         var marker = new google.maps.Marker({
             position: latlng,
-            title: "Hello World!"
+            title: headline,
+            url: "#/properties/" + id
         });
         marker.setMap(map);
     }
