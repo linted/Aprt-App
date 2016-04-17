@@ -33,9 +33,6 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
 
     /******************* function declarations *******************/
      $scope.strictFilters = function(listing) {
-        if($first){
-            console.log("first")
-        }
         if($scope.orgID){
             return listing.orgId === $scope.orgID;
         }
