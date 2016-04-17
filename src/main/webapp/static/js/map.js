@@ -15,7 +15,7 @@ function addMarker(latlng, map, id = undefined, headline = undefined) {
         var marker = new google.maps.Marker({
             position: latlng,
             title: headline,
-            url: "#/properties/" + id;
+            url: "#/properties/" + id
         });
         marker.setMap(map);
     }
