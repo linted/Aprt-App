@@ -185,7 +185,6 @@
             <section id="rightColumn">
                 <!-- Sort by buttons -->
                 <section id="rightTopSortBar">
-                    <span>Total Listings: {{x.length}}</span>
                     <!-- Sort by drop down menu -->
                     <label class="DropMenu" style="float: none;">
                         <br>
