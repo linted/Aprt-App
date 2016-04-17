@@ -10,13 +10,18 @@ var initMap = function (elementId, latlng, zoom) {
 }
 
 function addMarker(latlng, map, id = undefined, headline = undefined) {
-	console.log("Adding marker");
+    console.log("Adding marker");
     if (latlng.lat && latlng.lng) {
         var marker = new google.maps.Marker({
             position: latlng,
             title: headline,
-            url: "#/properties/" + id
+            animation: google.maps.Animation.DROP
         });
         marker.setMap(map);
+        marker.addListener("click", markerClick(id));
     }
+}
+
+function markerClick(id) {
+    window.open("#/properties/" + id);
 }
