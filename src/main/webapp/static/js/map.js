@@ -23,5 +23,5 @@ function addMarker(latlng, map, id = undefined, headline = undefined) {
 }
 
 function markerClick(id) {
-    window.open("#/properties/" + id);
+    //window.location.assign("#/properties/" + id);
 }
