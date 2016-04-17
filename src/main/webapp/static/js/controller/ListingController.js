@@ -136,6 +136,16 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
         }
         return true;
     };
+    
+    $scope.orderByPrice = function (x) {
+		if ($scope.orderBy == 'low-price') {
+			return x.price;
+		}
+		if ($scope.orderBy == 'high-price') {
+			return -x.price;
+		}
+		else return x.price;
+	};
 
     /******************* code that runs *******************/
 
