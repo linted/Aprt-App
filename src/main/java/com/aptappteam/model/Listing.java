@@ -97,6 +97,9 @@ public class Listing {
 	@Column(name = "Location")
 	private String location;
 	
+	@Column(name = "StreetAddress")
+	private String streetAddress;
+	
 	@Column(name = "Comments")
 	private String comments;
 	
@@ -278,6 +281,10 @@ public class Listing {
 		return location;
 	}
 	
+	public String getStreetAddress() {
+		return streetAddress;
+	}
+	
 	public String getComments() {
 		return comments;
 	}
@@ -378,11 +385,11 @@ public class Listing {
 		return contactPhone;
 	}
 	
-	public Float getLat() {
+	public Float getLatitude() {
 		return latitude;
 	}
 	
-	public Float setLong() {
+	public Float getLongitude() {
 		return longitude;
 	}
 	
@@ -486,6 +493,10 @@ public class Listing {
 		this.location = location;
 	}
 	
+	public void setStreetAddress(String streetAddress) {
+		this.streetAddress = streetAddress;
+	}
+	
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
@@ -547,8 +558,8 @@ public class Listing {
 	}
 	
 	public void setCarbonDioxideDetector(Boolean carbonDioxideDetector) {
-		System.out.println("printing co detector");
-		System.out.println(carbonDioxideDetector);
+//		System.out.println("printing co detector");
+//		System.out.println(carbonDioxideDetector);
 		this.carbonDioxideDetector = carbonDioxideDetector;
 	}
 	
@@ -588,11 +599,11 @@ public class Listing {
 		this.contactPhone = contactPhone;
 	}
 	
-	public void setLat(Float latitude) {
+	public void setLatitude(Float latitude) {
 		this.latitude = latitude;
 	}
 	
-	public void setLong(Float longitude) {
+	public void setLongitude(Float longitude) {
 		this.longitude = longitude;
 	}
 	

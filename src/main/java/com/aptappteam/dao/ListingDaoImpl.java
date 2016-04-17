@@ -48,10 +48,4 @@ public class ListingDaoImpl extends AbstractDao<Integer, Listing> implements Lis
     	
     	
     }
- 
-//    public Listing findListingBySsn(String ssn) {
-//        Criteria criteria = createEntityCriteria();
-//        criteria.add(Restrictions.eq("ssn", ssn));
-//        return (Listing) criteria.uniqueResult();
-//    }
 }
