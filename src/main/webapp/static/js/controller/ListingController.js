@@ -65,7 +65,7 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
                 addMarker({
                     lat: self.listings[i].latitude,
                     lng: self.listings[i].longitude
-                }, self.map);
+                }, self.map, self.listings.keyId, self.housingHeadline);
             }
 
         }
