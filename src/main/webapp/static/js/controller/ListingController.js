@@ -36,7 +36,7 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
         if($first){
             console.log("first")
         }
-        if($scope.orgID;){
+        if($scope.orgID){
             return listing.orgId === $scope.orgID;
         }
         return true;
