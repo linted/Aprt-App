@@ -18,7 +18,7 @@ function addMarker(latlng, map, id = undefined, headline = undefined) {
             animation: google.maps.Animation.DROP
         });
         marker.setMap(map);
-        marker.addListener("click", markerClick(id));
+        return marker;
     }
 }
 

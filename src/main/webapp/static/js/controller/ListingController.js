@@ -6,12 +6,12 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
     self.listings = [];
     self.isMapInit = false;
     self.map = undefined;
-    
+
     $scope.totalDisplayed = 20;
     $scope.mode = false;
     $scope.resultingList = 0;
     $scope.orgID = $cookies.get('user');
-    
+
     $scope.looseFilters = {
         keyId: '',
         housingHeadline: '',
@@ -27,19 +27,19 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
         active: 1
     }
 
-//    function getUser() {
-//        return $cookies.get('user');
-//    }
+    //    function getUser() {
+    //        return $cookies.get('user');
+    //    }
 
     /******************* function declarations *******************/
-     $scope.strictFilters = function(listing) {
-        if($scope.orgID){
+    $scope.strictFilters = function (listing) {
+        if ($scope.orgID) {
             var temp = listing.orgId == $scope.orgID;
             return temp
         }
         return true;
     };
-    
+
     self.fetchAllListings = function () {
         console.log($cookies.get('user'));
         ListingService.fetchAllListings()
@@ -62,10 +62,19 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
             //        	console.log(self.listings[i].latitude);
             //        	console.log(self.listings[i].longitude);
             if (self.listings[i].latitude && self.listings[i].longitude) {
-                addMarker({
-                    lat: self.listings[i].latitude,
-                    lng: self.listings[i].longitude
-                }, self.map, self.listings[i].keyId, self.listings[i].housingHeadline);
+                if (self.listings[i].marker) {
+                    self.listings[i].marker.setMap(self.map);
+                } else {
+                    self.listings[i].marker = addMarker({
+                        lat: self.listings[i].latitude,
+                        lng: self.listings[i].longitude
+                    }, self.map, self.listings[i].keyId, self.listings[i].housingHeadline);
+                }
+                self.listings[i].marker.addListener('click', function () {
+                    self.map.setZoom(8);
+                    self.map.setCenter(self.listings[i].marker.getPosition());
+                });
+
             }
 
         }
@@ -146,16 +155,15 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
         }
         return true;
     };
-    
+
     $scope.orderByPrice = function (x) {
-		if ($scope.orderBy == 'low-price') {
-			return x.price;
-		}
-		if ($scope.orderBy == 'high-price') {
-			return -x.price;
-		}
-		else return x.price;
-	};
+        if ($scope.orderBy == 'low-price') {
+            return x.price;
+        }
+        if ($scope.orderBy == 'high-price') {
+            return -x.price;
+        } else return x.price;
+    };
 
     /******************* code that runs *******************/
 
