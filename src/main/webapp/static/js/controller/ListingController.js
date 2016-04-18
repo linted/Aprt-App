@@ -1,6 +1,6 @@
 'use strict';
 
-App.controller('ListingController', ['$scope', 'ListingService', '$cookies', function ($scope, ListingService, $cookies) {
+App.controller('ListingController', ['$scope', 'ListingService', '$cookies', '$window', function ($scope, ListingService, $cookies, $window) {
     /******************* Variable declarations *******************/
     var self = this;
     self.listings = [];
@@ -71,8 +71,9 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', fun
                     }, self.map, self.listings[i].keyId, self.listings[i].housingHeadline);
                 }
                 self.listings[i].marker.addListener('click', function () {
-                    self.map.setZoom(8);
-                    self.map.setCenter(self.listings[i].marker.getPosition());
+//                    self.map.setZoom(8);
+//                    self.map.setCenter(self.listings[i].marker.getPosition());
+                    $window.location.assign("#/properties/" + self.listings[i].keyId);
                 });
 
             }
