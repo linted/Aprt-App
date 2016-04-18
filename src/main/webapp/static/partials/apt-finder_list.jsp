@@ -182,9 +182,10 @@
             </section>
 
             <!-- right column -->
-            <section id="rightColumn">
+            <section id="rightColumn" ng-init="listingCount">
                 <!-- Sort by buttons -->
                 <section id="rightTopSortBar">
+                    <span>Listings: {{listingCount}}</span>
                     <!-- Sort by drop down menu -->
                     <label class="DropMenu" style="float: none;">
                         <br>
@@ -202,7 +203,7 @@
                 <!-- Listing controller -->
                 <section ng-if="!mode">
                     <!-- repeat through the entries in listings, filtering as we go -->
-                    <section class="allListings" ng-repeat="x in ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice | limitTo:totalDisplayed" ng-model="x">
+                    <section class="allListings" ng-repeat="x in ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice | limitTo:totalDisplayed" ng-model="x" ng-init="listingCount = x.length">
                         <section class="listingStyleLeft">
                             <!-- temp holder until we get images working-->
                             <img class="thumb" src="<c:url value='/static/img/181.jpeg' />">
