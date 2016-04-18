@@ -4,6 +4,7 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', '$windo
     
     /* variable declarations */
 	var self = this;
+	var keyId = 0;
 	var housingId, orgId, housingHeadline, housingType, forSale, water, heat, electricity, gas, cable, phone, trash, bedrooms, bathrooms, sharedBathroom,
 	washerDryer, furnished, airConditioned, petsAllowed, lease, preferences, price, deposit, location, streetAddress, comments, floorPlan, housingPhoto, createDate, postingDate,
 	editDate, active, siteUrl, lockChanges, deadbolts, peepholes, balconyLock, exteriorLocks, batterySmokeDetectors, hardWiredSmokeDetectors, carbonDioxideDetector, fireExtinguisher,
@@ -241,8 +242,14 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', '$windo
 					});
 					var str = JSON.parse(somedata);
 					console.log(str);
-					ListingService.createNewListing(somedata);
+					ListingService.createNewListing(somedata).then(function(response) {
+						keyId = response.data;
+						console.log('Key ID is '+ keyId);
+						$window.location.assign( "/properties/" + keyId );
+					});
+//					console.log('Key ID is '+ keyId);
 				}, 2000);
+//				console.log('Key ID is '+ keyId);
 //				$window.location.assign( "/" );
 			}
 		

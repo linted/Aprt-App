@@ -22,9 +22,9 @@ public class ListingServiceImpl implements ListingService {
         return dao.findListingById(id);
     }
     
-    public Listing saveListing(Listing listing) {
+    public Integer saveListing(Listing listing) {
 		dao.saveListing(listing);
-		return listing;
+		return listing.getKeyId();
 	}
  
     /*

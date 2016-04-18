@@ -188,9 +188,9 @@
                     <!-- Sort by drop down menu -->
                     <label class="DropMenu" style="float: none;">
                         <br>
-                        <select id="SortBySelect">
-                            <option value="price+">Lowest Price</option>
-                            <option value="price-">Highest Price</option>
+                        <select id="SortBySelect" data-ng-model="orderBy">
+                            <option value="low-price">Lowest Price</option>
+                            <option value="high-price">Highest Price</option>
                         </select>
                     </label>
                     <!-- toggle for list vs. map view -->
@@ -202,7 +202,7 @@
                 <!-- Listing controller -->
                 <section ng-if="!mode">
                     <!-- repeat through the entries in listings, filtering as we go -->
-                    <section class="allListings" ng-repeat="x in ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | limitTo:totalDisplayed" ng-model="x">
+                    <section class="allListings" ng-repeat="x in ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice | limitTo:totalDisplayed" ng-model="x">
                         <section class="listingStyleLeft">
                             <!-- temp holder until we get images working-->
                             <img class="thumb" src="<c:url value='/static/img/181.jpeg' />">

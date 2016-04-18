@@ -107,7 +107,7 @@ public class ListingsController {
 //	}
 	
 	@RequestMapping(value = { "/new" }, method = RequestMethod.POST)
-	public Listing saveListing(@RequestBody Listing listing) {
+	public Integer saveListing(@RequestBody Listing listing) {
 
 		System.out.println("listing object");
 		System.out.println(listing.getHousingHeadline().toString());
