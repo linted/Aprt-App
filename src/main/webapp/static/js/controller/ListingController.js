@@ -73,7 +73,7 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', '$w
                 self.listings[i].marker.addListener('click', function () {
 //                    self.map.setZoom(8);
 //                    self.map.setCenter(self.listings[i].marker.getPosition());
-                    $window.location.assign("#/properties/" + self.listings[i].keyId);
+                    $window.location.assign("#/properties/" + this.keyId);
                 });
 
             }

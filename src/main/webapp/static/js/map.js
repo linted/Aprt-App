@@ -15,7 +15,8 @@ function addMarker(latlng, map, id = undefined, headline = undefined) {
         var marker = new google.maps.Marker({
             position: latlng,
             title: headline,
-            animation: google.maps.Animation.DROP
+            animation: google.maps.Animation.DROP,
+            keyId: id
         });
         marker.setMap(map);
         return marker;
