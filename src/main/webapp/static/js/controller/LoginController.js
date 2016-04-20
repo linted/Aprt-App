@@ -19,8 +19,8 @@ App.controller('loginController', ['$scope', '$window', '$cookies', function ($s
                     /*domain: "http://tomtest-appartmentfinder.rhcloud.com/"*/
 //                    domain: "http://localhost:8080/finderapp/"
                 });
-//                $window.location.assign("/");
-                $window.location.assign("/finderapp/");
+                $window.location.assign("/");
+//                $window.location.assign("/finderapp/");
             } else {
                 $window.alert("make sure orgId is an int and that you have a password entered.")
             }
