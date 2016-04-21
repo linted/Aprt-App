@@ -119,6 +119,16 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
                 }
             });
         }
+        
+        if (self.listing.location == "" || self.listing.location == undefined) {
+			document.getElementById("locationValidation").className += " has-error";
+			document.getElementById("locationError").style.display = 'block';
+			document.getElementById("locationError").innerHTML = "Please enter a description.";
+			return false;
+		} else {
+			document.getElementById("locationValidation").className = "form-group";
+			document.getElementById("locationError").style.display = 'none';
+		}
 
         //Make sure that website address is valid
         if (!(self.listing.siteUrl == undefined || self.listing.siteUrl == "")) {

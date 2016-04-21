@@ -11,6 +11,7 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', '$w
     $scope.mode = false;
     $scope.resultingList = 0;
     $scope.orgID = $cookies.get('user');
+    $scope.orderBy = "low-price";
 
     $scope.looseFilters = {
         keyId: '',

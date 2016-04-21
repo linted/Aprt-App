@@ -61,10 +61,10 @@
 										    <input type="text" class="form-control" placeholder="1971 University Blvd. Lynchburg, VA 24501" ng-model="streetAddress">
 										    <span id="streetError" class="validator label label-danger"></span>
 										</fieldset>
-										<fieldset class="form-group">
+										<fieldset id="locationValidation" class="form-group">
 											<label for="location">Location Description</label>
 										    <input id="locationTxt" type="text" class="form-control" placeholder="10 min from LU" ng-model="location">
-										    <!-- <span class="label label-danger" style="top: 5px; position: relative;">Address Not Valid</span> -->
+										    <span id="locationError" class="validator label label-danger"></span>
 										</fieldset>
 										<fieldset class="form-group">
 											<label for="housingPhoto">Property Photos</label>

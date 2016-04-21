@@ -96,6 +96,16 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', '$windo
 		    });
 		}
 		
+		if ($scope.location == "" || $scope.location == undefined) {
+			document.getElementById("locationValidation").className += " has-error";
+			document.getElementById("locationError").style.display = 'block';
+			document.getElementById("locationError").innerHTML = "Please enter a description.";
+			return false;
+		} else {
+			document.getElementById("locationValidation").className = "form-group";
+			document.getElementById("locationError").style.display = 'none';
+		}
+		
 		//Make sure that website address is valid
 		if (!($scope.siteUrl == undefined || $scope.siteUrl == "")) {
 			if ($scope.siteUrl.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/) == null) {
