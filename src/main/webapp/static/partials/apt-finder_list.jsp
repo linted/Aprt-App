@@ -24,7 +24,7 @@
         <div class="container-fluid">
             <!-- Header -->
             <section id="header">
-                <span class="Apartment-Finder">Apartment Finder</span>
+                <span class="Apartment-Finder">Apartment Finder</span>lo
                 <a id="landlordLogin" href="#/login/">Landlord Sign-in ></a>
             </section>
             <!-- left column -->
@@ -182,10 +182,10 @@
             </section>
 
             <!-- right column -->
-            <section id="rightColumn" ng-init="listingCount">
+            <section id="rightColumn">
                 <!-- Sort by buttons -->
                 <section id="rightTopSortBar">
-                    <span>Listings: {{listingCount}}</span>
+                    
                     <!-- Sort by drop down menu -->
                     <label class="DropMenu" style="float: none;">
                         <br>
@@ -202,8 +202,9 @@
                 </section>
                 <!-- Listing controller -->
                 <section ng-if="!mode">
+                	<span>Listings: {{filtered.length}}</span>
                     <!-- repeat through the entries in listings, filtering as we go -->
-                    <section class="allListings" ng-repeat="x in ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice | limitTo:totalDisplayed" ng-model="x" ng-init="listingCount = x.length">
+                    <section class="allListings" ng-repeat="x in (filtered = (ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice)) | limitTo:totalDisplayed" ng-model="x">
                         <section class="listingStyleLeft">
                             <!-- temp holder until we get images working-->
                             <img class="thumb" src="<c:url value='/static/img/181.jpeg' />">

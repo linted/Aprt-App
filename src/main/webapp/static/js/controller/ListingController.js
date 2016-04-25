@@ -176,6 +176,8 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', '$w
             return -x.price;
         } else return x.price;
     };
+    
+    
 
     /******************* code that runs *******************/
 
