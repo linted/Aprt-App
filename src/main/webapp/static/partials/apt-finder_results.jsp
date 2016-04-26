@@ -24,23 +24,26 @@
             <a href="/#/edit/{{id}}" ng-if="allowEdit">Edit Listing ></a>
             <!-- Main image section -->
             <section id="topImageSection">
-                <img class="sliderImg" src="http://placekitten.com/g/500/310">
-                <img class="sliderImg" src="http://placekitten.com/g/400/310">
-                <img class="sliderImg" src="http://placekitten.com/g/300/310">
+                <img class="sliderImg" src="http://placekitten.com/g/300/300">
+                <img class="sliderImg" src="http://placekitten.com/g/300/300">
+                <img class="sliderImg" src="http://placekitten.com/g/300/300">
             </section>
 
             <section class="centerPage">
                 <section id="leftColumn">
-                    <section id="description">
-                        <h3 ng-bind="ctrl.listing.housingHeadline"></h3>
-                        <p ng-bind="ctrl.listing.comments"></p>
-                        <p ng-bind="ctrl.listing.location"></p>
+                    <section>
+                        <h2 id="aptTitle" ng-bind="ctrl.listing.housingHeadline"></h2>
+                        <div id="description">
+                        	<p ng-bind="ctrl.listing.comments"></p>
+                        	<p ng-bind="ctrl.listing.location"></p>
+                        </div>
+                        
                     </section>
                     <section id="amenities">
                         <h3>Amenities</h3>
-                        <ul id="amenitiesList">
-                            <li id="bedrooms">{{ctrl.listing.bedrooms}} bedrooms</li>
-                            <li id="bathrooms">{{ctrl.listing.bathrooms}} bathrooms</li>
+                        <ul class="noBullet" id="amenitiesList">
+                            <li class="bedroom" id="bedrooms">{{ctrl.listing.bedrooms}} bedrooms</li>
+                            <li class="bathroom" id="bathrooms">{{ctrl.listing.bathrooms}} bathrooms</li>
                             <!-- <span ng-if=""></span> -->
                             <li id="washerDryer">Washer Dryer <span ng-if="!ctrl.listing.washerDryer">none</span><span ng-if="ctrl.listing.washerDryer == 1">hookups</span><span ng-if="ctrl.listing.washerDryer == 2">on premises</span></li>
                             <li id="airConditioned">Air Conditioning: <span ng-if="!ctrl.listing.airConditioned">none</span><span ng-if="airConditioned == 1">window unit</span><span ng-if="ctrl.listing.airConditioned == 2">central air</span></li>
@@ -83,8 +86,8 @@
                 </section>
                 <section id="rightColumn">
                     <section id="priceAndContact">
-                        <span class="price">$ {{ctrl.listing.price}}</span>
-                        <span>Per Month</span>
+                        <h1>$ {{ctrl.listing.price}}</h1>
+                        <span ng-if="ctrl.listing.forSale == '0'" class="priceSubText">Per Month</span>
                         <p>
                             <a href="{{ctrl.listing.siteUrl}}" ng-if="ctrl.listing.siteUrl" ng-bind="ctrl.listing.siteUrl"></a>
                         </p>
