@@ -6,6 +6,7 @@ var initMap = function (elementId, latlng, zoom) {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         disableDefaultUI: true
     });
+    google.maps.event.trigger(map, 'resize');
     return map;
 }
 
@@ -26,3 +27,4 @@ function addMarker(latlng, map, id = undefined, headline = undefined) {
 function markerClick(id) {
     //window.location.assign("#/properties/" + id);
 }
+
