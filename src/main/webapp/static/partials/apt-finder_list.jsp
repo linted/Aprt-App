@@ -24,13 +24,13 @@
         <div class="container-fluid">
             <!-- Header -->
             <section id="header">
-                <span class="Apartment-Finder">Apartment Finder</span>lo
+                <span class="Apartment-Finder">Apartment Finder</span>
                 <a id="landlordLogin" href="#/login/">Landlord Sign-in ></a>
             </section>
             <!-- left column -->
             <section id="leftColumn" ng-init="resultingListings = undefined">
                 <span class="Filter-Results">Filter Results</span>
-                <p>{{orgId}}</p>
+                <input type="text" ng-model="looseFilters.housingHeadline"/>
                 <!-- filter form -->
                 <form>
                     <!-- input boxes -->
