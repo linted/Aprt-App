@@ -1,6 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Serif);
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
+h1,h2,h3,p {
+	color: #222222;
+}
+
 h1 {
     font-size: 42px;
     line-height: 42px;
@@ -20,11 +24,23 @@ h3 {
     margin-top: 40px;
 }
 
-p, ul li {
+p, span, ul li {
 	font-family: 'Roboto';
 	font-size: 16px;
 	line-height: 26px;
-	margin-bottom: 0px;
+}
+
+ul {
+	padding-left: 0px;
+	color: #d8d8d8;
+}
+
+ul p {
+	color: #222222;
+}
+
+li {
+	margin-bottom: 15px;
 }
 
 #topImageSection {
@@ -81,37 +97,55 @@ p, ul li {
 }
 
 .bedroom {
-	background: url('../img/bedroom.svg') no-repeat left top;
+	background: url('../img/bedroom.svg') no-repeat left center;
 	padding-left: 35px;
 }
 
 .washer {
-	
+	background: url('../img/bedroom.svg') no-repeat left center;
+	padding-left: 35px;
 }
 
 .mail {
-	
+	background: url('../img/email.svg') no-repeat left center;
+	padding-left: 40px;
 }
 
 .phone {
-	
+	background: url('../img/phone.svg') no-repeat left center;
+	padding-left: 40px;
+}
+
+.firstList {
+	padding-left: 0px;
+}
+
+.firstList ul {
+	padding-left: 30px;
 }
 
 #priceAndContact {
     background-color: #f0f0f0;
     border: solid 1px #e1e1e1;
-    width: 100%;
+    width: 286px;
     height: auto;
-    margin-bottom: 5%;
+    padding: 30px;
 }
 
-#map {
-    background-color: #f0f0f0;
-    border: solid 1px #e1e1e1;
-    float: left;
-    height: 200px;
-    width: 100%;
-    margin-bottom: 5%;
+#priceAndContact h1 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+    display: inline-block;
+}
+
+#priceAndContact span {
+	position: relative;
+    left: 13px;
+    bottom: 9px;
+}
+
+#contactList {
+	margin-top: 22px; 	
 }
 
 #googleMaps {
@@ -130,27 +164,27 @@ p, ul li {
 
 #amenities {
     border-top: 1px solid #d9d9d9;
-    max-height: 200px;
     width: 100%;
-    min-height: 150px;
     box-sizing: border-box;
+    display: block;
 }
 
 #facts {
      border-top: 1px solid #d9d9d9;
 }
 
-li {
-    float: left;
-    width: 33%;
-}
-
 #resultsMap {
-    height: 200px;
-    width: 100%;
+	margin-top: 40px;
+    height: 234px;
+    width: 286px;
 }
 
 #resultsGoogleMaps {
     height: 100%;
     width: 100%;
+}
+
+#address {
+	margin-top: 10px;
+	width: 286px;
 }

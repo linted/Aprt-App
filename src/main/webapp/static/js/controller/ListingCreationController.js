@@ -202,6 +202,7 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', '$windo
 					);
 					
 					var somedata = JSON.stringify({
+						orgId: $cookies.get('user'),
 						housingHeadline: $scope.housingHeadline,
 						housingType: $scope.housingType,
 						forSale: array[0],
