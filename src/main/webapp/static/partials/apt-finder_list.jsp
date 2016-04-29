@@ -25,8 +25,9 @@
             <!-- Header -->
             <section id="header">
                 <span class="Apartment-Finder">Apartment Finder</span>
-                <a ng-if="!isLandlord" id="landlordLogin" href="#/login/">Landlord Sign-in ></a>
-                <a ng-if="isLandlord" id="landlordlogout" href="#/logout/">Landlord Sign-out ></a>
+                <a ng-if="!isLandlord" class="landlordLoginLink" href="#/login/">Landlord Sign-in ></a>
+                <!-- if you want a dedicated logout page, change the following href -->
+                <a ng-if="isLandlord" class="landlordLoginLink" href="#/login/">Landlord Sign-out ></a>
             </section>
             <!-- left column -->
             <section id="leftColumn" ng-init="resultingListings = undefined">
