@@ -11,6 +11,8 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', '$w
     $scope.mode = false;
     $scope.resultingList = 0;
     $scope.orgID = $cookies.get('user');
+    $scope.isLandlord = $scope.orgID != undefined;
+    console.log($scope.isLandlord);
     $scope.orderBy = "low-price";
 
     $scope.looseFilters = {
@@ -27,10 +29,6 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', '$w
         location: '',
         active: 1
     }
-
-    //    function getUser() {
-    //        return $cookies.get('user');
-    //    }
 
     /******************* function declarations *******************/
     $scope.strictFilters = function (listing) {
