@@ -234,7 +234,7 @@ App.controller('ListingEditController', ['$scope', 'ListingService', '$routePara
 
     /* ################################################################# Cookie check orgId to test if permissions to edit page ############################################################# */
     self.checkUser = function () {
-        if ($cookies.get('user') != self.listing.orgId) {
+        if ($cookies.get('user') != self.listing.orgId || $cookies.get('user') == undefined) {
             $window.alert("Sorry, you do not have permission to access this page.");
             $window.location.assign("#/properties/" + id);
         }
