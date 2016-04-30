@@ -216,9 +216,6 @@
                                 <br>
                                 <span ng-bind="x.location"></span>
                                 <!-- REMOVE. This is for testing -->
-                                <br>
-                                <span ng-bind="x.orgId"></span>
-                                <span ng-bind="resultingListings.length"></span>
                                 <!-- End testing area -->
                             </section>
                             <section class="rightSubListingStyle">
