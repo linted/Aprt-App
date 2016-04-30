@@ -32,7 +32,7 @@
             <!-- left column -->
             <section id="leftColumn" ng-init="resultingListings = undefined">
                 <span class="Filter-Results">Filter Results</span>
-                <p>{{orgId}}</p>
+                <input type="text" ng-model="looseFilters.housingHeadline"/>
                 <!-- filter form -->
                 <form>
                     <!-- input boxes -->
@@ -184,10 +184,10 @@
             </section>
 
             <!-- right column -->
-            <section id="rightColumn" ng-init="listingCount">
+            <section id="rightColumn">
                 <!-- Sort by buttons -->
                 <section id="rightTopSortBar">
-                    <span>Listings: {{listingCount}}</span>
+                    
                     <!-- Sort by drop down menu -->
                     <label class="DropMenu" style="float: none;">
                         <br>
@@ -204,8 +204,9 @@
                 </section>
                 <!-- Listing controller -->
                 <section ng-if="!mode">
+                	<span>Listings: {{filtered.length}}</span>
                     <!-- repeat through the entries in listings, filtering as we go -->
-                    <section class="allListings" ng-repeat="x in ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice | limitTo:totalDisplayed" ng-model="x" ng-init="listingCount = x.length">
+                    <section class="allListings" ng-repeat="x in (filtered = (ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice)) | limitTo:totalDisplayed" ng-model="x">
                         <section class="listingStyleLeft">
                             <!-- temp holder until we get images working-->
                             <img class="thumb" src="<c:url value='/static/img/181.jpeg' />">
@@ -219,8 +220,6 @@
                                 <span ng-bind="x.location"></span>
                                 <!-- REMOVE. This is for testing -->
                                 <br>
-                                <span ng-bind="x.orgId"></span>
-                                <span ng-bind="resultingListings.length"></span>
                                 <!-- End testing area -->
                             </section>
                             <section class="rightSubListingStyle">

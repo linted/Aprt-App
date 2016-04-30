@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.3 (16044) - http://www.bohemiancoding.com/sketch -->
+    <title>map</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="apt-finder_list" sketch:type="MSArtboardGroup" transform="translate(-1248.000000, -472.000000)" fill="#222222">
+            <g id="content" sketch:type="MSLayerGroup" transform="translate(416.000000, 458.000000)">
+                <g id="sort-+-toggle" transform="translate(431.000000, 0.000000)" sketch:type="MSShapeGroup">
+                    <g id="toggle" transform="translate(245.000000, 0.000000)">
+                        <path d="M156,14 L156,27.29 L161.5,29.267 L166.5,27.47 L172,29.447 L172,16.156 L166.5,14.18 L161.5,15.977 L156,14 Z M167,26.587 L167,15.422 L171,16.861 L171,28.025 L167,26.587 Z M162,16.861 L166,15.422 L166,26.587 L162,28.025 L162,16.861 Z M157,26.587 L157,15.422 L161,16.861 L161,28.025 L157,26.587 Z" id="map"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
