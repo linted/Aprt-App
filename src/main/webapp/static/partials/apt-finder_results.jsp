@@ -24,9 +24,9 @@
             <a href="/#/edit/{{id}}" ng-if="allowEdit">Edit Listing ></a>
             <!-- Main image section -->
             <section id="topImageSection">
-                <img class="sliderImg" src="http://placekitten.com/g/300/300">
-                <img class="sliderImg" src="http://placekitten.com/g/300/300">
-                <img class="sliderImg" src="http://placekitten.com/g/300/300">
+           		<img id="img1" class="sliderImg" src="http://placekitten.com/g/300/300">
+                <img id="img2" class="sliderImg" src="http://placekitten.com/g/300/300">
+                <img id="img3" class="sliderImg" src="http://placekitten.com/g/300/300">
             </section>
 
             <section class="centerPage">
@@ -34,17 +34,23 @@
                     <section>
                         <h2 id="aptTitle" ng-bind="ctrl.listing.housingHeadline"></h2>
                         
-                        <div class="visible-sm">
-		                        <h1>$ {{ctrl.listing.price}}</h1>
-		                        <span ng-if="ctrl.listing.forSale == '0'" class="priceSubText">Per Month</span>
-		                        <p>
-		                            <a href="{{ctrl.listing.siteUrl}}" ng-if="ctrl.listing.siteUrl" ng-bind="ctrl.listing.siteUrl"></a>
-		                        </p>
-		                        <p>
-		                            <a href="mailto:{{ctrl.listing.email}}" ng-if="ctrl.listing.email" ng-bind="ctrl.listing.email"></a>
-		                        </p>
-		                        <p ng-if="ctrl.listing.contactPhone" ng-bind="ctrl.listing.contactPhone"></p>
-		                    </div>
+                        <div id="priceAndContact" class="visible-sm visible-xs">
+	                        <h1>\${{ctrl.listing.price}}</h1><span ng-if="ctrl.listing.forSale == '0'" class="priceSubText">Per Month</span>
+	                        <ul id="contactList" class="noBullet">
+	                        	<li>
+	                        		<p><a href="{{ctrl.listing.siteUrl}}" ng-if="ctrl.listing.siteUrl" ng-bind="ctrl.listing.siteUrl"></a></p>
+	                        		<p ng-if="!ctrl.listing.siteUrl">No Website Listed</p>
+	                        	</li>
+	                        	<li class="mail">
+	                        		<p ng-if="ctrl.listing.email"><a href="mailto:{{ctrl.listing.email}}" ng-bind="ctrl.listing.email"></a></p>
+	                        		<p ng-if="!ctrl.listing.email">No Email Listed</p>
+	                        	</li>
+	                        	<li class="phone">
+	                        		<p ng-if="ctrl.listing.contactPhone" ng-bind="ctrl.listing.contactPhone"></p>
+	                        		<p ng-if="!ctrl.listing.contactPhone">No Phone Listed</p>
+	                        	</li>
+	                        </ul>
+	                    </div>
                         
                         <div id="description">
                         	<p ng-bind="ctrl.listing.comments"></p>
@@ -67,7 +73,7 @@
 	                        </div>
 	                        <div class="col-md-4">
 	                        	<ul>
-	                        		<li id="airConditioned"><p>Air Conditioning: <span ng-if="!ctrl.listing.airConditioned">none</span><span ng-if="airConditioned == 1">window unit</span><span ng-if="ctrl.listing.airConditioned == 2">central air</span></p></li>
+	                        		<li id="airConditioned"><p>Air Conditioning: <span ng-if="!ctrl.listing.airConditioned">None</span><span ng-if="airConditioned == 1">Window Unit</span><span ng-if="ctrl.listing.airConditioned == 2">Central Air</span></p></li>
 		                            <li id="furnished"><p>Furnished: <span ng-if="furnished">Yes</span><span ng-if="!furnished">No</span></p></li>
 		                            <li id="security"><p>Security Features:
 		                                <span ng-if="ctrl.listing.lockChanges">Lock Changes, </span>
@@ -98,7 +104,7 @@
 		                                <span ng-if="ctrl.listing.gas">Gas,</span>
 		                                <span ng-if="ctrl.listing.cable">Cable,</span>
 		                                <span ng-if="ctrl.listing.phone">Phone,</span>
-		                                <span ng-if="ctrl.listing.trash">Trash,</span></p>
+		                                <span ng-if="ctrl.listing.trash">Trash,</span> Please contact for more information.</p>
 		                            </li>
 	                        	</ul>
 	                        </div>
@@ -126,9 +132,10 @@
                     	</div>
                         
                     </section>
+                    
                 </section>
-                <section id="rightColumn" class="visible-lg visible-md">
-                    <div id="priceAndContact">
+                <section id="rightColumn">
+                    <div id="priceAndContact" class="visible-lg visible-md">
                         <h1>\${{ctrl.listing.price}}</h1><span ng-if="ctrl.listing.forSale == '0'" class="priceSubText">Per Month</span>
                         <ul id="contactList" class="noBullet">
                         	<li>
@@ -152,6 +159,14 @@
                         <p ng-bind="ctrl.listing.streetAddress"></p>
                     </div>
                 </section>
+                <!-- <div id="map" class="visible-sm visible-xs">
+	               	<div id="resultsMap">
+	                    <div id="resultsGoogleMaps"></div>
+	                </div>
+	                <div id="address">
+	                    <p ng-bind="ctrl.listing.streetAddress"></p>
+	                </div>
+                </div> -->
             </section>
         </section>
     </body>
