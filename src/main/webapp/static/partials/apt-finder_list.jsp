@@ -230,7 +230,7 @@
                         </section>
 
                     </section>
-                    <button ng-click="loadMore()">Load More</button>
+                    <button ng-if="totalDisplayed < filtered.length" ng-click="loadMore()">Load More</button>
                 </section>
                 <section ng-if="mode">
                     <section id="listingGoogleMaps" ng-init="loadMap()"></section>
