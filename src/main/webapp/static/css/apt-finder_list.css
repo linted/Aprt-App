@@ -1,47 +1,66 @@
 /* FONTS */
 
 @import url(https://fonts.googleapis.com/css?family=Roboto);
+
+/*clearfix float fix*/
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.clearfix {display: inline-block;}
+
+/*Container with all the filter controls.*/
 #leftColumn {
-    float: top;
     width: 100%;
     margin-right: 0%;
-    padding: 50px;
+    padding: 4.2em;
 }
 
+/*Container with either listings or maps, as well as sorting*/
 #rightColumn {
-    float: bottom;
     width: 100%;
     margin-left: 2%;
-    padding: 50px;
+    padding: 4.2em;
 }
 
+/* Not sure what this code does.*/
 .info {
     float: left;
     width: 100%;
 }
 
+/*related to the google map.*/
 #map {
     width: 100%;
 }
 
+/*Related to the google map. Not sure if actually used.*/
 gm-map {
     /*display:block;*/
     width: 100%;
-    height: 300px;
+    height: 3.3em;
 }
 
+/*Style of the price number and $*/
 .listingPrice {
     font-family: PTSerif-Regular;
-    font-size: 42px;
+    font-size: 3.5em;
     line-height: 1.0;
     color: #222222;
 }
 
+/*Container for Google Map*/
 #listingGoogleMaps {
     width: 100%;
-    height: 300px;
+    height: 75%;
 }
 
+/*Container for full price message*/
 .rightSubListingStyle {
     float: right;
     text-align: right;
@@ -51,33 +70,38 @@ gm-map {
     /*transform: translateY(-50%);*/
 }
 
+/*Individual listing*/
 .listingStyleRight {
-    width: calc(100% - 181px);
+    width: 50%;
     height: 181px;
     float: left;
     border-top: 1px solid #d9d9d9;
     border-bottom: 1px solid #d9d9d9;
 }
 
+/*Container for all of the listings*/
 .allListings {
     height: 181px;
     width: 100%;
     margin-bottom: 2%;
 }
 
-.listingStyleLeft {
+/*.listingStyleLeft {
     float: left;
-}
+}*/
 
+/*Property thumbnail*/
 .thumb {
-    width: 181px;
+    width: 100%;
     height: 181px;
 }
 
+/*Color of links*/
 a {
     color: #2773cb;
 }
 
+/*Not found in original code*/
 .listMapButton {
     height: 50%;
     width: 50%;
@@ -86,6 +110,7 @@ a {
     border: solid 1px #bbbbbb;
 }
 
+/*Also not found in the original code.*/
 .listMapButton:target {
     border-radius: 2px;
     background-color: #ffffff;
@@ -93,75 +118,99 @@ a {
     border: solid 1px #bebebe;
 }
 
+/*The header*/
 #header {
     border-bottom: 1px solid #d9d9d9;
     height: 10%;
     width: 100%;
-    float: left;
-    margin: 15px 0px 15px 0px;
+    margin: 1.25em 0em 1.25em 0px;
 }
 
+/*Title of page*/
 .Apartment-Finder {
-    width: 223px;
-    height: 36px;
+    width: 18.6em;
+    height: 3em;
     font-family: PTSerif-Regular;
-    font-size: 28px;
+    font-size: 2.3em;
     line-height: 1.3;
     color: #161f31;
 }
 
-.landlordLoginLink {
+/*.landlordLoginLink {
     float: right;
-}
+}*/
 
 .Filter-Results {
-    width: 118px;
-    height: 28px;
+    width: 9.8em;
+    height: 2.3em;
     font-family: PTSerif-Regular;
-    font-size: 20px;
+    font-size: 1.6em;
     line-height: 1.4;
     color: #202020;
 }
 
 .Price {
-    width: 37px;
-    height: 26px;
+    width: 3em;
+    height: 2em;
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size: 1.3em;
     line-height: 1.6;
     color: #222222;
-    margin-top: 20px;
+    margin-top: 1.6em;
 }
 
 .Price-Text {
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size: 1.3em;
     color: #222222;
 }
 
+.buttonSelected {
+        border-radius: 2px;
+        background-color: #d8d8d8;
+        border: solid 1px #bbbbbb;
+    }
+
+.buttonUnselected {
+        border-radius: 2px;
+        background-color: #ffffff;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+        border: solid 1px #bebebe;
+}
+
+
+/*Breakpoint at 768 between large and small screens*/
 @media (min-width: 768px) {
+    
+    /*Related to Google Map*/
     gm-map {
         display: block;
         width: 100%;
         height: 300px;
     }
+    /*Column with filters*/
     #leftColumn {
         float: left;
         width: 20%;
         height: 400px;
         margin-right: 0%;
     }
+    /*Column with listings*/
     #rightColumn {
         float: left;
         height: 400px;
         width: 78%;
         margin-left: 2%;
     }
+    
+    /*Listing and info classes*/
     .listing {}
     .info {
         float: left;
         width: 100%;
     }
+    
+    /*Drop Menus for filters*/
     .DropMenu {
         float: left;
         font-size: 90%;
@@ -177,37 +226,53 @@ a {
     #advFilter {
         padding-left: 0px;
     }
+    
+    /*Main body*/
     body {
         margin-left: 5%!important;
         width: 90%!important;
     }
+    
+    /*Selection boxes*/
     select {
         width: auto;
     }
+    /*Check boxes*/
     .checkBox {
         margin-left: 5px;
     }
+    /*all divs*/
     div {
         margin-bottom: 5px;
     }
+    /*text boxes*/
     .inputBox {
         width: 20%;
     }
+    /*Possible mispelling?*/
     .priceLable {
         padding-right: 10px;
     }
+    
+    /*Text boxes*/
     #inputBoxes {
         width: 100%;
         float: none;
         margin-bottom: 34px;
     }
+    
+    /*Container for the picture*/
     .listingStyleLeft {
         float: left;
     }
+    
+    /*The picture*/
     .thumb {
         width: 181px;
         height: 181px;
     }
+    
+    /*Container for all listing information*/
     .listingStyleRight {
         width: calc(100% - 181px);
         height: 181px;
@@ -215,11 +280,14 @@ a {
         border-top: 1px solid #d9d9d9;
         border-bottom: 1px solid #d9d9d9;
     }
+    
+    /*Affects all of the listings*/
     .allListings {
         height: 181px;
         width: 100%;
         margin-bottom: 2%;
     }
+    /*Entire Price including "per month"*/
     .rightSubListingStyle {
         float: right;
         text-align: right;
@@ -228,13 +296,19 @@ a {
         top: 50%;
         transform: translateY(-50%);
     }
+    
+    /*All the drop down menus*/
     #dropDownMenus {
         border-top: 1px solid #d9d9d9;
         height: 50px;
     }
+    
+    /*The checkboxes*/
     #checkBoxes {
         border-top: 1px solid #d9d9d9;
     }
+    
+    /*Button to submit price range*/
     #goButton {
         width: 69px;
         height: 44px;
@@ -246,9 +320,13 @@ a {
         border: none!important;
         margin-left: 26px;
     }
+    
+    /*Link colors*/
     a {
         color: #2773cb;
     }
+    
+    /*Contains listing information, like title*/
     .leftSubListingStyle {
         width: 40%;
         float: left;
@@ -257,17 +335,24 @@ a {
         top: 50%;
         transform: translateY(-50%);
     }
+    /*The price? Already commented out. Probably not necessary*/
     /* .price {
 	    font-size: 250%;
 	    margin: 5%;
 	} */
+    
+    /*Sort bar to sort listings*/
     #rightTopSortBar {
         width: 100%;
         height: 15%;
     }
+    
+    /*Sort bar to sort listings*/
     #SortBySelect {
         width: inherit;
     }
+    
+    /*Toggle buttons between map and listings*/
     .listMapButton {
         height: 50%;
         width: 50%;
@@ -281,6 +366,8 @@ a {
         box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
         border: solid 1px #bebebe;
     }
+    
+    /*The main header*/
     #header {
         border-bottom: 1px solid #d9d9d9;
         height: 10%;
@@ -288,9 +375,13 @@ a {
         float: left;
         margin: 15px 0px 15px 0px;
     }
+    
+    /*The link to landlord login*/
     .landlordLoginLink {
         float: right;
     }
+    
+    /*The title at the top of the page*/
     .Apartment-Finder {
         width: 223px;
         height: 36px;
@@ -299,6 +390,8 @@ a {
         line-height: 1.3;
         color: #161f31;
     }
+    
+    /*The header of the filter*/
     .Filter-Results {
         width: 118px;
         height: 28px;
@@ -307,6 +400,8 @@ a {
         line-height: 1.4;
         color: #202020;
     }
+    
+    /*The text for the price filter*/
     .Price {
         width: 37px;
         height: 26px;
@@ -324,28 +419,38 @@ a {
     #toDolla {
         margin: 0px 8px 0px 8px;
     }
+    
+    /*The text boxs for the price filter*/
     .priceBox {
         width: 64px;
         height: 44px;
         background-color: #ffffff;
         border: solid 1px #e1e1e1;
     }
+    
+    /*The Price for each listing*/
     .listingPrice {
         font-family: PTSerif-Regular;
         font-size: 42px;
         line-height: 1.0;
         color: #222222;
     }
+    
+    /*The "per month" for listing price*/
     .priceSubText {
         font-family: 'Roboto', sans-serif;
         font-size: 16px;
         line-height: 1.6;
         color: #222222;
     }
+    
+    /*related to the Google map*/
     #map {
         width: 100%;
         height: 600px;
     }
+    
+    /*The link for a listing*/
     .fullLink {
         position: absolute;
         width: 100%;
@@ -354,14 +459,19 @@ a {
         left: 0;
         z-index: 1;
     }
+    /*Containter for the google map*/
     #listingGoogleMaps {
         height: 700px;
         width: 100%;
     }
+    
+    /*Possibly unneeded*/
     .validator {
         top: 10px;
         position: relative;
     }
+    
+    /*Styles for listing/maps toggles*/
     .buttonSelected {
         border-radius: 2px;
         background-color: #d8d8d8;

@@ -21,7 +21,7 @@
 
     <link rel="stylesheet" href="<c:url value='/static/css/apt-finder_list.css' />">
     <body ng-app="myApp">
-        <div class="container-fluid">
+        <div class="container-fluid clearfix">
             <!-- Header -->
             <section id="header">
                 <span class="Apartment-Finder">Apartment Finder</span>
