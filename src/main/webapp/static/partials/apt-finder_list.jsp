@@ -169,8 +169,8 @@
                                 <br>
                                 <select ng-model="looseFilters.forSale">
                                     <option value="">Any</option>
-                                    <option value="false">No</option>
-                                    <option value="true">Yes</option>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
                                 </select>
                             </label>
                         </div>
