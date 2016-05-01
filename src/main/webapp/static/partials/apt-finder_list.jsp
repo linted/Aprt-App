@@ -205,6 +205,7 @@
                 <!-- Listing controller -->
                 <section ng-if="!mode">
                 	<span>Listings: {{filtered.length}}</span>
+                	<button class="btn btn-default" ng-if="isLandlord" ng-click="create()">Create New Listing</button>
                     <!-- repeat through the entries in listings, filtering as we go -->
                     <section class="allListings" ng-repeat="x in (filtered = (ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice)) | limitTo:totalDisplayed" ng-model="x">
                         <section class="listingStyleLeft">

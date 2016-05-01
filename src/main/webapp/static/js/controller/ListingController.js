@@ -175,7 +175,9 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', '$w
         } else return x.price;
     };
     
-    
+    $scope.create = function() {
+    	$window.location.assign( "/#/new/" );
+    }
 
     /******************* code that runs *******************/
 
