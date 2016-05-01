@@ -84,7 +84,8 @@ gm-map {
         width: 50%;
         /*float: left;*/
         margin-left: 5%;
-        position: relative;
+        /*position: relative;*/
+        height: 75%
         top: 50%;
         transform: translateY(-50%);
     }
