@@ -101,7 +101,7 @@ a {
     color: #2773cb;
 }
 
-/*Not found in original code*/
+/*Map buttons*/
 .listMapButton {
     height: 50%;
     width: 50%;
@@ -109,8 +109,6 @@ a {
     background-color: #d8d8d8;
     border: solid 1px #bbbbbb;
 }
-
-/*Also not found in the original code.*/
 .listMapButton:target {
     border-radius: 2px;
     background-color: #ffffff;
@@ -136,9 +134,9 @@ a {
     color: #161f31;
 }
 
-/*.landlordLoginLink {
-    float: right;
-}*/
+.landlordLoginLink {
+    display: block;
+}
 
 .Filter-Results {
     width: 9.8em;
