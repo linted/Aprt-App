@@ -82,7 +82,7 @@ gm-map {
 
 .leftSubListingStyle {
         width: 50%;
-        float: left;
+        /*float: left;*/
         margin-left: 5%;
         position: relative;
         top: 50%;
