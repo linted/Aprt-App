@@ -292,7 +292,7 @@ a {
         float: right;
         text-align: right;
         /*width: 20%;*/
-        /*position: relative;*/
+        position: relative;
         top: 50%;
         transform: translateY(-50%);
     }
@@ -331,7 +331,7 @@ a {
         width: 40%;
         float: left;
         margin-left: 5%;
-        /*position: relative;*/
+        position: relative;
         top: 50%;
         transform: translateY(-50%);
     }
