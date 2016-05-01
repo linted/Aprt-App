@@ -256,7 +256,7 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', '$windo
 					ListingService.createNewListing(somedata).then(function(response) {
 						keyId = response.data;
 						console.log('Key ID is '+ keyId);
-						$window.location.assign( "/properties/" + keyId );
+						$window.location.assign( "/#/properties/" + keyId );
 					});
 //					console.log('Key ID is '+ keyId);
 				}, 2000);
