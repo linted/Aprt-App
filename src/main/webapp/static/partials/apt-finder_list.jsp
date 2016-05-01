@@ -218,9 +218,6 @@
                                 <a href="#/properties/{{x.keyId}}"><span class="fullLink" ng-bind="x.housingHeadline"></span></a>
                                 <br>
                                 <span ng-bind="x.location"></span>
-                                <!-- REMOVE. This is for testing -->
-                                <br>
-                                <!-- End testing area -->
                             </section>
                             <section class="rightSubListingStyle">
                                 <span class="listingPrice">$ <span ng-bind="x.price"></span></span>
