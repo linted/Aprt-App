@@ -62,7 +62,7 @@ gm-map {
 
 /*Container for full price message*/
 .rightSubListingStyle {
-    float: right;
+    /*float: right;*/
     text-align: right;
     width: 50%;
     height: 75%;
