@@ -135,8 +135,8 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', '$w
 
 
     $scope.classToggle = function () {
-        $("#listButton").toggleClass("buttonSelected, buttonUnselected");
-        $("#mapButton").toggleClass("buttonSelected, buttonUnselected");
+        $("#listButton").toggleClass("buttonSelected buttonUnselected");
+        $("#mapButton").toggleClass("buttonSelected buttonUnselected");
     };
 
     $scope.listButton = function () {

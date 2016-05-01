@@ -8,7 +8,7 @@
 
     <body ng-app="myApp">
         <div>
-            <form name="myForm">
+            <form name="myForm" style="margin-top: 10%; margin-left: 40%; background-color: gainsboro; border: 1px solid; height: 50%; width: 30%; padding: 2%;">
                 <label>
                     User ID:
                     <input type="text" name="userName" ng-model="user.name" required>
