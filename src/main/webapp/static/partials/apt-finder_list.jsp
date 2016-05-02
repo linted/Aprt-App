@@ -187,27 +187,28 @@
             <section id="rightColumn">
                 <!-- Sort by buttons -->
                 <section id="rightTopSortBar">
-                    
+                    <h3 class="verticalCenter">Listings: {{filtered.length}}</h3>
                     <!-- Sort by drop down menu -->
-                    <label class="DropMenu" style="float: none;">
-                        <br>
-                        <select id="SortBySelect" data-ng-model="orderBy">
-                            <option value="low-price">Lowest Price</option>
-                            <option value="high-price">Highest Price</option>
-                        </select>
-                    </label>
-                    <!-- toggle for list vs. map view -->
-
-                    <button id="listButton" class="buttonSelected" ng-click="mode = listButton()" type="button">list</button>
-                    <button id="mapButton" class="buttonUnselected" ng-click="mode = mapButton()" type="button">map</button>
-
+                    <div id="controls" class="verticalCenter">
+	                    <label id="dropMenu" class="dropMenuStyle">
+	                        <select id="SortBySelect" data-ng-model="orderBy">
+	                            <option value="low-price">Lowest Price</option>
+	                            <option value="high-price">Highest Price</option>
+	                        </select>
+	                    </label>
+	                    <!-- toggle for list vs. map view -->
+	
+	                    <button id="listButton" class="toggledBtn" ng-click="mode = listButton()" type="button">List</button>
+	                    <button id="mapButton" class="untoggledBtn" ng-click="mode = mapButton()" type="button">Map</button>
+                    </div>
                 </section>
                 <!-- Listing controller -->
-                <section ng-if="!mode">
-                	<span>Listings: {{filtered.length}}</span>
+                
+                <section>
+                	<!-- <h3>Listings: {{filtered.length}}</h3> -->
                 	<button class="btn btn-default" ng-if="isLandlord" ng-click="create()">Create New Listing</button>
                     <!-- repeat through the entries in listings, filtering as we go -->
-                    <section class="allListings" ng-repeat="x in (filtered = (ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice)) | limitTo:totalDisplayed" ng-model="x">
+                    <section ng-if="!mode" class="allListings" ng-repeat="x in (filtered = (ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice)) | limitTo:totalDisplayed" ng-model="x">
                         <section class="listingStyleLeft">
                             <!-- temp holder until we get images working-->
                             <img class="thumb" src="<c:url value='/static/img/181.jpeg' />">
@@ -216,19 +217,23 @@
 
                         <section class="listingStyleRight">
                             <section class="leftSubListingStyle">
-                                <a href="#/properties/{{x.keyId}}"><span class="fullLink" ng-bind="x.housingHeadline"></span></a>
-                                <br>
-                                <span ng-bind="x.location"></span>
+                                <a href="#/properties/{{x.keyId}}"><p class="fullLink" ng-bind="x.housingHeadline"></p></a>
+                                <p ng-bind="x.location"></p>
                             </section>
                             <section class="rightSubListingStyle">
-                                <span class="listingPrice">$ <span ng-bind="x.price"></span></span>
+                                <span class="listingPrice">$ <span class="listingPrice" ng-bind="x.price"></span></span>
                                 <!--<span ng-if="x.forSale == '1'"></span>-->
                                 <span ng-if="x.forSale == '0'" class="priceSubText">Per Month</span>
                             </section>
                         </section>
 
                     </section>
-                    <button ng-if="totalDisplayed < filtered.length" ng-click="loadMore()">Load More</button>
+
+                    
+                    
+                    
+                    
+                    <button ng-if="totalDisplayed < filtered.length && !mode" ng-click="loadMore()">Load More</button>
                 </section>
                 <section ng-if="mode">
                     <section id="listingGoogleMaps" ng-init="loadMap()"></section>
