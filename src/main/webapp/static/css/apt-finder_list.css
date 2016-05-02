@@ -196,6 +196,7 @@ a {
     width: 100%;
     float: none;
     margin-bottom: 34px;
+    /* border-bottom: 1px solid #d9d9d9; */
 }
 
 /*The text for the price filter*/
@@ -235,7 +236,8 @@ a {
     font-size: 14px;
     color: #ffffff;
     border: none!important;
-    margin-left: 20px;
+    margin-left: 10px;
+    /* margin-top: 1em; */
 }
 
 /*text boxes*/
@@ -245,13 +247,23 @@ a {
 
 /*Selection boxes*/
 select {
-    width: auto;
+    width: 120px;
+    height: 44px;
+    background-color: #eeeeee;
+    border: solid 1px #e1e1e1;
 }
 
 /*Drop Menus for filters*/
 .DropMenu {
     font-size: 90%;
     margin-right: 0%;
+    font-family: Roboto-Regular, sans-serif;
+    font-size: 15px;
+    line-height: 1.0;
+    color: #222222;
+    height: 14%
+    
+
 }
 .advFilterDrop {
     font-size: 90%;
@@ -261,6 +273,27 @@ select {
 }
 #advFilter {
     padding-left: 0px;
+    border-top: 1px solid #d9d9d9;
+}
+
+#BedroomSelect{
+    float: left;
+    width: 120px;
+    height: 44px;
+    background-color: #eeeeee;
+    border: solid 1px #e1e1e1;
+}
+
+#BathroomSelect{
+    float: right;
+    width: 120px;
+    height: 44px;
+    background-color: #eeeeee;
+    border: solid 1px #e1e1e1;
+}
+
+.col-md-6{
+    padding-left:0px;
 }
 
 /*Breakpoint at 768 between large and small screens*/
