@@ -246,6 +246,621 @@ a {
 
 /*Selection boxes*/
 select {
+    width: 100px;
+    height: 44px;
+    background-color: #eeeeee;
+    border: solid 1px #e1e1e1;
+}
+
+/*Drop Menus for filters*/
+.DropMenu {
+    font-size: 90%;
+    margin-right: 0%;
+    font-family: Roboto-Regular, sans-serif;
+    font-size: 15px;
+    line-height: 1.0;
+    color: #222222;
+    height: 14%
+    
+
+}
+.advFilterDrop {
+    font-size: 90%;
+}
+.advFilterDrop select option {
+    width: 50px;
+}
+#advFilter {
+    padding-left: 0px;
+    border-top: 1px solid #d9d9d9;
+}
+
+#BedroomSelect{
+    float: left;
+    height: 44px;
+    background-color: #eeeeee;
+    border: solid 1px #e1e1e1;
+}
+
+#BathroomSelect{
+    float: right;
+    height: 44px;
+    background-color: #eeeeee;
+    border: solid 1px #e1e1e1;
+}
+
+.col-md-6{
+    padding-left:0px;
+}
+
+/*Breakpoint at 768 between large and small screens*/
+@media (min-width: 768px) {
+    
+    /*Related to Google Map*/
+    gm-map {
+        display: block;
+        width: 100%;
+        height: 300px;
+    }
+    /*Column with filters*/
+    #leftColumn {
+        float: left;
+        width: 30%;
+        height: 400px;
+        margin-right: 0%;
+    }
+    /*Column with listings*/
+    #rightColumn {
+        float: left;
+        height: 400px;
+        width: 68%;
+        margin-left: 2%;
+    }
+    
+    /*Listing and info classes*/
+    .listing {}
+    .info {
+        float: left;
+        width: 100%;
+    }
+    
+    /*Drop Menus for filters*/
+    .DropMenu {
+        float: left;
+        font-size: 90%;
+        margin-right: 10%;
+    }
+    .advFilterDrop {
+        /*float: left;*/
+        font-size: 90%;
+    }
+    .advFilterDrop select option {
+        width: 50px;
+    }
+    #advFilter {
+        padding-left: 0px;
+        border-top: none;
+    }
+    
+    /*Main body*/
+    body {
+        margin-left: 5%!important;
+        width: 90%!important;
+    }
+    
+    /*Selection boxes*/
+    select {
+        width: 100px;
+        height: 44px;
+        background-color: #eeeeee;
+        border: solid 1px #e1e1e1;
+    }
+    #BedroomSelect{
+        height: 44px;
+        background-color: #eeeeee;
+        border: solid 1px #e1e1e1;
+    }
+
+    #BathroomSelect{
+        height: 44px;
+        background-color: #eeeeee;
+        border: solid 1px #e1e1e1;
+    }
+
+    /*Check boxes*/
+    .checkBox {
+        margin-left: 5px;
+    }
+    /*all divs*/
+    div {
+        margin-bottom: 5px;
+    }
+    /*text boxes*/
+    .inputBox {
+        width: 20%;
+    }
+    /*Possible mispelling?*/
+    .priceLable {
+        padding-right: 10px;
+    }
+    
+    /*Text boxes*/
+    #inputBoxes {
+        width: 100%;
+        float: none;
+        margin-bottom: 34px;
+    }
+    
+    /*Container for the picture*/
+    .listingStyleLeft {
+        float: left;
+    }
+    
+    /*The picture*/
+    .thumb {
+        width: 181px;
+        height: 181px;
+    }
+    
+    /*Container for all listing information*/
+    .listingStyleRight {
+        width: calc(100% - 181px);
+        height: 181px;
+        float: left;
+        border-top: 1px solid #d9d9d9;
+        border-bottom: 1px solid #d9d9d9;
+    }
+    
+    /*Affects all of the listings*/
+    .allListings {
+        height: 181px;
+        width: 100%;
+        margin-bottom: 2%;
+    }
+    /*Entire Price including "per month"*/
+    .rightSubListingStyle {
+        float: right;
+        text-align: right;
+        /*width: 20%;*/
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    /*All the drop down menus*/
+    #dropDownMenus {
+        border-top: 1px solid #d9d9d9;
+        height: 15%;
+    }
+    
+    /*The checkboxes*/
+    #checkBoxes {
+        border-top: 1px solid #d9d9d9;
+    }
+    
+    /*Button to submit price range*/
+    #goButton {
+        width: 69px;
+        height: 44px;
+        border-radius: 2px;
+        background-color: #3b99fb;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: #ffffff;
+        border: none!important;
+        margin-left: 26px;
+    }
+    
+    /*Link colors*/
+    a {
+        color: #2773cb;
+    }
+    
+    /*Contains listing information, like title*/
+    .leftSubListingStyle {
+        width: 40%;
+        float: left;
+        margin-left: 5%;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    /*The price? Already commented out. Probably not necessary*/
+    /* .price {
+	    font-size: 250%;
+	    margin: 5%;
+	} */
+    
+    /*Sort bar to sort listings*/
+    #rightTopSortBar {
+        width: 100%;
+        height: 15%;
+    }
+    
+    /*Sort bar to sort listings*/
+    #SortBySelect {
+        width: inherit;
+    }
+    
+    /*Toggle buttons between map and listings*/
+    .listMapButton {
+        height: 50%;
+        width: 50%;
+        border-radius: 2px;
+        background-color: #d8d8d8;
+        border: solid 1px #bbbbbb;
+    }
+    .listMapButton:target {
+        border-radius: 2px;
+        background-color: #ffffff;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+        border: solid 1px #bebebe;
+    }
+    
+    /*The main header*/
+    #header {
+        border-bottom: 1px solid #d9d9d9;
+        height: 10%;
+        width: 100%;
+        float: left;
+        margin: 15px 0px 15px 0px;
+    }
+    
+    /*The link to landlord login*/
+    .landlordLoginLink {
+        float: right;
+    }
+    
+    /*The title at the top of the page*/
+    .Apartment-Finder {
+        width: 223px;
+        height: 36px;
+        font-family: PTSerif-Regular;
+        font-size: 28px;
+        line-height: 1.3;
+        color: #161f31;
+    }
+    
+    /*The header of the filter*/
+    .Filter-Results {
+        width: 118px;
+        height: 28px;
+        font-family: PTSerif-Regular;
+        font-size: 20px;
+        line-height: 1.4;
+        color: #202020;
+    }
+    
+    /*The text for the price filter*/
+    .Price {
+        width: 37px;
+        height: 26px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #222222;
+        margin-top: 20px;
+    }
+    .Price-Text {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        color: #222222;
+    }
+    #toDolla {
+        margin: 0px 8px 0px 8px;
+    }
+    
+    /*The text boxs for the price filter*/
+    .priceBox {
+        width: 64px;
+        height: 44px;
+        background-color: #ffffff;
+        border: solid 1px #e1e1e1;
+    }
+    
+    /*The Price for each listing*/
+    .listingPrice {
+        font-family: PTSerif-Regular;
+        font-size: 42px;
+        line-height: 1.0;
+        color: #222222;
+    }
+    
+    /*The "per month" for listing price*/
+    .priceSubText {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #222222;
+    }
+    
+    /*related to the Google map*/
+    #map {
+        width: 100%;
+        height: 600px;
+    }
+    
+    /*The link for a listing*/
+    .fullLink {
+        /*position: absolute;*/
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    /*Containter for the google map*/
+    #listingGoogleMaps {
+        height: 700px;
+        width: 100%;
+    }
+    
+    /*Possibly unneeded*/
+    .validator {
+        top: 10px;
+        position: relative;
+    }
+    
+    /*Styles for listing/maps toggles*/
+    .buttonSelected {
+        border-radius: 2px;
+        background-color: #d8d8d8;
+        border: solid 1px #bbbbbb;
+    }
+    .buttonUnselected {
+        border-radius: 2px;
+        background-color: #ffffff;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+        border: solid 1px #bebebe;
+    }
+}/* FONTS */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+/*clearfix float fix*/
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.clearfix {display: inline-block;}
+
+/*Container with all the filter controls.*/
+#leftColumn {
+    width: 100%;
+    margin-right: 0%;
+    padding: 0em;
+}
+
+/*Container with either listings or maps, as well as sorting*/
+#rightColumn {
+    width: 100%;
+    margin-left: 0%;
+    padding: .5em;
+}
+
+/* Not sure what this code does.*/
+/*.info {
+    float: left;
+    width: 100%;
+}*/
+
+/*related to the google map.*/
+#map {
+    width: 100%;
+}
+
+/*Related to the google map. Not sure if actually used.*/
+gm-map {
+    /*display:block;*/
+    width: 100%;
+    height: 3.3em;
+}
+
+/*Style of the price number and $*/
+.listingPrice {
+    font-family: PTSerif-Regular;
+    font-size: 2.5em;
+    line-height: 1.0;
+    color: #222222;
+}
+
+
+
+/*Container for Google Map*/
+#listingGoogleMaps {
+    width: 100%;
+    height: 75%;
+}
+
+/*Container for full price message*/
+.rightSubListingStyle {
+    float: right;
+    text-align: right;
+    width: 50%;
+    height: 50%;
+    /*position: relative;*/
+    top: 50%;
+    /*transform: translateY(-50%);*/
+}
+
+/*Individual listing*/
+.listingStyleRight {
+    width: 100%;
+    height: 45%;
+    /*float: left;*/
+    border-top: 1px solid #d9d9d9;
+}
+
+.leftSubListingStyle {
+    width: 50%;
+    float: left;
+    /*position: relative;*/
+    height: 50%;
+    top: 50%;
+}
+
+/*Container for all of the listings*/
+.allListings {
+    height: 65%;
+    width: 100%;
+    /*margin-bottom: 2%;*/
+}
+
+/*.listingStyleLeft {
+    float: left;
+}*/
+
+/*Property thumbnail*/
+.thumb {
+    width: 100%;
+    height: 45%;
+}
+
+/*Color of links*/
+a {
+    color: #2773cb;
+}
+
+/*Map buttons*/
+.listMapButton {
+    height: 50%;
+    width: 50%;
+    border-radius: 2px;
+    background-color: #d8d8d8;
+    border: solid 1px #bbbbbb;
+}
+.listMapButton:target {
+    border-radius: 2px;
+    background-color: #ffffff;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+    border: solid 1px #bebebe;
+}
+
+/*The header*/
+#header {
+    border-bottom: 1px solid #d9d9d9;
+    height: 12%;
+    width: 100%;
+    margin: 1.25em 0em 1.25em 0px;
+}
+
+/*Title of page*/
+.Apartment-Finder {
+    width: 18.6em;
+    height: 3em;
+    font-family: PTSerif-Regular;
+    font-size: 2.3em;
+    line-height: 1.3;
+    color: #161f31;
+}
+
+.landlordLoginLink {
+    display: block;
+}
+
+.Filter-Results {
+    width: 9.8em;
+    height: 2.3em;
+    font-family: PTSerif-Regular;
+    font-size: 1.6em;
+    line-height: 1.4;
+    color: #202020;
+}
+
+.Price {
+    width: 3em;
+    height: 2em;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.6;
+    color: #222222;
+    margin-top: 1.6em;
+}
+
+/*The price number*/
+.Price-Text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3em;
+    color: #222222;
+}
+
+/*the per month*/
+.priceSubText{
+    display: inline-block;
+}
+.buttonSelected {
+        border-radius: 2px;
+        background-color: #d8d8d8;
+        border: solid 1px #bbbbbb;
+    }
+
+.buttonUnselected {
+        border-radius: 2px;
+        background-color: #ffffff;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+        border: solid 1px #bebebe;
+}
+
+/*Text boxes*/
+#inputBoxes {
+    width: 100%;
+    float: none;
+    margin-bottom: 34px;
+    /* border-bottom: 1px solid #d9d9d9; */
+}
+
+/*The text for the price filter*/
+.Price {
+    width: 37px;
+    height: 26px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #222222;
+    margin-top: 20px;
+}
+.Price-Text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #222222;
+}
+#toDolla {
+    margin: 0px 8px 0px 8px;
+}
+
+/*The text boxs for the price filter*/
+.priceBox {
+    width: 64px;
+    height: 44px;
+    background-color: #ffffff;
+    border: solid 1px #e1e1e1;
+}
+
+/*Button to submit price range*/
+#goButton {
+    width: 69px;
+    height: 44px;
+    border-radius: 2px;
+    background-color: #3b99fb;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    border: none!important;
+    margin-left: 10px;
+}
+
+/*text boxes*/
+.inputBox {
+    width: 20%;
+}
+
+/*Selection boxes*/
+select {
     width: 120px;
     height: 44px;
     background-color: #eeeeee;
