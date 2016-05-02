@@ -19,7 +19,7 @@ App.controller('ListingDetailedController', ['$scope', 'ListingService', '$route
                     self.listing = d;
                     self.map = self.resultsMapInit();
                     google.maps.event.trigger(self.map, "resize");
-                    $scope.allowEdit = ($cookies.get('user') === self.listing.orgId);
+                    $scope.allowEdit = ($cookies.get('user') == self.listing.orgId);
                 },
                 function (errResponse) {
                     console.error('some error');
