@@ -227,9 +227,9 @@
                         </section>
 
                     </section>
-                    <button ng-if="totalDisplayed < filtered.length" ng-click="loadLess()">Previous Page</button>
-                    <span id="pageNumber">Page {{ListingStartingIndex/totalDisplayed}} of {{filtered.length/totalDisplayed}}</span>
-                    <button ng-if="totalDisplayed < filtered.length" ng-click="loadMore()">Next Page</button>
+                    <button ng-if="ListingStartingIndex > 0" ng-click="loadLess()">Previous Page</button>
+                    <span id="pageNumber">Page {{Math.ceil(ListingStartingIndex/totalDisplayed)}} of {{Math.ceil(filtered.length/totalDisplayed)}}</span>
+                    <button ng-if="ListingStartingIndex < (filtered.length - totalDisplayed)" ng-click="loadMore()">Next Page</button>
                 </section>
                 <section ng-if="mode">
                     <section id="listingGoogleMaps" ng-init="loadMap()"></section>
