@@ -187,7 +187,7 @@
             <section id="rightColumn">
                 <!-- Sort by buttons -->
                 <section id="rightTopSortBar">
-                    
+                     <h3 class="verticalCenter">Listings: {{filtered.length}}</h3>
                     <!-- Sort by drop down menu -->
                     <label class="DropMenu" style="float: none;">
                         <br>
@@ -204,7 +204,6 @@
                 </section>
                 <!-- Listing controller -->
                 <section ng-if="!mode">
-                	<span>Listings: {{filtered.length}}</span>
                 	<button class="btn btn-default" ng-if="isLandlord" ng-click="create()">Create New Listing</button>
                     <!-- repeat through the entries in listings, filtering as we go -->
                     <section class="allListings" ng-repeat="x in (filtered = (ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice)) | limitTo:totalDisplayed:ListingStartingIndex" ng-model="x" ng-init="listingCount = x.length">
