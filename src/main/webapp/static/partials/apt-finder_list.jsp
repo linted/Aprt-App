@@ -228,7 +228,7 @@
 
                     </section>
                     <button ng-if="ListingStartingIndex > 0" ng-click="loadLess()">Previous Page</button>
-                    <span id="pageNumber">Page {{Math.ceil(ListingStartingIndex/totalDisplayed)}} of {{Math.ceil(filtered.length/totalDisplayed)}}</span>
+                    <span id="pageNumber">Page {{ListingStartingIndex/totalDisplayed | number:0}} of {{filtered.length/totalDisplayed | number:0}}</span>
                     <button ng-if="ListingStartingIndex < (filtered.length - totalDisplayed)" ng-click="loadMore()">Next Page</button>
                 </section>
                 <section ng-if="mode">
