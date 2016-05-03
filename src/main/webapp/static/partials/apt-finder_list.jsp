@@ -187,27 +187,27 @@
             <section id="rightColumn">
                 <!-- Sort by buttons -->
                 <section id="rightTopSortBar">
-                    
+                    <h3 class="verticalCenter">Listings: {{filtered.length}}</h3>
                     <!-- Sort by drop down menu -->
-                    <label class="DropMenu" style="float: none;">
-                        <br>
-                        <select id="SortBySelect" data-ng-model="orderBy">
-                            <option value="low-price">Lowest Price</option>
-                            <option value="high-price">Highest Price</option>
-                        </select>
-                    </label>
-                    <!-- toggle for list vs. map view -->
+                    <div id="controls" class="verticalCenter">
+	                    <label id="dropMenu" class="dropMenuStyle">
+	                        <select id="SortBySelect" data-ng-model="orderBy">
+	                            <option value="low-price">Lowest Price</option>
+	                            <option value="high-price">Highest Price</option>
+	                        </select>
+	                    </label>
+	                    <!-- toggle for list vs. map view -->
 
-                    <button id="listButton" class="buttonSelected" ng-click="mode = listButton()" type="button">list</button>
-                    <button id="mapButton" class="buttonUnselected" ng-click="mode = mapButton()" type="button">map</button>
+	                    <button id="listButton" class="toggledBtn" ng-click="mode = listButton()" type="button">List</button>
+	                    <button id="mapButton" class="untoggledBtn" ng-click="mode = mapButton()" type="button">Map</button>
+                    </div>
 
                 </section>
                 <!-- Listing controller -->
-                <section ng-if="!mode">
-                	<span>Listings: {{filtered.length}}</span>
+                <section>
                 	<button class="btn btn-default" ng-if="isLandlord" ng-click="create()">Create New Listing</button>
                     <!-- repeat through the entries in listings, filtering as we go -->
-                    <section class="allListings" ng-repeat="x in (filtered = (ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice)) | limitTo:totalDisplayed" ng-model="x">
+                    <section ng-if="!mode" class="allListings" ng-repeat="x in (filtered = (ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice)) | limitTo:totalDisplayed" ng-model="x">
                         <section class="listingStyleLeft">
                             <!-- temp holder until we get images working-->
                             <img class="thumb" src="<c:url value='/static/img/181.jpeg' />">

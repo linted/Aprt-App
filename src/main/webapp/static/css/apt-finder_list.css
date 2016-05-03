@@ -2,6 +2,20 @@
 
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
+h3 {
+    font-size: 24px;
+    line-height: 32px;
+    font-family: 'PT Serif', serif;
+    float: left;
+    margin: 0px;
+}
+
+span, p {
+	font-family: 'Roboto';
+	font-size: 16px;
+	line-height: 26px;
+}
+
 /*clearfix float fix*/
 .clearfix:after {
     visibility: hidden;
@@ -26,6 +40,85 @@
     width: 100%;
     margin-left: 0%;
     padding: .5em;
+}
+
+#rightTopSortBar {
+  height: 14%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.verticalCenter {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#controls {
+
+	float: right;
+}
+
+.untoggledBtn {
+  -webkit-border-radius: 2;
+  -moz-border-radius: 2;
+  border-radius: 2px;
+  color: #222222;
+  font-size: 16px;
+  background: #ffffff;
+  padding: 12px 12px 12px 12px;
+  border: solid #bbbbbb 1px;
+  text-decoration: none;
+  width: 122px;
+  height: 44px;
+}
+
+.toggledBtn {
+  -webkit-border-radius: 2;
+  -moz-border-radius: 2;
+  border-radius: 2px;
+  color: #222222;
+  font-size: 16px;
+  background: #d8d8d8;
+  padding: 12px 12px 12px 12px;
+  border: solid #bbbbbb 1px;
+  text-decoration: none;
+  width: 122px;
+  height: 44px;
+}
+
+#dropMenu {
+	vertical-align: bottom;
+	width: 212px;
+	height: 44px;
+	margin: 0px 30px 0px 0px;
+}
+
+.dropMenuStyle {
+	font-family: 'Roboto'!important;
+	font-size: 16px!important;
+	line-height: 26px!important;
+	font-weight: normal!important;
+	border: 1px solid #ccc;
+    width: 100%;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fafafa url("../img/drop.png") no-repeat 100% 50%;
+}
+
+.dropMenuStyle select {
+	padding: 8px 0px 0px 16px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+#mapButton {
+	float: right;
 }
 
 /* Not sure what this code does.*/
