@@ -168,7 +168,7 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', '$w
 		}
 		else return x.price; //if invalid, order by low-price.
 	};
-
+    
     /******************* code that runs *******************/
 
     //initialize the page by fetching the listings.

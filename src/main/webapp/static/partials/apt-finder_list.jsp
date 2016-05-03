@@ -21,7 +21,7 @@
 
     <link rel="stylesheet" href="<c:url value='/static/css/apt-finder_list.css' />">
     <body ng-app="myApp">
-        <div class="container-fluid">
+        <div class="container-fluid clearfix">
             <!-- Header -->
             <section id="header">
                 <span class="Apartment-Finder">Apartment Finder</span>
@@ -32,7 +32,7 @@
             <!-- left column -->
             <section id="leftColumn" ng-init="resultingListings = undefined">
                 <span class="Filter-Results">Filter Results</span>
-                <p>{{orgId}}</p>
+                <input type="text" ng-model="looseFilters.housingHeadline"/>
                 <!-- filter form -->
                 <form>
                     <!-- input boxes -->
@@ -169,8 +169,8 @@
                                 <br>
                                 <select ng-model="looseFilters.forSale">
                                     <option value="">Any</option>
-                                    <option value="false">No</option>
-                                    <option value="true">Yes</option>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
                                 </select>
                             </label>
                         </div>
@@ -184,10 +184,10 @@
             </section>
 
             <!-- right column -->
-            <section id="rightColumn" ng-init="listingCount">
+            <section id="rightColumn">
                 <!-- Sort by buttons -->
                 <section id="rightTopSortBar">
-                    <span>Listings: {{listingCount}}</span>
+                    
                     <!-- Sort by drop down menu -->
                     <label class="DropMenu" style="float: none;">
                         <br>
@@ -204,6 +204,8 @@
                 </section>
                 <!-- Listing controller -->
                 <section ng-if="!mode">
+                	<span>Listings: {{filtered.length}}</span>
+                	<button class="btn btn-default" ng-if="isLandlord" ng-click="create()">Create New Listing</button>
                     <!-- repeat through the entries in listings, filtering as we go -->
                     <section class="allListings" ng-repeat="x in ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice | limitTo:totalDisplayed:ListingStartingIndex" ng-model="x" ng-init="listingCount = x.length">
                         <section class="listingStyleLeft">
@@ -217,11 +219,6 @@
                                 <a href="#/properties/{{x.keyId}}"><span class="fullLink" ng-bind="x.housingHeadline"></span></a>
                                 <br>
                                 <span ng-bind="x.location"></span>
-                                <!-- REMOVE. This is for testing -->
-                                <br>
-                                <span ng-bind="x.orgId"></span>
-                                <span ng-bind="resultingListings.length"></span>
-                                <!-- End testing area -->
                             </section>
                             <section class="rightSubListingStyle">
                                 <span class="listingPrice">$ <span ng-bind="x.price"></span></span>
@@ -231,7 +228,7 @@
                         </section>
 
                     </section>
-                    <button ng-click="loadMore()">Load More</button>
+                    <button ng-if="totalDisplayed < filtered.length" ng-click="loadMore()">Load More</button>
                 </section>
                 <section ng-if="mode">
                     <section id="listingGoogleMaps" ng-init="loadMap()"></section>

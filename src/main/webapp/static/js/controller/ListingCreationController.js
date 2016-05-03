@@ -19,7 +19,6 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', '$windo
 
 
     /* function declarations */
-
     self.validation = function () { //validates all the fields are entered that need to be.
 
         //Ensure that a housing headline is given
@@ -243,7 +242,7 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', '$windo
                     longitude: $scope.longitude
                 });
                 var str = JSON.parse(somedata);
-                
+
                 //post the data to the database handler
                 ListingService.createNewListing(somedata).then(function (response) {
                     //get the key to redirect the page to
@@ -256,7 +255,7 @@ App.controller('ListingCreationController', ['$scope', 'ListingService', '$windo
     }
 
     /* ################################## Cookie check if there is an orgID ################################## */
-    self.checkUser = function () {                      //check if the user is allowed to be here
+    self.checkUser = function () { //check if the user is allowed to be here
         if ($cookies.get('user') == undefined) {
             $window.alert("Sorry, you do not have permission to access this page.");
             $window.location.assign("/");
