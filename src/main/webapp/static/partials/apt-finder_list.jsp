@@ -187,7 +187,6 @@
             <section id="rightColumn">
                 <!-- Sort by buttons -->
                 <section id="rightTopSortBar">
-                     <h3 class="verticalCenter">Listings: {{filtered.length}}</h3>
                     <!-- Sort by drop down menu -->
                     <label class="DropMenu" style="float: none;">
                         <br>
@@ -204,6 +203,7 @@
                 </section>
                 <!-- Listing controller -->
                 <section ng-if="!mode">
+                    <span class="verticalCenter">Listings: {{filtered.length}}</span>
                 	<button class="btn btn-default" ng-if="isLandlord" ng-click="create()">Create New Listing</button>
                     <!-- repeat through the entries in listings, filtering as we go -->
                     <section class="allListings" ng-repeat="x in (filtered = (ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice)) | limitTo:totalDisplayed:ListingStartingIndex" ng-model="x" ng-init="listingCount = x.length">
@@ -227,7 +227,9 @@
                         </section>
 
                     </section>
-                    <button ng-if="totalDisplayed < filtered.length" ng-click="loadMore()">Load More</button>
+                    <button ng-if="totalDisplayed < filtered.length" ng-click="loadLess()">Previous Page</button>
+                    <span id="pageNumber">Page {{ListingStartingIndex/totalDisplayed}} of {{filtered.length/totalDisplayed}}</span>
+                    <button ng-if="totalDisplayed < filtered.length" ng-click="loadMore()">Next Page</button>
                 </section>
                 <section ng-if="mode">
                     <section id="listingGoogleMaps" ng-init="loadMap()"></section>

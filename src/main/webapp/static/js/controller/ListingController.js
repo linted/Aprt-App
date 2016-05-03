@@ -104,6 +104,11 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', '$w
         //increase the starting index
         $scope.ListingStartingIndex += 20;
     };
+    
+    $scope.loadLess = function () {                     //decrease the starting index to "load Less" listings
+        //decrease the starting index
+        $scope.ListingStartingIndex -= 20;
+    };
 
     // do we need this function anymore? ###################################################################################################################
     $scope.applyToSearch = function () {
