@@ -134,24 +134,33 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', '$w
     };
 
 
-    $scope.classToggle = function () {
-        $("#listButton").toggleClass("buttonSelected, buttonUnselected");
-        $("#mapButton").toggleClass("buttonSelected, buttonUnselected");
+    $scope.classToggle = function (btn1,btn2) {
+    	if ($(btn1).hasClass("untoggledBtn")) {
+    		$(btn1).removeClass("untoggledBtn");
+            $(btn1).addClass("toggledBtn");
+            $(btn2).removeClass("toggledBtn");
+            $(btn2).addClass("untoggledBtn");
+    	}
+
     };
 
     $scope.listButton = function () {
-        console.log("List selected");
+    	console.log("List selected");
         if ($scope.mode) {
-            $scope.classToggle();
+        	var btn1 = "#listButton";
+        	var btn2 = "#mapButton";
+            $scope.classToggle(btn1,btn2);
         }
         return false;
     };
 
     $scope.mapButton = function () {
-        console.log("Map selected");
+    	console.log("Map selected");
+        console.log($scope.mode);
         if (!$scope.mode) {
-            $scope.classToggle();
-            //            $scope.loadMap();
+        	var btn1 = "#mapButton";
+        	var btn2 = "#listButton";
+            $scope.classToggle(btn1,btn2);
         }
         return true;
     };

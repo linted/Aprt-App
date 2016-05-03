@@ -28,6 +28,10 @@ span, p {
 
 .clearfix {display: inline-block;}
 
+.clear {
+	clear: both;
+}
+
 /*Container with all the filter controls.*/
 #leftColumn {
     width: 100%;
@@ -102,13 +106,13 @@ span, p {
 	font-weight: normal!important;
 	border: 1px solid #ccc;
     width: 100%;
-    border-radius: 3px;
     overflow: hidden;
     background: #fafafa url("../img/drop.png") no-repeat 100% 50%;
+    -webkit-appearance: none;
 }
 
 .dropMenuStyle select {
-	padding: 8px 0px 0px 16px;
+	padding: 0px 0px 0px 16px;
     width: 130%;
     border: none;
     box-shadow: none;
@@ -119,6 +123,51 @@ span, p {
 
 #mapButton {
 	float: right;
+}
+
+.filterStyle {
+	font-family: 'Roboto'!important;
+	font-size: 16px!important;
+	line-height: 26px!important;
+	font-weight: normal!important;
+	border: 1px solid #ccc!important;
+    overflow: hidden!important;
+    background: #fafafa url("../img/drop.png") no-repeat 100% 50%!important;
+    padding: 0px 0px 0px 16px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.bedBathFilt {
+	width: 100px;
+}
+
+.yesNoFilt {
+	width: 100px;
+}
+
+#acFilt {
+	width: 200px;
+}
+
+#houseFilt {
+	width: 200px;
+}
+
+#leaseFilt {
+	width: 200px;
+}
+
+#washDryFilt {
+	width: 200px;
+}
+
+#largeDrop {
+	padding-left: 0px;
 }
 
 /* Not sure what this code does.*/
@@ -338,12 +387,12 @@ a {
 }
 
 /*Selection boxes*/
-select {
+/* select {
     width: 100px;
     height: 44px;
     background-color: #eeeeee;
     border: solid 1px #e1e1e1;
-}
+} */
 
 /*Drop Menus for filters*/
 .DropMenu {
@@ -523,7 +572,7 @@ select {
     /*All the drop down menus*/
     #dropDownMenus {
         border-top: 1px solid #d9d9d9;
-        height: 15%;
+        height: 128px;
     }
     
     /*The checkboxes*/
@@ -1122,10 +1171,10 @@ select {
     }
     
     /*All the drop down menus*/
-    #dropDownMenus {
+    /* #dropDownMenus {
         border-top: 1px solid #d9d9d9;
         height: 50px;
-    }
+    } */
     
     /*The checkboxes*/
     #checkBoxes {

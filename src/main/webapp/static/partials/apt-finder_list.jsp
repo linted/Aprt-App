@@ -19,9 +19,10 @@
 -->
     <!-- HTML that is displayed -->
 
-    <link rel="stylesheet" href="<c:url value='/static/css/apt-finder_list.css' />">
+    <%-- <link rel="stylesheet" href="<c:url value='/static/css/apt-finder_list.css' />"> --%>
+    <link rel="stylesheet" href="<c:url value='/static/css/apt-finder_list-responsive.css' />">
     <body ng-app="myApp">
-        <div class="container-fluid clearfix">
+        <div id="mainContent" class="container-fluid clearfix">
             <!-- Header -->
             <section id="header">
                 <span class="Apartment-Finder">Apartment Finder</span>
@@ -32,27 +33,27 @@
             <!-- left column -->
             <section id="leftColumn" ng-init="resultingListings = undefined">
                 <span class="Filter-Results">Filter Results</span>
-                <input type="text" ng-model="looseFilters.housingHeadline"/>
                 <!-- filter form -->
                 <form>
                     <!-- input boxes -->
-                    <div id="inputBoxes">
+                    <div id="priceFiltering">
                         <!-- price -->
-                        <p class="Price">Price</p>
-                        <span class="Price-Text">$ </span>
-                        <input class="priceBox" id="lowerPriceBound">
-                        <span class="Price-Text" id="toDolla"> to $ </span>
-                        <input class="priceBox" id="upperPriceBound">
-                        <button type="submit" id="goButton" ng-click="applyToSearch()">GO</button>
+                        <p>Price</p>
+                        	<span>$ </span>
+	                        <input class="priceBox" id="lowerPriceBound">
+	                        <span id="toDolla"> to $ </span>
+	                        <input class="priceBox" id="upperPriceBound">
+                        	<button id="goButton" type="submit" ng-click="applyToSearch()">GO</button>
+                        
                     </div>
 
                     <!-- drop down menus -->
-                    <div id="dropDownMenus">
+                    <div id="bedBathDrop">
                         <!-- bedrooms -->
-                        <label class="DropMenu">
-                            Bedrooms
-                            <br>
-                            <select id="BedroomSelect" ng-model="looseFilters.bedrooms">
+                        <label id="bedLbl">
+                        	Bedrooms
+                        	<br>
+                            <select class="bedBathFilt filterStyle" ng-model="looseFilters.bedrooms">
                                 <option value="">0+</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -60,10 +61,10 @@
                             </select>
                         </label>
                         <!-- bathrooms -->
-                        <label class="DropMenu">
+                        <label>
                             Bathrooms
                             <br>
-                            <select id="BathroomSelect" ng-model="looseFilters.bathrooms">
+                            <select class="bedBathFilt filterStyle" ng-model="looseFilters.bathrooms">
                                 <option value="">0+</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -72,48 +73,21 @@
                         </label>
                     </div>
                     <!-- check boxes -->
-                    <div id="checkBoxes">
-                        <div id="advFilter" class="col-md-6">
-                            <label class="advFilterDrop">
-                                Air Conditioning
-                                <br>
-                                <select ng-model="looseFilters.airConditioned">
-                                    <option value="">Any</option>
-                                    <option value="0">None</option>
-                                    <option value="1">Window Unit</option>
-                                    <option value="2">Central Air</option>
-                                </select>
-                            </label>
-                            <!-- <label class="checkBox">
-                                <input type="checkbox" ng-model="looseFilters.airConditioned" checked="true"> Air-Conditioned</label> -->
-                            <br>
-                            <label class="advFilterDrop">
+                    <div id="advancedDrop">
+                        <div class="col-md-6">
+                        	<label>
                                 Furnished
                                 <br>
-                                <select ng-model="looseFilters.furnished">
+                                <select class="yesNoFilt filterStyle" ng-model="looseFilters.furnished">
                                     <option value="">Any</option>
                                     <option value="false">No</option>
                                     <option value="true">Yes</option>
                                 </select>
                             </label>
-                            <!-- <label class="checkBox">
-                                <input type="checkbox" ng-model="looseFilters.furnished" checked="true"> Furnished</label> -->
-                            <br>
-                            <label class="advFilterDrop">
-                                Washer/Dryer
-                                <br>
-                                <select ng-model="looseFilters.washerDryer">
-                                    <option value="">Any</option>
-                                    <option value="0">None</option>
-                                    <option value="1">Hookups</option>
-                                    <option value="2">On Premises</option>
-                                </select>
-                            </label>
-                            <br>
-                            <label class="advFilterDrop">
+                            <label>
                                 Pets Allowed
                                 <br>
-                                <select ng-model="looseFilters.petsAllowed">
+                                <select class="yesNoFilt filterStyle" ng-model="looseFilters.petsAllowed">
                                     <option value="">Any</option>
                                     <option value="false">No</option>
                                     <option value="true">Yes</option>
@@ -121,10 +95,53 @@
                             </label>
                         </div>
                         <div class="col-md-6">
-                            <label class="advFilterDrop">
+                        	<label>
+                                Deposit Required
+                                <br>
+                                <select class="yesNoFilt filterStyle" ng-model="looseFilters.deposit">
+                                    <option value="">Any</option>
+                                    <option value="false">No</option>
+                                    <option value="true">Yes</option>
+                                </select>
+                            </label>
+                            <br>
+                            <label>
+                                For Sale
+                                <br>
+                                <select class="yesNoFilt filterStyle" ng-model="looseFilters.forSale">
+                                    <option value="">Any</option>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </label> 
+                        </div>
+                        <div id="largeDrop" class="col-md-12">
+                        	<label>
+                                Air Conditioning
+                                <br>
+                                <select id="acFilt" class="filterStyle" ng-model="looseFilters.airConditioned">
+                                    <option value="">Any</option>
+                                    <option value="0">None</option>
+                                    <option value="1">Window Unit</option>
+                                    <option value="2">Central Air</option>
+                                </select>
+                            </label>
+                            <br>
+                            <label>
+                                Washer/Dryer
+                                <br>
+                                <select id="washDryFilt" class="filterStyle" ng-model="looseFilters.washerDryer">
+                                    <option value="">Any</option>
+                                    <option value="0">None</option>
+                                    <option value="1">Hookups</option>
+                                    <option value="2">On Premises</option>
+                                </select>
+                            </label>
+                            <br>
+                            <label>
                                 Housing Type
                                 <br>
-                                <select ng-model="looseFilters.housingType">
+                                <select id="houseFilt" class="filterStyle" ng-model="looseFilters.housingType">
                                     <option value="">Any</option>
                                     <option value="Apartment">Apartment</option>
                                     <option value="Duplex">Duplex</option>
@@ -135,13 +152,11 @@
                                     <option value="Townhome">Townhome</option>
                                 </select>
                             </label>
-                            <!-- <label class="checkBox">
-                                <input type="checkbox" ng-model="looseFilters.airConditioned" checked="true"> Air-Conditioned</label> -->
                             <br>
-                            <label class="advFilterDrop">
+                            <label>
                                 Lease Type
                                 <br>
-                                <select ng-model="looseFilters.lease">
+                                <select id="leaseFilt" class="filterStyle" ng-model="looseFilters.lease">
                                     <option value="">Any</option>
                                     <option value="Month-to-Month">Month-to-Month</option>
                                     <option value="Six Months">Six Months</option>
@@ -151,33 +166,7 @@
                                     <option value="Not Applicable">Not Applicable</option>
                                 </select>
                             </label>
-                            <!-- <label class="checkBox">
-                                <input type="checkbox" ng-model="looseFilters.furnished" checked="true"> Furnished</label> -->
-                            <br>
-                            <label class="advFilterDrop">
-                                Deposit Required
-                                <br>
-                                <select ng-model="looseFilters.deposit">
-                                    <option value="">Any</option>
-                                    <option value="false">No</option>
-                                    <option value="true">Yes</option>
-                                </select>
-                            </label>
-                            <br>
-                            <label class="advFilterDrop">
-                                For Sale
-                                <br>
-                                <select ng-model="looseFilters.forSale">
-                                    <option value="">Any</option>
-                                    <option value="0">No</option>
-                                    <option value="1">Yes</option>
-                                </select>
-                            </label>
                         </div>
-
-                        <!-- <label class="checkBox">
-                            <input type="checkbox" ng-model="looseFilters.petsAllowed" checked="true"> Pets Allowed</label> -->
-                        <br>
                     </div>
 
                 </form>
@@ -187,7 +176,7 @@
             <section id="rightColumn">
                 <!-- Sort by buttons -->
                 <section id="rightTopSortBar">
-                    <h3 class="verticalCenter">Listings: {{filtered.length}}</h3>
+                    <h3 class="verticalCenter">{{filtered.length}} Listings</h3>
                     <!-- Sort by drop down menu -->
                     <div id="controls" class="verticalCenter">
 	                    <label id="dropMenu" class="dropMenuStyle">
@@ -216,19 +205,18 @@
 
                         <section class="listingStyleRight">
                             <section class="leftSubListingStyle">
-                                <a href="#/properties/{{x.keyId}}"><span class="fullLink" ng-bind="x.housingHeadline"></span></a>
-                                <br>
-                                <span ng-bind="x.location"></span>
+                                <a href="#/properties/{{x.keyId}}"><span class="listingLink" ng-bind="x.housingHeadline"></span></a>
+                                <div id="location"><span ng-bind="x.location"></span></div>
                             </section>
                             <section class="rightSubListingStyle">
-                                <span class="listingPrice">$ <span ng-bind="x.price"></span></span>
+                                <span class="listingPrice">$<span class="listingPrice" ng-bind="x.price"></span></span>
                                 <!--<span ng-if="x.forSale == '1'"></span>-->
                                 <span ng-if="x.forSale == '0'" class="priceSubText">Per Month</span>
                             </section>
                         </section>
 
                     </section>
-                    <button ng-if="totalDisplayed < filtered.length" ng-click="loadMore()">Load More</button>
+                    <button ng-if="totalDisplayed < filtered.length && !mode" ng-click="loadMore()">Load More</button>
                 </section>
                 <section ng-if="mode">
                     <section id="listingGoogleMaps" ng-init="loadMap()"></section>
