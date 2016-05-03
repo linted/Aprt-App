@@ -31,7 +31,7 @@
                 <a ng-if="isLandlord" class="landlordLoginLink" href="#/login/">Landlord Sign-out ></a>
             </section>
             <!-- left column -->
-            <section id="leftColumn" ng-init="resultingListings = undefined">
+            <section id="leftColumn" ng-init="resultingListings = undefined" class="visible-lg visible-md">
                 <span class="Filter-Results">Filter Results</span>
                 <!-- filter form -->
                 <form>

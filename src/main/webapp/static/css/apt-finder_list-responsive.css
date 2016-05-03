@@ -108,8 +108,8 @@ span, p, label {
 
 .dropMenuStyle {
 	font-family: 'Roboto'!important;
-	font-size: 16px!important;
-	line-height: 26px!important;
+	font-size: 16px;
+	line-height: 26px;
 	font-weight: normal!important;
 	border: 1px solid #ccc;
     width: 100%;
@@ -134,8 +134,8 @@ span, p, label {
 
 .filterStyle {
 	font-family: 'Roboto'!important;
-	font-size: 16px!important;
-	line-height: 26px!important;
+	font-size: 16px;
+	line-height: 26px;
 	font-weight: normal!important;
 	border: 1px solid #ccc!important;
     overflow: hidden!important;
@@ -434,7 +434,7 @@ a {
 } */
 
 /*Drop Menus for filters*/
-.DropMenu {
+/* .DropMenu {
     font-size: 90%;
     margin-right: 0%;
     font-family: Roboto-Regular, sans-serif;
@@ -444,8 +444,8 @@ a {
     height: 14%
     
 
-}
-.advFilterDrop {
+} */
+/* .advFilterDrop {
     font-size: 90%;
 }
 .advFilterDrop select option {
@@ -454,9 +454,9 @@ a {
 #advFilter {
     padding-left: 0px;
     border-top: 1px solid #d9d9d9;
-}
+} */
 
-#BedroomSelect{
+/* #BedroomSelect{
     float: left;
     height: 44px;
     background-color: #eeeeee;
@@ -468,8 +468,38 @@ a {
     height: 44px;
     background-color: #eeeeee;
     border: solid 1px #e1e1e1;
-}
+} */
 
 .col-md-6{
     padding-left:0px;
+}
+
+
+/* Begin Mobile Responsive Fixes */
+@media (max-width: 1190px) {
+	.listingLink {
+		font-size: 18px;
+	}
+	
+	.listingPrice {
+		font-size: 38px;
+	}
+	
+	span, p, label {
+		font-size: 14px;
+	}
+	
+	.filterStyle, .dropMenuStyle, .toggledBtn, .untoggledBtn {
+		font-size: 14px;
+	}
+	
+	#dropMenu {
+		width: 150px;
+	}
+	
+	#listButton, #mapButton {
+		width: 80px;
+	}
+	
+	
 }
