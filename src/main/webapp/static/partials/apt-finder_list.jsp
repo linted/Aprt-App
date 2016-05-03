@@ -19,6 +19,15 @@
 -->
     <!-- HTML that is displayed -->
 
+	<script>
+		$(document).ready(function() {			
+			if($(window).width() <= 990) {
+				console.log("Less than 990");
+				$('#filterBtn').click();
+			}
+		});
+	</script>
+
     <%-- <link rel="stylesheet" href="<c:url value='/static/css/apt-finder_list.css' />"> --%>
     <link rel="stylesheet" href="<c:url value='/static/css/apt-finder_list-responsive.css' />">
     <body ng-app="myApp">
@@ -31,7 +40,7 @@
                 <a ng-if="isLandlord" class="landlordLoginLink" href="#/login/">Landlord Sign-out ></a>
             </section>
             <!-- left column -->
-            <section id="leftColumn" ng-init="resultingListings = undefined" class="visible-lg visible-md">
+            <section id="leftColumn" ng-init="resultingListings = undefined" class="collapse in">
                 <span class="Filter-Results">Filter Results</span>
                 <!-- filter form -->
                 <form>
@@ -171,12 +180,12 @@
 
                 </form>
             </section>
-
             <!-- right column -->
             <section id="rightColumn">
                 <!-- Sort by buttons -->
                 <section id="rightTopSortBar">
                     <h3 class="verticalCenter">{{filtered.length}} Listings</h3>
+                    <button id="filterBtn" class="verticalCenter visible-sm visible-xs btn btn-info" data-toggle="collapse" data-target="#leftColumn">Filter Listings</button>
                     <!-- Sort by drop down menu -->
                     <div id="controls" class="verticalCenter">
 	                    <label id="dropMenu" class="dropMenuStyle">

@@ -474,6 +474,28 @@ a {
     padding-left:0px;
 }
 
+/* #overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: #999;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  z-index: 100;
+}
+
+#popup {
+	display: none;
+	position: absolute;
+	z-index: 200;
+} */
+
+#filterBtn {
+	float: left;
+	margin-left: 10px;
+}
 
 /* Begin Mobile Responsive Fixes */
 @media (max-width: 1190px) {
@@ -499,7 +521,22 @@ a {
 	
 	#listButton, #mapButton {
 		width: 80px;
+	}	
+}
+
+@media (max-width: 1150px) {
+	.priceSubText {
+		display: block;
+		position: inherit;
+		bottom: 0px;
 	}
-	
-	
+}
+
+@media (max-width: 990px) {
+	#rightColumn {
+		width: 100%;
+	}
+	#leftColumn {
+		height: auto;
+	}
 }
