@@ -1,3 +1,5 @@
+/*This class implements a sublisting of a listing with only the important details*/
+
 package com.aptappteam.model;
 
 import javax.persistence.Column;
@@ -8,6 +10,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="HousingOffCampus")
 public class SubListing {
+	
+	//Variable Declarations
 	@Id
 	@Column(name = "KeyID", nullable = false)
 	private String keyId;
@@ -63,6 +67,8 @@ public class SubListing {
 	@Column(name = "Longitude")
 	private Float longitude;
 	
+	
+	//get functions for all variables. No set functions needed.
 	public String getKeyId() {
 		return keyId;
 	}

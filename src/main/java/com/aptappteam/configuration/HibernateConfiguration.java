@@ -1,3 +1,5 @@
+/*This class sets up Hibernate to get data from the database*/
+
 package com.aptappteam.configuration;
 
 import java.util.Properties;
@@ -25,6 +27,11 @@ public class HibernateConfiguration {
     @Autowired
     private Environment environment;
  
+    /* Name: sessionFactory
+	 * Purpose: Sets up Hibernate to know what models the data will map to.
+	 * Arguments: None
+	 * Returns: A SessionFactoryBean
+	 * */
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
@@ -33,7 +40,11 @@ public class HibernateConfiguration {
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
      }
-     
+    /* Name: dataSource
+	 * Purpose: Sets up Hibernate to use the database
+	 * Arguments: None
+	 * Returns: the Data Source for Hibernate to pull from.
+	 * */
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -44,6 +55,11 @@ public class HibernateConfiguration {
         return dataSource;
     }
      
+    /* Name: hibernateProperties
+	 * Purpose: Sets up Hibernate to work with SQL.
+	 * Arguments: None
+	 * Returns: returns the properties
+	 * */
     private Properties hibernateProperties() {
         Properties properties = new Properties();
         properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
@@ -52,6 +68,11 @@ public class HibernateConfiguration {
         return properties;        
     }
      
+    /* Name: transactionManager
+	 * Purpose: Sets up Hibernate to make transactions to the database.
+	 * Arguments: A sessionfactory that will hold the sessions from the database after retrieving and before storing.
+	 * Returns: A transaction manager object
+	 * */
     @Bean
     @Autowired
     public HibernateTransactionManager transactionManager(SessionFactory s) {

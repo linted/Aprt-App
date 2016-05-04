@@ -1,3 +1,5 @@
+/*This class implements the Listing Service*/
+
 package com.aptappteam.service;
  
 import java.util.List;
@@ -18,6 +20,7 @@ public class ListingServiceImpl implements ListingService {
     @Autowired
     private ListingDao dao;
      
+    //These two functions just call dao functions.
     public Listing findListingById(int id) {
         return dao.findListingById(id);
     }
@@ -32,6 +35,12 @@ public class ListingServiceImpl implements ListingService {
      * Just fetch the entity from db and update it with proper values within transaction.
      * It will be updated in db once transaction ends. 
      */
+    
+    /* Name: updateListing
+     * Purpose: updates a listing in the database
+     * Argument: A listing
+     * Returns: True or False, based on if the listing was found*/
+
     public boolean updateListing(Listing Listing) {
         Listing entity = dao.findListingById(Listing.getKeyId());
         if(entity!=null){
@@ -89,6 +98,7 @@ public class ListingServiceImpl implements ListingService {
         }
     }
  
+    //These next three functions call straight from the dao. See ListingDaoImpl.java for details.
     public void deleteListingById(int id) {
         dao.deleteListingById(id);
     }
@@ -100,14 +110,5 @@ public class ListingServiceImpl implements ListingService {
     public List<Listing> findListingByFilters(Filters filters) {
     	return dao.findListingByFilters(filters);
     }
- 
-//    public Listing findListingBySsn(String ssn) {
-//        return dao.findListingBySsn(ssn);
-//    }
- 
-//    public boolean isListingSsnUnique(Integer id, String ssn) {
-//        Listing Listing = findListingBySsn(ssn);
-//        return ( Listing == null || ((id != null) && (Listing.getId() == id)));
-//    }
      
 }

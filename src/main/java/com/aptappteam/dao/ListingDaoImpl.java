@@ -1,3 +1,5 @@
+/*This class implements the Listing Data Abstract Object*/
+
 package com.aptappteam.dao;
 
 import java.util.List;
@@ -18,6 +20,11 @@ import com.aptappteam.model.Organization;
 @Repository("listingDao")
 public class ListingDaoImpl extends AbstractDao<Integer, Listing> implements ListingDao {
  
+	/* Name: findListingById
+	 * Purpose: finds a single listing in the database that matches an id
+	 * Arguments: A Integer KeyId for a listing
+	 * Returns: A listing that matches the ID.
+	 * */
     public Listing findListingById(int id) {
     	Criteria cr = getSession().createCriteria(Listing.class);
         cr.add(Restrictions.eq("keyId",id));
@@ -25,16 +32,31 @@ public class ListingDaoImpl extends AbstractDao<Integer, Listing> implements Lis
     	return listings.get(0);
     }
  
+    /* Name: saveListing
+	 * Purpose: saves a listing to the database
+	 * Arguments: A listing object
+	 * Returns: None
+	 * */
     public void saveListing(Listing Listing) {
         persist(Listing);
     }
  
+    /* Name: deleteListingById
+	 * Purpose: deletes a listing for a specific Id
+	 * Arguments: A Integer KeyId for a listing
+	 * Returns: None
+	 * */
     public void deleteListingById(int id) {
     	Listing listing = new Listing();
     	listing.setKeyId(id);
     	getSession().delete(listing);
     }
  
+    /* Name: findAllListings
+	 * Purpose: finds all listings
+	 * Arguments: None
+	 * Returns: A List of all Listings
+	 * */
     @SuppressWarnings("unchecked")
     public List<SubListing> findAllListings() {   	
         Criteria cr = getSession().createCriteria(SubListing.class);
@@ -44,6 +66,12 @@ public class ListingDaoImpl extends AbstractDao<Integer, Listing> implements Lis
     	return listings;
     }
     
+    
+    /* Name: findListingByFilters
+	 * Purpose: finds a Listing by filters
+	 * Arguments: Filters to filter by
+	 * Returns: null
+	 * */
     public List<Listing> findListingByFilters(Filters filters) {
 		return null;
     	

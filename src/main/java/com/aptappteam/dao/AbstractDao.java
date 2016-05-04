@@ -1,3 +1,4 @@
+/*This "class" is more of an interface for all of the dao objects. It was provided with the framework.*/
 package com.aptappteam.dao;
  
 import java.io.Serializable;

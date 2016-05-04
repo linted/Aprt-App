@@ -1,7 +1,10 @@
+/*This class implements Utilities*/
+
 package com.aptappteam.model;
 
 public class Utilities {
 	
+	//Variable Declarations
 	private Boolean water;
 	
 	private Boolean heat;
@@ -16,6 +19,7 @@ public class Utilities {
 	
 	private Boolean trash;
 
+	//Get and Set functions
 	public Boolean getWater() {
 		return water;
 	}

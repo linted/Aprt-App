@@ -1,3 +1,5 @@
+/*This interface provides the framework for the Listing Data Abstract Object*/
+
 package com.aptappteam.dao;
 
 import java.util.List;
