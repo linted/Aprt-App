@@ -633,3 +633,19 @@ a {
 		width: 60px
 	}
 }
+
+@media (max-width: 400px) {
+	#controls {
+		float: left;
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+	#dropMenu {
+		width: 100%;
+		float: left;
+		margin-bottom: 15px;
+	}
+	#listButton, #mapButton {
+		float: left;
+	}
+}
