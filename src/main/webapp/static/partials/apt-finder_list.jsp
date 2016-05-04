@@ -22,7 +22,6 @@
 	<script>
 		$(document).ready(function() {			
 			if($(window).width() <= 990) {
-				console.log("Less than 990");
 				$('#filterBtn').click();
 			}
 		});
@@ -202,10 +201,11 @@
 
                 </section>
                 <!-- Listing controller -->
+
                 <section>
                 	<button class="btn btn-default" ng-if="isLandlord" ng-click="create()">Create New Listing</button>
                     <!-- repeat through the entries in listings, filtering as we go -->
-                    <section ng-if="!mode" class="allListings" ng-repeat="x in (filtered = (ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice)) | limitTo:totalDisplayed" ng-model="x">
+                    <section ng-if="!mode" class="allListings" ng-repeat="x in (filtered = (ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice)) | limitTo:totalDisplayed:ListingStartingIndex" ng-model="x">
                         <section class="listingStyleLeft">
                             <!-- temp holder until we get images working-->
                             <img class="thumb" src="<c:url value='http://placehold.it/188x188' />">
@@ -217,16 +217,19 @@
                                 <a href="#/properties/{{x.keyId}}"><span class="listingLink" ng-bind="x.housingHeadline"></span></a>
                                 <div id="location"><span ng-bind="x.location"></span></div>
                             </section>
+                            
                             <section class="rightSubListingStyle">
                                 <span class="listingPrice">$<span class="listingPrice" ng-bind="x.price"></span></span>
-                                <!--<span ng-if="x.forSale == '1'"></span>-->
                                 <span ng-if="x.forSale == '0'" class="priceSubText">Per Month</span>
                             </section>
                         </section>
-
+                        
                     </section>
-                    <button ng-if="totalDisplayed < filtered.length && !mode" ng-click="loadMore()">Load More</button>
+                    <button ng-if="ListingStartingIndex > 0" ng-click="loadLess()">Previous Page</button>
+                    <span id="pageNumber">Page {{ListingStartingIndex/totalDisplayed | number:0}} of {{filtered.length/totalDisplayed | number:0}}</span>
+                    <button ng-if="ListingStartingIndex < (filtered.length - totalDisplayed)" ng-click="loadMore()">Next Page</button>
                 </section>
+                
                 <section ng-if="mode">
                     <section id="listingGoogleMaps" ng-init="loadMap()"></section>
                 </section>
@@ -239,7 +242,7 @@
     <script src="<c:url value='/static/js/angular-google-maps-native.js' />"></script>
     <%-- <script src="<c:url value='/static/js/maps.js' />"></script> --%>
     <%-- <script src="<c:url value='/static/js/service/ListingService.js' />"></script> --%>
-    <%--     <script src="<c:url value='/static/js/controller/ListingController.js' />"></script> --%>
+    <%-- <script src="<c:url value='/static/js/controller/ListingController.js' />"></script> --%>
 
     <!-- End Document -->
 

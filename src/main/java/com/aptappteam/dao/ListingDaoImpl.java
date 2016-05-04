@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.aptappteam.model.Filters;
 import com.aptappteam.model.Listing;
 import com.aptappteam.model.SubListing;
+import com.aptappteam.model.Organization;
  
 @Repository("listingDao")
 public class ListingDaoImpl extends AbstractDao<Integer, Listing> implements ListingDao {
