@@ -138,56 +138,37 @@ App.controller('ListingController', ['$scope', 'ListingService', '$cookies', '$w
         }
     };
 
-<<<<<<< HEAD
-    $scope.classToggle = function () {                  //function that toggles the classes of buttons to show selection
-        $("#listButton").toggleClass("buttonSelected buttonUnselected");
-        $("#mapButton").toggleClass("buttonSelected buttonUnselected");
+    
+//    $scope.classToggle = function () {                //old class toggle function. kept because it is known to work
+//    	if ($(btn1).hasClass("untoggledBtn")) {
+//    		$(btn1).removeClass("untoggledBtn");
+//            $(btn1).addClass("toggledBtn");
+//            $(btn2).removeClass("toggledBtn");
+//            $(btn2).addClass("untoggledBtn");
+//    	}
+//
+//    };
+    
+    $scope.classToggle = function (btn1,btn2) {         //function that toggles the classes of buttons to show selection
+        $(btn1).toggleClass("toggledBtn untoggledBtn");
+        $(btn2).toggleClass("toggledBtn untoggledBtn");
     };
 
     $scope.listButton = function () {                   //function to switch the layout to list mode
         //make sure the user didn't click the button while already in this mode.
         if ($scope.mode) {
             //swap selected mode if we are changing modes
-            $scope.classToggle();
-=======
-
-    $scope.classToggle = function (btn1,btn2) {
-    	if ($(btn1).hasClass("untoggledBtn")) {
-    		$(btn1).removeClass("untoggledBtn");
-            $(btn1).addClass("toggledBtn");
-            $(btn2).removeClass("toggledBtn");
-            $(btn2).addClass("untoggledBtn");
-    	}
-
-    };
-
-    $scope.listButton = function () {
-    	console.log("List selected");
-        if ($scope.mode) {
-        	var btn1 = "#listButton";
-        	var btn2 = "#mapButton";
-            $scope.classToggle(btn1,btn2);
->>>>>>> master
+            $scope.classToggle("#listButton", "#mapButton");
         }
         //return the bool val for list mode
         return false;
     };
 
-<<<<<<< HEAD
     $scope.mapButton = function () {                    //function to switch the layout to map mode
         //make sure the user didn't click the button while already in this mode.
         if (!$scope.mode) {
             //swap selected mode if we are changing modes
-            $scope.classToggle();
-=======
-    $scope.mapButton = function () {
-    	console.log("Map selected");
-        console.log($scope.mode);
-        if (!$scope.mode) {
-        	var btn1 = "#mapButton";
-        	var btn2 = "#listButton";
-            $scope.classToggle(btn1,btn2);
->>>>>>> master
+            $scope.classToggle("#listButton", "#mapButton");
         }
         //return the bool val for map mode
         return true;

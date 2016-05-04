@@ -22,7 +22,6 @@
 	<script>
 		$(document).ready(function() {			
 			if($(window).width() <= 990) {
-				console.log("Less than 990");
 				$('#filterBtn').click();
 			}
 		});
@@ -218,16 +217,19 @@
                                 <a href="#/properties/{{x.keyId}}"><span class="listingLink" ng-bind="x.housingHeadline"></span></a>
                                 <div id="location"><span ng-bind="x.location"></span></div>
                             </section>
+                            
                             <section class="rightSubListingStyle">
                                 <span class="listingPrice">$<span class="listingPrice" ng-bind="x.price"></span></span>
                                 <span ng-if="x.forSale == '0'" class="priceSubText">Per Month</span>
                             </section>
                         </section>
+                        
                     </section>
                     <button ng-if="ListingStartingIndex > 0" ng-click="loadLess()">Previous Page</button>
                     <span id="pageNumber">Page {{ListingStartingIndex/totalDisplayed | number:0}} of {{filtered.length/totalDisplayed | number:0}}</span>
                     <button ng-if="ListingStartingIndex < (filtered.length - totalDisplayed)" ng-click="loadMore()">Next Page</button>
                 </section>
+                
                 <section ng-if="mode">
                     <section id="listingGoogleMaps" ng-init="loadMap()"></section>
                 </section>
