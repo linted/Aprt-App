@@ -1,3 +1,5 @@
+/*This class implements a listing*/
+
 package com.aptappteam.model;
 
 import java.math.BigDecimal;
@@ -20,6 +22,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name="HousingOffCampus")
 public class Listing {
 	
+	
+	//Variable Declarations
 	@Id
 	@Column(name = "KeyID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -181,6 +185,7 @@ public class Listing {
 	@Column(name = "Longitude")
 	private Float longitude;
 	
+	//Get functions for all variables
 	public Integer getKeyId() {
 		return keyId;
 	}
@@ -392,6 +397,8 @@ public class Listing {
 	public Float getLongitude() {
 		return longitude;
 	}
+	
+	//set function for all variables
 	
 	public void setKeyId(Integer keyId) {
 		this.keyId = keyId;

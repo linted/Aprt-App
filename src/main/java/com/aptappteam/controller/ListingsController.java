@@ -1,3 +1,5 @@
+/*This class how listings are controlled for the database*/
+
 package com.aptappteam.controller;
 
 import java.util.List;
@@ -21,22 +23,6 @@ import com.aptappteam.model.Listing;
 import com.aptappteam.model.SubListing;
 import com.aptappteam.service.ListingService;
 
-//@Controller
-//@RequestMapping("/listings")
-//public class ListingsController {
-//	
-//	@Autowired
-//	ListingService service;
-//	
-//	
-//	@RequestMapping(value = "/", method = RequestMethod.GET)
-//	public String listListings(ModelMap model) {
-//		List<Listing> listings = service.findAllListings();
-//		model.addAttribute("listings", listings);
-//		return "alllistings";
-//	}
-//}
-
 @RestController
 @RequestMapping("/listings")
 public class ListingsController {
@@ -44,7 +30,11 @@ public class ListingsController {
 	@Autowired
 	ListingService service;
 	
-	
+	/* Name: listAllListings
+	 * Purpose: retrieves all listing from the database
+	 * Arguments: None
+	 * Returns: A list of all listings, and an good message from the server.
+	 * */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ResponseEntity<List<SubListing>> listAllListings() {
 		List<SubListing> listings = service.findAllListings();
@@ -54,6 +44,11 @@ public class ListingsController {
 		return new ResponseEntity<List<SubListing>>(listings, HttpStatus.OK);
 	}
 	
+	/* Name: viewListing
+	 * Purpose: returns a single listing
+	 * Arguments: The id of a listing
+	 * Returns: A single listing.
+	 * */
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Listing> viewListing(@PathVariable int id) {
 //		System.out.println(id);
@@ -62,6 +57,12 @@ public class ListingsController {
 		//Still needs error handling
 		return new ResponseEntity<Listing>(item, HttpStatus.OK);
 	}
+	
+	/* Name: updateListing
+	 * Purpose: updates a listing in the database
+	 * Arguments: A listing
+	 * Returns: HttpStatus dependent on if it worked.
+	 * */
 	
 	//Probably need to have a check to make sure this is saved correctly
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
@@ -73,6 +74,12 @@ public class ListingsController {
 		}
 	}
 	
+	/* Name: deleteListing
+	 * Purpose: deletes a listing
+	 * Arguments: A KeyId for a listing
+	 * Returns: An HttpStatus of OK
+	 * */
+	
 	//Need to perform check to make sure delete doesn't fail
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
 	public HttpStatus deleteListing(@PathVariable int id) {
@@ -80,31 +87,11 @@ public class ListingsController {
 		return HttpStatus.OK;
 	}
 	
-//	@RequestMapping(value = { "/new" }, method = RequestMethod.POST)
-//	public String saveEmployee(@Valid Listing listing, BindingResult result,
-//			ModelMap model) {
-//
-//		if (result.hasErrors()) {
-//			return "registration";
-//		}
-//
-//		/*
-//		 * Preferred way to achieve uniqueness of field [ssn] should be implementing custom @Unique annotation 
-//		 * and applying it on field [ssn] of Model class [Employee].
-//		 * 
-//		 * Below mentioned peace of code [if block] is to demonstrate that you can fill custom errors outside the validation
-//		 * framework as well while still using internationalized messages.
-//		 * 
-//		 */
-//		
-//		System.out.println("listing object");
-//		System.out.println(listing.getHousingHeadline().toString());
-//		
-//		service.saveListing(listing);
-//
-//		model.addAttribute("success", "Listing " + listing.getHousingHeadline() + " registered successfully");
-//		return "success";
-//	}
+	/* Name: saveListing
+	 * Purpose: Saves a new listing to the database
+	 * Arguments: A listing object
+	 * Returns: A Boolean answer to whether the listing saved properly.
+	 * */
 	
 	@RequestMapping(value = { "/new" }, method = RequestMethod.POST)
 	public Integer saveListing(@RequestBody Listing listing) {

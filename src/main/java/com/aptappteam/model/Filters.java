@@ -1,6 +1,10 @@
+/*This class is the model for filters to filter the search results*/
+
 package com.aptappteam.model;
 
 public class Filters {
+
+	//Variable declaration
 	private String housingType;
 	
 	private Boolean forSale;
@@ -21,6 +25,7 @@ public class Filters {
 	
 	private String depositPrice;
 
+	//get and set functions for all variables
 	public String getDepositPrice() {
 		return depositPrice;
 	}

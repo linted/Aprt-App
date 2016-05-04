@@ -28,7 +28,7 @@
 			      				<h4 class="panel-title">
 			        				<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 			          					Primary Property Information
-			        				</a>
+			        				</a>implements
 			      				</h4>
 			    			</div>
 				    		<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
