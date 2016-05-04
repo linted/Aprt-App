@@ -540,3 +540,47 @@ a {
 		height: auto;
 	}
 }
+
+@media (max-width: 720px) {
+	#controls {
+		float: left;
+		margin-top: 15px;
+	}
+	#rightTopSortBar {
+		margin-top: 20px;
+	}
+	#rightTopSortBar h3 {
+		margin-top: 10px;
+	}
+	#filterBtn {
+		float: left;
+		margin: 10px 0px 0px 10px;
+	}
+	.allListings {
+		height: 160px;
+	}
+	.verticalCenter {
+		position: inherit;
+		top: 0%;
+		transform: none;
+	}
+	.thumb {
+		width: 140px;
+		height: 140px;
+	}
+	.listingStyleRight {
+		height: 140px;
+		width: calc(100% - 140px);
+	}
+	.listingLink {
+		font-size: 16px;
+		line-height: 20px;
+	}
+	#location {
+		margin-top: 5px;
+	}
+}
+
+@media (max-width: 520px) {
+	
+}

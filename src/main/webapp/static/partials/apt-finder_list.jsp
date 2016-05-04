@@ -208,7 +208,7 @@
                     <section ng-if="!mode" class="allListings" ng-repeat="x in (filtered = (ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice)) | limitTo:totalDisplayed" ng-model="x">
                         <section class="listingStyleLeft">
                             <!-- temp holder until we get images working-->
-                            <img class="thumb" src="<c:url value='/static/img/181.jpeg' />">
+                            <img class="thumb" src="<c:url value='http://placehold.it/188x188' />">
                             <!--src="{{x.thumb}}">-->
                         </section>
 
