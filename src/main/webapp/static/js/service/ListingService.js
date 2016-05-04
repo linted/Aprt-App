@@ -5,8 +5,10 @@ App.factory('ListingService', ['$http', '$q', function ($http, $q) {
 
     return {
 
+        //all url's are completely typed out because of the use of multiple servers with only one database
+        
         fetchAllListings: function () {
-            return $http.get('/listings/')
+            return $http.get('https://tomtest-appartmentfinder.rhcloud.com/listings/') 
                 .then(
                     function (response) {
                         return response.data;
