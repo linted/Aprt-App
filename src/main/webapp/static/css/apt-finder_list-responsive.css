@@ -548,6 +548,7 @@ a {
 	}
 	#rightTopSortBar {
 		margin-top: 20px;
+		height: 100px;
 	}
 	#rightTopSortBar h3 {
 		margin-top: 10px;
@@ -600,6 +601,9 @@ a {
 	#location {
 		margin-top: 5px;
 	}
+	#listings {
+		margin-top: 20px;
+	}
 }
 
 @media (max-width: 550px) {
@@ -612,6 +616,14 @@ a {
 	}
 	.landlordLoginLink {
 		float: left;
+	}
+	#mainContent {
+		padding-left: 0px;
+		padding-right: 15px;
+	}
+	body {
+		width: auto!important;
+		margin-right: 10%!important;
 	}
 }
 
