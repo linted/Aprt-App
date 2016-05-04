@@ -202,7 +202,7 @@
                 </section>
                 <!-- Listing controller -->
 
-                <section>
+                <section id="listings">
                 	<button class="btn btn-default" ng-if="isLandlord" ng-click="create()">Create New Listing</button>
                     <!-- repeat through the entries in listings, filtering as we go -->
                     <section ng-if="!mode" class="allListings" ng-repeat="x in (filtered = (ctrl.listings | filter: looseFilters | filter:filterPrice | filter: strictFilters | orderBy: orderByPrice)) | limitTo:totalDisplayed:ListingStartingIndex" ng-model="x">
