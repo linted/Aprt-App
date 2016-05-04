@@ -540,3 +540,84 @@ a {
 		height: auto;
 	}
 }
+
+@media (max-width: 720px) {
+	#controls {
+		float: left;
+		margin-top: 15px;
+	}
+	#rightTopSortBar {
+		margin-top: 20px;
+	}
+	#rightTopSortBar h3 {
+		margin-top: 10px;
+	}
+	#filterBtn {
+		float: left;
+		margin: 10px 0px 0px 10px;
+	}
+	.allListings {
+		display: inline-block;
+		height: auto;
+		margin-bottom: 40px;
+	}
+	.verticalCenter {
+		position: inherit;
+		top: 0%;
+		transform: none;
+	}
+	.thumb {
+		width: 188px;
+		height: 188px;
+	}
+	.listingStyleRight {
+		height: auto;
+		width: 100%;
+		float: left;
+		border: none;
+	}
+	.listingStyleLeft {
+		float: left;
+		text-align: center;
+		height: 188px;
+		width: 100%;
+	}
+	.leftSubListingStyle {
+		position: inherit;
+		top: 0%;
+		transform: none;
+		margin-left: 0px;
+	}
+	.rightSubListingStyle {
+		float: right;
+		top: 0%;
+		transform: none;
+	}
+	.listingLink {
+		font-size: 16px;
+		line-height: 20px;
+	}
+	#location {
+		margin-top: 5px;
+	}
+}
+
+@media (max-width: 550px) {
+	#listingGoogleMaps {
+		height: 400px;
+	}
+	.Apartment-Finder {
+		height: auto;
+		float: left;
+	}
+	.landlordLoginLink {
+		float: left;
+	}
+}
+
+
+@media (max-width: 430px) {
+	#listButton, #mapButton {
+		width: 60px
+	}
+}
