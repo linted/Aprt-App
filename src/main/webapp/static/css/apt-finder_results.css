@@ -93,7 +93,7 @@ li {
 
 .bathroom {
 	background: url('../img/bathroom.svg') no-repeat left top;
-	padding-left: 30px;
+	padding-left: 35px;
 }
 
 .bedroom {
@@ -102,7 +102,7 @@ li {
 }
 
 .washer {
-	background: url('../img/bedroom.svg') no-repeat left center;
+	background: url('../img/washer.svg') no-repeat left center;
 	padding-left: 35px;
 }
 

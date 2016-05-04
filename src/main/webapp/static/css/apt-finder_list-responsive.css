@@ -1,0 +1,542 @@
+/* FONTS */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=PT+Serif);
+
+body {
+	margin-left: 5%!important;
+	width: 90%!important;
+}
+
+h3 {
+    font-size: 24px;
+    line-height: 32px;
+    font-family: 'PT Serif', serif;
+    float: left;
+    margin: 0px;
+}
+
+span, p, label {
+	font-family: 'Roboto';
+	font-size: 16px;
+	line-height: 26px;
+	color: #222222;
+	font-weight: normal!important;
+}
+
+/*clearfix float fix*/
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.clearfix {display: inline-block;}
+
+#mainContent {
+	width: 100%;
+}
+
+/*Container with all the filter controls.*/
+#leftColumn {
+    float: left;
+	width: 300px;
+    height: 100%;
+    margin-top: 20px;
+}
+
+/*Container with either listings or maps, as well as sorting*/
+#rightColumn {
+	width: auto;
+	overflow: hidden;
+}
+
+#rightTopSortBar {
+  height: 14%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.verticalCenter {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#controls {
+	float: right;
+}
+
+.untoggledBtn {
+  -webkit-border-radius: 2;
+  -moz-border-radius: 2;
+  border-radius: 2px;
+  color: #222222;
+  font-size: 16px;
+  background: #ffffff;
+  padding: 12px 12px 12px 12px;
+  border: solid #bbbbbb 1px;
+  text-decoration: none;
+  width: 122px;
+  height: 44px;
+}
+
+.toggledBtn {
+  -webkit-border-radius: 2;
+  -moz-border-radius: 2;
+  border-radius: 2px;
+  color: #222222;
+  font-size: 16px;
+  background: #d8d8d8;
+  padding: 12px 12px 12px 12px;
+  border: solid #bbbbbb 1px;
+  text-decoration: none;
+  width: 122px;
+  height: 44px;
+}
+
+#dropMenu {
+	vertical-align: bottom;
+	width: 212px;
+	height: 44px;
+	margin: 0px 30px 0px 0px;
+}
+
+.dropMenuStyle {
+	font-family: 'Roboto'!important;
+	font-size: 16px;
+	line-height: 26px;
+	font-weight: normal!important;
+	border: 1px solid #ccc;
+    width: 100%;
+    overflow: hidden;
+    background: #fafafa url("../img/drop.png") no-repeat 100% 50%;
+    -webkit-appearance: none;
+}
+
+.dropMenuStyle select {
+	padding: 8px 0px 0px 16px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+#mapButton {
+	float: right;
+}
+
+.filterStyle {
+	font-family: 'Roboto'!important;
+	font-size: 16px;
+	line-height: 26px;
+	font-weight: normal!important;
+	border: 1px solid #ccc!important;
+    overflow: hidden!important;
+    background: #fafafa url("../img/drop2.png") no-repeat 100% 50%!important;
+    padding: 0px 0px 0px 16px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    border-radius: 0px!important;
+    height: 44px;
+}
+
+.bedBathFilt {
+	width: 100px;
+	
+}
+
+.yesNoFilt {
+	width: 100px;
+}
+
+#acFilt {
+	width: 180px;
+}
+
+#houseFilt {
+	width: 180px;
+}
+
+#leaseFilt {
+	width: 180px;
+}
+
+#washDryFilt {
+	width: 180px;
+}
+
+#largeDrop {
+	padding-left: 0px;
+}
+
+/*related to the google map.*/
+#map {
+    width: 100%;
+}
+
+/*Style of the price number and $*/
+.listingPrice {
+    font-family: PTSerif-Regular;
+    font-size: 2.5em;
+    line-height: 1.0;
+    color: #222222;
+}
+
+
+
+/*Container for Google Map*/
+#listingGoogleMaps {
+    width: 100%;
+    height: 700px;
+}
+
+/*Container for full price message*/
+.rightSubListingStyle {
+        float: right;
+        text-align: right;
+        /*width: 20%;*/
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+}
+
+/*Individual listing*/
+.listingStyleRight {
+     width: calc(100% - 181px);
+     height: 181px;
+     float: left;
+     border-top: 1px solid #d9d9d9;
+     border-bottom: 1px solid #d9d9d9;
+}
+
+.leftSubListingStyle {
+        width: 60%;
+        float: left;
+        margin-left: 5%;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+}
+
+/*Container for all of the listings*/
+.allListings {
+    height: 181px;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.listingStyleLeft {
+    float: left;
+}
+
+/*Property thumbnail*/
+.thumb {
+    width: 181px;
+	height: 181px;
+}
+
+/*Color of links*/
+a {
+    color: #2773cb;
+}
+
+/*Map buttons*/
+/* .listMapButton {
+    height: 50%;
+    width: 50%;
+    border-radius: 2px;
+    background-color: #d8d8d8;
+    border: solid 1px #bbbbbb;
+}
+.listMapButton:target {
+    border-radius: 2px;
+    background-color: #ffffff;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+    border: solid 1px #bebebe;
+} */
+
+/*The header*/
+#header {
+    border-bottom: 1px solid #d9d9d9;
+    height: 12%;
+    width: 100%;
+    margin: 30px 0px 0px 0px;
+}
+
+/*Title of page*/
+.Apartment-Finder {
+    width: 18.6em;
+    height: 3em;
+    font-family: PTSerif-Regular;
+    font-size: 2.3em;
+    line-height: 1.3;
+    color: #161f31;
+}
+
+.landlordLoginLink {
+   	float: right;
+}
+
+/* Blue listing headline  */
+.listingLink {
+	width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    font-size: 20px;
+	line-height: 28px;
+	font-family: 'PT Serif', serif;
+	color: #2773cb;
+}
+
+/* Location description */
+#location {
+	margin-top: 14px;
+}
+
+.Filter-Results {
+    width: 9.8em;
+    height: 2.3em;
+    font-family: PTSerif-Regular;
+    font-size: 1.6em;
+    line-height: 1.4;
+    color: #202020;
+}
+
+/* .Price {
+    width: 3em;
+    height: 2em;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.6;
+    color: #222222;
+    margin-top: 1.6em;
+} */
+
+/*The price number*/
+.listingPrice {
+        font-family: PTSerif-Regular;
+        font-size: 42px;
+        line-height: 1.0;
+        color: #222222;
+    }
+
+/*the per month*/
+.priceSubText{
+    display: inline-block;
+	position: relative;
+	bottom: 10px;
+	margin-left: 13px;
+}
+.buttonSelected {
+        border-radius: 2px;
+        background-color: #d8d8d8;
+        border: solid 1px #bbbbbb;
+    }
+
+.buttonUnselected {
+        border-radius: 2px;
+        background-color: #ffffff;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+        border: solid 1px #bebebe;
+}
+
+/* Price input boxes */
+#priceFiltering {
+    width: 100%;
+    float: none;
+    margin: 20px 0px 34px 0px;
+    margin-bottom: 34px;
+    /* border-bottom: 1px solid #d9d9d9; */
+}
+
+#inputBoxes {
+	width: 230px;
+	padding: 0px;
+}
+
+#bedBathDrop {
+	border-top: 1px solid #d9d9d9;
+    height: 128px;
+    width: 92%;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+#bedBathDrop label {
+	position: relative;
+	top: 25px;
+	margin-right: 25px;
+}
+
+#advancedDrop {
+	margin-top: 30px;
+}
+
+ /*The text for the price filter*/
+/* .Price {
+    width: 37px;
+    height: 26px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #222222;
+    margin-top: 20px;
+} */
+#toDolla {
+    margin: 0px 8px 0px 8px;
+}
+
+/*The text boxs for the price filter*/
+.priceBox {
+    width: 64px;
+    height: 44px;
+    background-color: #ffffff;
+    border: solid 1px #e1e1e1;
+}
+
+/*Button to submit price range*/
+
+/* Go Button */
+#goButton {
+    width: 69px;
+    height: 44px;
+    border-radius: 2px;
+    background-color: #3b99fb;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    border: none!important;
+    margin-left: 10px;
+}
+
+/*text boxes*/
+.inputBox {
+    width: 20%;
+}
+
+/*Selection boxes*/
+/* select {
+    width: 100px;
+    height: 44px;
+    background-color: #eeeeee;
+    border: solid 1px #e1e1e1;
+} */
+
+/*Drop Menus for filters*/
+/* .DropMenu {
+    font-size: 90%;
+    margin-right: 0%;
+    font-family: Roboto-Regular, sans-serif;
+    font-size: 15px;
+    line-height: 1.0;
+    color: #222222;
+    height: 14%
+    
+
+} */
+/* .advFilterDrop {
+    font-size: 90%;
+}
+.advFilterDrop select option {
+    width: 50px;
+}
+#advFilter {
+    padding-left: 0px;
+    border-top: 1px solid #d9d9d9;
+} */
+
+/* #BedroomSelect{
+    float: left;
+    height: 44px;
+    background-color: #eeeeee;
+    border: solid 1px #e1e1e1;
+}
+
+#BathroomSelect{
+    float: right;
+    height: 44px;
+    background-color: #eeeeee;
+    border: solid 1px #e1e1e1;
+} */
+
+.col-md-6{
+    padding-left:0px;
+}
+
+/* #overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: #999;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  z-index: 100;
+}
+
+#popup {
+	display: none;
+	position: absolute;
+	z-index: 200;
+} */
+
+#filterBtn {
+	float: left;
+	margin-left: 10px;
+}
+
+/* Begin Mobile Responsive Fixes */
+@media (max-width: 1190px) {
+	.listingLink {
+		font-size: 18px;
+	}
+	
+	.listingPrice {
+		font-size: 38px;
+	}
+	
+	span, p, label {
+		font-size: 14px;
+	}
+	
+	.filterStyle, .dropMenuStyle, .toggledBtn, .untoggledBtn {
+		font-size: 14px;
+	}
+	
+	#dropMenu {
+		width: 150px;
+	}
+	
+	#listButton, #mapButton {
+		width: 80px;
+	}	
+}
+
+@media (max-width: 1150px) {
+	.priceSubText {
+		display: block;
+		position: inherit;
+		bottom: 0px;
+	}
+}
+
+@media (max-width: 990px) {
+	#rightColumn {
+		width: 100%;
+	}
+	#leftColumn {
+		height: auto;
+	}
+}
